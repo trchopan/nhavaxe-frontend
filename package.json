@@ -1,14 +1,21 @@
 {
   "name": "nhavaxe-frontend",
   "version": "0.1.0",
+  "description": "Front page for website nhavaxe.vn",
+  "keywords": "nhavaxe.vn frontend website",
+  "licience": "MIT",
+  "author": "Chop Tr <logan1011001@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "npm run cp:bang-gia && firebase deploy",
     "lint": "vue-cli-service lint",
-    "test:unit": "vue-cli-service test:unit"
+    "cp:bang-gia": "mkdir -p dist/bang-gia && cp -r ~/Documents/hermes/dist/modules/bang-gia/* dist/bang-gia/",
+    "test:unit": "vue-cli-service test:unit --verbose"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
