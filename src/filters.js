@@ -15,6 +15,12 @@ export default {
     }
     return Math.floor(minutes) + " phút trước";
   },
+  parseMonthYear(value) {
+    const date = new Date(value);
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
+    return month + "/" + year;
+  },
   trimText(value, amount) {
     if (!value) {
       return "";
@@ -30,6 +36,14 @@ export default {
       return new Date(value).toLocaleDateString("vi-VN");
     } else {
       return "";
+    }
+  },
+  parseZeroPrice(value) {
+    var val = typeof value === "string" ? parseInt(value, 10) : value;
+    if (val === 0) {
+      return "-";
+    } else {
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
 };

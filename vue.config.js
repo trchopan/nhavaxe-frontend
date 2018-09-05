@@ -8,12 +8,5 @@ module.exports = {
       maxEntrypointSize: 512000,
       maxAssetSize: 512000
     }
-  },
-  css: {
-    loaderOptions: {
-      sass: {
-        data: `@import "@/assets/quill.scss";`
-      }
-    }
   }
 };

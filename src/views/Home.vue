@@ -1,11 +1,9 @@
 <template>
-  <transition name="slide">
-    <div>
-      <ArticlesTop :articlesList="topArticles" />
-      <ArticlesList :selectedCat="selectedCat"
-        :articlesList="remainArticles" />
-    </div>
-  </transition>
+  <div>
+    <ArticlesTop :articlesList="topArticles" />
+    <ArticlesList :selectedCat="selectedCat"
+      :articlesList="remainArticles" />
+  </div>
 </template>
 
 <script>
@@ -42,18 +40,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.5s;
-}
-.slide-enter-to,
-.slide-leave {
-  transform: translateX(0);
-}
-.slide-enter,
-.slide-leave-to {
-  transform: translateX(-100vw);
-}
-</style>

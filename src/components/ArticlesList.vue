@@ -1,33 +1,28 @@
 <template>
   <ul>
     <li v-for="article in articlesList"
-      :key="article.id"
-      @click="select(article)">
-      <div class="cover-image"
-        :style="'background-image: url(' + article.coverImg + ');'">
-        <p v-if="selectedCat.id === '/'" :class="'category cat-' + article.categoryId">
-          {{ article.categoryName }}
-        </p>
-      </div>
-      <div class="info">
-        <p class="title">
-          {{ article.title | trimText(maxTitle) }}
-        </p>
-        <p class="publish-at">
-          {{ article.publishAt | parsePublishAt }}
-          <span v-if="article.video">🎬</span>
-          <br class="break-point" />
-        </p>
-        <p class="sapo">
-          {{ article.sapo | trimText(maxSapo) }}
-        </p>
-        <p class="tags">
-          <span v-for="(tag, index) in article.tags.slice(0,1)" :key="'tag-'+index"
-            class="article-tags">
-            &#35; {{ tag }}
-          </span>
-        </p>
-      </div>
+      :key="article.id">
+      <router-link :to="'/article/' + article.id">
+        <div class="cover-image"
+          :style="'background-image: url(' + article.coverImg + ');'">
+          <p v-if="selectedCat.id === '/'" :class="'category cat-' + article.categoryId">
+            {{ article.categoryName }}
+          </p>
+        </div>
+        <div class="info">
+          <p class="title">
+            {{ article.title | trimText(maxTitle) }}
+          </p>
+          <p class="publish-at">
+            {{ article.publishAt | parsePublishAt }}
+            <span v-if="article.video">🎬</span>
+            <br class="break-point" />
+          </p>
+          <p class="sapo">
+            {{ article.sapo | trimText(maxSapo) }}
+          </p>
+        </div>
+      </router-link>
     </li>
   </ul>
 </template>
@@ -64,7 +59,7 @@ export default {
 ul {
   max-width: calc(var(--container-width) - 56px);
   margin: auto;
-  li {
+  li > a {
     display: grid;
     grid-template-columns: 30% auto;
     position: relative;
@@ -121,14 +116,6 @@ div.info {
     font-size: 0.9rem;
     font-weight: normal;
     padding: 0;
-  }
-  p.tags {
-    font-size: 0.8rem;
-    font-weight: normal;
-  }
-  span.article-tags {
-    display: inline;
-    color: var(--text-secondary-color);
   }
   .break-point {
     display: none;

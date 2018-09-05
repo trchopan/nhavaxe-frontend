@@ -1,0 +1,90 @@
+table {
+  --border-property: solid 1px #dcdcdc;
+  margin: auto;
+  text-align: center;
+  font-family: Play;
+  border-spacing: 0;
+  border: var(--border-property);
+  th {
+    padding: 0.5rem 0;
+    font-size: 0.8rem;
+    color: var(--text-secondary-color);
+    border-bottom: var(--border-property);
+    white-space: nowrap;
+  }
+  tr {
+    height: 2.5rem;
+    td {
+      font-size: 0.85rem;
+    }
+  }
+  tr:hover {
+    color: var(--primary-color);
+    border-bottom: var(--border-property);
+  }
+  .shaded {
+    background: #f5f5f5;
+  }
+  .unbottom {
+    border-bottom: none;
+  }
+  .small-project-header {
+    width: 32%;
+  }
+  .small-investor-header {
+    width: 32%;
+  }
+  .small-price-header {
+    width: 18%;
+  }
+  .project-header,
+  .investor-header {
+    width: 14%;
+    min-width: 6rem;
+  }
+  .location-header,
+  .progress-header {
+    width: 10%;
+    min-width: 6rem;
+  }
+  .price-header {
+    min-width: 5rem;
+  }
+  .torque-header {
+    min-width: 4rem;
+  }
+  .origin-header {
+    width: 6rem;
+  }
+  .project-cell,
+  .investor-cell,
+  .location-cell,
+  .progress-cell,
+  .sale-perks-cell,
+  .contacts-cell,
+  .facilities-cell,
+  .price-cell,
+  .model-cell,
+  .brand-cell,
+  .type-cell,
+  .origin-cell,
+  .engine-cell,
+  .torque-cell,
+  .publish-at-cell {
+    border-right: var(--border-property);
+    padding: 0 0.5rem;
+  }
+  .investor-cell {
+    text-align: left;
+  }
+  .publish-at-cell {
+    border-right: none;
+  }
+  .model-cell {
+    text-align: left;
+  }
+  .origin-cell {
+    white-space: nowrap;
+  }
+}
+

@@ -1,7 +1,7 @@
 import articlesApi from "@/api/articles.js";
 import { logger } from "../index.js";
 
-const SPLIT_AMOUNT = 6;
+const SPLIT_AMOUNT = 4;
 
 // Initial articleMeta
 const initArticleMeta = {

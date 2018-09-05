@@ -3,7 +3,9 @@
     <div id="page-head"></div>
     <NavBar />
     <LoadingIndicator />
-    <router-view/>
+    <transition name="slide" mode="out-in">
+      <router-view/>
+    </transition>
     <div id="page-footer"></div>
   </div>
 </template>
@@ -22,6 +24,7 @@ export default {
   created() {
     logger("App created");
     this.$store.dispatch("categories/getCategories");
+    this.$store.dispatch("bangGia/fetchBangGia");
     if (this.$route.name === "home") {
       this.$store.dispatch("articles/fetchCatArticles");
     }
@@ -42,11 +45,12 @@ export default {
         };
         if (
           scrollValues.scrollTop >=
-          scrollValues.scrollHeight - scrollValues.offsetHeight - 100
+            scrollValues.scrollHeight - scrollValues.offsetHeight - 100 &&
+          this.$route.path.split("/")[1] !== "bang-gia"
         ) {
           this.$store.dispatch("articles/fetchCatArticles");
         }
-      }, 100);
+      }, 200);
     });
   },
   computed: {
@@ -72,6 +76,10 @@ export default {
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Play|Merriweather");
+@import "~normalize.css/normalize.css";
+@import "assets/quill.scss";
+@import "assets/animation.scss";
+@import "assets/table.scss";
 
 :root {
   --primary-color: #ed1d24;
@@ -79,9 +87,9 @@ export default {
   --secondary-color: #159cd8;
   --text-main-color: #000000;
   --text-accent-color: #ffffff;
-  --text-secondary-color: #575757;
-  --text-faded-color: #8a8a8a;
-  --container-width: 1024px;
+  --text-secondary-color: #787878;
+  --text-faded-color: #c3c3c3;
+  --container-width: 996px;
 }
 *,
 *::before,
@@ -100,6 +108,9 @@ ul {
 a {
   text-decoration: none;
   color: var(--text-main-color);
+}
+.block {
+  display: block;
 }
 #app {
   height: 100vh;

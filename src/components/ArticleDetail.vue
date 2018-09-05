@@ -11,10 +11,14 @@
       {{ articleMeta.sapo }}
     </p>
     <hr>
-    <div v-if="safeYoutube"
+    <div v-if="youtubeLink"
       class="youtube-container">
-      <div v-html="safeYoutube"
-        class="center youtube">
+      <div class="center youtube">
+        <iframe
+          :src="'https://www.youtube.com/embed/' + youtubeLink"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen></iframe>
       </div>
     </div>
     <div v-html="articleBody"
@@ -50,7 +54,7 @@ export default {
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody"
     }),
-    safeYoutube() {
+    youtubeLink() {
       let video = this.$store.state.articles.selectedArticleMeta.video;
 
       if (!video) {
@@ -59,16 +63,7 @@ export default {
 
       var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
       var match = video.match(regExp);
-      video = match && match[7].length == 11 ? match[7] : false;
-
-      let html = `
-        <iframe
-          src="https://www.youtube.com/embed/${video}"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen></iframe>
-        `;
-      return html;
+      return match && match[7].length == 11 ? match[7] : false;
     }
   },
   updated() {
@@ -77,7 +72,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 .article-container {
   background: white;
   margin: auto;

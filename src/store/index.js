@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import layout from "./modules/layout.js";
 import articles from "./modules/articles.js";
 import categories from "./modules/categories.js";
+import bangGia from "./modules/bang-gia.js";
 
 Vue.use(Vuex);
 
@@ -22,7 +23,8 @@ export default new Vuex.Store({
   modules: {
     layout,
     articles,
-    categories
+    categories,
+    bangGia
   },
   strict: process.env.NODE_ENV !== "production"
 });

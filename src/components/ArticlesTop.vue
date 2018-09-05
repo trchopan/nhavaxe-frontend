@@ -2,34 +2,36 @@
   <ul>
     <li v-for="(article, i) of articlesList"
       :key="article.id"
-      :class="'li-'+i"
-      @click="select(article)">
-      <a class="cover-image"> 
-        <div class="image"
-          :style="'background-image: url(' + article.coverImg + ');'">
+      :class="'li-'+i">
+      <router-link :to="'/article/' + article.id">
+        <div class="cover-image">
+          <div class="image"
+            :style="'background-image: url(' + article.coverImg + ');'">
+          </div>
         </div>
-      </a>
-      <div class="info">
-        <p class="title">
-          <a>
-            {{ article.title }}
-          </a>
-        </p>
-      </div>
+        <div class="info">
+          <p class="title">
+            <a>
+              {{ article.title }}
+            </a>
+          </p>
+        </div>
+      </router-link>
     </li>
+    <li class="li-bang-gia"><SmallBangGia /></li>
   </ul>
 </template>
 
 <script>
+import SmallBangGia from "@/components/SmallBangGia.vue";
+
 export default {
   name: "ArticlesTop",
+  components: {
+    SmallBangGia
+  },
   props: {
     articlesList: Array
-  },
-  methods: {
-    select(article) {
-      this.$router.push("/article/" + article.id);
-    }
   }
 };
 </script>
@@ -42,12 +44,13 @@ ul {
   display: grid;
   height: 596px;
   grid-template:
-    "a a b" 38%
-    "a a c" 24%
-    "d e f" 38% / 1fr 1fr 1fr;
+    "a a a b b b" 38%
+    "a a a b b b" 24%
+    "c c d d e e" 38% / 1fr 1fr 1fr 1fr 1fr 1fr;
   li {
     position: relative;
-    a.cover-image {
+    font-family: "Source Sans Pro", "Courier New", Courier, monospace;
+    .cover-image {
       position: absolute;
       top: 0.25rem;
       left: 0.25rem;
@@ -80,17 +83,20 @@ ul {
       }
     }
   }
+  .li-bang-gia {
+    grid-area: b;
+  }
   .li-0 {
     grid-area: a;
   }
   .li-1 {
-    grid-area: b;
-  }
-  .li-2 {
     grid-area: c;
   }
-  .li-3 {
+  .li-2 {
     grid-area: d;
+  }
+  .li-3 {
+    grid-area: e;
   }
   .li-4 {
     grid-area: e;
@@ -101,12 +107,12 @@ ul {
 }
 @media (max-width: 650px) {
   ul {
-    height: 100vh;
+    height: 1153px;
     grid-template:
-      "a a" 1.2fr
-      "b b" 1fr
-      "c d" 1fr
-      "e f" 1fr / 1fr 1fr;
+      "a a" 1.5fr
+      "b b" 1.8fr
+      "c c" 1.5fr
+      "d e" 1fr / 1fr 1fr;
     li {
       a.cover-image > div.faded-mask {
         height: 7rem;

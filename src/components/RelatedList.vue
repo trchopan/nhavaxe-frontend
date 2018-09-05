@@ -36,9 +36,11 @@ ul.related-articles {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  max-width: calc(var(--container-width) - 56px);
+  margin: 0 auto 1rem;
   li {
     cursor: pointer;
-    width: 300px;
+    width: 289px;
     margin: 0.5rem;
     padding: 1rem;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
