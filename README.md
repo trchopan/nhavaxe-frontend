@@ -7,27 +7,10 @@ Based on Hermes CMS backend.
 
 Developing by Chop Tr @choptr
 
-### Setup
-```
-npm install
-```
+## Change Logs
+[TODO]
+- [ ] Show ads on the right hand side and in article list
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
+[Sep 05 2018]
+- [x] Move to REST Api from firebase functions using Express instead of include the big firebase library
+- [x] Bang Gia module
