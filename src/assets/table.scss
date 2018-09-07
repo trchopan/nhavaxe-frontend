@@ -2,7 +2,7 @@ table {
   --border-property: solid 1px #dcdcdc;
   margin: auto;
   text-align: center;
-  font-family: Play;
+  font-family: var(--title-font);
   border-spacing: 0;
   border: var(--border-property);
   th {

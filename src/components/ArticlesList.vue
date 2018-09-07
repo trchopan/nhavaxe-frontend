@@ -84,9 +84,9 @@ p.category {
   position: absolute;
   color: white;
   padding: 0.2em 0.5em;
-  bottom: 0;
   left: 0.6rem;
   bottom: 0.5rem;
+  font: 400 0.8rem var(--title-font);
 }
 p.cat-3WYMgrmpfuLornXzAnnY {
   background: var(--secondary-color);
@@ -107,17 +107,15 @@ div.info {
     margin-bottom: 0.3rem;
   }
   p.title {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font: 600 1.1rem var(--title-font);
   }
   p.sapo {
-    font-size: 0.9rem;
+    font: 400 1rem var(--title-font);
     color: var(--text-secondary-color);
   }
   p.publish-at {
     color: var(--text-faded-color);
-    font-size: 0.9rem;
-    font-weight: normal;
+    font: 400 0.8rem var(--title-font);
     padding: 0;
   }
   .break-point {

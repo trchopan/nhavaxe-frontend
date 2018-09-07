@@ -50,7 +50,6 @@ ul {
     "c c d d e e" 38% / 1fr 1fr 1fr 1fr 1fr 1fr;
   li {
     position: relative;
-    font-family: "Source Sans Pro", "Courier New", Courier, monospace;
     .cover-image {
       position: absolute;
       top: 0.25rem;
@@ -77,7 +76,7 @@ ul {
       background: linear-gradient(rgba(0, 0, 0, 0), black);
       .title > a {
         color: var(--text-accent-color);
-        font: 400 1.2rem/130% Roboto;
+        font: 600 1.2rem/130% var(--title-font);
       }
       .publish-at,
       .sapo {
@@ -127,7 +126,7 @@ ul {
       }
       div.info > .title > a {
         color: var(--text-accent-color);
-        font: 400 1rem/120% Roboto;
+        font: 600 1.1rem/120% var(--title-font);
       }
     }
   }

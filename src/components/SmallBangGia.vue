@@ -70,7 +70,7 @@ h2,
 h3 {
   display: inline-block;
   position: relative;
-  font: 1.2rem Play;
+  font: 1.2rem var(--title-font);
   padding: 0.25rem;
   margin: 0 0.25rem;
   text-align: center;

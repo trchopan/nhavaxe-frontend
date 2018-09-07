@@ -69,11 +69,10 @@ nav > ul {
   list-style: none;
   color: black;
   white-space: nowrap;
-  font-weight: bold;
   li {
     position: relative;
     padding: 0 2rem;
-    font: bold 1.1rem Play;
+    font: 600 1rem var(--title-font);
     cursor: pointer;
   }
   li::after,

@@ -55,8 +55,7 @@ ul.related-articles {
     height: 100%;
   }
   .related-article__title {
-    font-weight: 500;
-    font-size: 1rem;
+    font: 600 1rem var(--title-font);
     padding-bottom: 0.3rem;
   }
   .related-article__img {

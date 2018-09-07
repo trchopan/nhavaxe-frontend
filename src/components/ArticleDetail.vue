@@ -81,12 +81,12 @@ export default {
 h1.article-title {
   margin: 1rem 0;
   padding: 0 1.5rem;
-  font: 500 2.4rem/2.8rem "Roboto", sans-serif;
+  font: 600 2.4rem/2.8rem var(--title-font), sans-serif;
 }
 p.article-info {
   padding: 0 1.5rem;
   .category {
-    font-weight: bold;
+    font: bold var(--default-font);
     background: black;
     color: white;
     padding: 0 0.5rem;
@@ -97,9 +97,8 @@ p.article-info {
 }
 p.article-sapo {
   padding: 1rem 1.5rem;
-  font: 1.1rem/1.8rem "Merriweather", serif;
+  font: italic 1.1rem/1.8rem var(--text-font), serif;
   text-align: justify;
-  font-style: italic;
 }
 hr {
   border: 0;
@@ -116,7 +115,7 @@ ul.article-tags {
   padding: 1rem;
   span {
     color: var(--secondary-color);
-    font-weight: 500;
+    font: var(--default-font);
   }
   li {
     display: inline;
@@ -125,17 +124,14 @@ ul.article-tags {
 }
 .article-body {
   padding: 1rem 1.5rem;
-  line-height: 1.8rem;
-  font-size: 1.1rem;
+  font-family: var(--text-font);
   overflow: visible;
-  height: auto;
 }
 .article-source {
   padding: 1.5rem 1rem;
   text-align: right;
   color: rgba(0, 0, 0, 0.54);
-  font-size: 1.1rem;
-  font-style: italic;
+  font: italic 1.1rem var(--text-font);
 }
 .article-cover-image {
   max-width: 100%;

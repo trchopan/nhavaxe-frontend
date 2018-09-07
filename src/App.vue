@@ -75,11 +75,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro|Play|Merriweather");
+@import url("https://fonts.googleapis.com/css?family=Muli:400,600|Merriweather:400,700");
 @import "~normalize.css/normalize.css";
-@import "assets/quill.scss";
 @import "assets/animation.scss";
 @import "assets/table.scss";
+@import "assets/quill.scss";
 
 :root {
   --primary-color: #ed1d24;
@@ -88,7 +88,10 @@ export default {
   --text-main-color: #000000;
   --text-accent-color: #ffffff;
   --text-secondary-color: #787878;
-  --text-faded-color: #c3c3c3;
+  --text-faded-color: #adacac;
+  --title-font: "Muli";
+  --default-font: sans-serif;
+  --text-font: Merriweather;
   --container-width: 996px;
 }
 *,
@@ -100,7 +103,7 @@ export default {
   outline: none;
 }
 body {
-  font-family: "Source Sans Pro", "Courier New", Courier, monospace;
+  font-family: var(--default-font);
 }
 ul {
   list-style: none;
