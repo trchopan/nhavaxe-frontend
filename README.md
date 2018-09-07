@@ -13,7 +13,7 @@ Developing by Chop Tr @choptr
 - [ ] Show ads on the right hand side and in article list
 
 ### Bugs
-- [ ] Different font on iphone
+- [x] Different font on iphone
 
 ### Sep 05 2018
 - [x] Move to REST Api from firebase functions using Express instead of include the big firebase library
