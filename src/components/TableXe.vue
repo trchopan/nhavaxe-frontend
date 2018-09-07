@@ -5,7 +5,7 @@
       <span class="block">Hãng xe</span>
       <select v-model="selectedBrand">
         <option :value="null">-</option>
-        <option v-for="option in filterList.brand"
+        <option v-for="option in filterSelections.brand"
           :value="option"
           :key="'brand'+option">{{ option }}</option>
       </select>
@@ -14,7 +14,7 @@
       <span class="block">Loại</span>
       <select v-model="selectedType">
         <option :value="null">-</option>
-        <option v-for="option in filterList.type"
+        <option v-for="option in filterSelections.type"
           :value="option"
           :key="'type'+option">{{ option }}</option>
       </select>
@@ -23,7 +23,7 @@
       <span class="block">Nguồn gốc</span>
       <select v-model="selectedOrigin">
         <option :value="null">-</option>
-        <option v-for="option in filterList.origin"
+        <option v-for="option in filterSelections.origin"
           :value="option"
           :key="'origin'+option">{{ option }}</option>
       </select>
@@ -69,21 +69,6 @@ export default {
     ...mapGetters({
       list: "bangGia/list"
     }),
-    filterList() {
-      const data = this.list.xe;
-      const filters = {
-        brand: [],
-        type: [],
-        origin: []
-      };
-      Object.keys(filters).forEach(key => {
-        filters[key] = data
-          .map(value => value[key])
-          .sort()
-          .filter((item, pos, arr) => !pos || item != arr[pos - 1]);
-      });
-      return filters;
-    },
     filteredList() {
       var result = this.list.xe;
       const selectedArray = [
@@ -97,6 +82,21 @@ export default {
           : result;
       });
       return result;
+    },
+    filterSelections() {
+      const data = this.filteredList;
+      const filters = {
+        brand: [],
+        type: [],
+        origin: []
+      };
+      Object.keys(filters).forEach(key => {
+        filters[key] = data
+          .map(value => value[key])
+          .sort()
+          .filter((item, pos, arr) => !pos || item != arr[pos - 1]);
+      });
+      return filters;
     }
   }
 };

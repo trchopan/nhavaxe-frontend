@@ -4,7 +4,7 @@
       <span class="block">Dự án</span>
       <select v-model="selectedProject">
         <option :value="null">-</option>
-        <option v-for="option in filterList.project"
+        <option v-for="option in filterSelections.project"
           :value="option"
           :key="'project'+option">{{ option }}</option>
       </select>
@@ -13,7 +13,7 @@
       <span class="block">Chủ đầu tư</span>
       <select v-model="selectedInvestor">
         <option :value="null">-</option>
-        <option v-for="option in filterList.investor"
+        <option v-for="option in filterSelections.investor"
           :value="option"
           :key="'investor'+option">{{ option }}</option>
       </select>
@@ -22,7 +22,7 @@
       <span class="block">Vị trí</span>
       <select v-model="selectedLocation">
         <option :value="null">-</option>
-        <option v-for="option in filterList.location"
+        <option v-for="option in filterSelections.location"
           :value="option"
           :key="'location'+option">{{ option }}</option>
       </select>
@@ -31,7 +31,7 @@
       <span class="block">Tiến độ</span>
       <select v-model="selectedProgress">
         <option :value="null">-</option>
-        <option v-for="option in filterList.progress"
+        <option v-for="option in filterSelections.progress"
           :value="option"
           :key="'progress'+option">{{ option }}</option>
       </select>
@@ -99,22 +99,6 @@ export default {
     ...mapGetters({
       list: "bangGia/list"
     }),
-    filterList() {
-      const data = this.list.nha;
-      const filters = {
-        project: [],
-        investor: [],
-        location: [],
-        progress: []
-      };
-      Object.keys(filters).forEach(key => {
-        filters[key] = data
-          .map(value => value[key])
-          .sort()
-          .filter((item, pos, arr) => !pos || item != arr[pos - 1]);
-      });
-      return filters;
-    },
     filteredList() {
       var result = this.list.nha;
       const selectedArray = [
@@ -129,6 +113,22 @@ export default {
           : result;
       });
       return result;
+    },
+    filterSelections() {
+      const data = this.filteredList;
+      const filters = {
+        project: [],
+        investor: [],
+        location: [],
+        progress: []
+      };
+      Object.keys(filters).forEach(key => {
+        filters[key] = data
+          .map(value => value[key])
+          .sort()
+          .filter((item, pos, arr) => !pos || item != arr[pos - 1]);
+      });
+      return filters;
     }
   },
   methods: {

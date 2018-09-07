@@ -2,6 +2,7 @@
   <ul>
     <li v-for="(article, i) of articlesList"
       :key="article.id"
+      class="li-article"
       :class="'li-'+i">
       <router-link :to="'/article/' + article.id">
         <div class="cover-image">
@@ -56,6 +57,7 @@ ul {
       left: 0.25rem;
       bottom: 0.25rem;
       right: 0.25rem;
+      overflow: hidden;
       box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
         0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       border-radius: 2px;
@@ -82,6 +84,12 @@ ul {
         display: none;
       }
     }
+  }
+  .image {
+    transition: transform 0.2s ease-in;
+  }
+  .image:hover {
+    transform: scale(1.03);
   }
   .li-bang-gia {
     grid-area: b;

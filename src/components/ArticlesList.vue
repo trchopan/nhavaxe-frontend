@@ -69,6 +69,9 @@ ul {
     max-height: 150px;
     cursor: pointer;
   }
+  li > a:hover {
+    color: var(--secondary-color);
+  }
 }
 div.cover-image {
   display: inline-block;
