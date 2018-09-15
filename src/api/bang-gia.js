@@ -8,7 +8,7 @@ function parseNhaDoc(id, data) {
     project: data.project || "",
     investor: data.investor || "",
     location: data.location || "",
-    progress: data.progress || "",
+    progress: data.progress.split("//") || "",
     salePerks: data.salePerks.split("//") || [],
     avgPrice: data.avgPrice || 0,
     avgResalePrice: data.avgResalePrice || 0,

@@ -40,7 +40,10 @@ const mutations = {
     state.smallList.nha = list.nha.slice(0, BANGGIA_AMOUNT);
     state.smallList.xe = list.xe.slice(0, BANGGIA_AMOUNT);
     state.loading = false;
-    logger("Bang Gia list changed");
+    logger(
+      "Bang Gia list changed",
+      state.list.nha.length + "/" + state.list.xe.length
+    );
   },
   loading(state) {
     state.loading = true;

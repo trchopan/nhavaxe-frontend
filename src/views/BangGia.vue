@@ -33,7 +33,7 @@ export default {
   margin: auto;
 }
 h1 {
-  font-size: 1.5rem;
+  font: 1.5rem var(--text-font);
 }
 span {
   display: inline;
@@ -45,7 +45,7 @@ h2 {
   color: var(--text-faded-color);
   padding: 0.25rem;
   margin: 0 0.5rem 1rem;
-  font-size: 1.5rem;
+  font: 1.5rem var(--title-font);
 }
 h2:hover::before {
   content: "";
@@ -64,7 +64,7 @@ h2:hover::before {
 }
 .note {
   margin-top: 1rem;
-  font-size: 0.8rem;
+  font: 0.8rem var(--default-font);
   color: var(--text-secondary-color);
 }
 </style>

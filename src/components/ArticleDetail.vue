@@ -1,21 +1,21 @@
 <template>
-  <div v-if="articleMeta && articleBody" class="article-container">
+  <div> 
     <h1 class="article-title">
       {{ articleMeta.title }}
     </h1>
     <p class="article-info">
-      <span class="category">{{ articleMeta.categoryName }}</span>&#124;
+      <span class="category">{{ articleMeta.categoryName }}</span>&nbsp;
       <span class="publish-time">{{ articleMeta.publishAt | date }}</span>
     </p>
     <p class="article-sapo">
       {{ articleMeta.sapo }}
     </p>
     <hr>
-    <div v-if="youtubeLink"
+    <div v-if="articleMeta.video"
       class="youtube-container">
       <div class="center youtube">
         <iframe
-          :src="'https://www.youtube.com/embed/' + youtubeLink"
+          :src="articleMeta.video | parseYoutubeLink"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen></iframe>
@@ -53,18 +53,7 @@ export default {
     ...mapGetters({
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody"
-    }),
-    youtubeLink() {
-      let video = this.$store.state.articles.selectedArticleMeta.video;
-
-      if (!video) {
-        return null;
-      }
-
-      var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
-      var match = video.match(regExp);
-      return match && match[7].length == 11 ? match[7] : false;
-    }
+    })
   },
   updated() {
     document.title = this.articleMeta.title;
@@ -73,11 +62,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.article-container {
-  background: white;
-  margin: auto;
-  max-width: var(--container-width);
-}
 h1.article-title {
   margin: 1rem 0;
   padding: 0 1.5rem;
@@ -100,6 +84,11 @@ p.article-sapo {
   font: italic 1.1rem/1.8rem var(--text-font), serif;
   text-align: justify;
 }
+.article-body {
+  padding: 1rem 1.5rem;
+  font-family: var(--text-font);
+  overflow: visible;
+}
 hr {
   border: 0;
   height: 1px;
@@ -121,11 +110,6 @@ ul.article-tags {
     display: inline;
     color: var(--primary-color);
   }
-}
-.article-body {
-  padding: 1rem 1.5rem;
-  font-family: var(--text-font);
-  overflow: visible;
 }
 .article-source {
   padding: 1.5rem 1rem;

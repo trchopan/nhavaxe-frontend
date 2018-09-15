@@ -53,7 +53,13 @@
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
       <td class="location-cell">{{ data.location }}</td>
-      <td class="progress-cell">{{ data.progress}}</td>
+      <td class="progress-cell">
+        <span class="block"
+          v-for="progress in data.progress"
+          :key="i + '-' + progress">
+          {{ progress }}
+        </span>
+      </td>
       <td class="sale-perks-cell">
         <span class="block"
           v-for="perk in data.salePerks"

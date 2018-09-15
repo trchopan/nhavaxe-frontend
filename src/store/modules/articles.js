@@ -1,20 +1,28 @@
 import articlesApi from "@/api/articles.js";
 import { logger } from "../index.js";
 
+export const LOADING_TEXT = "loading...";
 const SPLIT_AMOUNT = 4;
+const MAX_RELATE = 9;
 
 // Initial articleMeta
 const initArticleMeta = {
-  id: "loading...",
-  title: "loading...",
-  sapo: "loading..."
+  title: LOADING_TEXT,
+  sapo: LOADING_TEXT
 };
+const initArticleBody = LOADING_TEXT;
+
+const initialArticleList = [];
+for (var i = 0; i < 20; i++) {
+  initialArticleList.push({ id: "article-init-" + i, ...initArticleMeta });
+}
 
 // initial state
 const state = {
-  articlesList: [],
-  selectedArticleMeta: null,
-  selectedArticleBody: null,
+  initialized: false,
+  articlesList: initialArticleList,
+  selectedArticleMeta: initArticleMeta,
+  selectedArticleBody: initArticleBody,
   relatedList: [],
   loading: false,
   error: null
@@ -22,7 +30,8 @@ const state = {
 
 const getters = {
   articlesList: state => state.articlesList,
-  topArticles: state => state.articlesList.slice(0, SPLIT_AMOUNT),
+  firstArticle: state => state.articlesList.slice(0, 1)[0],
+  topArticles: state => state.articlesList.slice(1, SPLIT_AMOUNT),
   remainArticles: state => state.articlesList.slice(SPLIT_AMOUNT),
   selectedArticleMeta: state => state.selectedArticleMeta,
   selectedArticleBody: state => state.selectedArticleBody,
@@ -48,9 +57,10 @@ const actions = {
 
     let arrayLength = state.articlesList.length;
     let startAfter;
-    if (arrayLength > 0) {
+    if (state.initialized) {
       startAfter = state.articlesList[arrayLength - 1].publishAt;
     } else {
+      // Floor the startAfter to nearest 15 minute of hour
       let date = new Date();
       date.setMinutes(Math.floor(date.getMinutes() / 15) * 15);
       date.setSeconds(0);
@@ -100,8 +110,13 @@ const actions = {
 
 const mutations = {
   articlesListChanged(state, list) {
-    state.articlesList.push(...list);
+    if (state.initialized) {
+      state.articlesList.push(...list);
+    } else {
+      state.articlesList = list;
+    }
     state.loading = false;
+    state.initialized = true;
     logger("Articles List changed", state.articlesList.length);
   },
   loading(state) {
@@ -109,12 +124,13 @@ const mutations = {
     logger("Articles Loading");
   },
   flushed(state) {
-    state.articlesList = [];
+    state.initialized = false;
+    state.articlesList = initialArticleList;
     logger("Articles flushed");
   },
   clearArticleData(state) {
     state.selectedArticleMeta = initArticleMeta;
-    state.selectedArticleBody = null;
+    state.selectedArticleBody = initArticleBody;
     logger("Article data is cleared");
   },
   articleMetaFound(state, articleMeta) {
@@ -129,7 +145,7 @@ const mutations = {
   articleBodyFound(state, articleBody) {
     state.selectedArticleBody = articleBody;
     state.loading = false;
-    logger("Articles body found", state.selectedArticleBody.slice(0, 100));
+    logger("Articles body found", state.selectedArticleBody.length);
   },
   relatedArticlesFound(state, lists) {
     const result = lists
@@ -148,14 +164,16 @@ const mutations = {
         return [...accResult, ...currResult.filter(x => x !== null)];
       }, [])
       .sort((a, b) => b.publishAt - a.publishAt)
-      .sort((a, b) => b.relevant - a.relevant);
+      .sort((a, b) => b.relevant - a.relevant)
+      .filter(x => x.id != state.selectedArticleMeta.id)
+      .slice(0, MAX_RELATE);
 
-    state.relatedList = result.filter(
-      x => x.id != state.selectedArticleMeta.id
-    );
+    const amount = 3 * Math.floor(result.length / 3);
+    state.relatedList = result.slice(0, amount);
     logger("Related Articles found", state.relatedList, true);
   },
   errorCatched(state, error) {
+    console.log("hellow", state.articlesList);
     state.error = error;
     state.loading = false;
     logger("Error catched", state.error, true);

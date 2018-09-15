@@ -14,6 +14,8 @@ Vue.filter("trimText", filters.trimText);
 Vue.filter("date", filters.date);
 Vue.filter("parseZeroPrice", filters.parseZeroPrice);
 Vue.filter("parseMonthYear", filters.parseMonthYear);
+Vue.filter("parseYoutubeLink", filters.parseYoutubeLink);
+Vue.filter("randomBanner", filters.randomBanner);
 
 new Vue({
   router,

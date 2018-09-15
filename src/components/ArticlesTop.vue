@@ -1,36 +1,36 @@
 <template>
-  <ul>
+  <ul class="container">
     <li v-for="(article, i) of articlesList"
       :key="article.id"
       class="li-article"
-      :class="'li-'+i">
-      <router-link :to="'/article/' + article.id">
-        <div class="cover-image">
-          <div class="image"
+      :class="'li-' + i">
+      <div class="cover-image">
+        <router-link v-if="article.publishAt"
+          :to="'/article/' + article.id">
+          <div v-if="article.publishAt"
+            class="image"
             :style="'background-image: url(' + article.coverImg + ');'">
           </div>
+        </router-link>
+        <div v-else
+          class="image-loading">
         </div>
-        <div class="info">
-          <p class="title">
-            <a>
-              {{ article.title }}
-            </a>
-          </p>
-        </div>
-      </router-link>
+      </div>
+      <div v-if="article.publishAt" class="info">
+        <p class="title">
+          <router-link v-if="article.publishAt"
+            :to="'/article/' + article.id">
+            {{ article.title }}
+          </router-link>
+        </p>
+      </div>
     </li>
-    <li class="li-bang-gia"><SmallBangGia /></li>
   </ul>
 </template>
 
 <script>
-import SmallBangGia from "@/components/SmallBangGia.vue";
-
 export default {
   name: "ArticlesTop",
-  components: {
-    SmallBangGia
-  },
   props: {
     articlesList: Array
   }
@@ -38,16 +38,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.container {
+  grid-area: top;
+}
 ul {
-  margin: 0 auto 1rem;
-  max-width: calc(var(--container-width) - 56px);
   list-style: none;
   display: grid;
-  height: 596px;
-  grid-template:
-    "a a a b b b" 38%
-    "a a a b b b" 24%
-    "c c d d e e" 38% / 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "a b c";
   li {
     position: relative;
     .cover-image {
@@ -60,11 +57,19 @@ ul {
       box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
         0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
       border-radius: 2px;
-      div.image {
+      .image,
+      .image-loading {
         width: 100%;
         height: 100%;
         background-size: cover;
-        background-position-y: 23%;
+        background-position: 23%;
+        transition: transform 0.2s ease-in;
+      }
+      .image:hover {
+        transform: scale(1.03);
+      }
+      .image-loading {
+        background-image: url("../assets/image-placeholder.png");
       }
     }
     div.info {
@@ -84,42 +89,21 @@ ul {
       }
     }
   }
-  .image {
-    transition: transform 0.2s ease-in;
-  }
-  .image:hover {
-    transform: scale(1.03);
-  }
-  .li-bang-gia {
-    grid-area: b;
-  }
   .li-0 {
     grid-area: a;
   }
   .li-1 {
-    grid-area: c;
+    grid-area: b;
   }
   .li-2 {
-    grid-area: d;
-  }
-  .li-3 {
-    grid-area: e;
-  }
-  .li-4 {
-    grid-area: e;
-  }
-  .li-5 {
-    grid-area: f;
+    grid-area: c;
   }
 }
 @media (max-width: 650px) {
   ul {
-    height: 1153px;
-    grid-template:
-      "a a" 1.5fr
-      "b b" 1.8fr
-      "c c" 1.5fr
-      "d e" 1fr / 1fr 1fr;
+    grid-template-areas:
+      "a a"
+      "b c";
     li {
       a.cover-image > div.faded-mask {
         height: 7rem;

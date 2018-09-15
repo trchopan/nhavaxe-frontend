@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <h3>Bảng Giá</h3>
-    <h2 :class="{ active: selected === 'nha' }"
+  <div class="container">
+    <h2 class="bang-gia-title">Bảng Giá</h2>
+    <h2 class="bang-gia-selection"
+      :class="{ active: selected === 'nha' }"
       @click="selected = 'nha'">
       BĐS
     </h2>
     <span>|</span>
-    <h2 :class="{ active: selected === 'xe' }"
+    <h2 class="bang-gia-selection"
+      :class="{ active: selected === 'xe' }"
       @click="selected = 'xe'">
       Xe
     </h2>
@@ -31,7 +33,7 @@ export default {
   },
   data() {
     return {
-      selected: "nha"
+      selected: Math.random() > 0.5 ? "nha" : "xe"
     };
   },
   computed: {
@@ -46,42 +48,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.2s ease;
-}
-.fade-enter-to,
-.fade-leave {
-  opacity: 1;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 .container {
-  display: relative;
+  grid-area: bangGia;
+  padding: 0 0.2rem;
 }
 .container table {
-  display: absolute;
-  top: 0;
-  left: 0;
+  width: 100%;
 }
-h2,
-h3 {
+h2 {
   display: inline-block;
   position: relative;
-  font: 1.2rem var(--title-font);
+  font: 1.1rem var(--title-font);
   padding: 0.25rem;
   margin: 0 0.25rem;
   text-align: center;
-  color: #c3c3c3;
   cursor: pointer;
 }
-h3 {
-  font-size: 1rem;
+h2.bang-gia-title {
   color: var(--primary-color);
 }
-h2:hover::before {
+h2.bang-gia-selection {
+  color: var(--text-faded-color);
+}
+h2.bang-gia-selection:hover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -90,7 +79,7 @@ h2:hover::before {
   bottom: 0;
   border: solid 1px;
 }
-.active {
+h2.active {
   color: var(--secondary-color);
 }
 </style>

@@ -45,5 +45,18 @@ export default {
     } else {
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
+  },
+  parseYoutubeLink(url) {
+    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#]*).*/;
+    var match = url.match(regExp);
+    if (match && match[7].length == 11) {
+      return "https://www.youtube.com/embed/" + match[7];
+    } else {
+      return null;
+    }
+  },
+  randomBanner(bannerList) {
+    const randomIndex = Math.floor(Math.random() * bannerList.length);
+    return bannerList[randomIndex];
   }
 };

@@ -1,84 +1,111 @@
 <template>
-  <ul>
-    <li v-for="article in articlesList"
-      :key="article.id">
-      <router-link :to="'/article/' + article.id">
-        <div class="cover-image"
-          :style="'background-image: url(' + article.coverImg + ');'">
-          <p v-if="selectedCat.id === '/'" :class="'category cat-' + article.categoryId">
-            {{ article.categoryName }}
-          </p>
+  <ul class="container">
+    <template v-for="(article, index) in articlesList">
+      <li :key="article.id">
+        <router-link v-if="article.publishAt"
+          :to="'/article/' + article.id">
+          <div 
+            class="cover-image"
+            :style="'background-image: url(' + article.coverImg + ');'">
+            <p v-if="selectedCat.id === '/'" :class="'category cat-' + article.categoryId">
+              {{ article.categoryName }}
+            </p>
+          </div>
+        </router-link>
+        <div v-else
+          class="cover-image-loading">
         </div>
         <div class="info">
-          <p class="title">
-            {{ article.title | trimText(maxTitle) }}
+          <p v-if="article.publishAt" class="title">
+            <router-link :to="'/article/' + article.id">
+              {{ article.title | trimText(maxTitle) }}
+            </router-link>
           </p>
+          <p v-else class="title">...loading</p>
           <p class="publish-at">
             {{ article.publishAt | parsePublishAt }}
             <span v-if="article.video">🎬</span>
-            <br class="break-point" />
           </p>
           <p class="sapo">
             {{ article.sapo | trimText(maxSapo) }}
           </p>
         </div>
-      </router-link>
-    </li>
+      </li>
+      <BannerArticleList v-if="index > 0 && index % ArticleBannerInterval === 0"
+        :key="'banner-list' + index"
+        :banner="randomBanner()" />
+    </template>
   </ul>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import { ArticleBannerInterval } from "@/store/modules/banner.js";
+import BannerArticleList from "@/components/BannerArticleList.vue";
+
 export default {
   name: "ArticlesList",
+  components: {
+    BannerArticleList
+  },
   data() {
     return {
-      maxTitle: 70,
+      ArticleBannerInterval,
+      maxTitle: 75,
       maxSapo: 0
     };
   },
-  created() {
+  mounted() {
     let clientWidth = window.innerWidth;
     if (clientWidth > 799) {
       this.maxTitle = 120;
-      this.maxSapo = 200;
+      this.maxSapo = 150;
+    }
+    console.log("woot", this.ArticleBannerInterval);
+  },
+  computed: mapGetters({
+    articleBanners: "banner/articleBanners"
+  }),
+  methods: {
+    randomBanner() {
+      if (!this.articleBanners) return null;
+      const bannerList = this.articleBanners;
+      const randomIndex = Math.floor(Math.random() * bannerList.length);
+      return bannerList[randomIndex];
     }
   },
   props: {
+    selectedCat: Object,
     articlesList: Array,
-    selectedCat: Object
-  },
-  methods: {
-    select(article) {
-      this.$router.push("/article/" + article.id);
-    }
+    banners: Array
   }
 };
 </script>
 
 <style scoped lang="scss">
-ul {
-  max-width: calc(var(--container-width) - 56px);
-  margin: auto;
-  li > a {
+.container {
+  grid-area: articlesList;
+  li {
+    margin: 1rem 0;
     display: grid;
-    grid-template-columns: 30% auto;
+    grid-template-columns: 28% auto;
     position: relative;
-    margin-bottom: 1rem;
     padding: 0 1rem;
-    height: calc(100vw * 0.23);
+    height: calc(100vw * 0.18);
     max-height: 150px;
-    cursor: pointer;
-  }
-  li > a:hover {
-    color: var(--secondary-color);
   }
 }
-div.cover-image {
+.cover-image,
+.cover-image-loading {
   display: inline-block;
   width: 100%;
   height: 100%;
   background-size: cover;
-  background-position-y: 23%;
+  background-position: 23%;
+  cursor: pointer;
+}
+.cover-image-loading {
+  background-image: url("../assets/image-placeholder.png");
 }
 p.category {
   position: absolute;
@@ -100,17 +127,23 @@ p.cat-RWTkmXHmJca6Zap12f87 {
 p.cat-iqs4rjIm4vsOsckd8ETf {
   background: #00aa09;
 }
-div.info {
-  display: inline-block;
+.info {
+  display: flex;
   padding: 0 1rem;
+  flex-direction: column;
+  justify-content: center;
   p {
     margin-bottom: 0.3rem;
   }
   p.title {
+    a:hover {
+      color: var(--secondary-color);
+      cursor: pointer;
+    }
     font: 600 1.1rem var(--title-font);
   }
   p.sapo {
-    font: 400 1rem var(--title-font);
+    font: 400 0.9rem var(--title-font);
     color: var(--text-secondary-color);
   }
   p.publish-at {
@@ -118,34 +151,37 @@ div.info {
     font: 400 0.8rem var(--title-font);
     padding: 0;
   }
-  .break-point {
-    display: none;
-  }
 }
 @media (max-width: 599px) {
-  li {
-    padding: 0 0.5rem;
-  }
-  div.info {
-    p {
-      margin: 0;
+  ul.container {
+    grid-template-areas: "article article article";
+    li.list-banner > div {
+      background-size: cover;
+      width: 100%;
+      height: 110px;
+      padding: 0 -25px;
     }
-    p.title {
-      font-size: 0.9rem;
+    li {
+      padding: 0 0.5rem;
     }
-    p.publish-at {
+    .info {
+      p {
+        margin: 0;
+      }
+      p.title {
+        font-size: 0.9rem;
+      }
+      p.publish-at {
+        font-size: 0.8rem;
+      }
+      p.sapo {
+        display: none;
+      }
+    }
+    p.category {
       font-size: 0.8rem;
+      bottom: 0.2rem;
     }
-    p.sapo {
-      display: none;
-    }
-    .break-point {
-      display: block;
-    }
-  }
-  p.category {
-    font-size: 0.8rem;
-    bottom: 0.2rem;
   }
 }
 </style>

@@ -1,14 +1,15 @@
 <template>
-<ul class="related-articles">
+<ul>
   <li v-for="article in relatedList"
-    :key="article.id"
-    @click="select(article)"> 
-    <div class="related-article__card">
-      <p class="related-article__title">{{ article.title }}</p>
-      <div class="related-article__img"
-        :style="'background-image: url(' + article.coverImg + ');'">
+    :key="article.id">
+    <router-link :to="'/article/' + article.id">
+      <div class="related-article__card">
+        <p class="related-article__title">{{ article.title }}</p>
+        <div class="related-article__img"
+          :style="'background-image: url(' + article.coverImg + ');'">
+        </div>
       </div>
-    </div>
+    </router-link>
   </li>
 </ul>
 </template>
@@ -19,25 +20,16 @@ export default {
   name: "RelatedList",
   computed: mapGetters({
     relatedList: "articles/relatedList"
-  }),
-  methods: {
-    select(article) {
-      this.$store.dispatch("layout/scrollTop", 0);
-      this.$store.dispatch("articles/selectArticle", article.id);
-      this.$router.push("/article/" + article.id);
-    }
-  }
+  })
 };
 </script>
 
 <style scoped lang="scss">
-ul.related-articles {
+ul {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  max-width: calc(var(--container-width) - 56px);
-  margin: 0 auto 1rem;
   li {
     cursor: pointer;
     width: 289px;

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <div id="page-head"></div>
     <NavBar />
+    <div id="page-head"></div>
     <LoadingIndicator />
     <transition name="slide" mode="out-in">
       <router-view/>
@@ -25,9 +25,8 @@ export default {
     logger("App created");
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("bangGia/fetchBangGia");
-    if (this.$route.name === "home") {
-      this.$store.dispatch("articles/fetchCatArticles");
-    }
+    this.$store.dispatch("articles/fetchCatArticles");
+    this.$store.dispatch("banner/fetchBannersList");
     if (this.$route.name === "article") {
       this.$store.dispatch("articles/selectArticle", this.$route.params.id);
     }
@@ -50,12 +49,21 @@ export default {
         ) {
           this.$store.dispatch("articles/fetchCatArticles");
         }
+        // this.$store.dispatch("layout/appScroll", scrollValues.scrollTop);
       }, 200);
     });
   },
   computed: {
     articleError() {
       return this.$store.state.articles.error;
+    },
+    topBanner() {
+      if (!this.longTopBanners) return null;
+
+      const randomIndex = Math.floor(
+        Math.random() * this.longTopBanners.length
+      );
+      return this.longTopBanners ? this.longTopBanners[randomIndex] : null;
     }
   },
   watch: {
@@ -84,14 +92,19 @@ export default {
 :root {
   --primary-color: #ed1d24;
   --primary-color-tint: #ffdfe0;
+  --primary-background-tint: #f3e3e3;
   --secondary-color: #159cd8;
   --text-main-color: #000000;
   --text-accent-color: #ffffff;
   --text-secondary-color: #787878;
   --text-faded-color: #adacac;
-  --title-font: "Muli";
+  --title-font: Muli;
+  --title-font__bold: 600;
+  --title-font__normal: 400;
   --default-font: sans-serif;
   --text-font: Merriweather;
+  --text-font__bold: 700;
+  --text-font__normal: 400;
   --container-width: 996px;
 }
 *,
@@ -114,6 +127,10 @@ a {
 }
 .block {
   display: block;
+}
+.top-banner {
+  width: 100%;
+  height: 90px;
 }
 #app {
   height: 100vh;

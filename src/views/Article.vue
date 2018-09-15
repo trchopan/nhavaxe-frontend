@@ -1,11 +1,15 @@
 <template>
   <transition name="fade">
-    <div>
+    <div class="article-container">
+      <BannerTop />
       <ArticleDetail />
-      <div v-if="articleMeta && articleBody">
-        <RelatedList/>
+      <RelatedList/>
+      <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"
           :articlesList="filteredArticlesList" />
+        <div class="right-wrapper">
+          <BannerRight />
+        </div>
       </div>
     </div>
   </transition>
@@ -13,16 +17,20 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ArticleDetail from "../components/ArticleDetail.vue";
-import RelatedList from "../components/RelatedList.vue";
-import ArticlesList from "../components/ArticlesList.vue";
+import ArticleDetail from "@/components/ArticleDetail.vue";
+import ArticlesList from "@/components/ArticlesList.vue";
+import RelatedList from "@/components/RelatedList.vue";
+import BannerTop from "@/components/BannerTop.vue";
+import BannerRight from "@/components/BannerRight.vue";
 
 export default {
   name: "Article",
   components: {
     ArticleDetail,
     RelatedList,
-    ArticlesList
+    ArticlesList,
+    BannerTop,
+    BannerRight
   },
   computed: {
     ...mapGetters({
@@ -40,3 +48,27 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.article-container {
+  max-width: calc(var(--container-width) - 56px);
+  margin: 0 auto;
+}
+.grid-list {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "articlesList .";
+  .right-warpper {
+    padding-top: 1rem;
+  }
+}
+@media (max-width: 650px) {
+  .grid-list {
+    grid-template-areas: "articlesList";
+    grid-template-columns: 1fr;
+    .right-wrapper {
+      display: none;
+    }
+  }
+}
+</style>
