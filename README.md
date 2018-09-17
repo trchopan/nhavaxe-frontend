@@ -8,12 +8,13 @@ Based on Hermes CMS backend.
 
 Developing by Chop Tr @choptr
 
-## Change Logs
-### TODO
-- [ ] Show ads on the right hand side and in article list
+## Development Notes
 
 ### Bugs
 - [x] Different font on iphone
+
+### Sep 17 2018
+- [x] Show ads on the right hand side and in article list
 
 ### Sep 05 2018
 - [x] Move to REST Api from firebase functions using Express instead of include the big firebase library
