@@ -33,7 +33,7 @@ export default {
   margin: auto;
 }
 h1 {
-  font: 1.5rem var(--text-font);
+  font: 1.5rem var(--title-font);
 }
 span {
   display: inline;

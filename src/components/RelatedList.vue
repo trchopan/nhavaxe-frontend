@@ -1,26 +1,49 @@
 <template>
-<ul>
-  <li v-for="article in relatedList"
-    :key="article.id">
-    <router-link :to="'/article/' + article.id">
-      <div class="related-article__card">
-        <p class="related-article__title">{{ article.title }}</p>
-        <div class="related-article__img"
-          :style="'background-image: url(' + article.coverImg + ');'">
-        </div>
-      </div>
-    </router-link>
-  </li>
-</ul>
+  <ul>
+    <template v-for="(article, index) in relatedList">
+      <li :key="article.id">
+        <router-link :to="'/article/' + article.id">
+          <div class="related-article__card">
+            <p class="related-article__title">{{ article.title | trimText(maxTitle) }}</p>
+            <div class="related-article__img"
+              :style="'background-image: url(' + article.coverImg + ');'">
+            </div>
+          </div>
+        </router-link>
+      </li>
+      <BannerRelated v-if="index > 2 && index % RelatedBannerInterval === 0" 
+        :key="'banner' + article.id"/>
+    </template>
+  </ul>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { RelatedBannerInterval } from "@/store/modules/banner.js";
+import BannerRelated from "@/components/BannerRelated.vue";
+
 export default {
   name: "RelatedList",
-  computed: mapGetters({
-    relatedList: "articles/relatedList"
-  })
+  data() {
+    return {
+      RelatedBannerInterval,
+      maxTitle: 999
+    };
+  },
+  mounted() {
+    let clientWidth = window.innerWidth;
+    if (clientWidth > 799) {
+      this.maxTitle = 56;
+    }
+  },
+  components: {
+    BannerRelated
+  },
+  computed: {
+    ...mapGetters({
+      relatedList: "articles/relatedList"
+    })
+  }
 };
 </script>
 

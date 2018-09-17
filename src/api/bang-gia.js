@@ -30,6 +30,7 @@ function parseXeDoc(id, data) {
     torque: data.torque || "",
     listPrice: data.listPrice || 0,
     salePrice: data.salePrice || 0,
+    contacts: data.contacts.split("//") || [],
     publishAt: data.publishAt || 0
   };
 }

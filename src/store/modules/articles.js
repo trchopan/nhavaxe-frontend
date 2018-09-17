@@ -3,7 +3,7 @@ import { logger } from "../index.js";
 
 export const LOADING_TEXT = "loading...";
 const SPLIT_AMOUNT = 4;
-const MAX_RELATE = 9;
+const MAX_RELATE = 7;
 
 // Initial articleMeta
 const initArticleMeta = {
@@ -60,12 +60,7 @@ const actions = {
     if (state.initialized) {
       startAfter = state.articlesList[arrayLength - 1].publishAt;
     } else {
-      // Floor the startAfter to nearest 15 minute of hour
-      let date = new Date();
-      date.setMinutes(Math.floor(date.getMinutes() / 15) * 15);
-      date.setSeconds(0);
-      date.setMilliseconds(0);
-      startAfter = date.getTime();
+      startAfter = 0;
     }
 
     articlesApi.getArticlesList(
@@ -168,8 +163,7 @@ const mutations = {
       .filter(x => x.id != state.selectedArticleMeta.id)
       .slice(0, MAX_RELATE);
 
-    const amount = 3 * Math.floor(result.length / 3);
-    state.relatedList = result.slice(0, amount);
+    state.relatedList = result;
     logger("Related Articles found", state.relatedList, true);
   },
   errorCatched(state, error) {

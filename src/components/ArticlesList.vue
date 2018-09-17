@@ -7,9 +7,6 @@
           <div 
             class="cover-image"
             :style="'background-image: url(' + article.coverImg + ');'">
-            <p v-if="selectedCat.id === '/'" :class="'category cat-' + article.categoryId">
-              {{ article.categoryName }}
-            </p>
           </div>
         </router-link>
         <div v-else
@@ -61,7 +58,6 @@ export default {
       this.maxTitle = 120;
       this.maxSapo = 150;
     }
-    console.log("woot", this.ArticleBannerInterval);
   },
   computed: mapGetters({
     articleBanners: "banner/articleBanners"
@@ -106,26 +102,6 @@ export default {
 }
 .cover-image-loading {
   background-image: url("../assets/image-placeholder.png");
-}
-p.category {
-  position: absolute;
-  color: white;
-  padding: 0.2em 0.5em;
-  left: 0.6rem;
-  bottom: 0.5rem;
-  font: 400 0.8rem var(--title-font);
-}
-p.cat-3WYMgrmpfuLornXzAnnY {
-  background: var(--secondary-color);
-}
-p.cat-JfDm8uW3Bgt3GdHhmxnF {
-  background: #ff8800;
-}
-p.cat-RWTkmXHmJca6Zap12f87 {
-  background: var(--primary-color);
-}
-p.cat-iqs4rjIm4vsOsckd8ETf {
-  background: #00aa09;
 }
 .info {
   display: flex;
