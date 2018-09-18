@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <section>
-      <BannerTop />
+      <BannerTop :banner="randomBanner(longTopBanners)" />
     </section>
     <section class="grid-top">
       <ArticleFirst :article="firstArticle"/>
@@ -13,7 +13,8 @@
         :articlesList="remainArticles" />
       <div class="right-wrapper">
         <VideoRight />
-        <BannerRight />
+        <BannerRight :bannerList="shuffledRightBanners" />
+        <BannerSticky :banner="randomBanner(stickyBanners)" />
       </div>
     </section>
   </div>
@@ -21,11 +22,14 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { common } from "@/mixins.js";
+import { shuffle } from "@/helpers.js";
 import ArticleFirst from "@/components/ArticleFirst.vue";
 import ArticlesTop from "@/components/ArticlesTop.vue";
 import ArticlesList from "@/components/ArticlesList.vue";
 import BannerTop from "@/components/BannerTop.vue";
 import BannerRight from "@/components/BannerRight.vue";
+import BannerSticky from "@/components/BannerSticky.vue";
 import SmallBangGia from "@/components/SmallBangGia.vue";
 import VideoRight from "@/components/VideoRight.vue";
 
@@ -37,16 +41,24 @@ export default {
     ArticlesList,
     BannerTop,
     BannerRight,
+    BannerSticky,
     SmallBangGia,
     VideoRight
   },
-  computed: mapGetters({
-    firstArticle: "articles/firstArticle",
-    topArticles: "articles/topArticles",
-    remainArticles: "articles/remainArticles",
-    longTopBanners: "banner/longTopBanners",
-    selectedCat: "categories/selectedCat"
-  }),
+  computed: {
+    ...mapGetters({
+      firstArticle: "articles/firstArticle",
+      topArticles: "articles/topArticles",
+      remainArticles: "articles/remainArticles",
+      longTopBanners: "banner/longTopBanners",
+      rightBanners: "banner/rightBanners",
+      stickyBanners: "banner/stickyBanners",
+      selectedCat: "categories/selectedCat"
+    }),
+    shuffledRightBanners() {
+      return shuffle(this.rightBanners);
+    }
+  },
   mounted() {
     const homeScrollTop = this.$store.state.layout.homeScrollTop;
     this.$store.dispatch("layout/scrollTop", homeScrollTop);
@@ -62,7 +74,8 @@ export default {
     const app = document.querySelector("#app");
     this.$store.dispatch("layout/setHomeScrollTop", app.scrollTop);
     next();
-  }
+  },
+  mixins: [common]
 };
 </script>
 

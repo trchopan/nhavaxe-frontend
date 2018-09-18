@@ -20,6 +20,7 @@ const getters = {
   longTopBanners: state => filterByArea(state.bannersList, "long-top"),
   articleBanners: state => filterByArea(state.bannersList, "article-list"),
   rightBanners: state => filterByArea(state.bannersList, "big-right"),
+  stickyBanners: state => filterByArea(state.bannersList, "big-sticky"),
   relateBanners: state => filterByArea(state.bannersList, "small-relate"),
   youtubeBanners: state => state.bannersList.filter(x => x.type === "youtube"),
   loading: state => state.loading,

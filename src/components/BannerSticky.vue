@@ -1,16 +1,14 @@
 <template>
-  <a v-if="banner"
-    target="_blank"
-    :href="banner.link">
-    <div class="banner-top"
+  <div v-if="banner" class="sticky">
+    <div :class="'banner ' + banner.area"
       :style="'background-image: url(' + banner.contentLink + ');'">
     </div>
-  </a>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "BannerTop",
+  name: "BannerSticky",
   props: {
     banner: Object
   }
@@ -18,11 +16,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner-top {
+.sticky {
+  position: sticky;
+  top: 4rem;
+}
+.banner {
   width: 100%;
-  padding-bottom: 25.77%;
   background-size: cover;
   background-position: 50%;
-  margin: 0 auto 1rem;
+  margin: 0.5rem auto;
+}
+.big-sticky {
+  height: 589px;
 }
 </style>

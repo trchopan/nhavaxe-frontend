@@ -12,13 +12,15 @@
         </router-link>
       </li>
       <BannerRelated v-if="index > 2 && index % RelatedBannerInterval === 0" 
-        :key="'banner' + article.id"/>
+        :key="'banner' + article.id"
+        :banner="getBanner(index)"/>
     </template>
   </ul>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { shuffle } from "@/helpers.js";
 import { RelatedBannerInterval } from "@/store/modules/banner.js";
 import BannerRelated from "@/components/BannerRelated.vue";
 
@@ -41,8 +43,19 @@ export default {
   },
   computed: {
     ...mapGetters({
-      relatedList: "articles/relatedList"
-    })
+      relatedList: "articles/relatedList",
+      relateBanners: "banner/relateBanners"
+    }),
+    shuffledBanner() {
+      return shuffle(this.relateBanners);
+    }
+  },
+  methods: {
+    getBanner(position) {
+      let index = Math.floor(position / RelatedBannerInterval) - 2;
+      index = index < this.shuffledBanner.length ? index : 0;
+      return this.shuffledBanner[index];
+    }
   }
 };
 </script>

@@ -30,13 +30,14 @@
       </li>
       <BannerArticleList v-if="index > 0 && index % ArticleBannerInterval === 0"
         :key="'banner-list' + index"
-        :banner="randomBanner()" />
+        :banner="randomBanner(articleBanners)" />
     </template>
   </ul>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { common } from "@/mixins.js";
 import { ArticleBannerInterval } from "@/store/modules/banner.js";
 import BannerArticleList from "@/components/BannerArticleList.vue";
 
@@ -45,6 +46,7 @@ export default {
   components: {
     BannerArticleList
   },
+  mixins: [common],
   data() {
     return {
       ArticleBannerInterval,
@@ -52,28 +54,20 @@ export default {
       maxSapo: 0
     };
   },
+  props: {
+    selectedCat: Object,
+    articlesList: Array,
+    banners: Array
+  },
+  computed: mapGetters({
+    articleBanners: "banner/articleBanners"
+  }),
   mounted() {
     let clientWidth = window.innerWidth;
     if (clientWidth > 799) {
       this.maxTitle = 120;
       this.maxSapo = 150;
     }
-  },
-  computed: mapGetters({
-    articleBanners: "banner/articleBanners"
-  }),
-  methods: {
-    randomBanner() {
-      if (!this.articleBanners) return null;
-      const bannerList = this.articleBanners;
-      const randomIndex = Math.floor(Math.random() * bannerList.length);
-      return bannerList[randomIndex];
-    }
-  },
-  props: {
-    selectedCat: Object,
-    articlesList: Array,
-    banners: Array
   }
 };
 </script>

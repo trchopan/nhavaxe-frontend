@@ -1,14 +1,15 @@
 <template>
   <transition name="fade">
     <div class="article-container">
-      <BannerTop />
+      <BannerTop :banner="randomBanner(longTopBanners)" />
       <ArticleDetail />
-      <RelatedList/>
+      <RelatedList />
       <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"
           :articlesList="filteredArticlesList" />
         <div class="right-wrapper">
-          <BannerRight />
+          <BannerRight :bannerList="shuffledRightBanners"/>
+          <BannerSticky :banner="randomBanner(stickyBanners)" />
         </div>
       </div>
     </div>
@@ -17,11 +18,14 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { common } from "@/mixins.js";
+import { shuffle } from "@/helpers.js";
 import ArticleDetail from "@/components/ArticleDetail.vue";
 import ArticlesList from "@/components/ArticlesList.vue";
 import RelatedList from "@/components/RelatedList.vue";
 import BannerTop from "@/components/BannerTop.vue";
 import BannerRight from "@/components/BannerRight.vue";
+import BannerSticky from "@/components/BannerSticky.vue";
 
 export default {
   name: "Article",
@@ -30,20 +34,28 @@ export default {
     RelatedList,
     ArticlesList,
     BannerTop,
-    BannerRight
+    BannerRight,
+    BannerSticky
   },
+  mixins: [common],
   computed: {
     ...mapGetters({
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody",
       articlesList: "articles/articlesList",
       relatedList: "articles/relatedList",
+      longTopBanners: "banner/longTopBanners",
+      rightBanners: "banner/rightBanners",
+      stickyBanners: "banner/stickyBanners",
       loading: "articles/loading"
     }),
     filteredArticlesList() {
       return this.articlesList.filter(
         x => this.relatedList.indexOf(x) < 0 && x.id !== this.articleMeta.id
       );
+    },
+    shuffledRightBanners() {
+      return shuffle(this.rightBanners);
     }
   }
 };

@@ -1,45 +1,45 @@
 <template>
-  <div v-if="randomBanner" class="container big-right">
-    <a target="_blank"
-      :href="randomBanner.link">
-      <div :class="'banner ' + randomBanner.area"
-        :style="'background-image: url(' + randomBanner.contentLink + ');'">
+  <div>
+    <a v-for="banner in bannerList.slice(0, maxBanner)"
+      :key="banner.id"
+      :href="banner.link"
+      target="_blank">
+      <div :class="'banner ' + banner.area"
+        :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
+      <hr />
     </a>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "BannerRight",
-  computed: {
-    ...mapGetters({
-      rightBanners: "banner/rightBanners"
-    }),
-    randomBanner() {
-      if (!this.rightBanners) return null;
-      const bannerList = this.rightBanners;
-      const randomIndex = Math.floor(Math.random() * bannerList.length);
-      return bannerList[randomIndex];
-    }
+  props: {
+    bannerList: Array
+  },
+  data() {
+    return {
+      maxBanner: 3
+    };
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  grid-area: bannerRight;
-  position: sticky;
-  top: 4rem;
-  .banner {
-    width: 100%;
-    background-size: cover;
-    background-position: 50%;
-  }
-  .big-right {
-    height: 589px;
-  }
+.banner {
+  width: 100%;
+  background-size: cover;
+  background-position: 50%;
+  margin: 0.5rem auto;
+}
+.big-right {
+  height: 589px;
+}
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--secondary-color);
+  margin-bottom: 0.5rem;
 }
 </style>

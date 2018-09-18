@@ -32,7 +32,7 @@
     <th class="torque-header">Mã lực</th>
     <th class="price-header">Giá niêm<br />yết (tr)</th>
     <th class="price-header">Giá bán<br />(tr)</th>
-    <th class="contacts-header">Liên hệ</th>
+    <th class="publish-at-header">Đăng lúc</th>
     <tr v-show="filteredList.length <= 0">
       <td colspan="10">
         Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
@@ -48,13 +48,7 @@
       <td class="torque-cell">{{ data.torque }}</td>
       <td class="price-cell">{{ data.listPrice | parseZeroPrice }}</td>
       <td class="price-cell">{{ data.salePrice | parseZeroPrice }}</td>
-      <td class="contacts-cell">
-        <span class="block"
-          v-for="contact in data.contacts"
-          :key="i + '-' + contact">
-          {{ contact }}
-        </span>
-      </td>
+      <td class="publish-at-cell">{{ data.publishAt | parseMonthYear }}</td>
     </tr>
   </table>
 </template>
@@ -90,7 +84,8 @@ export default {
       return result;
     },
     filterSelections() {
-      const data = this.filteredList;
+      // const data = this.filteredList;
+      const data = this.list.xe;
       const filters = {
         brand: [],
         type: [],

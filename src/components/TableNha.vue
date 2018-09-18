@@ -53,17 +53,11 @@
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
       <td class="location-cell">{{ data.location }}</td>
-      <td class="progress-cell">
-        <span class="block"
-          v-for="progress in data.progress"
-          :key="i + '-' + progress">
-          {{ progress }}
-        </span>
-      </td>
+      <td class="progress-cell">{{ data.progress }}</td>
       <td class="sale-perks-cell">
         <span class="block"
           v-for="perk in data.salePerks"
-          :key="i + '-' + perk">
+          :key="'perk-' + perk + data.id" > 
           {{ perk }}
         </span>
       </td>
@@ -72,14 +66,14 @@
       <td class="contacts-cell">
         <span class="block"
           v-for="contact in data.contacts"
-          :key="i + '-' + contact">
+          :key="'contact-' + contact + data.id" > 
           {{ contact }}
         </span>
       </td>
       <td class="facilities-cell">
         <span class="block"
           v-for="facility in data.facilities"
-          :key="i + '-' + facility">
+          :key="'facility-' + facility+ data.id" > 
           {{ facility }}
         </span>
       </td>
@@ -121,7 +115,8 @@ export default {
       return result;
     },
     filterSelections() {
-      const data = this.filteredList;
+      // const data = this.filteredList;
+      const data = this.list.nha;
       const filters = {
         project: [],
         investor: [],

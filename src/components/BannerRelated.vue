@@ -1,37 +1,29 @@
 <template>
   <li>
-    <div v-if="randomBanner.type === 'youtube'" class="youtube-container">
+    <div v-if="banner && banner.type === 'youtube'" class="youtube-container">
       <div class="youtube">
         <iframe
-          :src="randomBanner.contentLink | parseYoutubeLink"
+          :src="banner.contentLink | parseYoutubeLink"
           frameborder="0"
           allow="autoplay; encrypted-media"
           allowfullscreen></iframe>
       </div>
     </div>
-    <a v-if="randomBanner.type === 'image'"
+    <a v-if="banner.type === 'image'"
       target="_blank"
-      :href="randomBanner.link">
+      :href="banner.link">
       <div class="related-article__img"
-        :style="'background-image: url(' + randomBanner.contentLink + ');'">
+        :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
     </a>
   </li>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "BannerRelated",
-  computed: {
-    ...mapGetters({ relateBanners: "banner/relateBanners" }),
-    randomBanner() {
-      if (!this.relateBanners) return null;
-      const bannerList = this.relateBanners;
-      const randomIndex = Math.floor(Math.random() * bannerList.length);
-      return bannerList[randomIndex];
-    }
+  props: {
+    banner: Object
   }
 };
 </script>
