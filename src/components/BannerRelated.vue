@@ -1,6 +1,7 @@
 <template>
   <li>
-    <div v-if="banner && banner.type === 'youtube'" class="youtube-container">
+    <p class="sponsor-text">- Tài trợ -</p>
+    <div v-if="banner && banner.type === 'youtube'" class="sponsor-youtube-container">
       <div class="youtube">
         <iframe
           :src="banner.contentLink | parseYoutubeLink"
@@ -12,7 +13,7 @@
     <a v-if="banner.type === 'image'"
       target="_blank"
       :href="banner.link">
-      <div class="related-article__img"
+      <div class="sponsor-image"
         :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
     </a>
@@ -29,21 +30,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.related-article__img {
-  padding-bottom: 76%;
+.sponsor-text {
+  text-align: center;
+  line-height: 2.7rem;
+  color: var(--text-faded-color);
+}
+.sponsor-image {
+  height: 200px;
   background-size: cover;
   background-position: 50%;
-  margin: -1rem -1rem;
+  margin: 0 -1rem -1rem;
 }
-.youtube-container {
+.sponsor-youtube-container {
   max-width: 560px;
-  margin: -1rem;
+  margin: 0 -1rem -1rem;
 }
 .youtube {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  padding-top: 25px;
-  height: 0;
+  height: 200px;
 }
 .youtube iframe {
   position: absolute;

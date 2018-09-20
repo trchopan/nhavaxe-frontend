@@ -2,7 +2,7 @@
   <a v-if="banner"
     target="_blank"
     :href="banner.link">
-    <div class="banner-top"
+    <div class="sponsor-image"
       :style="'background-image: url(' + banner.contentLink + ');'">
     </div>
   </a>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner-top {
+.sponsor-image {
   width: 100%;
   padding-bottom: 25.77%;
   background-size: cover;

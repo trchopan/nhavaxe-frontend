@@ -81,7 +81,7 @@ export default {
     grid-template-columns: 28% auto;
     position: relative;
     padding: 0 1rem;
-    height: calc(100vw * 0.18);
+    height: calc(100vw * 0.21);
     max-height: 150px;
   }
 }

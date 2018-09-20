@@ -1,8 +1,10 @@
 <template>
   <div v-if="banner" class="sticky">
-    <div :class="'banner ' + banner.area"
-      :style="'background-image: url(' + banner.contentLink + ');'">
-    </div>
+    <a :href="banner.link" target="_blank">
+      <div :class="'sponsor-image ' + banner.area"
+        :style="'background-image: url(' + banner.contentLink + ');'">
+      </div>
+    </a>
   </div>
 </template>
 
@@ -20,7 +22,7 @@ export default {
   position: sticky;
   top: 4rem;
 }
-.banner {
+.sponsor-image {
   width: 100%;
   background-size: cover;
   background-position: 50%;

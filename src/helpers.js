@@ -1,3 +1,15 @@
+export function logger(message, value, object) {
+  process.env.NODE_ENV === "development" &&
+    console.log(
+      message,
+      object === true
+        ? value
+        : value !== undefined
+          ? JSON.stringify(value, null, 2)
+          : ""
+    );
+}
+
 export function shuffle(array) {
   var currentIndex = array.length,
     temporaryValue,

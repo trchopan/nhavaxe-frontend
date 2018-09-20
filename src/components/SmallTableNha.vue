@@ -8,7 +8,7 @@
       :class="{ unbottom: i === list.length -1, shaded: i%2 === 0 }">
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
-      <td class="progress-cell">{{ data.progress[0] }}</td>
+      <td class="progress-cell">{{ data.progress }}</td>
       <td>{{ data.avgPrice | parseZeroPrice }}</td>
     </tr>
   </table>

@@ -1,5 +1,5 @@
 import articlesApi from "@/api/articles.js";
-import { logger } from "../index.js";
+import { logger } from "@/helpers.js";
 
 export const LOADING_TEXT = "loading...";
 const SPLIT_AMOUNT = 4;

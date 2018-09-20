@@ -1,5 +1,5 @@
 import bannersApi from "@/api/banner.js";
-import { logger } from "../index.js";
+import { logger } from "@/helpers.js";
 
 export const ArticleBannerInterval = 7;
 export const RelatedBannerInterval = 2;

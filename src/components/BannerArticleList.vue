@@ -1,8 +1,9 @@
 <template>
   <li v-if="banner">
+    <p class="sponsor-text">- Tài trợ -</p>
     <a target="_blank"
       :href="banner.link">
-      <div class="banner-image"
+      <div class="sponsor-image"
       :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
     </a>
@@ -25,10 +26,21 @@ a {
   flex-direction: column;
   justify-content: center;
 }
-.banner-image {
+.sponsor-image {
   background-size: cover;
   background-position: 50%;
   width: 100%;
   padding-bottom: 20%;
+}
+.sponsor-text {
+  grid-column: span 2;
+  text-align: center;
+  align-self: center;
+  color: var(--text-faded-color);
+}
+@media (max-width: 599px) {
+  .sponsor-text {
+    font-size: 0.5rem;
+  }
 }
 </style>

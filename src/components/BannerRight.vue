@@ -4,7 +4,7 @@
       :key="banner.id"
       :href="banner.link"
       target="_blank">
-      <div :class="'banner ' + banner.area"
+      <div :class="'sponsor-image ' + banner.area"
         :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
       <hr />
@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.banner {
+.sponsor-image {
   width: 100%;
   background-size: cover;
   background-position: 50%;

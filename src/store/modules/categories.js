@@ -1,5 +1,5 @@
 import categories from "@/api/categories.js";
-import { logger } from "../index.js";
+import { logger } from "@/helpers.js";
 
 const rootCategory = {
   id: "/",

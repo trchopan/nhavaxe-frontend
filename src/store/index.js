@@ -8,18 +8,6 @@ import banner from "./modules/banner.js";
 
 Vue.use(Vuex);
 
-export function logger(message, value, object) {
-  process.env.NODE_ENV === "development" &&
-    console.log(
-      message,
-      object === true
-        ? value
-        : value !== undefined
-          ? JSON.stringify(value, null, 2)
-          : ""
-    );
-}
-
 export default new Vuex.Store({
   modules: {
     layout,

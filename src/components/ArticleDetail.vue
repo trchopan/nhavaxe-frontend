@@ -114,7 +114,7 @@ ul.article-tags {
 .article-source {
   padding: 1.5rem 1rem;
   text-align: right;
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--text-faded-color);
   font: italic 1.1rem var(--text-font);
 }
 .article-cover-image {

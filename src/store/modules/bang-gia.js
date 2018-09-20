@@ -1,4 +1,4 @@
-import { logger } from "../index.js";
+import { logger } from "@/helpers.js";
 import bangGiaApi from "@/api/bang-gia.js";
 
 const BANGGIA_AMOUNT = 7;

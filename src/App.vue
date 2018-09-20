@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import { logger } from "@/store";
+import { logger } from "@/helpers.js";
 import NavBar from "@/components/NavBar.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 

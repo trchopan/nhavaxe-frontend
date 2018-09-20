@@ -1,4 +1,4 @@
-import { logger } from "../index.js";
+import { logger } from "@/helpers.js";
 
 // initial state
 const state = {

@@ -97,6 +97,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      loading: "bangGia/loading",
       list: "bangGia/list"
     }),
     filteredList() {

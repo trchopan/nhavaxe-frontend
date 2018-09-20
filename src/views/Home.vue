@@ -35,6 +35,7 @@ import VideoRight from "@/components/VideoRight.vue";
 
 export default {
   name: "Home",
+  mixins: [common],
   components: {
     ArticleFirst,
     ArticlesTop,
@@ -74,8 +75,7 @@ export default {
     const app = document.querySelector("#app");
     this.$store.dispatch("layout/setHomeScrollTop", app.scrollTop);
     next();
-  },
-  mixins: [common]
+  }
 };
 </script>
 
