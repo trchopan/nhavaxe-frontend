@@ -11,6 +11,7 @@ Developing by Chop Tr @choptr
 ## Development Notes
 
 ### Bugs
+- [x] Fixed correct height for ArticleList
 - [x] Align the banners to display evenly
 - [x] Different font on iphone
 

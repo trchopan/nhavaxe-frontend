@@ -81,7 +81,6 @@ export default {
     grid-template-columns: 28% auto;
     position: relative;
     padding: 0 1rem;
-    height: calc(100vw * 0.21);
     max-height: 150px;
   }
 }
@@ -89,7 +88,7 @@ export default {
 .cover-image-loading {
   display: inline-block;
   width: 100%;
-  height: 100%;
+  padding-bottom: 80%;
   background-size: cover;
   background-position: 23%;
   cursor: pointer;
@@ -133,6 +132,7 @@ export default {
     }
     li {
       padding: 0 0.5rem;
+      margin: 0.5rem auto;
     }
     .info {
       p {
