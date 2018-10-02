@@ -29,13 +29,13 @@ table {
     border-bottom: none;
   }
   .small-project-header {
-    width: 32%;
+    width: 30%;
   }
   .small-investor-header {
-    width: 32%;
+    width: 30%;
   }
   .small-price-header {
-    width: 18%;
+    width: 20%;
   }
   .project-header,
   .investor-header {
@@ -62,8 +62,9 @@ table {
   .progress-cell,
   .sale-perks-cell,
   .contacts-cell,
-  .facilities-cell,
-  .price-cell,
+  .others-cell,
+  .price-cell-primary,
+  .price-cell-secondary,
   .model-cell,
   .brand-cell,
   .type-cell,
@@ -73,6 +74,12 @@ table {
   .publish-at-cell {
     border-right: var(--border-property);
     padding: 0 0.5rem;
+  }
+  .price-cell-primary {
+    color: var(--primary-color);
+  }
+  .price-cell-secondary {
+    color: var(--secondary-color);
   }
   .investor-cell {
     text-align: left;

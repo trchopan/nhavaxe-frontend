@@ -1,15 +1,11 @@
 import { logger } from "@/helpers.js";
-import bangGiaApi from "@/api/bang-gia.js";
+import * as BangGiaApi from "@/api/bang-gia.js";
 
-const BANGGIA_AMOUNT = 7;
+const SLICE_AMOUNT = 7;
 
 // initial state
 const state = {
   list: {
-    nha: [],
-    xe: []
-  },
-  smallList: {
     nha: [],
     xe: []
   },
@@ -19,26 +15,33 @@ const state = {
 
 const getters = {
   list: state => state.list,
-  smallList: state => state.smallList
+  smallList: state => ({
+    nha: state.list.nha.slice(0, SLICE_AMOUNT),
+    xe: state.list.xe.slice(0, SLICE_AMOUNT)
+  })
 };
 
-const actions = {
-  fetchBangGia({ commit }) {
+const actions = deps => {
+  async function fetchBangGia({ commit }) {
     logger("Fetching Bang Gia...");
     commit("loading");
-    bangGiaApi.getBangGia(
-      data => commit("listChanged", data),
-      error => commit("errorCatched", error)
-    );
+    try {
+      const result = await deps.getBangGia(
+        deps.BangGiaApiUrl,
+        deps.nhaParser,
+        deps.xeParser
+      );
+      commit("listChanged", result, SLICE_AMOUNT);
+    } catch (error) {
+      commit("errorCatched", error);
+    }
   }
+  return { fetchBangGia };
 };
 
 const mutations = {
   listChanged(state, list) {
-    state.list.nha = list.nha;
-    state.list.xe = list.xe;
-    state.smallList.nha = list.nha.slice(0, BANGGIA_AMOUNT);
-    state.smallList.xe = list.xe.slice(0, BANGGIA_AMOUNT);
+    state.list = list;
     state.loading = false;
     logger(
       "Bang Gia list changed",
@@ -60,6 +63,6 @@ export default {
   namespaced: true,
   state,
   getters,
-  actions,
+  actions: actions(BangGiaApi),
   mutations
 };

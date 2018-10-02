@@ -38,17 +38,17 @@
     </th>
     <th class="sale-perks-header">CSBH</th>
     <th class="price-header">Giá CĐT bán<br />(tr/m2)</th>
-    <th class="price-header">Giá KH bán<br />(tr/m2)</th>
+    <th class="price-header">Giá Thị <br />trường(tr/m2)</th>
     <th class="contacts-header">Liên hệ</th>
-    <th class="facilities-header">Khác</th>
+    <th class="others-header">Khác</th>
     <th class="publish-at-header">Đăng lúc</th>
     <tr v-show="filteredList.length <= 0">
       <td colspan="10">
         Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
       </td>
     </tr>
-    <tr v-for="(data, i) in filteredList" :key="data.id"
-      :class="{ unbottom: i === list.length -1, shaded: i%2 === 0 }"
+    <tr v-for="(data, index) in filteredList" :key="'bang-gia-nha-' + index"
+      :class="{ unbottom: index === list.length -1, shaded: index % 2 === 0 }"
       @click="navigateLink(data.link)"> 
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
@@ -56,28 +56,28 @@
       <td class="progress-cell">{{ data.progress }}</td>
       <td class="sale-perks-cell">
         <span class="block"
-          v-for="perk in data.salePerks"
-          :key="'perk-' + perk + data.id" > 
+          v-for="(perk, i) in data.salePerks"
+          :key="'perk-' + index + i" > 
           {{ perk }}
         </span>
       </td>
-      <td class="price-cell">{{ data.avgPrice | parseZeroPrice }}</td>
-      <td class="price-cell">{{ data.avgResalePrice | parseZeroPrice }}</td>
+      <td class="price-cell-primary">{{ data.avgPrice | parseNumber }}</td>
+      <td class="price-cell-secondary">{{ data.avgResalePrice | parseNumber }}</td>
       <td class="contacts-cell">
         <span class="block"
-          v-for="contact in data.contacts"
-          :key="'contact-' + contact + data.id" > 
+          v-for="(contact, i) in data.contacts"
+          :key="'contact-' + index + i" > 
           {{ contact }}
         </span>
       </td>
-      <td class="facilities-cell">
+      <td class="others-cell">
         <span class="block"
-          v-for="facility in data.facilities"
-          :key="'facility-' + facility+ data.id" > 
-          {{ facility }}
+          v-for="(other, i) in data.others"
+          :key="'other-' + index + i" > 
+          {{ other }}
         </span>
       </td>
-      <td class="publish-at-cell">{{ data.publishAt | parseMonthYear }}</td>
+      <td class="publish-at-cell">{{ data.publishAt }}</td>
     </tr>
   </table>
 </template>

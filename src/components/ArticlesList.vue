@@ -72,7 +72,7 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .container {
   grid-area: articlesList;
   li {
@@ -90,11 +90,11 @@ export default {
   width: 100%;
   padding-bottom: 80%;
   background-size: cover;
-  background-position: 23%;
+  background-position: 50%;
   cursor: pointer;
 }
 .cover-image-loading {
-  background-image: url("../assets/image-placeholder.png");
+  background-image: url("/image-placeholder.png");
 }
 .info {
   display: flex;
@@ -124,12 +124,6 @@ export default {
 @media (max-width: 599px) {
   ul.container {
     grid-template-areas: "article article article";
-    li.list-banner > div {
-      background-size: cover;
-      width: 100%;
-      height: 110px;
-      padding: 0 -25px;
-    }
     li {
       padding: 0 0.5rem;
       margin: 0.5rem auto;
@@ -147,10 +141,6 @@ export default {
       p.sapo {
         display: none;
       }
-    }
-    p.category {
-      font-size: 0.8rem;
-      bottom: 0.2rem;
     }
   }
 }

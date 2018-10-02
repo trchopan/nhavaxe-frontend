@@ -1,6 +1,6 @@
 <template>
   <div v-if="banner" class="sticky">
-    <a :href="banner.link" target="_blank">
+    <a :href="banner.id | parseRedirectBannerId" target="_blank">
       <div :class="'sponsor-image ' + banner.area"
         :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
@@ -9,8 +9,11 @@
 </template>
 
 <script>
+import { common } from "@/mixins";
+
 export default {
   name: "BannerSticky",
+  mixins: [common],
   props: {
     banner: Object
   }

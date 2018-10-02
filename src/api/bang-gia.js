@@ -1,52 +1,37 @@
 import axios from "axios";
 
-const ApiUrl = "https://nhavaxe.vn/api/bang-gia";
+export const BangGiaApiUrl = process.env.VUE_APP_API + "/getBangGia";
 
-function parseNhaDoc(id, data) {
+export const nhaParser = function(data) {
   return {
-    id: id,
-    project: data.project || "",
-    investor: data.investor || "",
-    location: data.location || "",
-    progress: data.progress || "",
-    salePerks: data.salePerks.split("//") || [],
-    avgPrice: data.avgPrice || 0,
-    avgResalePrice: data.avgResalePrice || 0,
-    contacts: data.contacts.split("//") || [],
-    facilities: data.facilities.split("//") || [],
-    publishAt: data.publishAt || 0,
-    link: data.link || ""
+    ...data,
+    salePerks:
+      data.salePerks && typeof data.salePerks === "string"
+        ? data.salePerks.split("//")
+        : [],
+    contacts:
+      data.contacts && typeof data.contacts === "string"
+        ? data.contacts.split("//")
+        : [],
+    others:
+      data.others && typeof data.others === "string"
+        ? data.others.split("//")
+        : []
   };
-}
-
-function parseXeDoc(id, data) {
+};
+export const xeParser = function(data) {
   return {
-    id: id,
-    model: data.model || "",
-    brand: data.brand || "",
-    type: data.type || "",
-    origin: data.origin || "",
-    engine: data.engine || "",
-    torque: data.torque || "",
-    listPrice: data.listPrice || 0,
-    salePrice: data.salePrice || 0,
-    contacts: data.contacts.split("//") || [],
-    publishAt: data.publishAt || 0
+    ...data,
+    contacts:
+      data.contacts && typeof data.contacts === "string"
+        ? data.contacts.split("//")
+        : []
   };
-}
+};
 
-export default {
-  getBangGia(cb, errorCb) {
-    const fetchNha = axios.get(`${ApiUrl}/nha`);
-    const fetchXe = axios.get(`${ApiUrl}/xe`);
-
-    Promise.all([fetchNha, fetchXe])
-      .then(([nhaRes, xeRes]) => {
-        const data = {};
-        data.nha = nhaRes.data.map(doc => parseNhaDoc(doc.id, doc));
-        data.xe = xeRes.data.map(doc => parseXeDoc(doc.id, doc));
-        cb(data);
-      })
-      .catch(error => errorCb(error));
-  }
+export const getBangGia = async function(api, nhaParser, xeParser) {
+  const result = await axios.get(api);
+  const nha = result.data.nha.map(value => nhaParser(value));
+  const xe = result.data.xe.map(value => xeParser(value));
+  return { nha, xe };
 };

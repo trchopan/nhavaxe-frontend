@@ -1,6 +1,6 @@
 <template>
   <li>
-    <p class="sponsor-text">- Tài trợ -</p>
+    <p class="sponsor-text">- Tham khảo -</p>
     <div v-if="banner && banner.type === 'youtube'" class="sponsor-youtube-container">
       <div class="youtube">
         <iframe
@@ -12,7 +12,7 @@
     </div>
     <a v-if="banner.type === 'image'"
       target="_blank"
-      :href="banner.link">
+      :href="banner.id | parseRedirectBannerId">
       <div class="sponsor-image"
         :style="'background-image: url(' + banner.contentLink + ');'">
       </div>

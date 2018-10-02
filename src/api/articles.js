@@ -1,59 +1,30 @@
 import axios from "axios";
 
-const ApiUrl = "https://nhavaxe.vn/api";
+const ApiUrl = process.env.VUE_APP_API;
 const ListAllParams = "ALL";
 
-function parseDoc(id, data) {
+export const articleParser = function(data) {
   return {
-    id: id,
-    coverImg: data.coverImg || null,
-    title: data.title || null,
-    sapo: data.sapo || null,
-    video: data.video || null,
+    ...data,
     style: data.style || "article",
-    categoryId: data.categoryId || null,
-    categoryName: data.categoryName || null,
-    publisher: data.publisher || null,
-    reference: data.reference || null,
     publishAt: data.publishAt || 0,
     tags: data.tags || []
   };
-}
-
-export default {
-  getArticlesList(categoryId, startAfter, cb, errorCb) {
-    let catId = categoryId === "/" ? ListAllParams : categoryId;
-
-    axios
-      .get(`${ApiUrl}/list/${startAfter}/${catId}`)
-      .then(respond => {
-        const data = respond.data.map(doc => parseDoc(doc.id, doc));
-        cb(data);
-      })
-      .catch(error => errorCb(error));
-  },
-  getArticleMeta(id, cb, errorCb) {
-    axios
-      .get(`${ApiUrl}/meta/${id}`)
-      .then(respond => {
-        cb(respond.data);
-      })
-      .catch(error => errorCb(error));
-  },
-  getArticleBody(id, cb, errorCb) {
-    axios
-      .get(`${ApiUrl}/body/${id}`)
-      .then(respond => {
-        cb(respond.data.body);
-      })
-      .catch(error => errorCb(error));
-  },
-  getRelatedList(tags, cb, errorCb) {
-    const tagsResultPromises = tags.map(tag =>
-      axios.get(`${ApiUrl}/relate/${tag}`).then(respond => respond.data)
-    );
-    Promise.all(tagsResultPromises)
-      .then(results => cb(results))
-      .catch(error => errorCb(error));
-  }
 };
+
+export async function getArticlesList(categoryId, startAfter, parser) {
+  let catId = categoryId === "/" ? ListAllParams : categoryId;
+
+  const result = await axios.get(`${ApiUrl}/list/${startAfter}/${catId}`);
+  return result.data.map(value => parser(value));
+}
+export async function getArticle(id, parser) {
+  const result = await axios.get(`${ApiUrl}/article/${id}`);
+  return parser(result.data);
+}
+export async function getRelatedList(tags) {
+  const tagsResultPromises = tags.map(tag =>
+    axios.get(`${ApiUrl}/relate/${tag}`).then(respond => respond.data)
+  );
+  return await Promise.all(tagsResultPromises);
+}

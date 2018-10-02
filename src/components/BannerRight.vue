@@ -2,7 +2,7 @@
   <div>
     <a v-for="banner in bannerList.slice(0, maxBanner)"
       :key="banner.id"
-      :href="banner.link"
+      :href="banner.id | parseRedirectBannerId"
       target="_blank">
       <div :class="'sponsor-image ' + banner.area"
         :style="'background-image: url(' + banner.contentLink + ');'">

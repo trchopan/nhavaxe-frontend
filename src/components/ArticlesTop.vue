@@ -69,7 +69,7 @@ ul {
         transform: scale(1.03);
       }
       .image-loading {
-        background-image: url("../assets/image-placeholder.png");
+        background-image: url("/image-placeholder.png");
       }
     }
     div.info {

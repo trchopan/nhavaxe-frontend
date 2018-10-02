@@ -14,6 +14,12 @@
     <transition name="fade" mode="out-in">
       <router-view />
     </transition>
+    <p v-show="$route.name === 'nha'" class="note">
+      * Giá CĐT bán là giá mở bán đợt đầu tiên của dự án
+    </p>
+    <p v-show="$route.name === 'nha'" class="note">
+      * Giá Thị trường là giá bán trong thời điểm hiện tại
+    </p>
     <p class="note">
       * Thông tin trên mang tính chất tham khảo. Vui lòng liên hệ để biết thông tin mới nhất.
     </p>
@@ -75,7 +81,7 @@ h2:hover::before {
   color: var(--primary-color);
 }
 .note {
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   font: 0.8rem var(--default-font);
   color: var(--text-secondary-color);
 }

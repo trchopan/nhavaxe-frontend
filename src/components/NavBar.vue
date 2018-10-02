@@ -37,7 +37,7 @@ export default {
 .logo {
   width: 5rem;
   height: 2rem;
-  background: url("../assets/logo.png");
+  background: url("/logo.png");
   background-size: cover;
   transform: scale(1);
   transition: transform 150ms ease-in;

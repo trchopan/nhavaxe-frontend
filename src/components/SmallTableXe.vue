@@ -8,8 +8,8 @@
       :class="{ unbottom: i === list.length -1, shaded: i%2 === 0 }">
       <td class="model-cell">{{ data.model}}</td>
       <td class="brand-cell">{{ data.brand}}</td>
-      <td class="price-cell">{{ data.listPrice | parseZeroPrice }}</td>
-      <td>{{ data.salePrice | parseZeroPrice }}</td>
+      <td class="price-cell">{{ data.listPrice | parseNumber }}</td>
+      <td>{{ data.salePrice | parseNumber }}</td>
     </tr>
   </table>
 </template>

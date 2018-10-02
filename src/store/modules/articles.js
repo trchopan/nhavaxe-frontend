@@ -1,28 +1,28 @@
-import articlesApi from "@/api/articles.js";
+import * as ArticlesApi from "@/api/articles.js";
+import stubArticles from "@/api/stubArticles.js";
 import { logger } from "@/helpers.js";
 
 export const LOADING_TEXT = "loading...";
-const SPLIT_AMOUNT = 4;
+const ARTICLE_SPLIT = 4;
 const MAX_RELATE = 7;
 
-// Initial articleMeta
+// Initial setup
+const initData =
+  process.env.NODE_ENV !== "development"
+    ? window.__initialData__
+    : stubArticles;
 const initArticleMeta = {
   title: LOADING_TEXT,
   sapo: LOADING_TEXT
 };
 const initArticleBody = LOADING_TEXT;
 
-const initialArticleList = [];
-for (var i = 0; i < 20; i++) {
-  initialArticleList.push({ id: "article-init-" + i, ...initArticleMeta });
-}
-
 // initial state
 const state = {
   initialized: false,
-  articlesList: initialArticleList,
-  selectedArticleMeta: initArticleMeta,
-  selectedArticleBody: initArticleBody,
+  articlesList: initData.list,
+  selectedArticleMeta: initData.meta,
+  selectedArticleBody: initData.body,
   relatedList: [],
   loading: false,
   error: null
@@ -31,8 +31,8 @@ const state = {
 const getters = {
   articlesList: state => state.articlesList,
   firstArticle: state => state.articlesList.slice(0, 1)[0],
-  topArticles: state => state.articlesList.slice(1, SPLIT_AMOUNT),
-  remainArticles: state => state.articlesList.slice(SPLIT_AMOUNT),
+  topArticles: state => state.articlesList.slice(1, ARTICLE_SPLIT),
+  remainArticles: state => state.articlesList.slice(ARTICLE_SPLIT),
   selectedArticleMeta: state => state.selectedArticleMeta,
   selectedArticleBody: state => state.selectedArticleBody,
   relatedList: state => state.relatedList,
@@ -40,76 +40,75 @@ const getters = {
   error: state => state.error
 };
 
-const actions = {
-  flushArticles({ commit }) {
+const actions = deps => {
+  function flushArticles({ commit }) {
     commit("flushed");
-  },
-  fetchCatArticles({ commit, state, rootState }, categoryId) {
+  }
+
+  async function fetchCatArticles({ commit, state }, categoryId) {
     // Do nothing if state is loading
     if (state.loading) {
       return;
     }
 
-    let catId = categoryId || rootState.categories.selectedCat.id;
-
     logger("Fetching Articles...", catId);
     commit("loading");
 
     let arrayLength = state.articlesList.length;
-    let startAfter;
-    if (state.initialized) {
-      startAfter = state.articlesList[arrayLength - 1].publishAt;
-    } else {
-      startAfter = 0;
-    }
+    let startAfter =
+      arrayLength > 0 ? state.articlesList[arrayLength - 1].publishAt : 0;
+    let catId = categoryId || "ALL";
 
-    articlesApi.getArticlesList(
-      catId,
-      startAfter,
-      data => commit("articlesListChanged", data),
-      error => commit("errorCatched", error)
-    );
-  },
-  selectArticle({ dispatch, commit, state }, articleId) {
+    try {
+      const list = await deps.getArticlesList(
+        catId,
+        startAfter,
+        deps.articleParser
+      );
+
+      if (!list) throw { error: { code: "not-found" } };
+      commit("articlesListChanged", list);
+    } catch (error) {
+      commit("errorCatched", error);
+    }
+  }
+
+  async function selectArticle({ dispatch, commit }, articleId) {
     commit("loading");
     commit("clearArticleData");
-    let article = state.articlesList.find(x => x.id === articleId);
-    if (!article) {
-      logger("Cannot find article meta in store. Searching...", articleId);
-      articlesApi.getArticleMeta(
-        articleId,
-        data => {
-          commit("articleMetaFound", data);
-          dispatch("searchRelatedArticles", data.tags);
-        },
-        error => commit("errorCatched", error)
-      );
-    } else {
-      commit("articleMetaFound", article);
-      dispatch("searchRelatedArticles", article.tags);
+
+    try {
+      const article = await deps.getArticle(articleId, deps.articleParser);
+
+      if (!article) throw { error: { code: "not-found" } };
+      commit("articleMetaFound", article.meta);
+      commit("articleBodyFound", article.body);
+      dispatch("searchRelatedArticles", article.meta.tags);
+    } catch (error) {
+      commit("errorCatched", error);
     }
-    articlesApi.getArticleBody(
-      articleId,
-      data => commit("articleBodyFound", data),
-      error => commit("errorCatched", error)
-    );
-  },
-  searchRelatedArticles({ commit }, tags) {
-    articlesApi.getRelatedList(
-      tags,
-      data => commit("relatedArticlesFound", data),
-      error => commit("errorCatched", error)
-    );
   }
+
+  async function searchRelatedArticles({ commit }, tags) {
+    try {
+      const data = await deps.getRelatedList(tags);
+      commit("relatedArticlesFound", data);
+    } catch (error) {
+      commit("errorCatched", error);
+    }
+  }
+
+  return {
+    flushArticles,
+    fetchCatArticles,
+    selectArticle,
+    searchRelatedArticles
+  };
 };
 
 const mutations = {
   articlesListChanged(state, list) {
-    if (state.initialized) {
-      state.articlesList.push(...list);
-    } else {
-      state.articlesList = list;
-    }
+    state.articlesList.push(...list);
     state.loading = false;
     state.initialized = true;
     logger("Articles List changed", state.articlesList.length);
@@ -119,8 +118,7 @@ const mutations = {
     logger("Articles Loading");
   },
   flushed(state) {
-    state.initialized = false;
-    state.articlesList = initialArticleList;
+    state.articlesList = [];
     logger("Articles flushed");
   },
   clearArticleData(state) {
@@ -167,7 +165,6 @@ const mutations = {
     logger("Related Articles found", state.relatedList, true);
   },
   errorCatched(state, error) {
-    console.log("hellow", state.articlesList);
     state.error = error;
     state.loading = false;
     logger("Error catched", state.error, true);
@@ -178,6 +175,6 @@ export default {
   namespaced: true,
   state,
   getters,
-  actions,
+  actions: actions(ArticlesApi),
   mutations
 };

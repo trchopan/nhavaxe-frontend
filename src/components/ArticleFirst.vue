@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="article">
     <div class="cover-image">
       <router-link v-if="article.publishAt"
         :to="'/article/' + article.id">
@@ -51,14 +51,14 @@ export default {
       width: 100%;
       height: 100%;
       background-size: cover;
-      background-position: 23%;
+      background-position: 50%;
       transition: transform 0.2s ease-in;
     }
     .image:hover {
       transform: scale(1.03);
     }
     .image-loading {
-      background-image: url("../assets/image-placeholder.png");
+      background-image: url("/image-placeholder.png");
     }
   }
   div.info {

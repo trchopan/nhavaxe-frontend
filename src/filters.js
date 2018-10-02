@@ -38,9 +38,9 @@ export default {
       return "";
     }
   },
-  parseZeroPrice(value) {
+  parseNumber(value) {
     var val = typeof value === "string" ? parseInt(value, 10) : value;
-    if (val === 0) {
+    if (!val || val === 0) {
       return "-";
     } else {
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -54,6 +54,9 @@ export default {
     } else {
       return null;
     }
+  },
+  parseRedirectBannerId(bannerId) {
+    return process.env.VUE_APP_API + "/click/" + bannerId;
   },
   randomBanner(bannerList) {
     const randomIndex = Math.floor(Math.random() * bannerList.length);

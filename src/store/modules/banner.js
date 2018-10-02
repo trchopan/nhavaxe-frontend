@@ -48,7 +48,6 @@ const mutations = {
     logger("Banner Loading");
   },
   errorCatched(state, error) {
-    console.log("hellow", state.articlesList);
     state.error = error;
     state.loading = false;
     logger("Error catched", state.error, true);

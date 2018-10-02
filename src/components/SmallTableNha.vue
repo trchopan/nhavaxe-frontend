@@ -9,7 +9,7 @@
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
       <td class="progress-cell">{{ data.progress }}</td>
-      <td>{{ data.avgPrice | parseZeroPrice }}</td>
+      <td>{{ data.avgPrice | parseNumber }}</td>
     </tr>
   </table>
 </template>

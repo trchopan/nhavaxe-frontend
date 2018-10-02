@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const ApiUrl = "https://nhavaxe.vn/api/banner";
+const ApiUrl = process.env.VUE_APP_API + "/banner";
 
 function parseDoc(id, data) {
   return {

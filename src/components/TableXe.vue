@@ -31,24 +31,31 @@
     <th class="engine-header">Động cơ</th>
     <th class="torque-header">Mã lực</th>
     <th class="price-header">Giá niêm<br />yết (tr)</th>
-    <th class="price-header">Giá bán<br />(tr)</th>
-    <th class="publish-at-header">Đăng lúc</th>
+    <th class="price-header">Giá lăn bánh<br />(tr)</th>
+    <th class="contact-header">Liên hệ</th>
     <tr v-show="filteredList.length <= 0">
       <td colspan="10">
         Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
       </td>
     </tr>
-    <tr v-for="(data, i) in filteredList" :key="data.id"
-      :class="{ unbottom: i === list.length -1, shaded: i%2 === 0 }">
+    <tr v-for="(data, index) in filteredList" :key="'bang-gia-xe-' + index"
+      :class="{ unbottom: index === list.length -1, shaded: index%2 === 0 }"
+      @click="navigateLink(data.link)">
       <td class="model-cell">{{ data.model }}</td>
       <td class="brand-cell">{{ data.brand }}</td>
       <td class="type-cell">{{ data.type }}</td>
       <td class="origin-cell">{{ data.origin }}</td>
       <td class="engine-cell">{{ data.engine }}</td>
       <td class="torque-cell">{{ data.torque }}</td>
-      <td class="price-cell">{{ data.listPrice | parseZeroPrice }}</td>
-      <td class="price-cell">{{ data.salePrice | parseZeroPrice }}</td>
-      <td class="publish-at-cell">{{ data.publishAt | parseMonthYear }}</td>
+      <td class="price-cell-primary">{{ data.listPrice | parseNumber }}</td>
+      <td class="price-cell-secondary">{{ data.salePrice | parseNumber }}</td>
+      <td class="contacts-cell">
+        <span class="block"
+          v-for="(contact, i) in data.contacts"
+          :key="'contact-' + index + i" > 
+          {{ contact }}
+        </span>
+      </td>
     </tr>
   </table>
 </template>
@@ -98,6 +105,11 @@ export default {
           .filter((item, pos, arr) => !pos || item != arr[pos - 1]);
       });
       return filters;
+    }
+  },
+  methods: {
+    navigateLink(link) {
+      window.open(link, "_blank");
     }
   }
 };

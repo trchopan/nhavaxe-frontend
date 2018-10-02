@@ -1,7 +1,7 @@
 <template>
   <a v-if="banner"
     target="_blank"
-    :href="banner.link">
+    :href="banner.id | parseRedirectBannerId">
     <div class="sponsor-image"
       :style="'background-image: url(' + banner.contentLink + ');'">
     </div>
