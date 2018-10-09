@@ -26,6 +26,7 @@ export default {
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("bangGia/fetchBangGia");
     this.$store.dispatch("articles/fetchCatArticles");
+    // this.$store.dispatch("specials/fetchSpecials");
     this.$store.dispatch("banner/fetchBannersList");
     if (this.$route.name === "article") {
       this.$store.dispatch("articles/selectArticle", this.$route.params.id);
@@ -47,9 +48,9 @@ export default {
             scrollValues.scrollHeight - scrollValues.offsetHeight - 100 &&
           this.$route.path.split("/")[1] !== "bang-gia"
         ) {
-          this.$store.dispatch("articles/fetchCatArticles");
+          const catId = this.$store.state.categories.selectedCat.id;
+          this.$store.dispatch("articles/fetchCatArticles", catId);
         }
-        // this.$store.dispatch("layout/appScroll", scrollValues.scrollTop);
       }, 200);
     });
   },
@@ -94,6 +95,7 @@ export default {
   --primary-color-tint: #ffdfe0;
   --primary-background-tint: #f3e3e3;
   --secondary-color: #159cd8;
+  --secondary-color-tint: #cfedfa;
   --text-main-color: #000000;
   --text-accent-color: #ffffff;
   --text-secondary-color: #787878;

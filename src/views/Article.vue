@@ -1,7 +1,7 @@
 <template>
   <transition name="fade">
     <div class="article-container">
-      <BannerTop :banner="randomBanner(longTopBanners)" />
+      <BannerTop :banner="bannerTop" />
       <ArticleDetail />
       <RelatedList />
       <div class="grid-list">
@@ -9,7 +9,7 @@
           :articlesList="filteredArticlesList" />
         <div class="right-wrapper">
           <BannerRight :bannerList="shuffledRightBanners"/>
-          <BannerSticky :banner="randomBanner(stickyBanners)" />
+          <BannerSticky :banner="bannerSticky" />
         </div>
       </div>
     </div>
@@ -18,8 +18,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { common } from "@/mixins.js";
-import { shuffle } from "@/helpers.js";
+import { shuffle, randomBanner } from "@/helpers.js";
 import ArticleDetail from "@/components/ArticleDetail.vue";
 import ArticlesList from "@/components/ArticlesList.vue";
 import RelatedList from "@/components/RelatedList.vue";
@@ -29,6 +28,11 @@ import BannerSticky from "@/components/BannerSticky.vue";
 
 export default {
   name: "Article",
+  data() {
+    return {
+      updateFlag: Math.random()
+    };
+  },
   components: {
     ArticleDetail,
     RelatedList,
@@ -37,7 +41,10 @@ export default {
     BannerRight,
     BannerSticky
   },
-  mixins: [common],
+  beforeRouteUpdate(to, from, next) {
+    this.updateFlag = Math.random();
+    next();
+  },
   computed: {
     ...mapGetters({
       articleMeta: "articles/selectedArticleMeta",
@@ -55,7 +62,16 @@ export default {
       );
     },
     shuffledRightBanners() {
+      this.updateFlag;
       return shuffle(this.rightBanners);
+    },
+    bannerTop() {
+      this.updateFlag;
+      return randomBanner(this.longTopBanners);
+    },
+    bannerSticky() {
+      this.updateFlag;
+      return randomBanner(this.stickyBanners);
     }
   }
 };

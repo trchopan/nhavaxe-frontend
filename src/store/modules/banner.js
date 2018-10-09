@@ -1,8 +1,9 @@
 import bannersApi from "@/api/banner.js";
 import { logger } from "@/helpers.js";
 
-export const ArticleBannerInterval = 7;
+export const ArticleBannerInterval = 5;
 export const RelatedBannerInterval = 2;
+export const YoutubeAmount = 2;
 
 function filterByArea(list, value) {
   return list.filter(x => x.area === value);
@@ -22,7 +23,8 @@ const getters = {
   rightBanners: state => filterByArea(state.bannersList, "big-right"),
   stickyBanners: state => filterByArea(state.bannersList, "big-sticky"),
   relateBanners: state => filterByArea(state.bannersList, "small-relate"),
-  youtubeBanners: state => state.bannersList.filter(x => x.type === "youtube"),
+  youtubeBanners: state =>
+    state.bannersList.filter(x => x.type === "youtube").slice(0, YoutubeAmount),
   loading: state => state.loading,
   error: state => state.error
 };

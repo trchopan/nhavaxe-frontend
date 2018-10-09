@@ -10,7 +10,7 @@
           allowfullscreen></iframe>
       </div>
     </div>
-    <a v-if="banner.type === 'image'"
+    <a v-if="banner && banner.type === 'image'"
       target="_blank"
       :href="banner.id | parseRedirectBannerId">
       <div class="sponsor-image"

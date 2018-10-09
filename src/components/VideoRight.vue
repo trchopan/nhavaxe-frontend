@@ -11,6 +11,7 @@
         allow="autoplay; encrypted-media"
         allowfullscreen></iframe>
     </div>
+    <div></div>
   </div>
 </template>
 
@@ -45,7 +46,7 @@ export default {
   .youtube-container {
     position: relative;
     width: 100%;
-    height: 238px;
+    padding-bottom: 56.25%;
     margin-bottom: 7px;
   }
 }

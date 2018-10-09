@@ -4,11 +4,8 @@ const ApiUrl = process.env.VUE_APP_API + "/banner";
 
 function parseDoc(id, data) {
   return {
-    id: id,
-    contentLink: data.contentLink || "",
-    type: data.type || "",
-    link: data.link || "",
-    area: data.area || ""
+    ...data,
+    id: id
   };
 }
 

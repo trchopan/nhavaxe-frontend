@@ -9,11 +9,8 @@
 </template>
 
 <script>
-import { common } from "@/mixins";
-
 export default {
   name: "BannerSticky",
-  mixins: [common],
   props: {
     banner: Object
   }

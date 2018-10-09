@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <BannerTop :banner="randomBanner(longTopBanners)" />
+    <BannerTop :banner="bannerTop" />
     <h1>Bảng Giá</h1>
     <section class="selection">
       <router-link tag="h2" to="nha" replace active-class="active-nha">
@@ -28,18 +28,22 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { common } from "@/mixins.js";
+import { randomBanner } from "@/helpers";
 import BannerTop from "@/components/BannerTop.vue";
 
 export default {
   name: "BangGia",
-  mixins: [common],
   components: {
     BannerTop
   },
-  computed: mapGetters({
-    longTopBanners: "banner/longTopBanners"
-  })
+  computed: {
+    ...mapGetters({
+      longTopBanners: "banner/longTopBanners"
+    }),
+    bannerTop() {
+      return randomBanner(this.longTopBanners);
+    }
+  }
 };
 </script>
 

@@ -15,6 +15,12 @@ Developing by Chop Tr @choptr
 - [x] Align the banners to display evenly
 - [x] Different font on iphone
 
+### Oct 16 2018
+- [ ] New interface for Youtube videos
+
+### Oct 09 2018
+- [x] Implement Specials article module
+
 ### Sep 17 2018
 - [x] Show ads on the right hand side and in article list
 

@@ -49,8 +49,9 @@ export default {
   parseYoutubeLink(url) {
     var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#]*).*/;
     var match = url.match(regExp);
+    var embedOptions = "?controls=0&showinfo=0&modestbranding=1";
     if (match && match[7].length == 11) {
-      return "https://www.youtube.com/embed/" + match[7];
+      return "https://www.youtube.com/embed/" + match[7] + embedOptions;
     } else {
       return null;
     }

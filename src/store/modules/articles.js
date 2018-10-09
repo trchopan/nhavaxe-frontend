@@ -4,6 +4,7 @@ import { logger } from "@/helpers.js";
 
 export const LOADING_TEXT = "loading...";
 const ARTICLE_SPLIT = 4;
+const SPECIALS_SPLIT = 2;
 const MAX_RELATE = 7;
 
 // Initial setup
@@ -20,6 +21,8 @@ const initArticleBody = LOADING_TEXT;
 // initial state
 const state = {
   initialized: false,
+  specialsTitle: null,
+  specials: [],
   articlesList: initData.list,
   selectedArticleMeta: initData.meta,
   selectedArticleBody: initData.body,
@@ -29,13 +32,16 @@ const state = {
 };
 
 const getters = {
+  specialsTitle: state => state.specialsTitle,
+  specialsMain: state => state.specials.slice(0, SPECIALS_SPLIT),
+  specialsSub: state => state.specials.slice(SPECIALS_SPLIT),
   articlesList: state => state.articlesList,
   firstArticle: state => state.articlesList.slice(0, 1)[0],
   topArticles: state => state.articlesList.slice(1, ARTICLE_SPLIT),
   remainArticles: state => state.articlesList.slice(ARTICLE_SPLIT),
   selectedArticleMeta: state => state.selectedArticleMeta,
   selectedArticleBody: state => state.selectedArticleBody,
-  relatedList: state => state.relatedList,
+  relatedList: state => state.relatedList.slice(0, MAX_RELATE),
   loading: state => state.loading,
   error: state => state.error
 };
@@ -51,15 +57,21 @@ const actions = deps => {
       return;
     }
 
-    logger("Fetching Articles...", catId);
-    commit("loading");
-
     let arrayLength = state.articlesList.length;
     let startAfter =
       arrayLength > 0 ? state.articlesList[arrayLength - 1].publishAt : 0;
     let catId = categoryId || "ALL";
 
     try {
+      if (!state.initialized) {
+        logger("Fetching Specials...");
+        commit("loading");
+        const specials = await deps.getSpecials();
+        commit("specialsChanged", specials);
+      }
+
+      logger("Fetching Articles...", catId);
+      commit("loading");
       const list = await deps.getArticlesList(
         catId,
         startAfter,
@@ -67,7 +79,11 @@ const actions = deps => {
       );
 
       if (!list) throw { error: { code: "not-found" } };
-      commit("articlesListChanged", list);
+
+      const filteredList = list.filter(
+        item => !state.specials.find(x => x.id === item.id)
+      );
+      commit("articlesListChanged", filteredList);
     } catch (error) {
       commit("errorCatched", error);
     }
@@ -107,6 +123,12 @@ const actions = deps => {
 };
 
 const mutations = {
+  specialsChanged(state, specials) {
+    state.specialsTitle = specials.title;
+    state.specials = specials.articles;
+    state.loading = false;
+    logger("Specials changed", state.specials);
+  },
   articlesListChanged(state, list) {
     state.articlesList.push(...list);
     state.loading = false;
@@ -158,8 +180,7 @@ const mutations = {
       }, [])
       .sort((a, b) => b.publishAt - a.publishAt)
       .sort((a, b) => b.relevant - a.relevant)
-      .filter(x => x.id != state.selectedArticleMeta.id)
-      .slice(0, MAX_RELATE);
+      .filter(x => x.id != state.selectedArticleMeta.id);
 
     state.relatedList = result;
     logger("Related Articles found", state.relatedList, true);

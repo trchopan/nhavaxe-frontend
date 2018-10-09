@@ -1,7 +1,7 @@
 <template>
   <div class="home-container">
     <section>
-      <BannerTop :banner="randomBanner(longTopBanners)" />
+      <BannerTop :banner="bannerTop" />
     </section>
     <section class="grid-top">
       <ArticleFirst :article="firstArticle"/>
@@ -14,7 +14,7 @@
       <div class="right-wrapper">
         <VideoRight />
         <BannerRight :bannerList="shuffledRightBanners" />
-        <BannerSticky :banner="randomBanner(stickyBanners)" />
+        <BannerSticky :banner="bannerSticky" />
       </div>
     </section>
   </div>
@@ -22,8 +22,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import { common } from "@/mixins.js";
-import { shuffle } from "@/helpers.js";
+import { shuffle, randomBanner } from "@/helpers";
 import ArticleFirst from "@/components/ArticleFirst.vue";
 import ArticlesTop from "@/components/ArticlesTop.vue";
 import ArticlesList from "@/components/ArticlesList.vue";
@@ -35,7 +34,6 @@ import VideoRight from "@/components/VideoRight.vue";
 
 export default {
   name: "Home",
-  mixins: [common],
   components: {
     ArticleFirst,
     ArticlesTop,
@@ -58,6 +56,12 @@ export default {
     }),
     shuffledRightBanners() {
       return shuffle(this.rightBanners);
+    },
+    bannerTop() {
+      return randomBanner(this.longTopBanners);
+    },
+    bannerSticky() {
+      return randomBanner(this.stickyBanners);
     }
   },
   mounted() {

@@ -1,6 +1,6 @@
 {
   "name": "nhavaxe-frontend",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Front page for website nhavaxe.vn",
   "keywords": "nhavaxe.vn frontend website",
   "licience": "MIT",
@@ -8,10 +8,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build && npm run cp:index && npm run remove:index",
+    "build": "vue-cli-service build && npm run cp:index",
     "cp:index": "cp dist/index.html ~/Documents/nhavaxe-functions/functions/src/express-api/index.html.ts",
     "remove:index": "rm -f dist/index.html",
-    "deploy:publish": "firebase deploy --only hosting:nhavaxe-publish",
+    "deploy:publish": "npm run remove:index && firebase deploy --only hosting:nhavaxe-publish",
     "deploy:demo": "firebase deploy --only hosting:nhavaxe-demo",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit --verbose"

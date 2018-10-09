@@ -1,343 +1,343 @@
 export default {
   meta: {
-    sapo:
-      "Cầu thang là một trong những yếu tố thường bị bỏ qua trong trang trí nhà.",
-    tags: ["nội thất", "trang trí", "kiến trúc", "nhà đẹp"],
-    id: "bwmflF69lhoRJsMLql0V",
-    title: "Những ý tưởng trang trí mới lạ cho cầu thang nhà bạn",
+    id: "UDhWMN9CqJnEOtkpYwzI",
     coverImg:
-      "https://vatlieuxaydung.org.vn/Upload/48/Nam_2018/Thang_9/Ngay_27/vlxd_org_trangtri1.jpg",
-    publishAt: 1538225700000,
-    categoryId: "JfDm8uW3Bgt3GdHhmxnF",
-    publisher: "VLXD",
-    reference: "PV",
-    categoryName: "Vật liệu xây dựng"
+      "http://cafefcdn.com/thumb_w/650/2018/10/8/photo1538959180666-1538959180668211259195.jpeg",
+    title: "TP.HCM bố trí tạm cư để di dời chung cư 155-157 Bùi Viện quận 1",
+    sapo:
+      "Sở Xây dựng TP.HCM vừa đề xuất UBND TP.HCM cho UBND quận 1 sử dụng hàng trăm căn chung cư, thuộc sở hữu Nhà nước trên địa bàn TP.HCM để di dời các hộ dân quận 1 đang sống trong các chung cư xuống cấp về tạm cư.\n",
+    video: null,
+    style: "article",
+    categoryId: "RWTkmXHmJca6Zap12f87",
+    categoryName: "Bất động sản",
+    publisher: "Trí thức trẻ",
+    reference: "Nam Phong",
+    publishAt: 1538979360000,
+    tags: ["chung cư", "di dời", "tphcm", "xuống cấp"]
   },
-  body: "asdf;oagnar;ignso;glndo;ivnsfo;gngi;ugna;fn",
+  body:
+    '<p><img src="http://cafefcdn.com/thumb_w/650/2018/10/8/photo1538959180666-1538959180668211259195.jpeg">Theo Sở Xây dựng,&nbsp;Quận 1 đang có nhiều chung cư đã xuống cấp, cần di dời người dân để sửa chữa, chỉnh trang đô thị. Cụ thể, chung cư số 155-157 Bùi Viện có tổng diện tích đất 592m2, quy mô 7 tầng.&nbsp;</p><p>Theo kết luận kiểm định, chung cư này có chất lượng cấp D, loại công trình nguy hiểm, cần di dời. Chung cư 300 Bến Chương Dương (nay là số 518 Võ Văn Kiệt), phường Cầu Kho có 5 lô A, B, C, D, E. Trong đó, lô E có 36 hộ dân, đang bị nghiêng, lún....</p><p>Vì vậy, UBND quận 1 kiến nghị UBND TP.HCM xem xét, chấp thuận cho sử dụng 29 căn hộ thuộc quỹ nhà tạm cư của chung cư 23 Lý Tự Trọng quận 1, chung cư 128 Hai Bà Trưng và chung cư Cô Giang để tạm cư cho dân.</p><p>UBND quận 1 cũng kiến nghị Sở Xây dựng lấy 32 căn chung cư Phú Mỹ quận 7 và 35 căn chung cư xã Vĩnh Lộc B, huyện Bình Chánh để quận 1 di dời khấn cấp các hộ dân tại chung cư số 155-157 Bùi Viện về tạm cư.</p><p>Ngoài ra, Sở Xây dựng đề xuất UBND TP.HCM bố trí các căn hộ tạm cư gồm 14 căn tại chung cư 212 Nguyễn Trãi quận 1, 12 căn tại chung cư 360C Bến Vân Đồn quận 4, 3 căn chung cư số 1 Tôn Thất Thuyết quận 4, 5 căn tại chung cư Phạm Viết Chánh quận Bình Thạnh, 7 căn tại chung cư 203 Nguyễn Trãi quận 1, 1 căn tại chung cư 207 Bùi Viện quận 1, 32 căn tại chung cư phường 22 quận Bình Thạnh và 100 căn tại chung cư Vĩnh Lộc B, huyện Bình Chánh. Tổng cộng 174 căn.</p><p>Nếu người dân không đồng ý tạm cư tại quỹ nhà nêu trên, TP.HCM sẽ chi tiền để người dân tự lo nơi ở mới để đảm bảo an toàn tính mạng, tài sản của người dân. Sau đó mới bố trí tái định cư cho các dự án chỉnh trang đô thị.</p>',
   list: [
     {
-      sapo:
-        "Cầu thang là một trong những yếu tố thường bị bỏ qua trong trang trí nhà.",
-      tags: ["nội thất", "trang trí", "kiến trúc", "nhà đẹp"],
-      id: "bwmflF69lhoRJsMLql0V",
-      style: "picture",
-      title: "Những ý tưởng trang trí mới lạ cho cầu thang nhà bạn",
-      video: null,
-      coverImg:
-        "https://vatlieuxaydung.org.vn/Upload/48/Nam_2018/Thang_9/Ngay_27/vlxd_org_trangtri1.jpg",
-      publishAt: 1538225700000,
-      categoryId: "JfDm8uW3Bgt3GdHhmxnF",
-      publisher: "VLXD",
-      reference: "PV",
-      categoryName: "Vật liệu xây dựng"
-    },
-    {
-      tags: ["trẻ", "làm việc", "doanh nghiệp"],
-      id: "NbnD3vXnSHu9ZwVVbnmG",
-      style: "article",
-      title:
-        "Lời khuyên đáng suy ngẫm mà chuyên gia quản trị doanh nghiệp gửi tới người trẻ đang tìm việc làm",
-      video: null,
-      coverImg:
-        "http://cafefcdn.com/zoom/650_413/2018/9/26/photo1537897484735-1537897484735415819210.jpg",
-      publishAt: 1538218800000,
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      publisher: "CNBC/Trí Thức Trẻ",
-      reference: "Anh Thơ",
-      categoryName: "Info Money",
-      sapo:
-        'Những người đi tìm việc làm luôn quan tâm đến tương lai của bản thân bằng việc trả lời câu hỏi: "Bạn thấy mình ở đâu trong 5 năm nữa?". Tuy nhiên, chuyên gia quản trị doanh nghiệp, tác giả nổi tiếng của những đầu sách bán chạy Suzy Welch cho rằng có một yếu tố quan trọng khác trong việc lập kế hoạch cho tương lai mà ngày nay rất nhiều bạn trẻ có thể bỏ qua hoàn toàn.'
-    },
-    {
-      publisher: "Dân trí",
-      reference: "PV",
-      categoryName: "Vật liệu xây dựng",
-      sapo:
-        "Các trào lưu kiến trúc hiện đại như high – tech, tối giản, kiến trúc xanh… nhanh chóng được “cập nhật” ở Việt Nam. Kéo theo đó là xu hướng sử dụng vật liệu xây dựng mới, đặc biệt phải kể tới keo dán gạch.",
-      tags: ["gạch", "kiến trúc", "hiện đại"],
-      id: "yz9kpcf8uACgukP0mqWS",
-      style: "article",
-      title: "Vai trò của keo dán gạch trong kiến trúc hiện đại",
-      video: null,
-      coverImg:
-        "https://vatlieuxaydung.org.vn/Upload/48/Nam_2018/Thang_9/Ngay_26/vlxd_org_keodangach1.jpg",
-      publishAt: 1538211060000,
-      categoryId: "JfDm8uW3Bgt3GdHhmxnF"
-    },
-    {
-      coverImg:
-        "https://image.tinnhanhchungkhoan.vn/w660/Uploaded/2018/nau-cubgbfubc/2017/nhan-dinh/8/195_fclb.jpg",
-      publishAt: 1538208000000,
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      publisher: "PetroTimes",
-      reference: "T.T",
-      categoryName: "Info Money",
-      sapo:
-        "Diễn biến rung lắc của thị trường khi tiếp cận những ngưỡng kháng cự cao hơn khiến nhiều cổ phiếu được đưa ra khuyến nghị mua giao dịch không được như kỳ vọng. Cùng Đầu tư Chứng khoán nhìn lại nhận định của các công ty chứng khoán về cổ phiếu cần quan tâm trong tuần qua.",
-      tags: ["chứng khoán", "cổ phiếu", "thị trường", "kinh doanh"],
-      id: "0uS2GlDp7yuViRIBTcn7",
-      style: "article",
-      title: "Diễn biến cổ phiếu cần quan tâm tuần qua",
-      video: null
-    },
-    {
-      tags: ["toyota camry", "phá hoại", "tài sản", "hà nội"],
-      id: "lMnokyUN2w7sA7VkVuFS",
-      style: "article",
-      title:
-        "Đi sai chiều, còn lén trả thù bằng cách… cào xước toàn bộ xe Camry",
-      video: null,
-      coverImg: "https://vnn-imgs-f.vgcloud.vn/2018/09/29/10/tra-thu-ava.jpg",
-      publishAt: 1538202420000,
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "An ninh thủ đô",
-      reference: "PV",
-      categoryName: "Xe 360 độ",
-      sapo:
-        "Chiều tối 28-9-2018, một vụ phá hoại tài sản gây bức xúc đã xảy ra ở phường Yên Sở (quận Hoàng Mai, Hà Nội). "
-    },
-    {
-      tags: ["kinh tế", "doanh nghiệp", "thuế", "hạ tầng", "xuống cấp"],
-      id: "qF7UydgtAzwhJ3uV4LEU",
-      style: "picture",
-      title: "Đồng loạt tháo chạy khỏi miền đất siêu xe, đám cưới triệu USD",
-      video: null,
-      coverImg:
-        "https://vnn-imgs-f.vgcloud.vn/2018/09/23/15/khu-kinh-te-cua-khau-dong-bang-14.jpg",
-      publishAt: 1538201220000,
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      publisher: "Vietnamnet",
-      reference: "Quang Thành - Lê Minh",
       categoryName: "Bất động sản",
       sapo:
-        ' - Các khu kinh tế cửa khẩu dọc miền Trung từng một thời hoàng kim với hàng loạt cơ chế ưu đãi từ Chính phủ. Nếu trước đó, nhà đầu tư “trống dong cờ mở” ồ ạt đổ vốn vào đây thì nay lặng lẽ rút dần khỏi "miền đất hứa”.'
+        "Sở Xây dựng TP.HCM vừa đề xuất UBND TP.HCM cho UBND quận 1 sử dụng hàng trăm căn chung cư, thuộc sở hữu Nhà nước trên địa bàn TP.HCM để di dời các hộ dân quận 1 đang sống trong các chung cư xuống cấp về tạm cư.\n",
+      tags: ["chung cư", "di dời", "tphcm", "xuống cấp"],
+      id: "UDhWMN9CqJnEOtkpYwzI",
+      style: "article",
+      title: "TP.HCM bố trí tạm cư để di dời chung cư 155-157 Bùi Viện quận 1",
+      video: null,
+      coverImg:
+        "http://cafefcdn.com/thumb_w/650/2018/10/8/photo1538959180666-1538959180668211259195.jpeg",
+      publishAt: 1538979360000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Trí thức trẻ",
+      reference: "Nam Phong"
     },
     {
+      style: "article",
+      title:
+        "“Sập bẫy” đầu tư cà phê, siêu thị, nhà hàng, hàng trăm người mất tiền",
+      video: null,
+      coverImg:
+        "https://image.tinnhanhchungkhoan.vn/w660/Uploaded/2018/gtnwae/2018_10_06/zzzxl-luadao_jojx.jpg",
+      publishAt: 1538978940000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Tin nhanh chứng khoán",
+      reference: "Bùi Trang",
+      categoryName: "Info Money",
+      sapo:
+        "Bị thu hút bởi quảng cáo mức lợi nhuận lên tới 24 - 80%/tháng khi góp vốn vào Công ty Phúc Gia Bảo 68, Công ty Phúc Gia Bảo 868, hàng trăm người bị sập bẫy lừa. ",
+      tags: ["đầu tư", "lừa đảo", "tài sản"],
+      id: "OfiQTo8x4iVreiqqCWex"
+    },
+    {
+      sapo:
+        "Giá dầu thế giới ngày 8/10 ghi nhận giá dầu WTI giảm mạnh dưới mức 74 USD/thùng và dầu brent xuống sau dưới ngưỡng 84 USD/thùng.",
+      tags: ["giá", "xăng dầu", "thế giới"],
+      id: "l07O6lzYUr6IopgISUHW",
+      style: "article",
+      title: "Giá dầu thế giới 8/10: Giá dầu đồng loạt quay đầu giảm mạnh",
+      video: null,
+      coverImg:
+        "https://petrotimes.vn/stores/news_dataimages/thanhngoc/102018/08/08/1316_5916_oil-down.jpg",
+      publishAt: 1538978400000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
       publisher: "PetroTimes",
       reference: "Hà Lê",
-      categoryName: "Info Money",
-      sapo:
-        "Giá dầu thế giới ngày 29/9 tiếp tục được hỗ trợ tăng mạnh sau thông tin Trung Quốc giảm nhập khẩu dầu từ Iran.",
-      tags: ["giá", "xăng dầu", "thế giới"],
-      id: "o2QcoeLkMHvx7vIBp0ZQ",
-      style: "article",
-      title: "Giá dầu thế giới 29/9: Giá dầu WTI vượt xa ngưỡng 73 USD/thùng",
-      video: null,
-      coverImg:
-        "https://petrotimes.vn/stores/news_dataimages/thanhngoc/092018/29/07/2342_shutterstock_353371859-730x400_3.jpg",
-      publishAt: 1538200800000,
-      categoryId: "iqs4rjIm4vsOsckd8ETf"
+      categoryName: "Info Money"
     },
     {
-      sapo:
-        "Chiếc xe được người đẹp quảng cáo là còn rất mới. Quãng đường mà chiếc Porsche đã lăn bánh mới chỉ vượt qua mức 10.000 km đầu tiên.",
-      tags: ["bán xe", "porsche", "lỗ"],
-      id: "jT0pnCFwB4nb2DzpXEk9",
-      style: "picture",
-      title:
-        'Người đẹp Diệp Lâm Anh nói: "Lỗ như ngất đi" khi rao bán Porsche Panamera 2018 chạy lướt',
-      video: null,
-      coverImg:
-        "https://autopro56.mediacdn.vn/zoom/640_400/2018/9/28/photo1538134100054-1538134100054223269375.jpg",
-      publishAt: 1538200620000,
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "Trí thức trẻ",
-      reference: "Hoàng Tuân",
-      categoryName: "Xe 360 độ"
-    },
-    {
-      sapo:
-        "Nhà phân phối xe BMW Thaco Trường Hải vừa công bố giá bán cho mẫu xe BMW X2, khởi điểm từ 2,139 tỷ đồng. Mức giá này hiện cao hơn gần 540 triệu đồng so với đối thủ cạnh tranh Audi Q2.",
-      tags: ["audi", "bmw", "đánh giá"],
-      id: "dQLuJxdjYEYHap82jtTu",
-      style: "article",
-      title:
-        "Đắt hơn đối thủ Audi Q2 hơn nửa tỷ đồng, cơ hội nào cho 'kẻ đến sau' BMW X2",
-      video: null,
-      coverImg:
-        "http://img.vietnamfinance.vn/thumbs/700x0/upload/news/ledinhnga/2018/9/28/1581-1538122256970342366550.jpg",
-      publishAt: 1538198820000,
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "VietnamFinance",
-      reference: "Lê Ngà ",
-      categoryName: "Xe 360 độ"
-    },
-    {
-      coverImg:
-        "https://znews-photo-td.zadn.vn/w660/Uploaded/fsmuy/2018_09_29/Vinfast_SUV34fronte_Composite_defedit_1.jpg",
-      publishAt: 1538198700000,
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "Zing",
-      reference: "Minh Toàn",
-      categoryName: "Xe 360 độ",
-      sapo:
-        "Xe Vinfast sẽ sử dụng động cơ BMW N20, sử dụng khung gầm BMW X5 và 5-Series, do đó mẫu SUV sẽ có 7 chỗ còn mẫu sedan là 5 chỗ.",
-      tags: ["vinfast", "ô tô", "bmw"],
-      id: "3wot2vdTuKhT7cG69Q0s",
-      style: "article",
-      title: "Ôtô Vinfast trước ngày ra mắt - động cơ 2.0L, mẫu SUV có 7 chỗ",
-      video: null
-    },
-    {
-      coverImg:
-        "https://images.kienthuc.net.vn/uploaded/ctvkinhdoanh/2018_09_28/tai-sao-mai-chua-giai-phong-mat-bang-san-bay-long-thanh.jpg",
-      publishAt: 1538198460000,
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      publisher: "Kiến thức",
-      reference: "Thiên Minh",
+      publisher: "Đầu tư Bất động sản",
+      reference: "Gia Huy",
       categoryName: "Bất động sản",
       sapo:
-        "Dù Quốc hội đã thông qua, nhưng đến nay việc giải phóng mặt bằng sân bay Long Thành vẫn còn rất chậm. Bộ GTVT cho biết, trong tháng 10/2018, sẽ trình lên Chính phủ phương án giải phóng mặt bằng dự án này.",
-      tags: ["sân bay", "sân bay long thành", "mặt bằng"],
-      id: "cQtlXDfDs5ubyBIFeE1P",
+        "Xin thuê đất xây dựng trụ sở để làm việc, Công ty cổ phần Tư vấn đầu tư Xây dựng Giao thông tỉnh Bà Rịa - Vũng Tàu (TDC) lại sử dụng để triển khai dự án trụ sở kết hợp căn hộ chung cư để bán mang tên Ruby Tower.",
+      tags: ["vũng tàu", "dự án", "trục lợi"],
+      id: "POYxVAWljYFeT89ZOeKA",
       style: "picture",
-      title: "Tại sao mãi chưa giải phóng mặt bằng sân bay Long Thành?",
-      video: null
-    },
-    {
-      sapo:
-        "Tại cuộc họp báo quý III/2018 của ngày 28.9 của  Bộ GTVT, Bộ GTVT đã thông tin về đề xuất nâng độ tuổi máy bay vận chuyển hành khách từ 20 năm lên 25 năm, máy bay chở hàng từ 25 năm lên 30 năm cũng như nhiều vấn đề nóng đang được dư luận quan tâm.  ",
-      tags: ["máy bay", "xuống cấp", "sân bay"],
-      id: "KpmnNQeuexraaVNrIZ65",
-      style: "article",
-      title: "Đề xuất tăng tuổi “nghỉ hưu” của máy bay ",
+      title:
+        "Nghi vấn Công ty TDC biến đất thuê xây trụ sở thành dự án chung cư",
       video: null,
       coverImg:
-        "http://baovanhoa.vn/Portals/0/EasyDNNNews/thumbs/11330/14764m%C3%A1y-bay.jpg",
-      publishAt: 1538197140000,
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "Báo văn hóa",
-      reference: "Hoàng Anh",
-      categoryName: "Xe 360 độ"
-    },
-    {
-      publisher: "Zing",
-      reference: "Nhóm Phóng viên",
-      categoryName: "Bất động sản",
-      sapo:
-        "Liên tiếp phát hiện Mường Thanh xây dựng trái phép nhưng các cơ quan chức năng TP Đà Nẵng vẫn chưa thể cưỡng chế, tháo dỡ các hạng mục sai phạm.",
-      tags: ["sai phạm", "công trình", "đà nẵng"],
-      id: "CVcuKZAwNIAJYtuSYgh0",
-      style: "article",
-      title: "Vì sao chưa xử lý công trình sai phạm của Mường Thanh ở Đà Nẵng?",
-      video: null,
-      coverImg:
-        "https://znews-photo-td.zadn.vn/w660/Uploaded/Sotntb/2017_05_15/Anh_2_gui_zing_1.jpg",
-      publishAt: 1538196480000,
+        "https://image.tinnhanhchungkhoan.vn/w660/uploaded/ngoctuanz/2018_10_06/9/09_wdlv.jpg",
+      publishAt: 1538975400000,
       categoryId: "RWTkmXHmJca6Zap12f87"
     },
     {
-      tags: ["tỷ giá", "ngoại tệ", "usd", "euro"],
-      id: "KkJOLulzG9fC1xljcaDX",
-      style: "article",
-      title: "Tỷ giá ngoại tệ ngày 29/9: USD tăng, Euro xuống mức thấp",
+      title: "Tỷ giá ngoại tệ ngày 8/10: USD giảm, Bảng Anh tăng",
       video: null,
       coverImg:
-        "https://vnn-imgs-f.vgcloud.vn/2018/09/21/18/ty-gia-ngoai-te-ngay-22-9-usd-tang-nhe-yen-nhat-giam.jpg",
-      publishAt: 1538195400000,
+        "https://vnn-imgs-f.vgcloud.vn/2018/10/05/18/ty-gia-ngoai-te-ngay-6-10-usd-tang-muc-cao-nhat-10-tuan.jpg",
+      publishAt: 1538973000000,
       categoryId: "iqs4rjIm4vsOsckd8ETf",
       publisher: "Vietnamnet",
       reference: "Nam Hải",
       categoryName: "Info Money",
       sapo:
-        "Tỷ giá ngoại tệ ngày 29/9 tăng trong khi đồng euro giảm xuống mức thấp nhất hai tuần qua."
+        "Tỷ giá ngoại tệ ngày 8/10 tăng lên mức cao nhất 10 tuần trước dữ liệu việc làm được công bố tác động tới tăng lãi suất của Fed.",
+      tags: ["tỷ giá", "ngoại tệ", "usd"],
+      id: "nnxVgyRT6Ra4emAge8GJ",
+      style: "article"
     },
     {
       sapo:
-        "Piaggio đã chính thức đưa mẫu xe ga Aprilia SR 150 về đại lý với giá bán hấp dẫn nhưng vẫn có các trang bị khá ổn.",
-      tags: ["piaggio", "xe tay ga", "giá rẻ"],
-      id: "uylyXT5OiqGuZ3YSQodK",
+        "Hiện nay, với tầm giá 500 triệu đồng, các khách hàng Việt có rất nhiều lựa chọn mua xe ôtô, trong đó Hyundai Grand i10 hoặc Mercedes-Benz C200 đời cũ. Cả hai mẫu xe đáng để bạn “xuống tiền”.",
+      tags: ["mercedes benz", "hyundai", "so sánh", "đánh giá"],
+      id: "6u0GjxaOJ7btNO6ajNXK",
       style: "picture",
-      title: "2018 Aprilia SR 150 chính thức về đại lý, giá 22,7 triệu đồng",
+      title: "Mua Mercedes C200 cũ hay Hyundai i10 mới với 500 triệu?",
       video: null,
       coverImg:
-        "http://streaming1.danviet.vn/upload/3-2018/images/2018-09-28/2018-Aprilia-SR-150-chinh-thuc-ve-dai-ly-gia-227-trieu-dong-ap1-1538101206-width660height495.jpg",
-      publishAt: 1538194740000,
+        "https://images.kienthuc.net.vn/uploaded/nguyenanhtuan/2018_10_08/tin/mua-mercedes-c200-cu-hay-hyundai-i10-moi-voi-500-trieu.jpg",
+      publishAt: 1538971560000,
       categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "Dân Việt",
-      reference: "Vân Long ",
+      publisher: "Kiến thức",
+      reference: "Thảo Nguyễn",
       categoryName: "Xe 360 độ"
     },
     {
-      coverImg: "https://ss-images.catscdn.vn/2018/09/28/3729992/bien-so.jpg",
-      publishAt: 1538194380000,
+      coverImg:
+        "http://cdn.baogiaothong.vn/files/tung.le/2018/10/08/082508-xe-kia-morning-si.jpg",
+      publishAt: 1538971260000,
       categoryId: "3WYMgrmpfuLornXzAnnY",
-      publisher: "Saostar",
-      reference: "An Nhiên",
+      publisher: "Báo giao thông",
+      reference: "Minh Anh",
       categoryName: "Xe 360 độ",
       sapo:
-        "Thực sự nghe xong câu phán thì chủ nhân tấm biển hay bất cứ ai cũng phải hoang mang dù chưa biết thật giả thế nào!\n\n",
-      tags: ["biển số", "tuyệt đẹp"],
-      id: "gHKgeGYc6wmj3sxeK3nL",
-      style: "article",
-      title:
-        "Bấm được biển số đẹp, thanh niên phấn khích khoe cả thiên hạ, ai ngờ tiu nghỉu vì gặp đúng 'thánh phán'",
+        "Hiện tại, mẫu xe có giá thấp nhất của Kia vẫn là Morning, có giá bán từ 290 - 390 triệu đồng.\n",
+      tags: ["kia", "bảng giá", "ô tô"],
+      id: "d74T5FSLNrLYiLv7irX8",
+      style: "picture",
+      title: "Bảng giá ô tô Kia tháng 10/2018: Thấp nhất 290 triệu đồng",
       video: null
     },
     {
-      reference: "Bùi Yên",
-      categoryName: "Bất động sản",
+      reference: "Nam Hải",
+      categoryName: "Info Money",
       sapo:
-        "Ký hợp đồng mua bán đất, nhận 2 tỷ 50 triệu đồng từ người mua, anh T.V.L (SN 1973, ngụ quận Gò Vấp) cùng vợ chạy xe máy về nhà. Giữa đường, họ bị một đối tượng đi xe máy tiếp cận, giật giỏ tiền rồi tẩu thoát. Công an quận Gò Vấp cho biết đã tiếp nhận trình báo của nạn nhân.",
-      tags: ["bán đất", "tphcm", "trộm cắp"],
-      id: "M5XUedi2vJRednRicXSc",
+        "Giá vàng hôm nay 8/10 tăng trong bối cảnh đồng đô la sụt giảm sau khi báo cáo về bảng lương phi nông nghiệp được công bố.",
+      tags: ["giá", "vàng", "doji sjc"],
+      id: "PG3vH2Zi18FpE0MlFR0E",
       style: "article",
-      title: "TP Hồ Chí Minh: Bị cướp hơn 2 tỷ trên đường bán đất về",
+      title: "Giá vàng hôm nay 8/10: Vượt ngưỡng 1.200 USD/ounce",
       video: null,
       coverImg:
-        "http://image.baophapluat.vn/w620/Uploaded/2018/athlraqhpghat/2018_09_29/mat_tien_wwgm.jpg",
-      publishAt: 1538193900000,
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      publisher: "Báo pháp luật "
+        "https://vnn-imgs-f.vgcloud.vn/2018/07/29/15/gia-vang-hom-nay-30-7-vang-tuong-lai-giam.jpg",
+      publishAt: 1538970960000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Vietnamnet"
     },
     {
-      tags: ["đất xanh", "chung cư", "tranh chấp"],
-      id: "LUUdp0pzRcenFv2S4U4V",
+      tags: ["tranh chấp", "chủ đầu tư", "bình chánh"],
+      id: "fn8nmoH0K9QpfFFR9Ee9",
       style: "article",
-      title: "Đại gia Sài Gòn bị bao vây đòi món nợ gần 40 tỷ",
+      title: "Dân Sài Gòn dọa “bao vây” đại gia địa ốc",
       video: null,
-      coverImg: "https://vnn-imgs-f.vgcloud.vn/2018/09/29/07/luxgarden-1.jpg",
-      publishAt: 1538193060000,
+      coverImg:
+        "https://vnn-imgs-f.vgcloud.vn/2018/10/07/09/dan-sai-gon-doa-bao-vay-dai-gia-dia-oc.jpg",
+      publishAt: 1538970900000,
       categoryId: "RWTkmXHmJca6Zap12f87",
-      publisher: "VietnamNet",
+      publisher: "Vietnamnet",
       reference: "Mạnh Đức",
       categoryName: "Bất động sản",
       sapo:
-        "Sáng 28/9, hàng trăm công nhân từng thi công chung cư LuxGarden, tụ tập trước trụ sở Đất Xanh, căng băng rôn đề nghị Tập đoàn này thanh toán lương công nhân và vật tư. Tuy nhiên, đại diện Đất Xanh cho rằng họ đã hoàn tất nghĩa vụ thanh toán cho nhà thầu chính."
+        "Nếu Intresco tiếp tục kéo dài việc thực hiện dự án, khách hàng sẽ đến văn phòng công ty này để căng băng rôn, biểu ngữ. Điều này không phải gây mất trật tự, mà là khách hàng bức xúc do công ty chưa thực hiện dự án."
     },
     {
+      reference: "Hoàng Minh",
+      categoryName: "Bất động sản",
       sapo:
-        "Giá vàng hôm nay 29/9 phục hồi mạnh bất chấp đồng USD tiếp tục đi lên do những lo ngại trong dài hạn, nền kinh tế Mỹ sẽ chịu nhiều tác động tiêu cực từ cuộc chiến thương mại Mỹ - Trung.",
-      tags: ["giá", "vàng", "doji sjc"],
-      id: "WaNk1G5JrhZG0vwf0hhU",
-      style: "article",
-      title:
-        "Giá vàng hôm nay 29/9: Cuộc chiến thương mại leo thang kéo giá vàng thế giới tăng phi mã",
+        "Trước khi bị ngân hàng PVcomBank siết nợ, chủ đầu tư dự án Tokyo Tower từng bị khách hàng tố tự ý thay đổi thiết kế, màu sơn, vật liệu xây dựng và chậm bàn giao nhà.\n",
+      tags: ["landmark", "cao ốc", "nợ"],
+      id: "u6o7gp4I32rURCOAfuGZ",
+      style: "picture",
+      title: "Tòa nhà cao thứ 3 Hà Nội bị siết nợ từng dính 'lùm xùm' gì?",
       video: null,
       coverImg:
-        "https://petrotimes.vn/stores/news_dataimages/thanhngoc/082016/10/09/gia-vang-sang-109-vang-sjc-dot-ngot-tang-manh.jpg",
-      publishAt: 1538192460000,
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      publisher: "PetroTimes",
-      reference: "Minh Ngọc",
-      categoryName: "Info Money"
+        "https://photo-1-baomoi.zadn.vn/w1000_r1/2018_10_08_180_28058805/928572241662ff3ca673.jpg",
+      publishAt: 1538970360000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Kiến thức"
     },
     {
+      coverImg:
+        "https://znews-photo-td.zadn.vn/w660/Uploaded/fsmuy/2018_10_08/ToyotaAlphard35_Ext1_1.jpg",
+      publishAt: 1538970120000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Zing",
+      reference: "Thế Anh",
+      categoryName: "Xe 360 độ",
       sapo:
-        "8 tháng đầu năm 2018 các doanh nghiệp Việt Nam đã xuất khẩu hơn 230.000 tấn sản phẩm ống thép các loại, trong đó riêng Tập đoàn Hòa Phát đã xuất khẩu 11.800 tấn, tăng tới 59,4% so với cùng kỳ.",
-      tags: ["thép", "xuất khẩu", "tăng trưởng"],
-      id: "SASojmTKvvzSDIM31tbe",
+        " Mẫu MPV hạng sang của Toyota thay đổi ngoại hình, nâng cấp động cơ và hộp số với giá bán 4,038 tỷ đồng tại Việt Nam.\n",
+      tags: ["toyota", "xe sang", "ô tô"],
+      id: "zTKEcBMzDjrVpQk4cvPA",
       style: "article",
-      title:
-        "8 tháng: Doanh nghiệp Việt Nam xuất khẩu hơn 230.000 tấn sản phẩm ống thép",
+      title: "Toyota Alphard 2018 có giá hơn 4 tỷ đồng tại Việt Nam",
+      video: null
+    },
+    {
+      tags: ["nợ thuế", "dự án", "bất động sản", "doanh nghiệp"],
+      id: "3vDlrByT4wg9jisnksSP",
+      style: "article",
+      title: 'Nhiều doanh nghiệp bất động sản nợ thuế "khủng"',
       video: null,
       coverImg:
-        "https://vatlieuxaydung.org.vn/Upload/48/Nam_2018/Thang_9/Ngay_28/vlxd.org_ongthep.jpg",
-      publishAt: 1538189280000,
-      categoryId: "JfDm8uW3Bgt3GdHhmxnF",
-      publisher: "VLXD",
+        "https://cdn.24h.com.vn/upload/4-2018/images/2018-10-05/Nhieu-doanh-nghiep-bat-dong-san-no-thue-nn2-1538730477-58-width640height409.jpg",
+      publishAt: 1538969400000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Công An Nhân Dân",
+      reference: "Phú Lữ",
+      categoryName: "Bất động sản",
+      sapo:
+        'Cục Thuế TP.HCM vừa công khai danh sách hàng loạt doanh nghiệp nợ thuế. Đáng chú ý, trong lĩnh vực bất động sản có nhiều "ông lớn" nợ thuế đến hàng chục tỷ đồng.'
+    },
+    {
       reference: "PV",
-      categoryName: "Vật liệu xây dựng"
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Tập đoàn ô tô Nhật Bản cho biết sẽ triệu hồi khoảng 2,4 triệu xe hybrid trên toàn thế giới do lỗi chết máy đột ngột.\n\n",
+      tags: ["toyota", "triệu hồi", "ô tô"],
+      id: "z7iWvFPGX7VjBhONtrnY",
+      style: "article",
+      title: "Toyota sẽ triệu hồi hơn 2 triệu xe trên toàn thế giới",
+      video: null,
+      coverImg: "https://vnn-imgs-f.vgcloud.vn/2018/10/08/08/toyota-prius.jpg",
+      publishAt: 1538969220000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: " Dân trí"
+    },
+    {
+      title: "Bảng giá xe Isuzu tháng 10/2018: Xáo trộn mạnh",
+      video: null,
+      coverImg:
+        "http://media.doanhnghiepvn.vn/Images/Uploaded/Share/2018/10/07/Isuzu-mu-X-28.jpg",
+      publishAt: 1538969100000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Doanh nghiệp VN",
+      reference: "Ngọc Hân",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Nhằm giúp quý độc giả tiện tham khảo trước khi mua xe, Doanh nghiệp Việt Nam xin đăng tải bảng giá niêm yết xe Isuzu tại Việt Nam tháng 10/2018. Mức giá này đã bao gồm thuế VAT.",
+      tags: ["isuzu", "bảng giá", "giá xe"],
+      id: "CT2cidVflei6wQFQPq1S",
+      style: "article"
+    },
+    {
+      title: "SUV hạng sang Audi Q8 2019 'cưỡi' máy bay đến Sài Gòn",
+      video: null,
+      coverImg:
+        "https://photo-3-baomoi.zadn.vn/w1000_r1/2018_10_08_180_28061465/0973061262548b0ad245.jpg",
+      publishAt: 1538968920000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Kiến thức",
+      reference: "Tâm Võ",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Nhiều khả năng sự có mặt đầy bất ngờ của chiếc SUV hạng sang Audi Q8 2019 mới tại sân bay Tân Sơn Nhất nhằm tham dự vào triển lãm ôtô Việt Nam 2018 (VMS) vào cuối tháng này.\n",
+      tags: ["suv", "audi", "siêu xe"],
+      id: "kMN82XaeF4uYWmXO7BlM",
+      style: "picture"
+    },
+    {
+      tags: ["nhập khẩu", "phụ kiện", "ô tô"],
+      id: "pFMgXZfdyUXfMJk3dnU3",
+      style: "picture",
+      title: "6 mẫu xe nhập khẩu bán 'bia kèm lạc' tại Việt Nam",
+      video: null,
+      coverImg:
+        "https://znews-photo-td.zadn.vn/w1024/Uploaded/fsmuy/2018_10_07/Mitsubishi_Xpander_zing_4159.jpg",
+      publishAt: 1538968200000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Zing",
+      reference: "Minh Toàn",
+      categoryName: "Xe 360 độ",
+      sapo:
+        " Đại lý ép khách mua thêm phụ kiện đối với một số mẫu xe nhập khẩu bán chạy để kiếm lời, bù lỗ cho giai đoạn thị trường khó khăn đầu năm.\n"
+    },
+    {
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "vietnamnet.vn",
+      reference: "Khắc Thành",
+      categoryName: "Bất động sản",
+      sapo:
+        "Để xây dựng sân bay mới tại Bà Rịa - Vũng Tàu, Công ty TNHH Hồ Tràm cần thu hồi trên 224ha đất, tại xã Lộc An và Láng Dài, huyện Đất Đỏ. Khu vực làng quê nông thôn này đang yên bình, bỗng xôn xao nhiều tâm trạng về sự thay đổi lớn sắp tới.",
+      tags: ["sân bay", "hồ tràm", "vũng tàu"],
+      id: "wV0hVwGrBQuUA7oqAXTQ",
+      style: "article",
+      title: "Sân bay 4.000 tỷ mọc lên, đến thời tỷ phú chân đất?",
+      video: null,
+      coverImg:
+        "http://img.vietnamfinance.vn/thumbs/700x0/upload/news/letran/2018/9/12/ho-tram-sap-xay-san--bay-o-ba-ria-vung-tau.jpg",
+      publishAt: 1538968080000
+    },
+    {
+      reference: "PHAN ANH",
+      categoryName: "Bất động sản",
+      sapo:
+        "HĐND TP HCM đề nghị UBND TP lưu ý nhà hát phải đạt chuẩn quốc tế, xứng tầm là nơi hưởng thụ văn hóa nghệ thuật của người dân",
+      tags: ["thủ thiêm", "dự án", "quận 2"],
+      id: "0JYf9fzdvjTgovXxVotl",
+      style: "article",
+      title:
+        "Đề xuất xây nhà hát 1.500 tỉ ở Thủ Thiêm bằng tiền bán đấu giá khu đất 23 Lê Duẩn",
+      video: null,
+      coverImg:
+        "https://dantricdn.com/2018/9/16/thu-thiem-15370919563941100500274.jpg",
+      publishAt: 1538967600000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Người lao động"
+    },
+    {
+      tags: ["thiết kế", "sáng tạo", "thông minh", "nhật bản"],
+      id: "JPyHKkRrnpFBB5mVYBCl",
+      style: "picture",
+      title: "Làm cánh cửa thông minh như người Nhật",
+      video: null,
+      coverImg:
+        "http://www.baoxaydung.com.vn/stores/news_dataimages/hiep/102018/07/09/090652baoxaydung_image001.jpg",
+      publishAt: 1538967120000,
+      categoryId: "JfDm8uW3Bgt3GdHhmxnF",
+      publisher: "VnExpress",
+      reference: "Hoàng Anh",
+      categoryName: "Vật liệu xây dựng",
+      sapo:
+        "Cánh cửa như hòa vào tường, cánh cửa biến thành giá treo đồ... không chỉ đẹp mắt mà còn giúp không gian thoáng rộng hơn."
+    },
+    {
+      reference: "Phương Anh Linh",
+      categoryName: "Bất động sản",
+      sapo:
+        "Nhằm kiểm soát tình trạng chuyển nhượng dự án để trục lợi, chặt chẽ trong công tác đấu giá đất và đấu thầy lựa chọn nhà đầu tư, UBND TP.HCM vừa chỉ đạo các sở ban ngành thực hiện nhiều giải pháp.",
+      tags: ["dự án", "chuyển nhượng", "bất động sản", "trục lợi"],
+      id: "OeNGOHM0ZLb1QjXt6kl0",
+      style: "picture",
+      title: "TP.HCM chỉ đạo “siết” tình trạng chuyển nhượng dự án để trục lợi",
+      video: null,
+      coverImg: "http://www.himlamland.com/admin/upload/hgf.jpg",
+      publishAt: 1538966820000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Infonet"
     }
   ]
 };

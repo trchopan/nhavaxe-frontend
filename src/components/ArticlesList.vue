@@ -29,24 +29,27 @@
         </div>
       </li>
       <BannerArticleList v-if="index > 0 && index % ArticleBannerInterval === 0"
-        :key="'banner-list' + index"
-        :banner="randomBanner(articleBanners)" />
+        :key="'banner-list-' + index"
+        :banner="shuffledBanners[ index / ArticleBannerInterval ]" />
+      <ArticlesSpecials v-if="index > 0 && index / ArticleBannerInterval === 1"
+        :key="'specials-list-' + index"/>
     </template>
   </ul>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import { common } from "@/mixins.js";
+import { shuffle } from "@/helpers";
 import { ArticleBannerInterval } from "@/store/modules/banner.js";
 import BannerArticleList from "@/components/BannerArticleList.vue";
+import ArticlesSpecials from "@/components/ArticlesSpecials.vue";
 
 export default {
   name: "ArticlesList",
   components: {
-    BannerArticleList
+    BannerArticleList,
+    ArticlesSpecials
   },
-  mixins: [common],
   data() {
     return {
       ArticleBannerInterval,
@@ -56,12 +59,16 @@ export default {
   },
   props: {
     selectedCat: Object,
-    articlesList: Array,
-    banners: Array
+    articlesList: Array
   },
-  computed: mapGetters({
-    articleBanners: "banner/articleBanners"
-  }),
+  computed: {
+    ...mapGetters({
+      articleBanners: "banner/articleBanners"
+    }),
+    shuffledBanners() {
+      return shuffle(this.articleBanners);
+    }
+  },
   mounted() {
     let clientWidth = window.innerWidth;
     if (clientWidth > 799) {
@@ -81,7 +88,6 @@ export default {
     grid-template-columns: 28% auto;
     position: relative;
     padding: 0 1rem;
-    max-height: 150px;
   }
 }
 .cover-image,

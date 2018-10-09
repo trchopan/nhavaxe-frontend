@@ -10,7 +10,14 @@ export function logger(message, value, object) {
     );
 }
 
+export function randomBanner(bannerList) {
+  if (!bannerList || bannerList.length === 0) return null;
+  const randomIndex = Math.floor(Math.random() * bannerList.length);
+  return bannerList[randomIndex];
+}
+
 export function shuffle(array) {
+  if (!Array.isArray(array)) return [];
   var currentIndex = array.length,
     temporaryValue,
     randomIndex;
