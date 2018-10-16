@@ -137,11 +137,10 @@ const mutations = {
     state.articlesList.push(...list);
     state.loading = false;
     state.initialized = true;
-    log("Articles List changed", state.articlesList.length);
+    log("Articles List changed", list);
   },
   loading(state) {
     state.loading = true;
-    log("Articles Loading");
   },
   flushed(state) {
     state.articlesList = [];
@@ -187,12 +186,12 @@ const mutations = {
       .filter(x => x.id != state.selectedArticleMeta.id);
 
     state.relatedList = result;
-    log("Related Articles found", state.relatedList, true);
+    log("Related Articles found", state.relatedList);
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    log("Error catched", state.error, true);
+    log("Error catched", state.error);
   }
 };
 

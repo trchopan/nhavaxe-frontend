@@ -95,7 +95,7 @@ export default {
 :root {
   --primary-color: #ed1d24;
   --primary-color-tint: #ffdfe0;
-  --primary-background-tint: #f3e3e3;
+  --primary-background-tint: #323232;
   --secondary-color: #159cd8;
   --secondary-color-tint: #cfedfa;
   --text-main-color: #000000;

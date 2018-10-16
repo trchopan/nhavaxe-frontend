@@ -11,6 +11,7 @@ const state = {
   title: null,
   articles: [],
   videos: [],
+  selectedVideo: null,
   loading: false,
   error: null
 };
@@ -19,7 +20,8 @@ const getters = {
   title: state => state.title,
   mains: state => state.articles.slice(0, SPECIAL_SPLIT),
   subs: state => state.articles.slice(SPECIAL_SPLIT),
-  videos: state => state.videos
+  videos: state => state.videos,
+  selectedVideo: state => state.selectedVideo
 };
 
 const actions = deps => {
@@ -35,7 +37,12 @@ const actions = deps => {
       return null;
     }
   }
-  return { fetchSpecials };
+
+  function selectVideo({ commit }, video) {
+    commit("videoSelected", video);
+  }
+
+  return { fetchSpecials, selectVideo };
 };
 
 const mutations = {
@@ -43,17 +50,21 @@ const mutations = {
     state.title = data.specials.title;
     state.articles = data.specials.articles;
     state.videos = data.videos;
+    state.selectedVideo = data.videos[0];
     state.loading = false;
-    log("list changed", state);
+    log("list changed", data);
+  },
+  videoSelected(state, video) {
+    state.selectedVideo = video;
+    log("video selected", video);
   },
   loading(state) {
     state.loading = true;
-    log("loading");
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    log("Error catched", state.error, true);
+    log("Error catched", state.error);
   }
 };
 

@@ -25,9 +25,10 @@ const getters = {
   articleBanners: state => filterByArea(state.bannersList, "article-list"),
   rightBanners: state => filterByArea(state.bannersList, "big-right"),
   stickyBanners: state => filterByArea(state.bannersList, "big-sticky"),
-  relateBanners: state => filterByArea(state.bannersList, "small-relate"),
-  youtubeBanners: state =>
-    state.bannersList.filter(x => x.type === "youtube").slice(0, YoutubeAmount),
+  relateBanners: state =>
+    filterByArea(state.bannersList, "small-relate").filter(
+      i => i.type !== "youtube"
+    ),
   loading: state => state.loading,
   error: state => state.error
 };
@@ -47,11 +48,10 @@ const mutations = {
   bannersListChanged(state, list) {
     state.loading = false;
     state.bannersList = list;
-    log("Banner List changed", state.bannersList.length);
+    log("List changed", list, true);
   },
   loading(state) {
     state.loading = true;
-    log("Banner Loading");
   },
   errorCatched(state, error) {
     state.error = error;

@@ -39,7 +39,7 @@ export default {
     }
   },
   parseNumber(value) {
-    var val = typeof value === "string" ? parseInt(value, 10) : value;
+    const val = typeof value === "string" ? parseInt(value, 10) : value;
     if (!val || val === 0) {
       return "-";
     } else {
@@ -47,13 +47,14 @@ export default {
     }
   },
   parseYoutubeLink(url) {
-    var regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#]*).*/;
-    var match = url.match(regExp);
-    var embedOptions = "?controls=0&showinfo=0&modestbranding=1";
+    if (!url || typeof url !== "string") return "";
+    const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    const embedOptions = "?controls=0&showinfo=0";
     if (match && match[7].length == 11) {
       return "https://www.youtube.com/embed/" + match[7] + embedOptions;
     } else {
-      return null;
+      return "";
     }
   },
   parseRedirectBannerId(bannerId) {

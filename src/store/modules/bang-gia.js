@@ -46,16 +46,15 @@ const mutations = {
   listChanged(state, list) {
     state.list = list;
     state.loading = false;
-    log("List changed", state.list.nha.length + "/" + state.list.xe.length);
+    log("List changed", list);
   },
   loading(state) {
     state.loading = true;
-    log("Articles Loading");
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    log("Error catched", state.error, true);
+    log("Error catched", state.error);
   }
 };
 
