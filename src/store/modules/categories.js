@@ -1,5 +1,4 @@
 import categories from "@/api/categories.js";
-import { logger } from "@/helpers.js";
 
 const rootCategory = {
   id: "ALL",
@@ -24,7 +23,6 @@ const getters = {
 
 const actions = {
   getCategories({ commit }) {
-    logger("Getting Categories...");
     commit("loading");
     categories.getCategories(
       data => commit("categoriesChanged", data),
@@ -32,7 +30,6 @@ const actions = {
     );
   },
   selectCategory({ commit }, category) {
-    logger("Selecting Categories...");
     commit("categorySelected", category || rootCategory);
   }
 };
@@ -41,19 +38,15 @@ const mutations = {
   categoriesChanged(state, categories) {
     state.categories = categories;
     state.loading = false;
-    logger("Categories changed", state.categories.length);
   },
   categorySelected(state, category) {
     state.selectedCat = category;
-    logger("Category selected", state.category);
   },
   loading(state) {
     state.loading = true;
-    logger("Categories Loading");
   },
   errorCatched(state, error) {
     state.error = error;
-    logger("Error catched", state.error);
   }
 };
 

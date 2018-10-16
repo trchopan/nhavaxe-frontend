@@ -21,16 +21,17 @@ export default {
     NavBar,
     LoadingIndicator
   },
-  created() {
+  async created() {
     logger("App created");
     this.$store.dispatch("categories/getCategories");
-    this.$store.dispatch("bangGia/fetchBangGia");
-    this.$store.dispatch("articles/fetchCatArticles");
-    // this.$store.dispatch("specials/fetchSpecials");
-    this.$store.dispatch("banner/fetchBannersList");
     if (this.$route.name === "article") {
       this.$store.dispatch("articles/selectArticle", this.$route.params.id);
     }
+    this.$store.dispatch("articles/fetchCatArticles");
+    this.$store.dispatch("banner/fetchBannersList");
+    this.$store.dispatch("bangGia/fetchBangGia");
+    const specials = await this.$store.dispatch("specials/fetchSpecials");
+    this.$store.dispatch("articles/setFilterArticles", specials.articles);
   },
   mounted() {
     var scrollWatcher;
