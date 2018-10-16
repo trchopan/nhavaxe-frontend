@@ -34,7 +34,7 @@ const getters = {
 
 const actions = {
   fetchBannersList({ commit }) {
-    log("Fetching...")
+    log("Fetching...");
     commit("loading");
     bannersApi.getBannersList(
       data => commit("bannersListChanged", data),
