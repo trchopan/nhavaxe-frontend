@@ -1,6 +1,9 @@
 import bannersApi from "@/api/banner.js";
 import { logger } from "@/helpers.js";
 
+const storeName = "[banner]";
+const log = logger(storeName);
+
 export const ArticleBannerInterval = 5;
 export const RelatedBannerInterval = 2;
 export const YoutubeAmount = 2;
@@ -31,6 +34,7 @@ const getters = {
 
 const actions = {
   fetchBannersList({ commit }) {
+    log("Fetching...")
     commit("loading");
     bannersApi.getBannersList(
       data => commit("bannersListChanged", data),
@@ -43,16 +47,16 @@ const mutations = {
   bannersListChanged(state, list) {
     state.loading = false;
     state.bannersList = list;
-    logger("Banner List changed", state.bannersList.length);
+    log("Banner List changed", state.bannersList.length);
   },
   loading(state) {
     state.loading = true;
-    logger("Banner Loading");
+    log("Banner Loading");
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    logger("Error catched", state.error, true);
+    log("Error catched", state.error, true);
   }
 };
 

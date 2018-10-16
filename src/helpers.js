@@ -1,6 +1,7 @@
-export function logger(message, value, object) {
+export const logger = className => (message, value, object) => {
   process.env.NODE_ENV === "development" &&
     console.log(
+      className,
       message,
       object === true
         ? value
@@ -8,7 +9,7 @@ export function logger(message, value, object) {
           ? JSON.stringify(value, null, 2)
           : ""
     );
-}
+};
 
 export function randomBanner(bannerList) {
   if (!bannerList || bannerList.length === 0) return null;

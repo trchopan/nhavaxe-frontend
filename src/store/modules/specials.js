@@ -1,9 +1,10 @@
 import { logger } from "@/helpers.js";
 import * as SpecialsApi from "@/api/specials.js";
 
-const SPECIAL_SPLIT = 2;
+const storeName = "[specials]";
+const log = logger(storeName);
 
-const storeName = "Specials";
+const SPECIAL_SPLIT = 2;
 
 // initial state
 const state = {
@@ -21,13 +22,15 @@ const getters = {
 
 const actions = deps => {
   async function fetchSpecials({ commit }) {
-    logger("Fetching Specials...");
+    log("Fetching...");
     commit("loading");
     try {
       const result = await deps.getSpecials(deps.SpecialsApiUrl);
       commit("dataChanged", result);
+      return result;
     } catch (error) {
       commit("errorCatched", error);
+      return null;
     }
   }
   return { fetchSpecials };
@@ -35,19 +38,19 @@ const actions = deps => {
 
 const mutations = {
   dataChanged(state, data) {
-    state.title = data.title;
-    state.articles = data.articles;
+    state.title = data.specials.title;
+    state.articles = data.specials.articles;
     state.loading = false;
-    logger(`${storeName} list changed`, state);
+    log("list changed", state);
   },
   loading(state) {
     state.loading = true;
-    logger(`${storeName} loading`);
+    log("loading");
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    logger(`${storeName} Error catched`, state.error, true);
+    log("Error catched", state.error, true);
   }
 };
 

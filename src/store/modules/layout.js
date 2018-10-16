@@ -1,5 +1,8 @@
 import { logger } from "@/helpers.js";
 
+const storeName = "[layout]";
+const log = logger(storeName);
+
 // initial state
 const state = {
   appScroll: 0,
@@ -17,7 +20,7 @@ const actions = {
   },
   scrollTop(_, value) {
     document.querySelector("#app").scrollTop = value;
-    logger("Scrolling #app to", value);
+    log("Scrolling #app to", value);
   },
   setHomeScrollTop({ commit }, value) {
     commit("homeScrollTopChanged", value);
@@ -27,11 +30,11 @@ const actions = {
 const mutations = {
   appScrolled(state, value) {
     state.appScroll = value;
-    logger("App Scrolled", value);
+    log("App Scrolled", value);
   },
   homeScrollTopChanged(state, value) {
     state.homeScrollTop = value;
-    logger("Home ScrollTop changed", value);
+    log("Home ScrollTop changed", value);
   }
 };
 

@@ -36,9 +36,9 @@ import { mapGetters } from "vuex";
 export default {
   name: "ArticlesSpecials",
   computed: mapGetters({
-    title: "articles/specialsTitle",
-    mains: "articles/specialsMain",
-    subs: "articles/specialsSub"
+    title: "specials/title",
+    mains: "specials/mains",
+    subs: "specials/subs"
   })
 };
 </script>

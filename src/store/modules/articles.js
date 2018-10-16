@@ -2,9 +2,11 @@ import * as ArticlesApi from "@/api/articles.js";
 import stubArticles from "@/api/stubArticles.js";
 import { logger } from "@/helpers.js";
 
-export const LOADING_TEXT = "loading...";
+const storeName = "[articles]";
+const log = logger(storeName);
+
+const LOADING_TEXT = "loading...";
 const ARTICLE_SPLIT = 4;
-const SPECIALS_SPLIT = 2;
 const MAX_RELATE = 7;
 
 // Initial setup
@@ -12,6 +14,7 @@ const initData =
   process.env.NODE_ENV !== "development"
     ? window.__initialData__
     : stubArticles;
+
 const initArticleMeta = {
   title: LOADING_TEXT,
   sapo: LOADING_TEXT
@@ -21,20 +24,15 @@ const initArticleBody = LOADING_TEXT;
 // initial state
 const state = {
   initialized: false,
-  specialsTitle: null,
-  specials: [],
-  articlesList: initData.list,
-  selectedArticleMeta: initData.meta,
-  selectedArticleBody: initData.body,
+  articlesList: [],
+  selectedArticleMeta: initArticleMeta.meta,
+  selectedArticleBody: initArticleBody.body,
   relatedList: [],
   loading: false,
   error: null
 };
 
 const getters = {
-  specialsTitle: state => state.specialsTitle,
-  specialsMain: state => state.specials.slice(0, SPECIALS_SPLIT),
-  specialsSub: state => state.specials.slice(SPECIALS_SPLIT),
   articlesList: state => state.articlesList,
   firstArticle: state => state.articlesList.slice(0, 1)[0],
   topArticles: state => state.articlesList.slice(1, ARTICLE_SPLIT),
@@ -64,13 +62,11 @@ const actions = deps => {
 
     try {
       if (!state.initialized) {
-        logger("Fetching Specials...");
-        commit("loading");
-        const specials = await deps.getSpecials();
-        commit("specialsChanged", specials);
+        log("fetchCatArticles serve from initData");
+        commit("articlesListChanged", initData.list);
+        return true;
       }
-
-      logger("Fetching Articles...", catId);
+      log("Fetching Articles...", catId);
       commit("loading");
       const list = await deps.getArticlesList(
         catId,
@@ -78,30 +74,44 @@ const actions = deps => {
         deps.articleParser
       );
 
-      if (!list) throw { error: { code: "not-found" } };
+      if (!list) {
+        commit("errorCatched", { error: { code: "not-found" } });
+        return false;
+      }
 
-      const filteredList = list.filter(
-        item => !state.specials.find(x => x.id === item.id)
-      );
-      commit("articlesListChanged", filteredList);
+      commit("articlesListChanged", list);
+      return true;
     } catch (error) {
       commit("errorCatched", error);
+      return false;
     }
   }
 
-  async function selectArticle({ dispatch, commit }, articleId) {
+  async function selectArticle({ dispatch, commit, state }, articleId) {
+    if (!state.initialized) {
+      log("selectArticle serve from initData");
+      commit("articleMetaFound", initData.meta);
+      commit("articleBodyFound", initData.body);
+      dispatch("searchRelatedArticles", initData.meta.tags);
+      return true;
+    }
     commit("loading");
     commit("clearArticleData");
 
     try {
       const article = await deps.getArticle(articleId, deps.articleParser);
 
-      if (!article) throw { error: { code: "not-found" } };
+      if (!article) {
+        commit("errorCatched", { error: { code: "not-found" } });
+        return false;
+      }
       commit("articleMetaFound", article.meta);
       commit("articleBodyFound", article.body);
       dispatch("searchRelatedArticles", article.meta.tags);
+      return true;
     } catch (error) {
       commit("errorCatched", error);
+      return false;
     }
   }
 
@@ -123,30 +133,24 @@ const actions = deps => {
 };
 
 const mutations = {
-  specialsChanged(state, specials) {
-    state.specialsTitle = specials.title;
-    state.specials = specials.articles;
-    state.loading = false;
-    logger("Specials changed", state.specials);
-  },
   articlesListChanged(state, list) {
     state.articlesList.push(...list);
     state.loading = false;
     state.initialized = true;
-    logger("Articles List changed", state.articlesList.length);
+    log("Articles List changed", state.articlesList.length);
   },
   loading(state) {
     state.loading = true;
-    logger("Articles Loading");
+    log("Articles Loading");
   },
   flushed(state) {
     state.articlesList = [];
-    logger("Articles flushed");
+    log("Articles flushed");
   },
   clearArticleData(state) {
     state.selectedArticleMeta = initArticleMeta;
     state.selectedArticleBody = initArticleBody;
-    logger("Article data is cleared");
+    log("Article data is cleared");
   },
   articleMetaFound(state, articleMeta) {
     state.selectedArticleMeta = articleMeta;
@@ -155,12 +159,12 @@ const mutations = {
       title: articleMeta.title
     });
     window.ga("send", "pageView");
-    logger("Articles meta found", state.selectedArticleMeta.id);
+    log("Articles meta found", state.selectedArticleMeta.id);
   },
   articleBodyFound(state, articleBody) {
     state.selectedArticleBody = articleBody;
     state.loading = false;
-    logger("Articles body found", state.selectedArticleBody.length);
+    log("Articles body found", state.selectedArticleBody.length);
   },
   relatedArticlesFound(state, lists) {
     const result = lists
@@ -183,12 +187,12 @@ const mutations = {
       .filter(x => x.id != state.selectedArticleMeta.id);
 
     state.relatedList = result;
-    logger("Related Articles found", state.relatedList, true);
+    log("Related Articles found", state.relatedList, true);
   },
   errorCatched(state, error) {
     state.error = error;
     state.loading = false;
-    logger("Error catched", state.error, true);
+    log("Error catched", state.error, true);
   }
 };
 
