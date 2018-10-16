@@ -103,10 +103,29 @@ export default {
       }
       .video-title {
         margin: 0.2rem 0 0 0.5rem;
+        text-align: justify;
       }
     }
     .video-item:hover {
       background: var(--text-secondary-color);
+    }
+  }
+}
+
+@media (max-width: 599px) {
+  .container {
+    grid-template: "head" "youtube" "list" / 1fr;
+    .videos-list {
+      margin-top: 0.2rem;
+      max-height: 10rem;
+      .video-item {
+        margin: 0;
+        padding: 0.2rem 0;
+        .video-title {
+          margin: 0 0 0 0.5rem;
+          font-size: 0.9rem;
+        }
+      }
     }
   }
 }
