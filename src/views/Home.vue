@@ -8,11 +8,11 @@
       <SmallBangGia />
       <ArticlesTop :articlesList="topArticles" />
     </section>
+    <Videos />
     <section class="grid-list">
       <ArticlesList :selectedCat="selectedCat"
         :articlesList="remainArticles" />
       <div class="right-wrapper">
-        <VideoRight />
         <BannerRight :bannerList="shuffledRightBanners" />
         <BannerSticky :banner="bannerSticky" />
       </div>
@@ -30,7 +30,7 @@ import BannerTop from "@/components/BannerTop.vue";
 import BannerRight from "@/components/BannerRight.vue";
 import BannerSticky from "@/components/BannerSticky.vue";
 import SmallBangGia from "@/components/SmallBangGia.vue";
-import VideoRight from "@/components/VideoRight.vue";
+import Videos from "@/components/Videos.vue";
 
 export default {
   name: "Home",
@@ -42,7 +42,7 @@ export default {
     BannerRight,
     BannerSticky,
     SmallBangGia,
-    VideoRight
+    Videos
   },
   computed: {
     ...mapGetters({
@@ -98,8 +98,7 @@ export default {
 }
 .grid-list {
   display: grid;
-  grid-template-areas: "articlesList .";
-  grid-template-columns: 2fr 1fr;
+  grid-template: "articlesList ." / 2fr 1fr;
   .right-wrapper {
     padding-top: 1rem;
   }
@@ -113,8 +112,7 @@ export default {
       "top" 2.5fr / 1fr;
   }
   .grid-list {
-    grid-template-areas: "articlesList";
-    grid-template-columns: 1fr;
+    grid-template: "articlesList" / 1fr;
     .right-wrapper {
       display: none;
     }

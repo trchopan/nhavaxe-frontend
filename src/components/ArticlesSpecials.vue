@@ -48,7 +48,7 @@ export default {
   grid-column: span 2;
   margin: 0.5rem auto;
   max-width: 626px;
-  background: #323232;
+  background: var(--primary-background-tint);
   display: grid;
   grid-template-columns: 1.15fr 1fr;
   grid-template-areas:
@@ -86,6 +86,9 @@ export default {
       color: var(--primary-color);
       font-family: var(--title-font);
     }
+    .sub-item > a:hover {
+      color: var(--secondary-color-tint);
+    }
   }
   .mains-preview {
     grid-area: mains;
@@ -110,6 +113,9 @@ export default {
       background: white;
       padding: 8px;
       border-radius: 5px;
+    }
+    a:hover {
+      color: var(--secondary-color);
     }
   }
   hr {

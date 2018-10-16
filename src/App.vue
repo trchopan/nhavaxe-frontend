@@ -30,8 +30,9 @@ export default {
     this.$store.dispatch("articles/fetchCatArticles");
     this.$store.dispatch("banner/fetchBannersList");
     this.$store.dispatch("bangGia/fetchBangGia");
-    const specials = await this.$store.dispatch("specials/fetchSpecials");
-    this.$store.dispatch("articles/setFilterArticles", specials.articles);
+    this.$store.dispatch("specials/fetchSpecials");
+    // const specials = await this.$store.dispatch("specials/fetchSpecials");
+    // this.$store.dispatch("articles/setFilterArticles", specials.articles);
   },
   mounted() {
     var scrollWatcher;
@@ -94,7 +95,7 @@ export default {
 :root {
   --primary-color: #ed1d24;
   --primary-color-tint: #ffdfe0;
-  --primary-background-tint: #f3e3e3;
+  --primary-background-tint: #323232;
   --secondary-color: #159cd8;
   --secondary-color-tint: #cfedfa;
   --text-main-color: #000000;

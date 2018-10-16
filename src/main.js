@@ -4,9 +4,9 @@ import router from "./router";
 import store from "./store";
 import filters from "./filters.js";
 
-console.log("version", process.env.VUE_APP_VERSION);
-console.log("author", process.env.VUE_APP_AUTHOR);
-console.log("enviroment", process.env.VUE_APP_INITDATA);
+console.log(`version %c${process.env.VUE_APP_VERSION}`, "color: #159cd8");
+console.log(`author %c${process.env.VUE_APP_AUTHOR}`, "color: #ed1d24");
+console.log(`enviroment "${process.env.NODE_ENV}"`);
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;

@@ -1,15 +1,6 @@
 <template>
   <li>
     <p class="sponsor-text">- Tham khảo -</p>
-    <div v-if="banner && banner.type === 'youtube'" class="sponsor-youtube-container">
-      <div class="youtube">
-        <iframe
-          :src="banner.contentLink | parseYoutubeLink"
-          frameborder="0"
-          allow="autoplay; encrypted-media"
-          allowfullscreen></iframe>
-      </div>
-    </div>
     <a v-if="banner && banner.type === 'image'"
       target="_blank"
       :href="banner.id | parseRedirectBannerId">
@@ -40,20 +31,5 @@ export default {
   background-size: cover;
   background-position: 50%;
   margin: 0 -1rem -1rem;
-}
-.sponsor-youtube-container {
-  max-width: 560px;
-  margin: 0 -1rem -1rem;
-}
-.youtube {
-  position: relative;
-  height: 200px;
-}
-.youtube iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 </style>

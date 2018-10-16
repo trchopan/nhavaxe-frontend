@@ -4,6 +4,7 @@
       <BannerTop :banner="bannerTop" />
       <ArticleDetail />
       <RelatedList />
+      <Videos />
       <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"
           :articlesList="filteredArticlesList" />
@@ -25,6 +26,7 @@ import RelatedList from "@/components/RelatedList.vue";
 import BannerTop from "@/components/BannerTop.vue";
 import BannerRight from "@/components/BannerRight.vue";
 import BannerSticky from "@/components/BannerSticky.vue";
+import Videos from "@/components/Videos.vue";
 
 export default {
   name: "Article",
@@ -39,7 +41,8 @@ export default {
     ArticlesList,
     BannerTop,
     BannerRight,
-    BannerSticky
+    BannerSticky,
+    Videos
   },
   beforeRouteUpdate(to, from, next) {
     this.updateFlag = Math.random();
