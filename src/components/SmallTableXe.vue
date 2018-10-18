@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="bang-gia">
     <th class="small-model-header">Mẫu xe</th>
     <th class="small-brand-header">Hãng xe</th>
     <th class="small-price-header">Giá niêm yết (tr)</th>

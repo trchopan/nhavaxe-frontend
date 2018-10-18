@@ -1,0 +1,55 @@
+:root {
+  --primary-color: #ed1d24;
+  --primary-color-tint: #ffdfe0;
+  --primary-background-tint: #323232;
+  --secondary-color: #159cd8;
+  --secondary-color-tint: #cfedfa;
+  --text-main-color: #000000;
+  --text-accent-color: #ffffff;
+  --text-secondary-color: #787878;
+  --text-faded-color: #adacac;
+  --title-font: Muli;
+  --title-font__bold: 600;
+  --title-font__normal: 400;
+  --default-font: sans-serif;
+  --text-font: Merriweather;
+  --text-font__bold: 700;
+  --text-font__normal: 400;
+  --container-width: 996px;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+body {
+  font-family: var(--default-font);
+}
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: var(--text-main-color);
+}
+.block {
+  display: block;
+}
+.top-banner {
+  width: 100%;
+  height: 90px;
+}
+#app {
+  height: 100vh;
+  overflow: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+#page-head {
+  height: 4rem;
+}
+#page-footer {
+  height: 3rem;
+}

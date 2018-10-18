@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="bang-gia">
     <th class="model-header">Mẫu xe</th>
     <th class="brand-header">
       <span class="block">Hãng xe</span>

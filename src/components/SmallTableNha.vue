@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="bang-gia">
     <th class="small-project-header">Dự án</th>
     <th class="small-investor-header">Chủ đầu tư</th>
     <th class="small-progress-header">Tiến độ</th>

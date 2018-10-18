@@ -4,7 +4,7 @@
       <li :key="article.id">
         <router-link :to="'/article/' + article.id">
           <div class="related-article__card">
-            <p class="related-article__title">{{ article.title | trimText(maxTitle) }}</p>
+            <p class="related-article__title">{{ article.title }}</p>
             <div class="related-article__img"
               :style="'background-image: url(' + article.coverImg + ');'">
             </div>
@@ -21,22 +21,14 @@
 <script>
 import { mapGetters } from "vuex";
 import { shuffle } from "@/helpers.js";
-import { RelatedBannerInterval } from "@/store/modules/banner.js";
 import BannerRelated from "@/components/BannerRelated.vue";
 
 export default {
   name: "RelatedList",
   data() {
     return {
-      RelatedBannerInterval,
-      maxTitle: 999
+      RelatedBannerInterval: 2
     };
-  },
-  mounted() {
-    let clientWidth = window.innerWidth;
-    if (clientWidth > 799) {
-      this.maxTitle = 56;
-    }
   },
   components: {
     BannerRelated
@@ -52,7 +44,9 @@ export default {
   },
   methods: {
     getBanner(position) {
-      let index = Math.floor(position / RelatedBannerInterval) - 2;
+      let index =
+        Math.floor(position / this.RelatedBannerInterval) -
+        this.RelatedBannerInterval;
       index = index < this.shuffledBanner.length ? index : 0;
       return this.shuffledBanner[index];
     }
@@ -62,34 +56,34 @@ export default {
 
 <style scoped lang="scss">
 ul {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
+  padding-bottom: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 0.7rem;
+  @media (max-width: 769px) {
+    padding: 0.5rem;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+  }
   li {
     cursor: pointer;
-    width: 289px;
-    margin: 0.5rem;
-    padding: 1rem;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
       0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-    @media (max-width: 500px) {
-      width: 100%;
-      margin: 1rem;
-    }
   }
   .related-article__card {
-    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr auto;
     height: 100%;
   }
   .related-article__title {
     font: 600 1rem var(--title-font);
-    padding-bottom: 0.3rem;
+    padding: 0.8rem;
+    align-self: center;
   }
   .related-article__img {
-    height: 200px;
     background-size: cover;
-    margin: 0rem -1rem -1rem;
+    padding-bottom: 75.31%;
   }
 }
 </style>

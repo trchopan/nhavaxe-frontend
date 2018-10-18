@@ -5,8 +5,6 @@ const storeName = "[banner]";
 const log = logger(storeName);
 
 export const ArticleBannerInterval = 5;
-export const RelatedBannerInterval = 2;
-export const YoutubeAmount = 2;
 
 function filterByArea(list, value) {
   return list.filter(x => x.area === value);

@@ -50,7 +50,7 @@ export default {
     if (!url || typeof url !== "string") return "";
     const regExp = /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
     const match = url.match(regExp);
-    const embedOptions = "?controls=0&showinfo=0";
+    const embedOptions = "?autoplay=1&rel=0&showinfo=0";
     if (match && match[7].length == 11) {
       return "https://www.youtube.com/embed/" + match[7] + embedOptions;
     } else {

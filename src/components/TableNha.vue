@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="bang-gia">
     <th class="project-header">
       <span class="block">Dự án</span>
       <select v-model="selectedProject">

@@ -132,6 +132,10 @@ export default {
       "title"
       "mains"
       "subs";
+    .subs-preview {
+      padding-top: 0;
+      font-size: 0.9rem;
+    }
   }
 }
 </style>

@@ -10,8 +10,13 @@
       <hr />
     </section>
     <section class="youtube-container">
+      <img v-if="!startPlay && selectedVideo"
+        :src="selectedVideo.coverImg"
+        alt="thumbnail"
+        class="first-thumbnail"
+        @click="startPlay = true"/>
       <iframe
-        v-if="selectedVideo"
+        v-if="startPlay && selectedVideo"
         :src="selectedVideo.link | parseYoutubeLink"
         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
         frameborder="0"
@@ -37,12 +42,19 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "Videos",
+  data() {
+    return {
+      startPlay: false
+    };
+  },
   computed: mapGetters({
     videos: "specials/videos",
     selectedVideo: "specials/selectedVideo"
   }),
   methods: {
     select(video) {
+      this.startPlay = false;
+      setTimeout(() => (this.startPlay = true), 1200);
       this.$store.dispatch("specials/selectVideo", video);
     }
   }
@@ -54,7 +66,7 @@ export default {
   position: relative;
   background: var(--primary-background-tint);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   margin: 0.5rem auto 0;
   display: grid;
   grid-template:
@@ -85,16 +97,24 @@ export default {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
+    .first-thumbnail {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
   }
   .videos-list {
     grid-area: list;
-    height: 100%;
     overflow-y: scroll;
+    max-height: 240px;
     .video-item {
       margin: 0 1rem 0.5rem;
       padding: 0.2rem 0.5rem;
       cursor: pointer;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
       .video-thumbnail {
         width: 5.2rem;
         height: 3rem;
@@ -117,13 +137,14 @@ export default {
     grid-template: "head" "youtube" "list" / 1fr;
     .videos-list {
       margin-top: 0.2rem;
-      max-height: 10rem;
+      max-height: 15rem;
       .video-item {
         margin: 0;
         padding: 0.2rem 0;
         .video-title {
           margin: 0 0 0 0.5rem;
           font-size: 0.9rem;
+          text-align: left;
         }
       }
     }
