@@ -25,8 +25,9 @@ const initArticleBody = LOADING_TEXT;
 const state = {
   initialized: false,
   articlesList: [],
-  selectedArticleMeta: initArticleMeta.meta,
-  selectedArticleBody: initArticleBody.body,
+  selectedArticleMeta: initArticleMeta,
+  selectedArticleBody: initArticleBody,
+  filterArticles: [],
   relatedList: [],
   loading: false,
   error: null
@@ -124,17 +125,25 @@ const actions = deps => {
     }
   }
 
+  function setFilterArticles({ commit }, articles) {
+    commit("filterArticlesSetted", articles);
+  }
+
   return {
     flushArticles,
     fetchCatArticles,
     selectArticle,
-    searchRelatedArticles
+    searchRelatedArticles,
+    setFilterArticles
   };
 };
 
 const mutations = {
   articlesListChanged(state, list) {
-    state.articlesList.push(...list);
+    const filteredList = list.filter(
+      x => state.filterArticles.findIndex(v => v.id === x.id) < 0
+    );
+    state.articlesList.push(...filteredList);
     state.loading = false;
     state.initialized = true;
     log("Articles List changed", list);
@@ -187,6 +196,10 @@ const mutations = {
 
     state.relatedList = result;
     log("Related Articles found", state.relatedList);
+  },
+  filterArticlesSetted(state, articles) {
+    state.filterArticles = articles;
+    log("Filter Articles setted", articles);
   },
   errorCatched(state, error) {
     state.error = error;
