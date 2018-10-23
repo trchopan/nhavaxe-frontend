@@ -52,7 +52,7 @@ const mutations = {
     state.videos = data.videos;
     state.selectedVideo = data.videos[0];
     state.loading = false;
-    log("list changed", data);
+    log("data changed", data);
   },
   videoSelected(state, video) {
     state.selectedVideo = video;
