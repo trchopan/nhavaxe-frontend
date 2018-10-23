@@ -27,12 +27,15 @@ export default {
     if (this.$route.name === "article") {
       this.$store.dispatch("articles/selectArticle", this.$route.params.id);
     }
-    this.$store.dispatch("articles/fetchCatArticles");
     this.$store.dispatch("banner/fetchBannersList");
     this.$store.dispatch("bangGia/fetchBangGia");
-    this.$store.dispatch("specials/fetchSpecials");
-    // const specials = await this.$store.dispatch("specials/fetchSpecials");
-    // this.$store.dispatch("articles/setFilterArticles", specials.articles);
+    // this.$store.dispatch("specials/fetchSpecials");
+    const result = await this.$store.dispatch("specials/fetchSpecials");
+    this.$store.dispatch(
+      "articles/setFilterArticles",
+      result.specials.articles
+    );
+    this.$store.dispatch("articles/fetchCatArticles");
   },
   mounted() {
     var scrollWatcher;
