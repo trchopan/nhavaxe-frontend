@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
+  <div id="app"
+    :class="{'light-theme': !isNight, 'dark-theme': isNight }">
     <NavBar />
     <div id="page-head"></div>
     <LoadingIndicator />
     <transition name="slide" mode="out-in">
-      <router-view/>
+      <router-view />
     </transition>
     <div id="page-footer"></div>
   </div>
@@ -21,6 +22,12 @@ export default {
     NavBar,
     LoadingIndicator
   },
+  data() {
+    const nowHour = new Date().getHours();
+    return {
+      isNight: nowHour > 17 || nowHour < 5
+    };
+  },
   async created() {
     logger("App created");
     this.$store.dispatch("categories/getCategories");
@@ -36,6 +43,9 @@ export default {
       result.specials.articles
     );
     this.$store.dispatch("articles/fetchCatArticles");
+
+    // const appEl = document.querySelector("#app");
+    // appEl.style.setProperty("--primary-color", "#0db445");
   },
   mounted() {
     var scrollWatcher;
