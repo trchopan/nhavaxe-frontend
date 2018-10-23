@@ -1,8 +1,12 @@
 {
   "name": "nhavaxe-frontend",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "Front page for website nhavaxe.vn",
-  "keywords": "nhavaxe.vn frontend website",
+  "keywords": [
+    "nhavaxe.vn",
+    "frontend",
+    "website"
+  ],
   "licience": "MIT",
   "author": "Chop Tr @choptr",
   "private": true,
