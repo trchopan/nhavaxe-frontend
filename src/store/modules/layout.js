@@ -3,15 +3,22 @@ import { logger } from "@/helpers.js";
 const storeName = "[layout]";
 const log = logger(storeName);
 
+export const themes = {
+  light: "light",
+  dark: "dark"
+};
+
 // initial state
 const state = {
   appScroll: 0,
-  homeScrollTop: 0
+  homeScrollTop: 0,
+  theme: themes.light
 };
 
 const getters = {
   appScroll: state => state.appScroll,
-  homeScrollTop: state => state.homeScrollTop
+  homeScrollTop: state => state.homeScrollTop,
+  theme: state => state.theme
 };
 
 const actions = {
@@ -24,6 +31,9 @@ const actions = {
   },
   setHomeScrollTop({ commit }, value) {
     commit("homeScrollTopChanged", value);
+  },
+  changeTheme({ commit }, theme) {
+    commit("themeChanged", theme);
   }
 };
 
@@ -35,6 +45,10 @@ const mutations = {
   homeScrollTopChanged(state, value) {
     state.homeScrollTop = value;
     log("Home ScrollTop changed", value);
+  },
+  themeChanged(state, theme) {
+    state.theme = theme;
+    log("Theme changed", theme);
   }
 };
 

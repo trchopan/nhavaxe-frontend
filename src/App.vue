@@ -1,19 +1,21 @@
 <template>
-  <div id="app">
+  <div id="app"
+    :class="themeClass">
     <NavBar />
     <div id="page-head"></div>
     <LoadingIndicator />
     <transition name="slide" mode="out-in">
-      <router-view/>
+      <router-view />
     </transition>
     <div id="page-footer"></div>
   </div>
 </template>
 
 <script>
-import { logger } from "@/helpers.js";
+import { mapGetters } from "vuex";
 import NavBar from "@/components/NavBar.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
+import { themes } from "@/store/modules/layout.js";
 
 export default {
   name: "App",
@@ -21,15 +23,23 @@ export default {
     NavBar,
     LoadingIndicator
   },
-  async created() {
-    logger("App created");
-    this.$store.dispatch("categories/getCategories");
-    if (this.$route.name === "article") {
-      this.$store.dispatch("articles/selectArticle", this.$route.params.id);
+  computed: {
+    ...mapGetters({
+      theme: "layout/theme"
+    }),
+    themeClass() {
+      return this.theme === themes.light
+        ? { "light-theme": true }
+        : { "dark-theme": true };
     }
+  },
+  async created() {
+    // const nowHour = new Date().getHours();
+    // if (nowHour > 17 || nowHour < 5)
+    this.$store.dispatch("layout/changeTheme", themes.dark);
+    this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("banner/fetchBannersList");
     this.$store.dispatch("bangGia/fetchBangGia");
-    // this.$store.dispatch("specials/fetchSpecials");
     const result = await this.$store.dispatch("specials/fetchSpecials");
     this.$store.dispatch(
       "articles/setFilterArticles",
@@ -58,32 +68,6 @@ export default {
         }
       }, 200);
     });
-  },
-  computed: {
-    articleError() {
-      return this.$store.state.articles.error;
-    },
-    topBanner() {
-      if (!this.longTopBanners) return null;
-
-      const randomIndex = Math.floor(
-        Math.random() * this.longTopBanners.length
-      );
-      return this.longTopBanners ? this.longTopBanners[randomIndex] : null;
-    }
-  },
-  watch: {
-    $route(to) {
-      if (to.name === "article") {
-        this.$store.dispatch("layout/scrollTop", 0);
-        this.$store.dispatch("articles/selectArticle", to.params.id);
-      }
-    },
-    articleError(newValue) {
-      if (newValue.code === "not-found") {
-        this.$router.push("/page-not-found");
-      }
-    }
   }
 };
 </script>
