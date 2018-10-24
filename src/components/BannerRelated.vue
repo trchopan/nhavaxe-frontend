@@ -4,10 +4,10 @@
       target="_blank"
       :href="banner.id | parseRedirectBannerId">
       <div class="wrapper">
-        <p class="sponsor-text">- Tham khảo -</p>
         <div class="sponsor-image"
           :style="'background-image: url(' + banner.contentLink + ');'">
         </div>
+        <p class="sponsor-text">- Tham khảo -</p>
       </div>
     </a>
   </li>
@@ -29,18 +29,18 @@ export default {
 .wrapper {
   height: 100%;
   display: grid;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr;
 }
 .sponsor-text {
   text-align: center;
   line-height: 2.7rem;
   font-size: 0.8rem;
   color: var(--text-faded-color);
-  align-self: end;
+  align-self: start;
 }
 .sponsor-image {
   background-size: cover;
   background-position: 50%;
-  padding-bottom: 75.31%;
+  padding-bottom: 83.33%;
 }
 </style>

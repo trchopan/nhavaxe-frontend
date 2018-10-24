@@ -23,7 +23,7 @@ table.bang-gia {
     border-bottom: var(--border-property);
   }
   .shaded {
-    background: #f5f5f5;
+    background: var(--background-color-faded);
   }
   .unbottom {
     border-bottom: none;
@@ -95,6 +95,14 @@ table.bang-gia {
   }
   .origin-cell {
     white-space: nowrap;
+  }
+  @media (max-width: 374px) {
+    th {
+      font-size: 0.7rem;
+    }
+    tr > td {
+      font-size: 0.65rem;
+    }
   }
 }
 

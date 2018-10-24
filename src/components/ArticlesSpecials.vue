@@ -58,11 +58,13 @@ export default {
     grid-area: title;
     margin: 0;
     padding: 0.5rem;
-    font-weight: var(--text-font__bold);
     .title {
       margin: 0.5rem 0;
-      font-size: 1.2rem;
-      color: white;
+      color: var(--text-accent-color);
+      font: var(--title-font__bold) 1.2rem var(--title-font);
+      @media (max-width: 599px) {
+        font-size: 1.1rem;
+      }
     }
   }
   .subs-preview {
@@ -75,7 +77,7 @@ export default {
       a {
         font-family: var(--title-font);
         text-align: justify;
-        color: white;
+        color: var(--text-accent-color);
       }
     }
     .sub-item::before {
@@ -87,7 +89,7 @@ export default {
       font-family: var(--title-font);
     }
     .sub-item > a:hover {
-      color: var(--secondary-color-tint);
+      color: var(--primary-color);
     }
   }
   .mains-preview {
@@ -104,18 +106,18 @@ export default {
       padding-bottom: 56%;
     }
     .mains-title {
-      font-family: var(--title-font);
+      font: 1rem var(--title-font);
       text-align: justify;
       position: absolute;
       left: 5%;
       bottom: -2%;
       right: 5%;
-      background: white;
+      background: var(--background-color-faded);
       padding: 8px;
       border-radius: 5px;
     }
     a:hover {
-      color: var(--secondary-color);
+      color: var(--primary-color);
     }
   }
   hr {
@@ -132,6 +134,11 @@ export default {
       "title"
       "mains"
       "subs";
+    .main-preview {
+      .main-title {
+        font: 0.9rem var(--title-font);
+      }
+    }
     .subs-preview {
       padding-top: 0;
       font-size: 0.9rem;

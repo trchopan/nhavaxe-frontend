@@ -10,30 +10,33 @@
       <hr />
     </section>
     <section class="youtube-container">
-      <img v-if="!startPlay && selectedVideo"
-        :src="selectedVideo.coverImg"
-        alt="thumbnail"
-        class="first-thumbnail"
-        @click="startPlay = true"/>
-      <iframe
-        v-if="startPlay && selectedVideo"
-        :src="selectedVideo.link | parseYoutubeLink"
-        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen></iframe>
-    </section>
-    <section class="videos-list">
-      <div v-for="(video, i) in videos"
-        :key="'youtube-' + i"
-        @click="select(video)"
-        class="video-item">
-        <div :style="'background-image: url(' + video.coverImg + ');'"
-          class="video-thumbnail"></div>
-        <p class="video-title">{{ video.title }}</p>
+      <div class="youtube-view">
+        <div v-if="!startPlay && selectedVideo"
+          :style="'background-image: url(' + selectedVideo.coverImg + ')'"
+          alt="thumbnail"
+          class="first-thumbnail"
+          @click="startPlay = true"/>
+        <iframe
+          v-if="startPlay && selectedVideo"
+          :src="selectedVideo.link | parseYoutubeLink"
+          style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen></iframe>
+      </div>
+      <div class="videos-list">
+        <ul>
+          <li v-for="(video, i) in videos"
+            :key="'youtube-' + i"
+            @click="select(video)"
+            class="video-item">
+            <div :style="'background-image: url(' + video.coverImg + ');'"
+              class="video-thumbnail"></div>
+            <p class="video-title">{{ video.title }}</p>
+          </li>
+        </ul>
       </div>
     </section>
-    <div></div>
   </div>
 </template>
 
@@ -68,15 +71,12 @@ export default {
   color: white;
   padding: 1rem;
   margin: 0.5rem auto 0;
-  display: grid;
-  grid-template:
-    "head head"
-    "youtube list" / 1fr 1fr;
   .head {
-    grid-area: head;
     h4 {
-      font-family: var(--title-font);
-      font-size: 1.5rem;
+      font: var(--title-font__bold) 1.2rem var(--title-font);
+      @media (max-width: 599px) {
+        font-size: 1.1rem;
+      }
       padding-bottom: 0.5rem;
       a {
         color: white;
@@ -93,58 +93,57 @@ export default {
     }
   }
   .youtube-container {
-    grid-area: youtube;
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%;
-    .first-thumbnail {
-      position: absolute;
+    height: 16rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    @media (max-width: 599px) {
+      height: 25rem;
+      grid-template-columns: 1fr;
+    }
+    .youtube-view {
+      position: relative;
       width: 100%;
-      height: 100%;
-      cursor: pointer;
-    }
-  }
-  .videos-list {
-    grid-area: list;
-    overflow-y: scroll;
-    max-height: 240px;
-    .video-item {
-      margin: 0 1rem 0.5rem;
-      padding: 0.2rem 0.5rem;
-      cursor: pointer;
-      display: grid;
-      grid-template-columns: auto 1fr;
-      align-items: center;
-      .video-thumbnail {
-        width: 5.2rem;
-        height: 3rem;
+      padding-bottom: 56.25%;
+      .first-thumbnail {
+        position: absolute;
         background-size: cover;
-        background-position: 50%;
-      }
-      .video-title {
-        margin: 0.2rem 0 0 0.5rem;
-        text-align: justify;
+        background-repeat: no-repeat;
+        background-position: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        cursor: pointer;
       }
     }
-    .video-item:hover {
-      background: var(--text-secondary-color);
-    }
-  }
-}
-
-@media (max-width: 599px) {
-  .container {
-    grid-template: "head" "youtube" "list" / 1fr;
     .videos-list {
-      margin-top: 0.2rem;
-      max-height: 15rem;
+      overflow-y: scroll;
       .video-item {
-        margin: 0;
-        padding: 0.2rem 0;
+        margin: 0 1rem 0.5rem;
+        padding: 0.5rem 0.5rem;
+        cursor: pointer;
+        display: grid;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+        .video-thumbnail {
+          width: 5.2rem;
+          height: 3rem;
+          background-size: cover;
+          background-position: 50%;
+        }
         .video-title {
-          margin: 0 0 0 0.5rem;
-          font-size: 0.9rem;
-          text-align: left;
+          margin: 0.2rem 0 0 0.5rem;
+          text-align: justify;
+        }
+      }
+      .video-item:hover {
+        background: var(--secondary-color-tint);
+      }
+      @media (max-width: 599px) {
+        font-size: 0.9rem;
+        .video-item {
+          margin: 0;
+          padding: 0.5rem 0;
         }
       }
     }

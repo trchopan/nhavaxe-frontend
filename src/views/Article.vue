@@ -94,7 +94,7 @@ export default {
 }
 .grid-list {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: var(--article-list-ratio) 1fr;
   grid-template-areas: "articlesList .";
   .right-warpper {
     padding-top: 1rem;

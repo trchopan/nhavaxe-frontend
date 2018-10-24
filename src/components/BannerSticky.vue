@@ -20,15 +20,13 @@ export default {
 <style lang="scss" scoped>
 .sticky {
   position: sticky;
-  top: 4rem;
+  top: 4.5rem;
 }
 .sponsor-image {
   width: 100%;
   background-size: cover;
   background-position: 50%;
   margin: 0.5rem auto;
-}
-.big-sticky {
-  height: 589px;
+  padding-bottom: 200%;
 }
 </style>
