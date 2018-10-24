@@ -34,6 +34,7 @@ const state = {
 };
 
 const getters = {
+  initialized: state => state.initialized,
   articlesList: state => state.articlesList,
   firstArticle: state => state.articlesList[0],
   topArticles: state => state.articlesList.slice(1, ARTICLE_SPLIT),

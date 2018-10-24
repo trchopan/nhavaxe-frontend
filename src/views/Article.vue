@@ -44,12 +44,9 @@ export default {
     BannerSticky,
     Videos
   },
-  beforeRouteUpdate(to, from, next) {
-    this.updateFlag = Math.random();
-    next();
-  },
   computed: {
     ...mapGetters({
+      initialized: "articles/initialized",
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody",
       articlesList: "articles/articlesList",
@@ -76,6 +73,16 @@ export default {
       this.updateFlag;
       return randomBanner(this.stickyBanners);
     }
+  },
+  created() {
+    this.$store.dispatch("articles/selectArticle", this.$route.params.id);
+    this.$store.dispatch("layout/scrollTop", 0);
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.updateFlag = Math.random();
+    this.$store.dispatch("articles/selectArticle", to.params.id);
+    this.$store.dispatch("layout/scrollTop", 0);
+    next();
   }
 };
 </script>

@@ -3,18 +3,16 @@ import { logger } from "@/helpers.js";
 const storeName = "[layout]";
 const log = logger(storeName);
 
-export const lightTheme = {
-  name: "light"
-};
-export const darkTheme = {
-  name: "dark"
+export const themes = {
+  light: "light",
+  dark: "dark"
 };
 
 // initial state
 const state = {
   appScroll: 0,
   homeScrollTop: 0,
-  theme: lightTheme
+  theme: themes.light
 };
 
 const getters = {
