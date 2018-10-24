@@ -50,7 +50,7 @@ export default {
   background-size: 100%;
   transform: scale(1);
   transition: transform 150ms ease-in;
-  @media (max-width: 700px) {
+  @media (max-width: 799px) {
     width: 4.7rem;
     height: 2.6rem;
   }
@@ -66,7 +66,7 @@ nav,
   justify-content: center;
   margin: 0 auto;
   height: 4rem;
-  @media (max-width: 700px) {
+  @media (max-width: 799px) {
     height: 3rem;
   }
   flex-wrap: nowrap;

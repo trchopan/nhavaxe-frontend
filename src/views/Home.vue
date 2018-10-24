@@ -98,7 +98,7 @@ export default {
 }
 .grid-list {
   display: grid;
-  grid-template: "articlesList ." / 2fr 1fr;
+  grid-template: "articlesList ." / var(--article-list-ratio) 1fr;
   .right-wrapper {
     padding-top: 1rem;
   }

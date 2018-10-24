@@ -58,11 +58,13 @@ export default {
     grid-area: title;
     margin: 0;
     padding: 0.5rem;
-    font-weight: var(--text-font__bold);
     .title {
       margin: 0.5rem 0;
-      font-size: 1.2rem;
       color: var(--text-accent-color);
+      font: var(--title-font__bold) 1.2rem var(--title-font);
+      @media (max-width: 599px) {
+        font-size: 1.1rem;
+      }
     }
   }
   .subs-preview {
@@ -104,7 +106,7 @@ export default {
       padding-bottom: 56%;
     }
     .mains-title {
-      font-family: var(--title-font);
+      font: 1rem var(--title-font);
       text-align: justify;
       position: absolute;
       left: 5%;
@@ -132,6 +134,11 @@ export default {
       "title"
       "mains"
       "subs";
+    .main-preview {
+      .main-title {
+        font: 0.9rem var(--title-font);
+      }
+    }
     .subs-preview {
       padding-top: 0;
       font-size: 0.9rem;

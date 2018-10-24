@@ -53,8 +53,6 @@ export default {
     getBanner(position) {
       let index = Math.floor(position / this.relatedBannerInterval);
       index = index < this.shuffledBanner.length ? index : 0;
-      console.log("relate", position, this.relatedBannerInterval);
-      console.log("relate", index, this.shuffledBanner);
       return this.shuffledBanner[index];
     }
   },

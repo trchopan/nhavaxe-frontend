@@ -35,7 +35,7 @@ export default {
   },
   async created() {
     const nowHour = new Date().getHours();
-    if (nowHour > 17 || nowHour < 5)
+    if (nowHour >= 17 || nowHour < 6)
       this.$store.dispatch("layout/changeTheme", themes.dark);
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("banner/fetchBannersList");
@@ -49,7 +49,6 @@ export default {
   },
   mounted() {
     let scrollWatcher;
-    let lastScrollTop;
     document.querySelector("#app").addEventListener("scroll", event => {
       clearTimeout(scrollWatcher);
       scrollWatcher = setTimeout(() => {

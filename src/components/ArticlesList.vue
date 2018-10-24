@@ -53,8 +53,8 @@ export default {
   data() {
     return {
       ArticleBannerInterval,
-      maxTitle: 75,
-      maxSapo: 0
+      maxTitle: 999,
+      maxSapo: 180
     };
   },
   props: {
@@ -71,9 +71,13 @@ export default {
   },
   mounted() {
     let clientWidth = window.innerWidth;
-    if (clientWidth > 799) {
-      this.maxTitle = 120;
-      this.maxSapo = 150;
+    if (clientWidth < 799 && clientWidth > 500) {
+      this.maxTitle = 95;
+      this.maxSapo = 90;
+    }
+    if (clientWidth <= 500) {
+      this.maxTitle = 75;
+      this.maxSapo = 0;
     }
   }
 };
@@ -85,7 +89,7 @@ export default {
   li {
     margin: 1rem 0;
     display: grid;
-    grid-template-columns: 28% auto;
+    grid-template-columns: 25% auto;
     position: relative;
     padding: 0 1rem;
   }
