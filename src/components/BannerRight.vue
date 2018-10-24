@@ -32,9 +32,7 @@ export default {
   background-size: cover;
   background-position: 50%;
   margin: 0.5rem auto;
-}
-.big-right {
-  height: 589px;
+  padding-bottom: 200%;
 }
 hr {
   border: 0;

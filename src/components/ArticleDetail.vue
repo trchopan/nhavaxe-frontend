@@ -85,7 +85,7 @@ p.article-sapo {
   text-align: justify;
 }
 .article-publish-at {
-  color: rgba(0, 0, 0, 0.54);
+  color: var(--text-faded-color);
   text-align: right;
   padding: 0 1rem;
 }
@@ -114,12 +114,11 @@ p.article-sapo {
 hr {
   border: 0;
   height: 1px;
-  background: var(--secondary-color);
   background-image: linear-gradient(
     to right,
-    var(--primary-color-tint),
+    var(--background-color),
     var(--primary-color),
-    var(--primary-color-tint)
+    var(--background-color)
   );
 }
 ul.article-tags {

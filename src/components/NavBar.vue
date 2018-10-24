@@ -1,7 +1,8 @@
 <template>
   <nav>
     <ul>
-      <li @click="navigate(null)"><div class="logo"></div></li>
+      <li @click="navigate(null)"><div class="logo"
+        :style="logoBackground"></div></li>
       <li v-for="cat in categories"
         @click="navigate(cat)"
         :key="cat.id"
@@ -14,12 +15,21 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { themes } from "@/store/modules/layout.js";
 
 export default {
   name: "NavBar",
-  computed: mapGetters({
-    categories: "categories/categories"
-  }),
+  computed: {
+    ...mapGetters({
+      theme: "layout/theme",
+      categories: "categories/categories"
+    }),
+    logoBackground() {
+      return this.theme === themes.light
+        ? { "background-image": "url('/logo-2018-light.png')" }
+        : { "background-image": "url('/logo-2018-dark.png')" };
+    }
+  },
   methods: {
     navigate(cat) {
       this.$store.dispatch("layout/scrollTop", 0);
@@ -35,15 +45,18 @@ export default {
 
 <style scoped lang="scss">
 .logo {
-  width: 5rem;
-  height: 2rem;
-  background: url("/logo.png");
-  background-size: cover;
+  width: 6.3rem;
+  height: 3.4rem;
+  background-size: 100%;
   transform: scale(1);
   transition: transform 150ms ease-in;
+  @media (max-width: 700px) {
+    width: 4.7rem;
+    height: 2.6rem;
+  }
 }
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 nav,
 .nav-spacer {
@@ -52,13 +65,16 @@ nav,
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  height: 3rem;
+  height: 4rem;
+  @media (max-width: 700px) {
+    height: 3rem;
+  }
   flex-wrap: nowrap;
   width: 100%;
   overflow: hidden;
   position: fixed;
   top: 0;
-  background: white;
+  background: var(--background-color);
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
 }
 nav > ul {
@@ -67,7 +83,6 @@ nav > ul {
   align-items: center;
   justify-content: center;
   list-style: none;
-  color: black;
   white-space: nowrap;
   li {
     position: relative;
@@ -81,7 +96,7 @@ nav > ul {
     position: absolute;
     width: 0;
     height: 1px;
-    background: black;
+    background: var(--primary-color);
     bottom: -0.5rem;
     left: 25%;
     transition: width 150ms ease-in;

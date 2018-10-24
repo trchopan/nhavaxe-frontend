@@ -34,9 +34,9 @@ export default {
     }
   },
   async created() {
-    // const nowHour = new Date().getHours();
-    // if (nowHour > 17 || nowHour < 5)
-    this.$store.dispatch("layout/changeTheme", themes.dark);
+    const nowHour = new Date().getHours();
+    if (nowHour > 17 || nowHour < 5)
+      this.$store.dispatch("layout/changeTheme", themes.dark);
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("banner/fetchBannersList");
     this.$store.dispatch("bangGia/fetchBangGia");
@@ -48,7 +48,8 @@ export default {
     this.$store.dispatch("articles/fetchCatArticles");
   },
   mounted() {
-    var scrollWatcher;
+    let scrollWatcher;
+    let lastScrollTop;
     document.querySelector("#app").addEventListener("scroll", event => {
       clearTimeout(scrollWatcher);
       scrollWatcher = setTimeout(() => {

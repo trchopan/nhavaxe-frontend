@@ -7,7 +7,6 @@ const log = logger(storeName);
 
 const LOADING_TEXT = "loading...";
 const ARTICLE_SPLIT = 4;
-const MAX_RELATE = 7;
 
 // Initial setup
 const initData =
@@ -41,7 +40,7 @@ const getters = {
   remainArticles: state => state.articlesList.slice(ARTICLE_SPLIT),
   selectedArticleMeta: state => state.selectedArticleMeta,
   selectedArticleBody: state => state.selectedArticleBody,
-  relatedList: state => state.relatedList.slice(0, MAX_RELATE),
+  relatedList: state => state.relatedList,
   loading: state => state.loading,
   error: state => state.error
 };

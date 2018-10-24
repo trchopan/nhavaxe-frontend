@@ -99,6 +99,7 @@ export default {
     padding-bottom: 56.25%;
     .first-thumbnail {
       position: absolute;
+      background-size: cover;
       width: 100%;
       height: 100%;
       cursor: pointer;
@@ -110,7 +111,7 @@ export default {
     max-height: 240px;
     .video-item {
       margin: 0 1rem 0.5rem;
-      padding: 0.2rem 0.5rem;
+      padding: 0.5rem 0.5rem;
       cursor: pointer;
       display: grid;
       grid-template-columns: auto 1fr;
@@ -127,7 +128,7 @@ export default {
       }
     }
     .video-item:hover {
-      background: var(--text-secondary-color);
+      background: var(--secondary-color-tint);
     }
   }
 }

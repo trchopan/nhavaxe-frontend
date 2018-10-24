@@ -62,7 +62,7 @@ export default {
     .title {
       margin: 0.5rem 0;
       font-size: 1.2rem;
-      color: white;
+      color: var(--text-accent-color);
     }
   }
   .subs-preview {
@@ -75,7 +75,7 @@ export default {
       a {
         font-family: var(--title-font);
         text-align: justify;
-        color: white;
+        color: var(--text-accent-color);
       }
     }
     .sub-item::before {
@@ -87,7 +87,7 @@ export default {
       font-family: var(--title-font);
     }
     .sub-item > a:hover {
-      color: var(--secondary-color-tint);
+      color: var(--primary-color);
     }
   }
   .mains-preview {
@@ -110,12 +110,12 @@ export default {
       left: 5%;
       bottom: -2%;
       right: 5%;
-      background: white;
+      background: var(--background-color-faded);
       padding: 8px;
       border-radius: 5px;
     }
     a:hover {
-      color: var(--secondary-color);
+      color: var(--primary-color);
     }
   }
   hr {

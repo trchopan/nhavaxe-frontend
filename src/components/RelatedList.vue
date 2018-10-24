@@ -1,17 +1,17 @@
 <template>
   <ul>
-    <template v-for="(article, index) in relatedList">
+    <template v-for="(article, index) in relatedList.slice(0, relatedMax)">
       <li :key="article.id">
         <router-link :to="'/article/' + article.id">
           <div class="related-article__card">
-            <p class="related-article__title">{{ article.title }}</p>
             <div class="related-article__img"
               :style="'background-image: url(' + article.coverImg + ');'">
             </div>
+            <p class="related-article__title">{{ article.title }}</p>
           </div>
         </router-link>
       </li>
-      <BannerRelated v-if="index > 2 && index % RelatedBannerInterval === 0" 
+      <BannerRelated v-if="shouldShowBanner(index)" 
         :key="'banner' + article.id"
         :banner="getBanner(index)"/>
     </template>
@@ -25,13 +25,14 @@ import BannerRelated from "@/components/BannerRelated.vue";
 
 export default {
   name: "RelatedList",
-  data() {
-    return {
-      RelatedBannerInterval: 2
-    };
-  },
   components: {
     BannerRelated
+  },
+  data() {
+    return {
+      relatedMax: 10,
+      relatedBannerInterval: 3
+    };
   },
   computed: {
     ...mapGetters({
@@ -43,12 +44,29 @@ export default {
     }
   },
   methods: {
+    shouldShowBanner(index) {
+      return (
+        index >= this.relatedBannerInterval + 1 &&
+        index % this.relatedBannerInterval === 0
+      );
+    },
     getBanner(position) {
-      let index =
-        Math.floor(position / this.RelatedBannerInterval) -
-        this.RelatedBannerInterval;
+      let index = Math.floor(position / this.relatedBannerInterval);
       index = index < this.shuffledBanner.length ? index : 0;
+      console.log("relate", position, this.relatedBannerInterval);
+      console.log("relate", index, this.shuffledBanner);
       return this.shuffledBanner[index];
+    }
+  },
+  mounted() {
+    let clientWidth = window.innerWidth;
+    if (clientWidth < 799 && clientWidth > 500) {
+      this.relatedMax = 7;
+      this.relatedBannerInterval = 2;
+    }
+    if (clientWidth < 500) {
+      this.relatedMax = 4;
+      this.relatedBannerInterval = 1;
     }
   }
 };
@@ -58,14 +76,8 @@ export default {
 ul {
   padding-bottom: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.7rem;
-  @media (max-width: 769px) {
-    padding: 0.5rem;
-  }
-  @media (max-width: 500px) {
-    grid-template-columns: 1fr;
-  }
   li {
     cursor: pointer;
     box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
@@ -73,17 +85,28 @@ ul {
   }
   .related-article__card {
     display: grid;
-    grid-template-rows: 1fr auto;
+    background-color: var(--background-color-faded);
+    grid-template-rows: auto 1fr;
     height: 100%;
   }
   .related-article__title {
     font: 600 1rem var(--title-font);
     padding: 0.8rem;
-    align-self: center;
+    align-self: start;
   }
   .related-article__img {
     background-size: cover;
-    padding-bottom: 75.31%;
+    padding-bottom: 83.33%;
+  }
+  @media (max-width: 769px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.5rem;
+  }
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr 1fr;
+    .related-article__title {
+      font-size: 0.9rem;
+    }
   }
 }
 </style>
