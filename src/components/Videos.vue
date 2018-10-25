@@ -15,7 +15,7 @@
           :style="'background-image: url(' + selectedVideo.coverImg + ')'"
           alt="thumbnail"
           class="first-thumbnail"
-          @click="startPlay = true"/>
+          @click="startPlay = true" />
         <iframe
           v-if="startPlay && selectedVideo"
           :src="selectedVideo.link | parseYoutubeLink"

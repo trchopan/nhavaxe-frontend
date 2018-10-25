@@ -20,7 +20,7 @@
         <p class="title">
           <router-link v-if="article.publishAt"
             :to="'/article/' + article.id">
-            {{ article.title }}
+            {{ article.title | trimText(maxTitle) }}
           </router-link>
         </p>
       </div>
@@ -33,6 +33,20 @@ export default {
   name: "ArticlesTop",
   props: {
     articlesList: Array
+  },
+  data() {
+    return {
+      maxTitle: 999
+    };
+  },
+  mounted() {
+    let clientWidth = window.innerWidth;
+    if (clientWidth < 769 && clientWidth > 500) {
+      this.maxTitle = 95;
+    }
+    if (clientWidth <= 500) {
+      this.maxTitle = 75;
+    }
   }
 };
 </script>

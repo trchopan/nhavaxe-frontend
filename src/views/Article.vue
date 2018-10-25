@@ -76,12 +76,12 @@ export default {
   },
   created() {
     this.$store.dispatch("articles/selectArticle", this.$route.params.id);
-    this.$store.dispatch("layout/scrollTop", 0);
+    this.$store.dispatch("layout/scrollYTo", 0);
   },
   beforeRouteUpdate(to, from, next) {
     this.updateFlag = Math.random();
     this.$store.dispatch("articles/selectArticle", to.params.id);
-    this.$store.dispatch("layout/scrollTop", 0);
+    this.$store.dispatch("layout/scrollYTo", 0);
     next();
   }
 };

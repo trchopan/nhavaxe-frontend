@@ -1,6 +1,10 @@
 <template>
   <div class="container">
-    <h2 class="bang-gia-title">Bảng Giá</h2>
+    <router-link :to="'bang-gia/' + selected"
+      tag="h2"
+      class="bang-gia-title">
+      Bảng Giá
+    </router-link>
     <h2 class="bang-gia-selection"
       :class="{ active: selected === 'nha' }"
       @click="selected = 'nha'">

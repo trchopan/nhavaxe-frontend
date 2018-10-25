@@ -5,6 +5,7 @@ table.bang-gia {
   font-family: var(--title-font);
   border-spacing: 0;
   border: var(--border-property);
+  background-color: var(--background-color);
   th {
     padding: 0.5rem 0;
     font-size: 0.8rem;
@@ -36,6 +37,7 @@ table.bang-gia {
   }
   .small-price-header {
     width: 20%;
+    padding: 0 0.2rem;
   }
   .project-header,
   .investor-header {
@@ -74,6 +76,9 @@ table.bang-gia {
   .publish-at-cell {
     border-right: var(--border-property);
     padding: 0 0.5rem;
+  }
+  .border-right-reset {
+    border-right: none;
   }
   .price-cell-primary {
     color: var(--primary-color);

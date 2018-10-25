@@ -49,25 +49,21 @@ export default {
   },
   mounted() {
     let scrollWatcher;
-    document.querySelector("#app").addEventListener("scroll", event => {
+    window.onscroll = () => {
       clearTimeout(scrollWatcher);
       scrollWatcher = setTimeout(() => {
-        const scrollValues = {
-          scrollTop: event.target.scrollTop,
-          offsetHeight: event.target.offsetHeight,
-          scrollHeight: event.target.scrollHeight,
-          clientHeight: event.target.clientHeight
-        };
+        const scrollY = window.scrollY;
+        const offsetHeight = document.body.offsetHeight;
+        const innerHeight = window.innerHeight;
         if (
-          scrollValues.scrollTop >=
-            scrollValues.scrollHeight - scrollValues.offsetHeight - 100 &&
+          innerHeight + scrollY >= offsetHeight - 500 &&
           this.$route.path.split("/")[1] !== "bang-gia"
         ) {
           const catId = this.$store.state.categories.selectedCat.id;
           this.$store.dispatch("articles/fetchCatArticles", catId);
         }
       }, 200);
-    });
+    };
   }
 };
 </script>

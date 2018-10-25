@@ -9,7 +9,7 @@
       <td class="project-cell">{{ data.project }}</td>
       <td class="investor-cell">{{ data.investor }}</td>
       <td class="location-cell">{{ data.location}}</td>
-      <td>{{ data.avgPrice | parseNumber }}</td>
+      <td class="price-cell-primary border-right-reset">{{ data.avgPrice | parseNumber }}</td>
     </tr>
   </table>
 </template>

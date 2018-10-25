@@ -1,362 +1,357 @@
 export default {
   meta: {
-    id: "4eFpAwsaEHzDL7suNceU",
+    id: "wSaFzFbrHAQoRNjA5b2l",
     coverImg:
-      "https://image.tinnhanhchungkhoan.vn/w660/Uploaded/2018/ivp-kpcx/2018/new/chungkhoan/1/ndm_4639_dino.jpg",
-    title: "Chứng khoán phái sinh “sốt” trở lại",
+      "https://media.baodautu.vn/Images/huutuan/2018/10/19/vnpt_check_021539935298.jpg",
+    title:
+      "Mẹo vặt trong kiểm tra nguồn gốc sản phẩm dành cho các bà nội trợ thông thái",
     sapo:
-      "Phiên 11/10, giá trị giao dịch trên sàn phái sinh đạt hơn 12.000 tỷ đồng, gấp 3 lần phiên trước đó, cao nhất kể từ đầu tháng 8. Giá trị giao dịch phiên sau đó cao hơn, đạt gần 14.000 tỷ đồng, trong khi trung bình giai đoạn từ 1 - 10/10 chỉ trên 5.000 tỷ đồng/phiên.",
+      "Mẹo kiểm tra nguồn gốc hàng thì có nhiều nhưng quan trọng là mẹo nào là lựa chọn số 1 để biến các bà nội trợ luôn là người tiêu dùng thông minh nhất.",
     video: null,
     style: "article",
-    categoryId: "iqs4rjIm4vsOsckd8ETf",
-    categoryName: "article",
-    publisher: "ĐTCK",
-    reference: "Trí Dũng",
-    publishAt: 1539680400000,
-    tags: ["chứng khoán", "cổ phiếu", "thị trường"]
+    categoryId: "article",
+    categoryName: "Info Money",
+    publisher: "Báo Đầu Tư",
+    reference: "Như Thái",
+    publishAt: 1539999960000,
+    tags: [
+      "mẹo vặt",
+      "chăm sóc",
+      "phụ nữ",
+      "kiểm tra",
+      "vnpt check",
+      "thông thái"
+    ]
   },
   body:
-    '<p><strong>Thị trường cơ sở biến động mạnh, tạo ra cơ hội “lướt sóng”</strong></p><p>Khi phiên giao dịch 11/10 kết thúc, người viết có trao đổi với một nhà đầu tư (NĐT) chứng khoán phái sinh, người này chia sẻ, buổi sáng, anh mở màn hình giao dịch và giật mình khi thấy giá chứng khoán phái sinh sụt giảm, lệnh bán với giá ATO chất đống (bán tại mức giá khi hệ thống so khớp lệnh xác định giá mở cửa; trong bối cảnh giá giảm, lệnh này đồng nghĩa với việc NĐT chấp nhận bán với giá sàn), trong khi lệnh mua với giá ATO cũng lớn.</p><p>Nhìn thời gian, hệ thống chuẩn bị khớp lệnh nên anh liền đặt mua vì cho rằng, làm gì có thông tin nào bất lợi, chắc có đội lái dìm giá, “mua tay trái, bàn tay phải”, giá sẽ tăng ngay khi bước vào đợt khớp lệnh liên tục.</p><p>Lâu nay, các đợt ATO chỉ có vài trăm đơn vị được khớp, NĐT đặt lệnh nhỏ giọt nhằm thăm dò, chứ mấy ai mua bán lớn, mà phải chờ diễn biến trên thị trường cơ sở (sàn cơ sở mở cửa sau sàn phái sinh 15 phút, khi sàn phái sinh kết thúc đợt ATO).</p><p>Kết quả, anh mua được hợp đồng tương lai chỉ số VN30 đáo hạn tháng 10 ở mức giá 952 điểm, thấp hơn gần 20 điểm so với giá tham chiếu và thấp hơn khoảng 14 điểm so với tham chiếu của VN30.</p><p>Mua xong, anh cảm thấy hoảng, vì giá tiếp tục lao dốc, cắt lỗ thì… đau chết! Vội nhìn sang sàn cơ sở thì thấy bảng điện “đỏ lừ”, giá dự kiến khớp mỗi lúc một giảm thêm, tìm hiểu nguyên nhân thì được biết, TTCK thế giới đêm trước lao dốc.</p><p>“Gần đây, tôi không đánh giá cao tác động của diễn biến giá chứng khoán thế giới đến chứng khoán Việt Nam. Ngay cả khi Mỹ quyết định áp thuế đối với 200 tỷ USD hàng hóa Trung Quốc hồi giữa tháng 9 thì chứng khoán Việt vẫn cứ lình xình, thậm chí tăng điểm, dù nhiều thị trường khác, trong đó có Mỹ, giảm điểm. Do đó, tôi quyết định không cắt lỗ”, NĐT nói trước khi thừa nhận, đây là một quyết định không thực sự hợp lý.</p><p>Chỉ vì không cam tâm chấp nhận lỗ mà anh đã bỏ qua cơ hội lướt sóng trong phiên, hoặc chuyển sang vị thế bán, bởi giá đóng cửa cuối phiên là 920,2 điểm, gần thấp nhất phiên, giảm 31,8 điểm so với giá mở cửa và giảm 51,4 điểm so với cuối phiên trước (1 điểm tương đương 100.000 đồng, trong khi một hợp đồng có giá trị ký quỹ giao dịch khoảng 18 triệu đồng).</p><p>Trao đổi lại với NĐT trên khi phiên giao dịch cuối tuần qua (12/10) kết thúc, anh cho biết, nhiều thị trường trên thế giới vẫn giảm điểm nên giá chứng khoán phái sinh tiếp tục giảm khi mở cửa, nhưng sau đó hồi dần và tăng cao trong phiên chiều.</p><p>Anh đã gỡ lại được phần lớn mức thua lỗ hôm trước nhờ kiên định nắm giữ vị thế mua, dù tâm lý ban đầu khá hoảng, phải nộp thêm tiền vào tài khoản nhằm đảm bảo tỷ lệ ký quỹ giao dịch. Trong khi đó, các bạn anh liên tục mua vào - bán ra nhằm hưởng chênh lệch giá.</p><p><img src="https://image.tinnhanhchungkhoan.vn/w420/Uploaded/2018/gtnwae/2018_10_13/zzzphaisinh_emon.jpg"></p><p>Phiên 12/10, VN30 tăng 23,47 điểm, đạt 943,49 điểm; giá hợp đồng đáo hạn tháng 10 tăng 23,8 điểm, đạt 944 điểm. Trong phiên, giá hợp đồng này thấp nhất là 902,9 điểm, cao nhất là 944,5 điểm, còn VN30 thấp nhất là 908,74 điểm, cao nhất là lúc đóng cửa.</p><p>“Tôi hiếm khi nắm giữ vị thế qua đêm, vừa qua là kinh nghiệm nhớ đời. Không thể chống lại thị trường, mà cần nương theo xu hướng.</p><p>Nếu không hấp tấp trước khi giao dịch phiên sáng 11/10 thì tôi có thể sử dụng vốn để thỏa sức lướt sóng trong phiên, vì biên độ dao động giá lớn và giá có diễn biến nhanh, chứ không như trước, cứ lình xình, rất khó chịu, rất khó kiếm lời, cả ngày chỉ thực hiện được vài ba thương vụ”, NĐT tỏ vẻ tiếc nuối.</p><p>Trưởng phòng môi giới tại một công ty chứng khoán ở Hà Nội cho biết, chỉ số cơ sở biến động mạnh khiến giá phát sinh biến động theo, tạo cơ hội cho các NĐT lướt sóng, liên tục mua - bán trong phiên nhằm hưởng chênh lệch giá, dẫn đến thanh khoản tăng vọt so với trước.&nbsp;</p><p><strong>Kỹ thuật lướt sóng</strong></p><p>Vị trưởng phòng môi giới cho rằng, giá phái sinh dựa vào giá cơ sở, nên chỉ có thể "làm giá" trên thị trường cơ sở để hưởng lợi trên thị trường phái sinh, chứ làm ngược lại là không thể.</p><p>Nhưng trên thị trường cơ sở cũng rất khó làm giá, vì quy mô quá lớn, chỉ có thể tác động (liên tục mua với giá cao hoặc bán với giá thấp) vào một vài mã có thanh khoản không cao, trong một số điều kiện nhất định, chẳng hạn thị trường đang đi ngang.</p><p>Hành động này khiến chỉ số bất ngờ tăng hoặc giảm, qua đó giá phái sinh “chạy” theo. NĐT sẽ hưởng lợi khi thực hiện đóng vị thế trên sàn phái sinh sau khi mở vị thế mua hoặc bán trước đó.</p><p>Còn trên sàn phái sinh, khả năng tác động tương tự là có, nhưng phải nương theo thị trường cơ sở. Ví dụ, chỉ số cơ sở đang tăng, nhưng giá phái sinh tăng ít và khối lượng mua bán tại các mức giá gần nhất đều nhỏ, NĐT mở vị thế mua nhiều trước đó có thể liên tiếp mua vào để đẩy giá phái sinh lên một mặt bằng mới, sau đó từ từ chốt lời. Đây không phải là làm giá, mà là kỹ thuật lướt sóng.</p><p>“Sàn chứng khoán giờ đây có kỹ thuật lướt sóng rất cao, NĐT nhỏ nếu không cẩn trọng, mua đuổi hoặc bán đuổi, có thể sẽ mắc bẫy “cá mập” hoặc các NĐT giàu kinh nghiệm khác”, vị trưởng phòng môi giới nói.</p>',
+    '<p class="ql-align-justify">Trong ma trận các loại hàng hóa các bà nội trợ sẽ luôn phải đấu trí với các em nhân viên bán hàng chèo kéo. Qua được cửa ải đó thì lại hoa mắt, chóng mặt với tem mác của các nhà sản xuất. Chưa hết đâu, cầm hàng trên tay lại bối rối bởi không biết hàng thật hay hàng nhái mà có khi lại là hàng giả....</p><p class="ql-align-justify">Các bà, các mẹ thì luôn tuyên truyền nhau những mẹo mua hàng nhưng chả ai dám chắc chưa bao giờ trở thành người&nbsp;tiêu dùng&nbsp;không thông minh. Mẹo kiểm tra nguồn gốc hàng thì có nhiều nhưng quan trọng là mẹo nào là lựa chọn số 1 để biến các bà nội trợ luôn là người tiêu dùng thông minh nhất.</p><p class="ql-align-justify"><strong>Đầu tiên: xem xét hình thức, mẫu mã sản phẩm</strong></p><p class="ql-align-justify">Các mẹ biết đấy, hàng chính hãng thì hình thức bên ngoài luôn sắc nét và tinh tế hơn đồ giả, đồ nhái rồi. Cái này cần con mắt tinh đời của các mẹ một chút nhé. Chúng ta hãy để ý màu sắc của bao bì hoặc sản phẩm phải thật sắc nét, rõ ràng, không nhờ nhờ giữa màu nọ và màu kia. Ví dụ cái cặp đi học của các con thì cặp nhái và cặp chính hãng màu khác hẳn nhau, một cái màu trông thì sặc sỡ nhưng lại chóe quá trong khi cái cặp được sản xuất chính hãng màu cũng sặc sỡ nhưng sắc nét hơn rất nhiều.</p><p class="ql-align-center"><img src="https://media.baodautu.vn/Images/huutuan/2018/10/19/vnpt_check_021539935298.jpg"><em>VNPT Check giúp khách hàng kiểm tra chính xác nguồn gốc, xuất xứ của sản phẩm.</em></p><p class="ql-align-justify"><strong>Thứ hai: biết cách xem mã vạch</strong></p><p class="ql-align-justify">Cái này thì cần dùng tư duy toán học và trí nhớ tốt bởi hầu hết các mặt hàng nào đều có mã vạch, nếu hàng nào chưa có mã vạch thì có lẽ chỉ là đồ thủ công mỹ nghệ. Chúng ta sẽ nhận biết hàng thật, giả bằng cách xem mã vạch. Mã vạch có 2 loại đó là mã vạch gồm 8 con số và mã vạch gồm 13 con số, từ các con số này sẽ cho chúng ta biết tất cả về sản phẩm, mã vạch 8 và 13 số đều có cách nhận biết giống nhau.</p><p class="ql-align-justify">Cách dễ nhớ quy luật của tính mã vạch là hãy đọc thần chú: "Chẵn nhân ba cộng lẻ" sau đó cộng với số cuối cùng, nếu tổng có đuôi là số 0 là hàng thật,còn nếu khác 0 là giả. Rất dễ nhớ phải không ạ! Còn nữa, 3 con số đầu của dãy số sẽ cho chúng ta biết mặt hàng xuất xứ từ nước nào. Ví dụ 893 là Việt Nam, 880 là Hàn Quốc… Cố gắng học thuộc các mẹ nhé!</p><p class="ql-align-justify"><strong>Thứ ba: làm người phụ nữ thông thái thật đơn giản với sự trợ giúp của công nghệ</strong></p><p class="ql-align-justify">Cách đầu tiên mang tính trừu tượng khá cao vì dưới con mắt của mỗi người có một nhận xét khác nhau về màu sắc và đường nét. Vậy nên, cách này chỉ dùng cho người nào thật tinh tế và cũng quen được nhìn ngắm hàng hiệu nhiều thôi các mẹ ạ.</p><p class="ql-align-justify">Cách thứ hai thì cũng cụ thể chi tiết đấy, nhưng không phải ai cũng nhớ trong đầu được đâu,đặc biệt là với mấy mẹ bỉm sữa bận bịu thì cách thứ hai theo là “bất khả thi”. Mà mã vạch hiện nay nhiều lúc vẫn được làm giả như hàng thật thôi.</p><p class="ql-align-center"><img src="https://media.baodautu.vn/Images/huutuan/2018/10/19/vnpt_check_011539935267.jpg"><em>Mẹo kiểm tra nguồn gốc hàng thì có nhiều nhưng quan trọng là mẹo nào là lựa chọn số 1 để biến các bà nội trợ luôn là người tiêu dùng thông minh nhất.</em></p><p class="ql-align-justify">Nếu 2 mẹo trên thỉnh thoảng làm chị em mình hoang mang, thì tuyệt chiêu sau đây, đảm bảo vô cùng yên tâm về độ chính xác. Chỉ bằng một thao tác đơn giản là cài ứng dụng lên chiếc điện thoại smartphone các mẹ luôn có trên tay để chat chit hàng ngày.</p><p class="ql-align-justify">Cụ thể là thế này: VNPT Check là ứng dụng giúp nhận biết hàng giả bằng công nghệ in và quét tem QR code tiên tiến, giúp bảo vệ uy tín&nbsp;doanh nghiệp&nbsp;và hỗ trợ người tiêu dùng xác thực nguồn gốc, phân biệt hàng thật, giả mỗi khi mua sắm.</p><p class="ql-align-justify">Chị em mình vào kho ứng dụng trên điện thoại nhé, sau đó tìm và cài ứng dụng VNPT Check. Ứng dụng này rất tài tình ở chỗ, khi các chị bật ứng dụng, cầm điện thoại đưa lên mã QR trên sản phẩm, điện thoại sẽ tự quét mã và hiện lên cho chị em mình thông tin chi tiết về hàng hóa mình mua, gồm: Nguồn gốc sản phẩm, thông tin sản phẩm, giá bán, doanh nghiệp sản xuất. Đây là thông tin do chính doanh nghiệp sản xuất sản phẩm cung cấp, nên vô cùng chi tiết và không thể giả được.</p><p class="ql-align-justify">Một điểm rất hay ở ứng dụng này là khi chị em mình quét mã sẽ được cảnh báo khi sản phẩm có nguy cơ bị làm giả hoặc các khuyến cáo về hàng hết hạn sử dụng các chị em ạ. Do vậy mà những bà mẹ hoàn toàn yên tâm. Ngoài những lợi ích trên thì khách hàng thường xuyên, thân thiết sử dụng VNPT Check sẽ được nhận thông tin nhanh nhất về chính sách khuyến mại của nhà sản xuất, các mẹ tha hồ nắm bắt thông tin cho cả nhà mua sắm nhé.</p><p class="ql-align-justify">Mà các mẹ cứ mang điện thoại đi bên mình, thì dù đứng trong siêu thị hay cửa hàng dọc đường, khi mua hàng chỉ cần quét mã QR code là ra ngay thông tin, không cần học thuộc các dãy số, cũng không cần nhìn ngắm mất thời gian gì cả các mẹ nhỉ.</p><p class="ql-align-justify">Thời đại công nghệ 4.0 rồi, chị em mình nên dùng công nghệ để lúc nào cũng là người phụ nữ thông thái trong mua sắm!</p><blockquote class="ql-align-justify">VNPT Check là giải pháp xác thực nguồn gốc hàng hóa. VNPT Check, giúp doanh nghiệp ngăn chặn sản phẩm bị làm giả; tiết kiệm thời gian, chi phí, công sức để giải quyết các vấn đề liên quan đến hàng giả; xây dựng hình ảnh thương hiệu đáng tin cậy. Với VNPT Check, người tiêu dùng dễ dàng kiểm tra nguồn gốc, xuất xứ sản phẩm, hàng hóa; đảm bảo không mua phải hàng giả, hàng nhái; tham gia tích cực ngăn chặn hàng giả và được hưởng nhiều ưu đãi và quyền lợi trực tiếp từ doanh nghiệp. Thông tin chi tiết về VNPT Check, bạn đọc có thể liên hệ hotline 18001260 hoặc truy cập website: http://vnptcheck.vn</blockquote>',
   list: [
     {
-      id: "jvK6yqFVtr1vDKYA864B",
-      coverImg:
-        "http://autopro56.mediacdn.vn/zoom/650_413/2018/10/23/photo1540278879223-1540278879225956330212.png",
-      title:
-        "Những mẫu xe hot nhất Triển lãm Ô tô Việt Nam 2018 đã tề tựu đông đủ",
-      sapo:
-        "Các dòng xe tâm điểm của Triển lãm Ô tô Việt Nam 2018 (Vietnam Motor Show 2018) đã có mặt tại SECC, Quận 7 TP.HCM để chuẩn bị cho lễ khai mạc sự kiện vào sáng mai 24/10.",
-      video: null,
-      style: "picture",
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      categoryName: "Xe 360 độ",
-      publisher: "Trí Thức Trẻ",
-      reference: "Quang Phong - Xuân Anh",
-      publishAt: 1540303200000,
-      tags: ["vietnam motorshow 2018", "triển lãm", "ô tô"]
-    },
-    {
-      id: "z1a3fjJclMHsBSGQuqik",
-      coverImg:
-        "http://cafefcdn.com/thumb_w/640/2018/10/23/photo-1-15402888637641847421091.jpg",
-      title: "Diễn biến mới vụ mua nhà 58 tỉ, bán lại 28 tỉ siêu tốc",
-      sapo:
-        "Nay ông Trường đã ra tù nên việc tiếp xúc với ông Trường sẽ làm rõ được bản chất sự việc nhiều khuất tất này.",
-      video: null,
-      style: "article",
+      publishAt: 1540452600000,
       categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Thanh Niên",
+      reference: "Đình Sơn",
       categoryName: "Bất động sản",
-      publisher: "Pháp luật Tp Hồ Chí Minh",
-      reference: "Phương Loan",
-      publishAt: 1540301400000,
-      tags: ["mua nhà", "bán nhà", "chuyển nhượng", "đất đai"]
+      sapo:
+        "200 trong tổng số hàng chục ngàn căn hộ, nền đất tái định cư bỏ hoang tại TP.HCM đã được đấu giá thành công.\n",
+      tags: ["tái định cư", "đấu giá", "tphcm"],
+      id: "JG1J914t347os8bTYFBR",
+      style: "article",
+      title: "Đấu giá thành công 200 căn hộ tái định cư",
+      video: null,
+      coverImg:
+        "https://image.thanhnien.vn/665/uploaded/dinhson/2018_10_25/phumy_vais.jpg"
     },
     {
-      id: "jxLajJDCL96BMZoB4JhF",
-      coverImg:
-        "http://autopro56.mediacdn.vn/zoom/650_413/2018/10/23/photo1540283380853-15402833808531607268344.jpg",
-      title:
-        "Cận kề ngày ra mắt, xe máy điện VinFast tiếp tục lộ diện trên đường thử",
-      sapo:
-        "Những chiếc xe máy được ngụy trang kín mít xuất hiện trên đường được cho là của VinFast. Mẫu xe điện “made in Vietnam” sẽ được ra mắt trong tháng 11 tới.",
-      video: null,
-      style: "article",
+      publishAt: 1540452000000,
       categoryId: "3WYMgrmpfuLornXzAnnY",
-      categoryName: "Xe 360 độ",
       publisher: "Trí Thức Trẻ",
-      reference: "Đức Khôi",
-      publishAt: 1540299600000,
-      tags: ["xe điện", "vinfast"]
+      reference: "Anh Xuân",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Volkswagen Touareg thế hệ mới có sự lột xác toàn diện cả về thiết kế, hệ thống khung gầm và những công nghệ tích hợp bên trong.\n",
+      tags: ["volkswagen", "suv", "ô tô"],
+      id: "o76r93eJkh1zfo1ZCmGg",
+      style: "picture",
+      title:
+        "Đánh giá nhanh VW Touareg 2019: SUV tiền tỷ nhiều công nghệ bậc nhất Việt Nam",
+      video: null,
+      coverImg:
+        "https://autopro56.mediacdn.vn/zoom/640_400/2018/10/25/photo1540430691577-1540430691578634336710.jpg"
     },
     {
-      id: "Ex9B38x1PJFQiiebag1u",
-      coverImg:
-        "http://cafefcdn.com/thumb_w/650/2018/10/23/photo1540262457681-15402624576811397466291.jpg",
-      title:
-        "Đầu tư nước ngoài bùng nổ ở Việt Nam và các nước Đông Nam Á khác bởi Chiến tranh Thương mại Mỹ - Trung",
-      sapo:
-        "Đối đầu kinh tế giữa Mỹ và Trung Quốc khiến các công ty đẩy nhanh quá trình chuyển đổi sản xuất sang khu vực Đông Nam Á.",
-      video: null,
+      tags: ["vinfast", "thương hiệu", "kinh doanh"],
+      id: "HD58h7MiuRBBiTQfkvoC",
       style: "article",
+      title:
+        "Hiệu ứng hào quang: Giày Nike tốt, chắc hẳn găng tay Nike cũng tốt! David Beckham đẳng cấp, chắc hẳn VinFast là thương hiệu tuyệt vời!",
+      video: null,
+      coverImg:
+        "https://autopro56.mediacdn.vn/zoom/640_400/2018/10/25/photo1540436252250-15404362522502084187534.png",
+      publishAt: 1540451760000,
       categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Trí Thức Trẻ",
+      reference: "Lê Thanh Sang ",
       categoryName: "Info Money",
-      publisher: "Trí thức trẻ/Bloomberg",
+      sapo:
+        "Tất cả chúng ta đều nghĩ những người đẹp trai, đẹp gái phải thông minh hơn, thành công hơn và đặc biệt là hạnh phúc hơn so với đại đa số “dân thường”.\n"
+    },
+    {
+      video: null,
+      coverImg:
+        "https://autopro56.mediacdn.vn/zoom/640_400/2018/10/25/photo1540443319571-1540443319571399677482.jpg",
+      publishAt: 1540451460000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Trí Thức Trẻ",
+      reference: "Quang Phong",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Phiên bản facelift của Nissan Sunny vừa ra mắt tại Triển lãm Ô tô Việt Nam 2018 sẽ có giá 568 triệu đồng\n",
+      tags: ["nissan", "vietnam motorshow 2018", "xe", "giá rẻ"],
+      id: "oFOg20yIgxnxhkRaI9wp",
+      style: "picture",
+      title: "Đã có giá Nissan Sunny 2018 cạnh tranh Toyota Vios tại Việt Nam"
+    },
+    {
+      tags: ["chứng khoán", "châu á", "sụt giảm"],
+      id: "eQNaqhT2ef5iqOZfYFLW",
+      style: "article",
+      title:
+        "Chứng khoán châu Á mất 5.000 tỷ USD trong năm nay và chưa có dấu hiệu kết thúc",
+      video: null,
+      coverImg:
+        "http://cafefcdn.com/thumb_w/650/2018/10/25/photo1540436663490-15404366634901250091018.jpg",
+      publishAt: 1540450800000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Thời đại/Bloomberg",
       reference: "Linh Anh",
-      publishAt: 1540297800000,
-      tags: ["đầu tư", "nước ngoài", "thương mại", "mỹ", "trung quốc"]
-    },
-    {
-      id: "hG1anSw0EcVnDmNBq44o",
-      coverImg:
-        "https://vnn-imgs-f.vgcloud.vn/2018/10/17/14/da-nang-tinh-chi-hon-550-ty-dong-lam-nut-giao-3-tang-canh-song-han-1.JPG",
-      title:
-        "Đà Nẵng tính chi hơn 550 tỷ đồng làm nút giao 3 tầng cạnh sông Hàn",
-      sapo:
-        "Nếu được HĐND TP thông qua, công trình này dự kiến sẽ khởi công vào cuối năm nay.",
-      video: null,
-      style: "article",
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      categoryName: "Bất động sản",
-      publisher: "Vietnamnet",
-      reference: "Cao Thái",
-      publishAt: 1540296000000,
-      tags: ["bất động sản", "dự án", "đà nẵng"]
-    },
-    {
-      id: "1DMNC6r7B0Doc4M5GkjW",
-      coverImg:
-        "http://www.baoxaydung.com.vn/stores/news_dataimages/hiep/102018/23/14/145308baoxaydung_image001.jpg",
-      title: "5 tiêu chí cần có của cửa cuốn an toàn",
-      sapo:
-        "Các loại cửa cuốn kém chất lượng có thể gây nguy hiểm cho người dùng. Để lựa chọn loại an toàn cho gia đình, người tiêu dùng cần chú ý đến 5 tiêu chí.",
-      video: null,
-      style: "article",
-      categoryId: "JfDm8uW3Bgt3GdHhmxnF",
-      categoryName: "Vật liệu xây dựng",
-      publisher: "Zing",
-      reference: "Diệp Trà",
-      publishAt: 1540295100000,
-      tags: ["cửa cuốn", "an toàn"]
-    },
-    {
-      id: "OokbmkLgd812ISE5p1fK",
-      coverImg:
-        "https://cdn.explus.vn/media.nhadautu.vn/files/homai/2018/10/23/king-bay-fff-1112.jpg",
-      title:
-        "Hé lộ về chủ đầu tư dự án King Bay 125ha tại Nhơn Trạch, Đồng Nai",
-      sapo:
-        'Chủ đầu tư dự án King Bay quy mô 125ha, tổng vốn đầu tư hơn 4.800 tỷ đồng tại Nhơn Trạch, Đồng Nai có sự góp mặt của những tên tuổi như CIPM Cửu Long - đơn vị sắp được sáp nhập vào VEC; Tổng công ty Khoáng sản Nari Hamico - một "ẩn số" tại BIDV trong nhiệm kỳ của ông Trần Bắc Hà.',
-      video: null,
-      style: "article",
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      categoryName: "Bất động sản",
-      publisher: "Nhà Đầu Tư",
-      reference: "Anh Mai",
-      publishAt: 1540294680000,
-      tags: ["dự án", "đồng nai", "nhơn trạch", "ông chủ", "kingbay"]
-    },
-    {
-      id: "uXXEPTKCfw3j6r5FkZ9U",
-      coverImg:
-        "https://images.kienthuc.net.vn/zoomhw/500/uploaded/nguyenanhtuan/2018_10_23/nissan/nissan-sunny-2019-tang-gia-hon-20-trieu-dong-tai-viet-nam.jpg",
-      title: "Nissan Sunny 2019 tăng giá hơn 20 triệu đồng tại Việt Nam?",
-      sapo:
-        "Phải đến triển lãm Ô tô Việt Nam 2018, mẫu xe sedan giá rẻ Nissan Sunny 2019 mới được ra mắt nhưng một số đại lý đã bất ngờ hé lộ giá bán của mẫu sedan hạng B này.",
-      video: null,
-      style: "picture",
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      categoryName: "Xe 360 độ",
-      publisher: "Báo Kiến Thức",
-      reference: "Tâm Võ",
-      publishAt: 1540294260000,
-      tags: ["nissan", "sedan", "2019", "đại lý", "bảng giá", "ô tô"]
-    },
-    {
-      id: "bIBM1EvFkuC8RbcW9Ob9",
-      coverImg:
-        "https://petrotimes.vn/stores/news_dataimages/buihienanh/102018/23/08/ttck-my-va-chau-au-giam-diem-trong-phien-dau-tuan.jpg",
-      title: "TTCK Mỹ và Châu Âu giảm điểm trong phiên đầu tuần",
-      sapo:
-        "Thị trường chứng khoán Mỹ và Châu Âu đóng cửa giảm điểm trong phiên đầu tuần mới khi nhà đầu tư thận trọng chờ đợi thông tin về lợi nhuận của các doanh nghiệp lớn trong quý III/2018 được công bố trong tuần này.",
-      video: null,
-      style: "article",
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
       categoryName: "Info Money",
-      publisher: "PetroTimes",
-      reference: "H.A",
-      publishAt: 1540281600000,
-      tags: ["chứng khoán", "mỹ", "châu âu"]
+      sapo:
+        "Cú sụt giảm nghiêm trọng của chứng khoán Mỹ kéo theo phản ứng tồi tệ với chứng khoán châu Á, khiến 4.900 tỷ USD giá trị vốn hóa bị thổi bay khỏi thị trường này kể từ đầu năm 2018."
     },
     {
-      id: "OU7chqIkbd3XcmVpUOIu",
-      coverImg:
-        "https://cdn.explus.vn/media.nhadautu.vn/resize/720x540/files/trongcanh/2018/10/23/buon-lau-phu-tung-o-to-0930.jpg",
-      title:
-        "Lợi dụng nhập khẩu phế liệu, Posco SS Vina buôn lậu phụ tùng ô tô",
-      sapo:
-        "Hải quan vừa phát hiện và bắt giữ một lượng lớn phụ tùng ô tô nhập lậu trà trộn trong các container phế liệu tại cửa khẩu Cảng Cái Mép, tỉnh Bà Rịa-Vũng Tàu. Người nhận hàng đứng tên trên vận tải đơn là Công ty TNHH Posco SS Vina.",
-      video: null,
+      tags: ["giá", "xăng dầu", "thế giới"],
+      id: "wGrfto7Fbzo1jDiuaqMD",
       style: "article",
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      categoryName: "Xe 360 độ",
-      publisher: "Nhà Đầu Tư",
-      reference: "Nam Nam",
-      publishAt: 1540275840000,
-      tags: [
-        "phụ tùng",
-        "ô tô",
-        "buôn lậu",
-        "nhập khẩu",
-        "posco ss vina",
-        "phế liệu"
-      ]
-    },
-    {
-      id: "KjAKtWrI3K1f52Jm1pRK",
-      coverImg:
-        "https://petrotimes.vn/stores/news_dataimages/administrator/072018/23/15/vi-sao-gia-dau-tang-giam-bat-thuong.jpg",
-      title: "Giá dầu thế giới 23/10: Đồng loạt tăng",
-      sapo:
-        "Giá dầu thế giới ngày 23/10 đồng loạt tăng mạnh khi những lo ngại căng thẳng thương mại có tín hiệu lạc quan.",
+      title: "Giá dầu thế giới 25/10: Giá dầu tiếp tục xu hướng giảm nhẹ",
       video: null,
-      style: "article",
+      coverImg:
+        "https://petrotimes.vn/stores/news_dataimages/thanhngoc/102018/25/08/4249_30_RECW.jpg",
+      publishAt: 1540447200000,
       categoryId: "iqs4rjIm4vsOsckd8ETf",
-      categoryName: "Info Money",
       publisher: "PetroTimes",
       reference: "Hà Lê",
-      publishAt: 1540274400000,
-      tags: ["giá", "xăng dầu", "thế giới"]
-    },
-    {
-      id: "Kk02Jgl2w4xu1rMRy7aY",
-      coverImg:
-        "http://cafefcdn.com/thumb_w/650/2018/10/23/photo1540263601655-1540263601657270330421.png",
-      title:
-        "Áp lực bán tăng mạnh ngay từ những phút mở cửa, Vn-Index trở lại vùng đáy cũ",
-      sapo:
-        "Các nhóm cổ phiếu có tính thị trường như chứng khoán, ngân hàng, bất động sản, xây dựng…bị bán khá mạnh và hầu hết chìm sâu trong sắc đỏ.",
-      video: null,
-      style: "article",
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
       categoryName: "Info Money",
-      publisher: "Trí thức trẻ",
-      reference: "Minh Anh",
-      publishAt: 1540272840000,
-      tags: ["chứng khoán", "sụt giảm", "vn-index", "cổ phiếu"]
-    },
-    {
-      id: "bohWX2LLj7z20cgfCBs5",
-      coverImg: "http://media.kinhtedothi.vn/524/2018/10/23/ttbdstphcm.jpg",
-      title: "Sức tiêu thụ căn hộ tại TP.HCM giảm mạnh",
       sapo:
-        "Đến tháng 10/2018, bức tranh thị trường bất động sản (BĐS) TPHCM đã hiện lên khá rõ nét. Khu Nam Sài Gòn trước đây khá “nóng”, hiện không còn được ưu ái.",
-      video: null,
-      style: "article",
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      categoryName: "Bất động sản",
-      publisher: "KTĐT",
-      reference: "Huy Khánh",
-      publishAt: 1540272420000,
-      tags: ["căn hộ", "khu nam sài gòn", "sụt giảm", "bán nhà"]
+        "Giá dầu thế giới ngày 25/10 tiếp tục xu hướng giảm khi nguồn cung dầu trên thị trường tăng."
     },
     {
-      id: "uCAfe2tdphiP8YD5WMKs",
+      video: null,
       coverImg:
-        "http://media.vietq.vn/files/lelan/2018/10/22/o-to-22-10-2018.jpg",
-      title: "Rửa động cơ ô tô bằng nước sai cách có thể khiến tài xế 'ôm hận'",
-      sapo:
-        "Rửa hay vệ sinh động cơ ô tô là thói quen tốt giúp máy vận hành êm hay tăng tuổi thọ tuy nhiên nếu rửa sai cách có thể khiến động cơ bị hỏng nhanh chóng.",
-      video: null,
-      style: "article",
+        "https://autopro56.mediacdn.vn/zoom/640_400/2018/10/25/photo1540437034510-15404370345112104855374.jpg",
+      publishAt: 1540445880000,
       categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Trí Thức Trẻ",
+      reference: " Mạnh Cường ",
       categoryName: "Xe 360 độ",
-      publisher: "VietQ",
-      reference: "An Dương",
-      publishAt: 1540271460000,
-      tags: ["động cơ", "ô tô", "vệ sinh", "kinh nghiệm", "đúng cách"]
-    },
-    {
-      id: "5bjBYxuej1m0YGJE3JYY",
-      coverImg:
-        "https://vnn-imgs-f.vgcloud.vn/2018/10/22/18/gia-vang-hom-nay-23-10-vang-ep-duoi-nguong-nhay-cam-van-rap-rinh-tang-vot-4.jpg",
-      title: "Tỷ giá ngoại tệ ngày 23/10: USD tăng cao nhưng hy vọng thấp",
       sapo:
-        "Tỷ giá ngoại tệ ngày 23/10 diễn biến theo xu hướng đồng USD trên thị trường quốc tế quay đầu tăng với kỳ vọng tích cực trong ngắn hạn nhưng triển vọng dài hạn được dự báo kém tươi sáng cho dù đồng euro và bảng Anh cũng không sáng sủa.",
-      video: null,
-      style: "article",
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      categoryName: "Info Money",
-      publisher: "Vietnamnet",
-      reference: "V.Minh",
-      publishAt: 1540269000000,
-      tags: ["tỷ giá", "ngoại tệ", "usd"]
-    },
-    {
-      id: "j868k9g4sQymgE7guWbL",
-      coverImg:
-        "https://vnn-imgs-f.vgcloud.vn/2018/10/22/18/gia-vang-hom-nay-23-10-vang-ep-duoi-nguong-nhay-cam-van-rap-rinh-tang-vot.jpg",
-      title: "Giá vàng hôm nay 23/10: Ép mình dưới ngưỡng nhạy cảm",
-      sapo:
-        "Giá vàng hôm nay 23/10 trên thế giới chịu sức ép khá lớn và đánh mất ngưỡng hỗ trợ nhạy cảm nhưng vẫn rập rình vọt lên bất chấp đồng USD đang tăng giá trở lại so với các đồng tiền khác.",
-      video: null,
-      style: "article",
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      categoryName: "Info Money",
-      publisher: "Vietnamnet",
-      reference: "V.Minh",
-      publishAt: 1540266720000,
-      tags: ["giá", "vàng", "doji sjc"]
-    },
-    {
-      id: "1Gx2KA3oZLEjE0T1jGbp",
-      coverImg:
-        "https://thebank.vn/static/6/1135/714/90/2017/10/16/thebank_nhungnguyentackhongthequenkhivaymuanhagiare_2_1508139417.gif",
-      title: "Đầu tư chủ yếu bằng vốn vay thì nên bán ngay",
-      sapo:
-        "Đó là lời khuyên của chuyên gia giàu kinh nghiệm Phan Công Chánh đối với nhà đầu tư lỡ ôm nhà đất lúc thị trường giá cao. Hiện, thị trường BĐS TP Hồ Chí Minh đang chững lại, sức mua suy giảm mạnh trên tất cả các phân khúc…, vì vậy, theo chuyên gia các nhà đầu tư nên thận trọng trong giai đoạn này.",
-      video: null,
-      style: "article",
-      categoryId: "iqs4rjIm4vsOsckd8ETf",
-      categoryName: "Info Money",
-      publisher: "KTĐT",
-      reference: "Khánh Huy",
-      publishAt: 1540260300000,
-      tags: [
-        "lãi suất",
-        "ngân hàng",
-        "vay tiền",
-        "mua nhà",
-        "giao dịch",
-        "sụt giảm"
-      ]
-    },
-    {
-      id: "xifEaUJ2CBxCWyJ5DiKb",
-      coverImg:
-        "https://cafebiz.cafebizcdn.vn/thumb_w/600/2018/10/22/photo1540172055891-1540172055891194445935.jpg",
-      title: "Tai họa từ những thói quen lái xe của phụ nữ",
-      sapo:
-        "Sự việc một nữ doanh nhân lái xe ô tô gây ra tai nạn liên hoàn tại ngã tư Hàng Xanh (TP HCM) tối 20-10 khiến 1 người chết và nhiều người bị thương đã thu hút sự quan tâm đặc biệt của dư luận. Trên thực tế, những vụ tai nạn do nữ giới gây ra không phải hiếm, mà nguyên nhân nhiều khi lại là do những thói quen hết sức “lãng xẹt”.",
-      video: null,
-      style: "article",
-      categoryId: "3WYMgrmpfuLornXzAnnY",
-      categoryName: "Xe 360 độ",
-      publisher: "ANTĐ",
-      reference: "Thanh Vân (TH)",
-      publishAt: 1540260060000,
-      tags: ["phụ nữ", "lái xe", "thói quen", "tai nạn", "kinh nghiệm"]
-    },
-    {
-      id: "ymqAMhQiGgIgXV0rScPf",
-      coverImg:
-        "http://cafefcdn.com/thumb_w/650/2018/10/22/photo1540168835451-15401688354521483368520.jpg",
-      title: "TP.HCM kiểm soát chặt quy hoạch quận 2, 9, Thủ Đức",
-      sapo:
-        "Thành uỷ TP.HCM vừa đề nghị thành phố kiểm soát quy hoạch Khu đô thị sáng tạo phía Đông và có kế hoạch riêng phát triển quận 9, quận 2 và quận Thủ Đức.\n",
-      video: null,
-      style: "article",
-      categoryId: "RWTkmXHmJca6Zap12f87",
-      categoryName: "Bất động sản",
-      publisher: "Trí thức trẻ",
-      reference: "Nam Phong",
-      publishAt: 1540254780000,
-      tags: ["quy hoạch", "quận 2", "quận 9", "quận thủ đức"]
-    },
-    {
-      id: "6WOSTfvMr9sq3Jn81Ztp",
-      coverImg:
-        "https://znews-photo-td.zadn.vn/w1024/Uploaded/neg_estpyge/2018_10_22/anh3_zing_1.jpg",
-      title: "BMW và các hãng ôtô có công nghệ gì ngăn 'xe điên'?",
-      sapo:
-        'Phát hiện nồng độ cồn, cảnh báo buồn ngủ... là những công nghệ an toàn mà Hyundai và Nissan đang phát triển. Là hãng hạng sang, BMW chưa có công nghệ chống "ma men" hiệu quả.\n',
-      video: null,
+        "Chiếc S600 Pullman thứ 2 tại Việt Nam mang màu ngoại thất đen đối lập với chiếc đầu tiên màu trắng. Xe vừa được khui công và giá chưa được tiết lộ.\n",
+      tags: ["mercedes benz", "xe sang", "đắt tiền"],
+      id: "ktPjYjA2GHoPIZJ9D0zc",
       style: "picture",
-      categoryId: "3WYMgrmpfuLornXzAnnY",
+      title:
+        "Xe sang chống đạn triệu đô Mercedes-Maybach S600 Pullman thứ 2 về Việt Nam"
+    },
+    {
+      reference: "Gia Nguyễn",
       categoryName: "Xe 360 độ",
-      publisher: "Zing",
-      reference: "Tuấn Khanh - Anh Thi",
-      publishAt: 1540252380000,
-      tags: ["bmw", "tai nạn", "an toàn giao thông"]
+      sapo:
+        "Sau khi xuất viện, người đàn ông sống tại xứ Wales (Anh) đã rất sốc khi biết chiếc BMW 323 sử dụng hàng ngày mất tích không một dấu vết.\n",
+      tags: ["bmw", "hư hỏng", "xe sang"],
+      id: "FtdYjcIGQPluusKoyB6H",
+      style: "article",
+      title: "Chủ chiếc BMW đau khổ vì bị hủy nhầm xe",
+      video: null,
+      coverImg:
+        "https://znews-photo-td.zadn.vn/w660/Uploaded/rik_rdcvcvwt_wc/2018_10_24/cranepickingupacarinajunkyard.jpg",
+      publishAt: 1540445580000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Zing"
+    },
+    {
+      tags: ["tỷ giá", "ngoại tệ", "usd"],
+      id: "Lvk0DkcWJMOrTjoavFHM",
+      style: "article",
+      title: "Tỷ giá ngoại tệ ngày 25/10: Dồn dập mua vào, USD tăng vọt",
+      video: null,
+      coverImg:
+        "https://vnn-imgs-f.vgcloud.vn/2018/10/22/18/gia-vang-hom-nay-23-10-vang-ep-duoi-nguong-nhay-cam-van-rap-rinh-tang-vot-6.jpg",
+      publishAt: 1540442700000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Vietnamnet",
+      reference: "V.Minh",
+      categoryName: "Info Money",
+      sapo:
+        "Tỷ giá ngoại tệ ngày 25/10 diễn biến theo xu hướng đồng USD trên thị trường quốc tế tăng vọt lên mức cao mới do nhiều đồng tiền chủ chốt suy giảm, trong đó đồng euro giảm mạnh."
+    },
+    {
+      coverImg:
+        "https://vnn-imgs-f.vgcloud.vn/2018/10/22/18/gia-vang-hom-nay-23-10-vang-ep-duoi-nguong-nhay-cam-van-rap-rinh-tang-vot-2.jpg",
+      publishAt: 1540440660000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Vietnamnet",
+      reference: "V.Minh",
+      categoryName: "Info Money",
+      sapo:
+        "Giá vàng hôm nay 25/10 trên thế giới chưa hạ nhiệt được bao nhiêu bất chấp đồng USD tăng nhanh trở lại. Nỗi lo về căng thẳng địa chính trị và bất ổn trên các thị trường tài chính vẫn bao trùm.",
+      tags: ["giá", "vàng", "doji sjc"],
+      id: "A5uwdi7rqmaOZBdhFXo7",
+      style: "article",
+      title: "Giá vàng hôm nay 25/10: USD bùng tăng, vàng chưa hạ nhiệt",
+      video: null
+    },
+    {
+      style: "article",
+      title:
+        "Cục thuế TP. HCM đề nghị thu hồi giấy phép công ty giám sát dự án 10.000 tỷ đồng",
+      video: null,
+      coverImg:
+        "http://img.vietnamfinance.vn/thumbs/700x0/upload/news/hoangha/2018/10/25/du-an-chong-ngap-vnf.jpg",
+      publishAt: 1540439400000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "VietnamFinance",
+      reference: "Anh Phan",
+      categoryName: "Info Money",
+      sapo:
+        "Công ty Meinhardt Việt Nam có khả năng bị cưỡng chế do nợ thuế, tiền phạt và tiền chậm nộp lên đến hơn 22 tỷ đồng.",
+      tags: ["nợ thuế", "thuế", "thu hồi"],
+      id: "GwzVNNAJkAJyOC6UHrEB"
+    },
+    {
+      sapo:
+        "Sau khi tung mẫu xe Audi Q5L tại thị trường Trung Quốc, mới đây, hãng xe sang Đức lại giới thiệu đến người tiêu dùng tại đây mẫu Audi Q2L 2018 nhưng với kiểu dáng khác biệt hơn.\n",
+      tags: ["audi", "ô tô", "xe sang"],
+      id: "NIoH2Ix73dckml8z8IKA",
+      style: "picture",
+      title: "Audi Q2L 2018 phiên bản 'lạ' giá chỉ 730,5 triệu đồng",
+      video: null,
+      coverImg:
+        "https://photo-1-baomoi.zadn.vn/w1000_r1/2018_10_25_180_28303851/950d78123254db0a8245.jpg",
+      publishAt: 1540439340000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Kiến thức",
+      reference: "Văn Anh",
+      categoryName: "Xe 360 độ"
+    },
+    {
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Tại mỗi kỳ triển lãm, dàn người mẫu của mỗi gian hàng đều đóng vai trò rất quan trọng trong việc thu hút khách tham quan. Và Viet Nam Motor Show năm nay cũng không ngoại lệ khi các hãng xe đều mang đến những 'bóng hồng' đẹp nhất của mình.\n",
+      tags: ["vietnam motorshow 2018", "ô tô", "xe"],
+      id: "VovgrnHnVeptZhzRGA0V",
+      style: "picture",
+      title: "Đến triểm lãm xe ngắm...người đẹp",
+      video: null,
+      coverImg:
+        "https://photo-3-baomoi.zadn.vn/w1000_r1/2018_10_25_22_28302302/ca34b616fc50150e4c41.jpg",
+      publishAt: 1540439280000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Vnmedia",
+      reference: "Phan Linh"
+    },
+    {
+      sapo:
+        "Triển lãm ô tô Việt Nam 2018 (VietnamMortorshow 2018) đã thu hút 15 thương hiệu ô tô nổi tiếng như Audi, Chevrolet, Ford, Jaguar, Honda, Land Rover, Lexus, Maserati, Mercedes-Benz, Mitsubishi, Nissan, Subaru, Toyota, Volkswagen và Volvo.",
+      tags: ["vnm2018"],
+      id: "goIExemrBbiZs9eT4gOT",
+      style: "picture",
+      title: "VietnamMortorshow 2018: Đam mê xe và người đẹp",
+      video: null,
+      coverImg:
+        "https://media.baodautu.vn/Images/phongvien/2018/10/24/oto14.jpg",
+      publishAt: 1540435020000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Bao Dau Tu",
+      reference: "Le Toan",
+      categoryName: "Xe 360 độ"
+    },
+    {
+      video: null,
+      coverImg:
+        "http://cafefcdn.com/thumb_w/650/2018/10/24/photo1540364134343-1540364134345319456412.jpg",
+      publishAt: 1540423740000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Người lao động",
+      reference: "Huy Thanh",
+      categoryName: "Bất động sản",
+      sapo:
+        'Dự án nhà hát "hoành tráng" của huyện Đan Phượng (Hà Nội) có mức đầu tư hơn 117 tỉ đồng từ nguồn vốn ngân sách huyện, song "đắp chiếu" suốt 4 năm nay.\n',
+      tags: ["nhà hát", "bỏ hoang", "hà nội"],
+      id: "VIjmtCZlwLnZtsLcf9eN",
+      style: "picture",
+      title: 'Cận cảnh bên trong nhà hát 117 tỉ đồng "đắp chiếu" ở Hà Nội'
+    },
+    {
+      video: null,
+      coverImg:
+        "https://autopro56.mediacdn.vn/zoom/640_400/2018/10/24/photo1540370760537-15403707605371133383427.jpg",
+      publishAt: 1540423560000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "Trí Thức Trẻ",
+      reference: " Phúc Thành ",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Mercedes-Benz S450 4MATIC Coupe là yếu tố mới nhất và chịu trách nhiệm mang đến màu sắc khác biệt cho dòng xe S-class tại thị trường Việt Nam.\n",
+      tags: ["mercedes benz", "xe sang", "ô tô"],
+      id: "GlvhpQMtwTF1xid1rYCR",
+      style: "picture",
+      title:
+        'Xe "pha lê" Mercedes-Benz S450 4MATIC Coupe chốt giá hơn 6,1 tỷ đồng'
+    },
+    {
+      reference: "NHẬT LINH",
+      categoryName: "Xe 360 độ",
+      sapo:
+        "Mẫu xe rất thành công của Honda tại khu vực Đông Nam Á và Ấn độ là Honda Brio 2018 với giá bán chỉ từ 152 triệu đồng đã chính thức có mặt tại Việt Nam.",
+      tags: ["honda", "giá rẻ", "ô tô"],
+      id: "H1wGDMwPSS22c9qX2a7m",
+      style: "picture",
+      title: "Cận cảnh mẫu ô tô siêu rẻ của Honda đổ bộ Việt Nam dịp cuối năm",
+      video: null,
+      coverImg:
+        "https://image.vtcns.com/files/nhat.linh/2018/10/24/honda2-1710556.jpg",
+      publishAt: 1540423500000,
+      categoryId: "3WYMgrmpfuLornXzAnnY",
+      publisher: "VTC News"
+    },
+    {
+      categoryName: "Bất động sản",
+      sapo:
+        'Sau khi Tiền Phong đăng bài "Dự án chống ngập TPHCM: Băn khoăn xây trạm trước, mua máy sau” ngày 7/10, mới đây Sở GTVT TPHCM đã có công văn giải trình với UBND TPHCM.',
+      tags: ["chống ngập", "tphcm", "ngập nước"],
+      id: "Kp6jpw62us7465WYSUDM",
+      style: "picture",
+      title: "Sở GTVT TPHCM giải trình việc xây trạm trước mua máy bơm sau",
+      video: null,
+      coverImg:
+        "https://image2.tienphong.vn/665x449/Uploaded/2018/tpuokbj/2018_10_24/hcm2_nriy.jpg",
+      publishAt: 1540423200000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Tiền Phong",
+      reference: "MINH ĐỨC"
+    },
+    {
+      tags: ["đầu tư", "đất nền", "vùng ven", "sài gòn", "làm giàu", "rủi ro"],
+      id: "yZZY8BO4Q2fD2SyZoKyt",
+      style: "article",
+      title: "Vốn 1 lời 10, độc chiêu nhanh giàu, ai thấy cũng ham",
+      video: null,
+      coverImg:
+        "https://image.bizlive.vn/670x350/uploaded/ngant/2018_10_23/von-1-loi-10-doc-chieu-nhanh-giau-ai-thay-cung-ham_rchd.jpg",
+      publishAt: 1540388100000,
+      categoryId: "RWTkmXHmJca6Zap12f87",
+      publisher: "Vietnamnet",
+      reference: "Quốc Tuấn - Mạnh Đức",
+      categoryName: "Bất động sản",
+      sapo:
+        'Những câu chuyện kiếm bạc tỷ trong thời sốt đất luôn thôi thúc những nhà đầu tư bất động sản. Tuy nhiên, cũng không ít người tay trắng khi vận dụng “công thức" giàu nhanh.'
+    },
+    {
+      reference: "Huyền Trâm",
+      categoryName: "Info Money",
+      sapo:
+        "“Khi mở thẻ khách hàng nên lưu lại hợp đồng ký với ngân hàng mở tài khoản để khi cần có thể biết được quy trình xử lý cần thiết”, luật sư Trần Minh Hải lưu ý.",
+      tags: ["luật sư", "tư vấn", "thẻ atm", "ngân hàng", "mất tiền"],
+      id: "WN7RX5KKNZmyMCeHR3dg",
+      style: "article",
+      title:
+        "Làm gì khi phát hiện tiền trong tài khoản ATM bỗng dưng “bốc hơi”?",
+      video: null,
+      coverImg:
+        "https://image.bizlive.vn/670x350/uploaded/huyencham_pv/2018_10_23/tranminhhai_zhhx.jpg",
+      publishAt: 1540384440000,
+      categoryId: "iqs4rjIm4vsOsckd8ETf",
+      publisher: "Bizlive"
     }
   ]
 };

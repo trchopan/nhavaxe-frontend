@@ -13,7 +13,7 @@
 .light-theme {
   --background-color: #ffffff;
   --background-color-faded: #fafafa;
-  --primary-color: #ffae00;
+  --primary-color: #c76a00;
   --primary-color-tint: #f8cf76c7;
   --primary-background-tint: #323232;
   --secondary-color: #9914CC;
@@ -22,6 +22,8 @@
   --text-accent-color: #ffffff;
   --text-secondary-color: #787878;
   --text-faded-color: #adacac;
+  --box-shadow: rgba(0, 0, 0, 0.16);
+  --box-shadow-faded: rgba(0, 0, 0, 0.08);
 }
 .dark-theme {
   --background-color: rgba(35, 35, 35, 1);
@@ -30,11 +32,13 @@
   --primary-color-tint: #f8cf76c7;
   --primary-background-tint: #2f2f38;
   --secondary-color: #19FF9A;
-  --secondary-color-tint: #c2fbe373;
+  --secondary-color-tint: #c0fbe227;
   --text-main-color: #ffffffe0;
   --text-accent-color: #ffffffe0;
   --text-secondary-color: #c4c4c4;
   --text-faded-color: #adacac;
+  --box-shadow: rgba(25, 255, 154, 0.16);
+  --box-shadow-faded: rgba(25, 255, 154, 0.08);
 }
 *,
 *::before,
@@ -46,6 +50,7 @@
 }
 body {
   font-family: var(--default-font);
+  -webkit-overflow-scrolling: touch;
 }
 ul {
   list-style: none;
@@ -57,16 +62,9 @@ a {
 .block {
   display: block;
 }
-.top-banner {
-  width: 100%;
-  height: 90px;
-}
 #app {
   color: var(--text-main-color);
   background-color: var(--background-color);
-  height: 100vh;
-  overflow: scroll;
-  -webkit-overflow-scrolling: touch;
 }
 #page-head {
   height: 4rem;

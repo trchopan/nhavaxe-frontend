@@ -71,7 +71,7 @@ export default {
   },
   mounted() {
     let clientWidth = window.innerWidth;
-    if (clientWidth < 799 && clientWidth > 500) {
+    if (clientWidth < 769 && clientWidth > 500) {
       this.maxTitle = 95;
       this.maxSapo = 90;
     }

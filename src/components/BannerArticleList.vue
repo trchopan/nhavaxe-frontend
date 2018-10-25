@@ -2,7 +2,7 @@
   <li v-if="banner">
     <a target="_blank"
       :href="banner.id | parseRedirectBannerId">
-      <p class="sponsor-text">- Tham khảo -</p>
+      <p class="sponsor-text">---</p>
       <div class="sponsor-image"
       :style="'background-image: url(' + banner.contentLink + ');'">
       </div>
@@ -33,10 +33,6 @@ a {
 .sponsor-text {
   text-align: center;
   color: var(--text-faded-color);
-}
-@media (max-width: 599px) {
-  .sponsor-text {
-    font-size: 0.63rem;
-  }
+  font-size: 0.8rem;
 }
 </style>

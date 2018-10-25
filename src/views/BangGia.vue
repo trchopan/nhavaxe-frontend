@@ -6,7 +6,7 @@
       <router-link tag="h2" to="nha" replace active-class="active-nha">
         Bất Động Sản
       </router-link>
-      <span>|</span>
+      <span class="vertical-bar">|</span>
       <router-link tag="h2" to="xe" replace active-class="active-xe">
         Xe
       </router-link>
@@ -50,14 +50,12 @@ export default {
 <style lang="scss" scoped>
 .container {
   text-align: center;
-  font-family: Play;
-  max-width: var(--container-width);
   margin: auto;
 }
 h1 {
   font: 1.5rem var(--title-font);
 }
-span {
+.vertical-bar {
   display: inline;
   font-size: 1.5rem;
 }

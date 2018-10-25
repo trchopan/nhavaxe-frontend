@@ -123,6 +123,7 @@ hr {
 }
 ul.article-tags {
   padding: 1rem;
+  font-size: 0.9rem;
   span {
     color: var(--secondary-color);
     font: var(--default-font);

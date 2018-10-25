@@ -65,8 +65,8 @@ export default {
     }
   },
   mounted() {
-    const homeScrollTop = this.$store.state.layout.homeScrollTop;
-    this.$store.dispatch("layout/scrollTop", homeScrollTop);
+    const homeScrollY = this.$store.state.layout.homeScrollY;
+    this.$store.dispatch("layout/scrollYTo", homeScrollY);
 
     document.title = process.env.VUE_APP_TITLE;
     window.ga("set", {
@@ -76,8 +76,7 @@ export default {
     window.ga("send", "pageView");
   },
   beforeRouteLeave(to, from, next) {
-    const app = document.querySelector("#app");
-    this.$store.dispatch("layout/setHomeScrollTop", app.scrollTop);
+    this.$store.dispatch("layout/setHomeScrollY", window.scrollY);
     next();
   }
 };

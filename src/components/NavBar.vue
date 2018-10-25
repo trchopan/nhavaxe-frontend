@@ -32,8 +32,8 @@ export default {
   },
   methods: {
     navigate(cat) {
-      this.$store.dispatch("layout/scrollTop", 0);
-      this.$store.dispatch("layout/setHomeScrollTop", 0);
+      this.$store.dispatch("layout/scrollYTo", 0);
+      this.$store.dispatch("layout/setHomeScrollY", 0);
       this.$store.dispatch("categories/selectCategory", cat);
       this.$store.dispatch("articles/flushArticles");
       this.$store.dispatch("articles/fetchCatArticles", cat ? cat.id : null);
@@ -50,7 +50,7 @@ export default {
   background-size: 100%;
   transform: scale(1);
   transition: transform 150ms ease-in;
-  @media (max-width: 799px) {
+  @media (max-width: 769px) {
     width: 4.7rem;
     height: 2.6rem;
   }
@@ -66,7 +66,7 @@ nav,
   justify-content: center;
   margin: 0 auto;
   height: 4rem;
-  @media (max-width: 799px) {
+  @media (max-width: 769px) {
     height: 3rem;
   }
   flex-wrap: nowrap;
@@ -75,7 +75,7 @@ nav,
   position: fixed;
   top: 0;
   background: var(--background-color);
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 2px 0 var(--box-shadow), 0 0 0 1px var(--box-shadow-faded);
 }
 nav > ul {
   display: flex;
@@ -109,11 +109,12 @@ nav > ul {
     width: 50%;
   }
 }
-@media (max-width: 799px) {
+@media (max-width: 769px) {
   nav {
     justify-content: flex-start;
     ul > li {
       padding: 0 1rem;
+      font-size: 0.9rem;
     }
     overflow: auto;
   }

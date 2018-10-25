@@ -11,13 +11,13 @@ export const themes = {
 // initial state
 const state = {
   appScroll: 0,
-  homeScrollTop: 0,
+  homeScrollY: 0,
   theme: themes.light
 };
 
 const getters = {
   appScroll: state => state.appScroll,
-  homeScrollTop: state => state.homeScrollTop,
+  homeScrollY: state => state.homeScrollY,
   theme: state => state.theme
 };
 
@@ -25,12 +25,12 @@ const actions = {
   appScroll({ commit }, value) {
     commit("appScrolled", value);
   },
-  scrollTop(_, value) {
-    document.querySelector("#app").scrollTop = value;
-    log("Scrolling #app to", value);
+  scrollYTo(_, value) {
+    window.scroll(0, value);
+    log("Scrolling window to", value);
   },
-  setHomeScrollTop({ commit }, value) {
-    commit("homeScrollTopChanged", value);
+  setHomeScrollY({ commit }, value) {
+    commit("homeScrollYChanged", value);
   },
   changeTheme({ commit }, theme) {
     commit("themeChanged", theme);
@@ -42,8 +42,8 @@ const mutations = {
     state.appScroll = value;
     log("App Scrolled", value);
   },
-  homeScrollTopChanged(state, value) {
-    state.homeScrollTop = value;
+  homeScrollYChanged(state, value) {
+    state.homeScrollY = value;
     log("Home ScrollTop changed", value);
   },
   themeChanged(state, theme) {

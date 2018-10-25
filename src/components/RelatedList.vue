@@ -7,7 +7,9 @@
             <div class="related-article__img"
               :style="'background-image: url(' + article.coverImg + ');'">
             </div>
-            <p class="related-article__title">{{ article.title }}</p>
+            <p class="related-article__title">
+              {{ article.title | trimText(maxTitle) }}
+            </p>
           </div>
         </router-link>
       </li>
@@ -30,6 +32,7 @@ export default {
   },
   data() {
     return {
+      maxTitle: 999,
       relatedMax: 10,
       relatedBannerInterval: 3
     };
@@ -58,11 +61,13 @@ export default {
   },
   mounted() {
     let clientWidth = window.innerWidth;
-    if (clientWidth < 799 && clientWidth > 500) {
+    if (clientWidth < 769 && clientWidth > 500) {
+      this.maxTitle = 95;
       this.relatedMax = 7;
       this.relatedBannerInterval = 2;
     }
     if (clientWidth < 500) {
+      this.maxTitle = 75;
       this.relatedMax = 4;
       this.relatedBannerInterval = 1;
     }
@@ -78,8 +83,9 @@ ul {
   grid-gap: 0.7rem;
   li {
     cursor: pointer;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 2px 0 var(--box-shadow), 0 0 0 1px var(--box-shadow-faded);
+    // box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
+    // 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
   .related-article__card {
     display: grid;
