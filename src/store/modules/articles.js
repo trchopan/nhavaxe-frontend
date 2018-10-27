@@ -7,6 +7,7 @@ const log = logger(storeName);
 
 const LOADING_TEXT = "loading...";
 const ARTICLE_SPLIT = 4;
+const FETCH_LIMIT = 3;
 
 // Initial setup
 const initData =
@@ -23,6 +24,7 @@ const initArticleBody = LOADING_TEXT;
 // initial state
 const state = {
   initialized: false,
+  fetchCounter: 0,
   articlesList: [],
   selectedArticleMeta: initArticleMeta,
   selectedArticleBody: initArticleBody,
@@ -52,7 +54,7 @@ const actions = deps => {
 
   async function fetchCatArticles({ commit, state }, categoryId) {
     // Do nothing if state is loading
-    if (state.loading) {
+    if (state.loading || state.fetchCounter >= FETCH_LIMIT) {
       return;
     }
 
@@ -146,13 +148,15 @@ const mutations = {
     state.articlesList.push(...filteredList);
     state.loading = false;
     state.initialized = true;
-    log("Articles List changed", list);
+    state.fetchCounter++;
+    log("Articles List changed", state.articlesList);
   },
   loading(state) {
     state.loading = true;
   },
   flushed(state) {
     state.articlesList = [];
+    state.fetchCounter = 0;
     log("Articles flushed");
   },
   clearArticleData(state) {

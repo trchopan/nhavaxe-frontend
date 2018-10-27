@@ -83,7 +83,7 @@ h2:hover::before {
   color: var(--primary-color);
 }
 .note {
-  margin-top: 0.5rem;
+  margin: 0.3rem;
   font: 0.8rem var(--default-font);
   color: var(--text-secondary-color);
 }

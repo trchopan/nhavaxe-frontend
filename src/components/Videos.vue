@@ -97,7 +97,7 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr;
     @media (max-width: 599px) {
-      height: 25rem;
+      height: 28rem;
       grid-template-columns: 1fr;
     }
     .youtube-view {
@@ -140,6 +140,7 @@ export default {
         background: var(--secondary-color-tint);
       }
       @media (max-width: 599px) {
+        margin-top: 0.5rem;
         font-size: 0.9rem;
         .video-item {
           margin: 0;

@@ -7,21 +7,23 @@
     <transition name="slide" mode="out-in">
       <router-view />
     </transition>
-    <div id="page-footer"></div>
+    <Footer />
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { themes } from "@/store/modules/layout.js";
 import NavBar from "@/components/NavBar.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
-import { themes } from "@/store/modules/layout.js";
+import Footer from "@/components/Footer.vue";
 
 export default {
   name: "App",
   components: {
     NavBar,
-    LoadingIndicator
+    LoadingIndicator,
+    Footer
   },
   computed: {
     ...mapGetters({
