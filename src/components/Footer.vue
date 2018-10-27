@@ -2,13 +2,13 @@
   <footer class="footer-wrapper">
     <div class="footer-container">
       <a href="https://nhavaxe.vn" @click.prevent="navigate(null)" class="logo" :style="logoBackground"></a>
-      <p class="licence"><b>Giấy phép số:</b> 48/GP-STTT</p>
-      <p class="address"><b>Địa chỉ:</b> 155 Chu Văn An, P.26, Q.Bình Thạnh, TP.HCM</p>
-      <p class="legal"><b>Đại diện pháp luật:</b> Phạm Trường Thọ</p>
       <p class="company"><b>Đơn vị chủ quản:</b> Công ty TNHH truyền thông H&amp;M</p>
+      <p class="licence"><b>Giấy phép số:</b> 48/GP-STTT do Sở TT&amp;TT cấp</p>
+      <p class="address"><b>Địa chỉ:</b> 155 Chu Văn An, P.26, Q.Bình Thạnh, TP.HCM</p>
+      <p class="legal"><b>Chịu trách nhiệm nội dung:</b> Phạm Trường Thọ</p>
       <p class="email"><b>Email:</b><a href="mailto:nhavaxe.media@gmail.com"> nhavaxe.media@gmail.com</a></p>
-      <p class="phone"><b>Điện thoại:</b><a href="tel:0975370297"> 097 537 0297</a></p>
-      <p class="copyright">&copy; 2018 Kênh Tin Tức Nhà và Xe</p>
+      <p class="phone"><b>Hotline quảng cáo:</b><a href="tel:0975370297"> 097 537 0297</a></p>
+      <p class="copyright">&copy; 2018 Kênh Tin Tức Nhà và Xe<br/>Yêu cầu ghi rõ nguồn nhavaxe.vn khi phát hành lại thông tin từ kênh tin tức này</p>
     </div>
   </footer>
 </template>
@@ -49,24 +49,25 @@ export default {
 .footer-container {
   max-width: var(--container-width);
   margin: auto;
+  font-size: 0.8rem;
   display: grid;
   grid-template:
-    "logo licence address"
-    "logo legal company"
+    "logo company address"
+    "logo licence legal"
     "logo email phone"
     "logo copyright copyright" / auto 1fr 1.29fr;
   grid-gap: 0.2rem 1rem;
   padding: 1rem 3rem;
   white-space: nowrap;
   @media (max-width: 769px) {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
   }
   @media (max-width: 599px) {
     grid-template:
+      "company company"
       "licence licence"
       "address address"
       "legal legal"
-      "company company"
       "email logo"
       "phone logo"
       "copyright logo" / 1fr auto;
@@ -115,5 +116,10 @@ export default {
 }
 .copyright {
   grid-area: copyright;
+  margin-top: 0.5rem;
+}
+.disclaim {
+  grid-area: disclaim;
+  white-space: pre-wrap;
 }
 </style>
