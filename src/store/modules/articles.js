@@ -25,6 +25,7 @@ const initArticleBody = LOADING_TEXT;
 const state = {
   initialized: false,
   fetchCounter: 0,
+  fetchLimit: FETCH_LIMIT,
   articlesList: [],
   selectedArticleMeta: initArticleMeta,
   selectedArticleBody: initArticleBody,
@@ -43,6 +44,7 @@ const getters = {
   selectedArticleMeta: state => state.selectedArticleMeta,
   selectedArticleBody: state => state.selectedArticleBody,
   relatedList: state => state.relatedList,
+  reachedFetchLimit: state => state.fetchCounter >= state.fetchLimit,
   loading: state => state.loading,
   error: state => state.error
 };
@@ -52,9 +54,13 @@ const actions = deps => {
     commit("flushed");
   }
 
+  function increaseFetchLimit({ commit }) {
+    commit("fetchLimitIncreased");
+  }
+
   async function fetchCatArticles({ commit, state }, categoryId) {
-    // Do nothing if state is loading
-    if (state.loading || state.fetchCounter >= FETCH_LIMIT) {
+    // Do nothing if state is loading or fetchCounter reached
+    if (state.loading || state.fetchCounter >= state.fetchLimit) {
       return;
     }
 
@@ -133,6 +139,7 @@ const actions = deps => {
 
   return {
     flushArticles,
+    increaseFetchLimit,
     fetchCatArticles,
     selectArticle,
     searchRelatedArticles,
@@ -141,6 +148,10 @@ const actions = deps => {
 };
 
 const mutations = {
+  fetchLimitIncreased(state) {
+    state.fetchLimit++;
+    log("fetchLimit increased");
+  },
   articlesListChanged(state, list) {
     const filteredList = list.filter(
       x => state.filterArticles.findIndex(v => v.id === x.id) < 0
@@ -149,7 +160,7 @@ const mutations = {
     state.loading = false;
     state.initialized = true;
     state.fetchCounter++;
-    log("Articles List changed", state.articlesList);
+    log("list changed", state.articlesList);
   },
   loading(state) {
     state.loading = true;
@@ -157,12 +168,12 @@ const mutations = {
   flushed(state) {
     state.articlesList = [];
     state.fetchCounter = 0;
-    log("Articles flushed");
+    log("flushed");
   },
   clearArticleData(state) {
     state.selectedArticleMeta = initArticleMeta;
     state.selectedArticleBody = initArticleBody;
-    log("Article data is cleared");
+    log("selected is cleared");
   },
   articleMetaFound(state, articleMeta) {
     state.selectedArticleMeta = articleMeta;
@@ -171,12 +182,12 @@ const mutations = {
       title: articleMeta.title
     });
     window.ga("send", "pageView");
-    log("Articles meta found", state.selectedArticleMeta.id);
+    log("meta found", state.selectedArticleMeta.id);
   },
   articleBodyFound(state, articleBody) {
     state.selectedArticleBody = articleBody;
     state.loading = false;
-    log("Articles body found", state.selectedArticleBody.length);
+    log("body found", state.selectedArticleBody.length);
   },
   relatedArticlesFound(state, lists) {
     const result = lists
@@ -199,11 +210,11 @@ const mutations = {
       .filter(x => x.id != state.selectedArticleMeta.id);
 
     state.relatedList = result;
-    log("Related Articles found", state.relatedList);
+    log("related found", state.relatedList);
   },
   filterArticlesSetted(state, articles) {
     state.filterArticles = articles;
-    log("Filter Articles setted", articles);
+    log("filter setted", articles);
   },
   errorCatched(state, error) {
     state.error = error;

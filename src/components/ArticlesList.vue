@@ -34,6 +34,9 @@
       <ArticlesSpecials v-if="index > 0 && index / ArticleBannerInterval === 1"
         :key="'specials-list-' + index"/>
     </template>
+    <li v-show="reachedFetchLimit" class="load-more">
+      <button type="button" @click="loadMore()">Tải thêm</button>
+    </li>
   </ul>
 </template>
 
@@ -63,7 +66,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      articleBanners: "banner/articleBanners"
+      articleBanners: "banner/articleBanners",
+      reachedFetchLimit: "articles/reachedFetchLimit"
     }),
     shuffledBanners() {
       return shuffle(this.articleBanners);
@@ -79,6 +83,12 @@ export default {
       this.maxTitle = 75;
       this.maxSapo = 0;
     }
+  },
+  methods: {
+    loadMore() {
+      this.$store.dispatch("articles/increaseFetchLimit");
+      this.$store.dispatch("articles/fetchCatArticles", this.selectedCat.id);
+    }
   }
 };
 </script>
@@ -93,18 +103,30 @@ export default {
     position: relative;
     padding: 0 1rem;
   }
+  .load-more {
+    grid-template-columns: 1fr;
+    button {
+      position: relative;
+      color: var(--text-main-color);
+      background: var(--secondary-color-tint);
+      margin: auto;
+      border: 1px solid var(--secondary-color);
+      padding: 0.5rem 1rem;
+      transition: all 0.5s;
+    }
+    button:hover {
+      color: var(--secondary-color);
+      transition: 0.5s;
+    }
+  }
 }
-.cover-image,
-.cover-image-loading {
+.cover-image {
   display: inline-block;
   width: 100%;
   padding-bottom: 80%;
   background-size: cover;
   background-position: 50%;
   cursor: pointer;
-}
-.cover-image-loading {
-  background-image: url("/image-placeholder.png");
 }
 .info {
   display: flex;
