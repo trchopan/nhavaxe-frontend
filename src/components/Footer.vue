@@ -3,7 +3,7 @@
     <div class="footer-container">
       <a href="https://nhavaxe.vn" @click.prevent="navigate(null)" class="logo" :style="logoBackground"></a>
       <p class="company"><b>Đơn vị chủ quản:</b> Công ty TNHH truyền thông H&amp;M</p>
-      <p class="licence"><b>Giấy phép số:</b> 48/GP-STTT do Sở TT&amp;TT cấp</p>
+      <p class="licence"><b>Giấy phép số:</b> 48/GP-STTTT do Sở TT&amp;TT cấp</p>
       <p class="address"><b>Địa chỉ:</b> 155 Chu Văn An, P.26, Q.Bình Thạnh, TP.HCM</p>
       <p class="legal"><b>Chịu trách nhiệm nội dung:</b> Phạm Trường Thọ</p>
       <p class="email"><b>Email:</b><a href="mailto:nhavaxe.media@gmail.com"> nhavaxe.media@gmail.com</a></p>
