@@ -67,8 +67,29 @@ a {
   background-color: var(--background-color);
 }
 #page-head {
-  height: 4rem;
+  height: 1rem;
 }
 #page-footer {
   height: 3rem;
+}
+
+.button {
+  position: relative;
+  color: var(--text-main-color);
+  background: var(--secondary-color-tint);
+  margin: auto;
+  border: 1px solid var(--secondary-color);
+  padding: 0.5rem 1rem;
+  transition: all 0.5s;
+  @media (max-width: 600px) {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+.button:hover {
+  color: var(--secondary-color);
+  transition: 0.5s;
+}
+.mb-1 {
+  margin-bottom: 1rem;
 }

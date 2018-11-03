@@ -1,9 +1,12 @@
 <template>
   <a v-if="banner"
     target="_blank"
+    class="banner-top"
     :href="banner.id | parseRedirectBannerId">
-    <div class="sponsor-image"
-      :style="'background-image: url(' + banner.contentLink + ');'">
+    <div class="container">
+      <div class="sponsor-image"
+        :style="'background-image: url(' + banner.contentLink + ');'">
+      </div>
     </div>
   </a>
 </template>
@@ -18,8 +21,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  margin: auto;
+  max-width: var(--container-width);
+}
 .sponsor-image {
-  width: 100%;
   padding-bottom: 25.77%;
   background-size: cover;
   background-position: 50%;

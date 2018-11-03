@@ -72,7 +72,7 @@ nav,
   flex-wrap: nowrap;
   width: 100%;
   overflow: hidden;
-  position: fixed;
+  position: sticky;
   top: 0;
   background: var(--background-color);
   box-shadow: 0 2px 2px 0 var(--box-shadow), 0 0 0 1px var(--box-shadow-faded);

@@ -1,63 +1,70 @@
 <template>
-  <table class="bang-gia">
-    <th class="model-header">Mẫu xe</th>
-    <th class="brand-header">
-      <span class="block">Hãng xe</span>
-      <select v-model="selectedBrand">
-        <option :value="null">-</option>
-        <option v-for="option in filterSelections.brand"
-          :value="option"
-          :key="'brand'+option">{{ option }}</option>
-      </select>
-    </th>
-    <th class="type-header">
-      <span class="block">Loại</span>
-      <select v-model="selectedType">
-        <option :value="null">-</option>
-        <option v-for="option in filterSelections.type"
-          :value="option"
-          :key="'type'+option">{{ option }}</option>
-      </select>
-    </th>
-    <th class="origin-header">
-      <span class="block">Nguồn gốc</span>
-      <select v-model="selectedOrigin">
-        <option :value="null">-</option>
-        <option v-for="option in filterSelections.origin"
-          :value="option"
-          :key="'origin'+option">{{ option }}</option>
-      </select>
-    </th>
-    <th class="engine-header">Động cơ</th>
-    <th class="torque-header">Mã lực</th>
-    <th class="price-header">Giá niêm<br />yết (tr)</th>
-    <th class="price-header">Giá lăn bánh<br />(tr)</th>
-    <th class="contact-header">Liên hệ</th>
-    <tr v-show="filteredList.length <= 0">
-      <td colspan="10">
-        Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
-      </td>
-    </tr>
-    <tr v-for="(data, index) in filteredList" :key="'bang-gia-xe-' + index"
-      :class="{ unbottom: index === list.length -1, shaded: index%2 === 0 }"
-      @click="navigateLink(data.link)">
-      <td class="model-cell">{{ data.model }}</td>
-      <td class="brand-cell">{{ data.brand }}</td>
-      <td class="type-cell">{{ data.type }}</td>
-      <td class="origin-cell">{{ data.origin }}</td>
-      <td class="engine-cell">{{ data.engine }}</td>
-      <td class="torque-cell">{{ data.torque }}</td>
-      <td class="price-cell-primary">{{ data.listPrice | parseNumber }}</td>
-      <td class="price-cell-secondary">{{ data.salePrice | parseNumber }}</td>
-      <td class="contacts-cell">
-        <span class="block"
-          v-for="(contact, i) in data.contacts"
-          :key="'contact-' + index + i" > 
-          {{ contact }}
-        </span>
-      </td>
-    </tr>
-  </table>
+  <div>
+    <button class="button mb-1 expand-button" @click="expand = !expand">
+      Hiển thị {{ expand ? "ngắn gọn" : " đầy đủ"}}
+    </button>
+    <div class="bang-gia">
+      <table>
+        <th class="model-header">Mẫu xe</th>
+        <th class="brand-header">
+          <span class="block">Hãng xe</span>
+          <select v-model="selectedBrand">
+            <option :value="null">-</option>
+            <option v-for="option in filterSelections.brand"
+              :value="option"
+              :key="'brand'+option">{{ option }}</option>
+          </select>
+        </th>
+        <th class="type-header">
+          <span class="block">Loại</span>
+          <select v-model="selectedType">
+            <option :value="null">-</option>
+            <option v-for="option in filterSelections.type"
+              :value="option"
+              :key="'type'+option">{{ option }}</option>
+          </select>
+        </th>
+        <th v-show="expand" class="origin-header">
+          <span class="block">Nguồn gốc</span>
+          <select v-model="selectedOrigin">
+            <option :value="null">-</option>
+            <option v-for="option in filterSelections.origin"
+              :value="option"
+              :key="'origin'+option">{{ option }}</option>
+          </select>
+        </th>
+        <th v-show="expand" class="engine-header">Động cơ</th>
+        <th v-show="expand" class="torque-header">Mã lực</th>
+        <th class="price-header">Giá niêm<br />yết (tr)</th>
+        <th v-show="expand" class="price-header">Giá lăn bánh<br />(tr)</th>
+        <th v-show="expand" class="contact-header">Liên hệ</th>
+        <tr v-show="filteredList.length <= 0">
+          <td colspan="10">
+            Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
+          </td>
+        </tr>
+        <tr v-for="(data, index) in filteredList" :key="'bang-gia-xe-' + index"
+          :class="{ unbottom: index === list.length -1, shaded: index%2 === 0 }"
+          @click="navigateLink(data.link)">
+          <td class="model-cell">{{ data.model }}</td>
+          <td class="brand-cell">{{ data.brand }}</td>
+          <td class="type-cell">{{ data.type }}</td>
+          <td v-show="expand" class="origin-cell">{{ data.origin }}</td>
+          <td v-show="expand" class="engine-cell">{{ data.engine }}</td>
+          <td v-show="expand" class="torque-cell">{{ data.torque }}</td>
+          <td class="price-cell-primary">{{ data.listPrice | parseNumber }}</td>
+          <td v-show="expand" class="price-cell-secondary">{{ data.salePrice | parseNumber }}</td>
+          <td v-show="expand" class="contacts-cell">
+            <span class="block"
+              v-for="(contact, i) in data.contacts"
+              :key="'contact-' + index + i" > 
+              {{ contact }}
+            </span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -67,6 +74,7 @@ export default {
   name: "TableXe",
   data() {
     return {
+      expand: true,
       selectedBrand: null,
       selectedType: null,
       selectedOrigin: null
