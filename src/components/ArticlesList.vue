@@ -35,7 +35,7 @@
         :key="'specials-list-' + index"/>
     </template>
     <li v-show="reachedFetchLimit" class="load-more">
-      <button type="button" @click="loadMore()">Tải thêm</button>
+      <button class="button" type="button" @click="loadMore()">Tải thêm</button>
     </li>
   </ul>
 </template>
@@ -105,19 +105,6 @@ export default {
   }
   .load-more {
     grid-template-columns: 1fr;
-    button {
-      position: relative;
-      color: var(--text-main-color);
-      background: var(--secondary-color-tint);
-      margin: auto;
-      border: 1px solid var(--secondary-color);
-      padding: 0.5rem 1rem;
-      transition: all 0.5s;
-    }
-    button:hover {
-      color: var(--secondary-color);
-      transition: 0.5s;
-    }
   }
 }
 .cover-image {
