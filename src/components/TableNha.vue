@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button class="button mb-1 expand-button" @click="expand = !expand">
+    <button class="button mb-1" :class="{ 'expand-button': expand }"
+      @click="expand = !expand">
       Hiển thị {{ expand ? "ngắn gọn" : " đầy đủ"}}
     </button>
     <div class="bang-gia">

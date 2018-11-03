@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button class="button mb-1 expand-button" @click="expand = !expand">
+    <button class="button mb-1" :class="{ 'expand-button': expand }"
+      @click="expand = !expand">
       Hiển thị {{ expand ? "ngắn gọn" : " đầy đủ"}}
     </button>
     <div class="bang-gia">
@@ -126,5 +127,13 @@ export default {
 <style lang="scss" scoped>
 select {
   width: 90%;
+}
+.expand-button {
+  display: none;
+}
+@media (max-width: 600px) {
+  .expand-button {
+    display: block;
+  }
 }
 </style>
