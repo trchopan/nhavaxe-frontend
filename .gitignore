@@ -24,3 +24,6 @@ yarn-error.log*
 firebase.json
 .firebaserc
 .firebase
+
+# stubs
+src/api/stubArticles.js
