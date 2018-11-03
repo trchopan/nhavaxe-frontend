@@ -1,4 +1,4 @@
-.bang-gia{
+.bang-gia {
   overflow: scroll;
 }
 .bang-gia > table {
@@ -98,7 +98,7 @@
   .origin-cell {
     white-space: nowrap;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 374px) {
     th {
       font-size: 0.7rem;
     }
@@ -107,4 +107,3 @@
     }
   }
 }
-
