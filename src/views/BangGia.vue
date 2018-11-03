@@ -11,9 +11,11 @@
         Xe
       </router-link>
     </section>
-    <transition name="fade" mode="out-in">
-      <router-view />
-    </transition>
+    <section class="bang-gia">
+      <transition name="fade" mode="out-in">
+        <router-view />
+      </transition>
+    </section>
     <p v-show="$route.name === 'nha'" class="note">
       * Giá CĐT bán là giá mở bán đợt đầu tiên của dự án
     </p>
@@ -86,5 +88,8 @@ h2:hover::before {
   margin: 0.3rem;
   font: 0.8rem var(--default-font);
   color: var(--text-secondary-color);
+  @media (max-width: 600px) {
+    font-size: 0.7rem;
+  }
 }
 </style>

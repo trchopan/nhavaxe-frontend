@@ -1,5 +1,9 @@
-table.bang-gia {
+.bang-gia{
+  overflow: scroll;
+}
+.bang-gia > table {
   --border-property: solid 1px #dcdcdc;
+  overflow: scroll;
   margin: auto;
   text-align: center;
   font-family: var(--title-font);
@@ -39,14 +43,7 @@ table.bang-gia {
     width: 20%;
     padding: 0 0.2rem;
   }
-  .project-header,
-  .investor-header {
-    width: 14%;
-    min-width: 6rem;
-  }
-  .location-header,
   .progress-header {
-    width: 10%;
     min-width: 6rem;
   }
   .price-header {
@@ -101,7 +98,7 @@ table.bang-gia {
   .origin-cell {
     white-space: nowrap;
   }
-  @media (max-width: 374px) {
+  @media (max-width: 600px) {
     th {
       font-size: 0.7rem;
     }
