@@ -27,7 +27,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      theme: "layout/theme"
+      theme: "layout/theme",
+      appScrollUp: "layout/appScrollUp"
     }),
     themeClass() {
       return this.theme === themes.light
@@ -51,10 +52,18 @@ export default {
   },
   mounted() {
     let scrollWatcher;
+    let lastScrollY = 0;
     window.onscroll = () => {
+      const scrollY = window.scrollY;
+      if (scrollY > lastScrollY && this.appScrollUp !== true) {
+        this.$store.dispatch("layout/appScrollUp", true);
+      } else if (scrollY < lastScrollY && this.appScrollUp !== false) {
+        this.$store.dispatch("layout/appScrollUp", false);
+      }
+      lastScrollY = scrollY;
+
       clearTimeout(scrollWatcher);
       scrollWatcher = setTimeout(() => {
-        const scrollY = window.scrollY;
         const offsetHeight = document.body.offsetHeight;
         const innerHeight = window.innerHeight;
         if (

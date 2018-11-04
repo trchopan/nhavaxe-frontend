@@ -10,20 +10,20 @@ export const themes = {
 
 // initial state
 const state = {
-  appScroll: 0,
+  appScrollUp: false,
   homeScrollY: 0,
   theme: themes.light
 };
 
 const getters = {
-  appScroll: state => state.appScroll,
+  appScrollUp: state => state.appScrollUp,
   homeScrollY: state => state.homeScrollY,
   theme: state => state.theme
 };
 
 const actions = {
-  appScroll({ commit }, value) {
-    commit("appScrolled", value);
+  appScrollUp({ commit }, value) {
+    commit("appScrollUped", value);
   },
   scrollYTo(_, value) {
     window.scroll(0, value);
@@ -38,9 +38,9 @@ const actions = {
 };
 
 const mutations = {
-  appScrolled(state, value) {
-    state.appScroll = value;
-    log("App Scrolled", value);
+  appScrollUped(state, value) {
+    state.appScrollUp = value;
+    log("App Scrolled Up", value);
   },
   homeScrollYChanged(state, value) {
     state.homeScrollY = value;

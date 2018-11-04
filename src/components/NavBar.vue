@@ -2,7 +2,7 @@
   <nav>
     <ul>
       <li @click="navigate(null)"><div class="logo"
-        :style="logoBackground"></div></li>
+        :style="appScrollUp ? miniLogo : logoBackground"></div></li>
       <li v-for="cat in categories"
         @click="navigate(cat)"
         :key="cat.id"
@@ -19,15 +19,22 @@ import { themes } from "@/store/modules/layout.js";
 
 export default {
   name: "NavBar",
+  data: () => ({
+    miniLogo: { "background-image": `url("/${process.env.VUE_APP_LOGO_MINI}")` }
+  }),
   computed: {
     ...mapGetters({
+      appScrollUp: "layout/appScrollUp",
       theme: "layout/theme",
       categories: "categories/categories"
     }),
     logoBackground() {
-      return this.theme === themes.light
-        ? { "background-image": "url('/logo-2018-light.png')" }
-        : { "background-image": "url('/logo-2018-dark.png')" };
+      return {
+        "background-image":
+          this.theme === themes.light
+            ? `url("/${process.env.VUE_APP_LOGO_LIGHT}")`
+            : `url("/${process.env.VUE_APP_LOGO_DARK}")`
+      };
     }
   },
   methods: {
