@@ -2,12 +2,10 @@
   <nav :class="navClass">
     <ul>
       <li @click="logoClicked()">
-        <div :class="{ logo: true, 'logo-mini': appScrollUp }">
-          <img v-show="!appScrollUp" :src="logo" alt="logo" />
-          <img v-show="appScrollUp" :src="miniLogo" alt="logo" />
+        <div class="logo">
+          <img :src="logo" alt="logo" />
         </div>
       </li>
-      <li class="nav-text" v-if="expand" @click="navigate(null)">Trang chủ</li>
       <li v-for="cat in categories"
         @click="navigate(cat)"
         :key="cat.id"
@@ -15,7 +13,9 @@
         {{ cat.name }}
       </li>
     </ul>
-    <div v-if="expand" @click="expand = false" class="nav-mask"></div>
+    <transition name="fade">
+      <div v-show="expand" @click="expand = false" class="nav-mask"></div>
+    </transition>
   </nav>
 </template>
 
@@ -27,7 +27,7 @@ export default {
   name: "NavBar",
   data: () => ({
     miniLogo: process.env.VUE_APP_LOGO_MINI,
-    smallScreen: false,
+    smallScreen: window.innerWidth < 600,
     expand: false
   }),
   computed: {
@@ -42,16 +42,15 @@ export default {
         ? process.env.VUE_APP_LOGO_LIGHT
         : process.env.VUE_APP_LOGO_DARK;
     },
-    menuIcon() {
-      return this.theme === themes.light
-        ? "/menu-black.png"
-        : "/menu-white.png";
-    },
     navClass() {
-      return {
-        mini: this.appScrollUp,
-        "nav-expand": this.expand
-      };
+      return { hide: this.appScrollUp, "nav-expand": this.expand };
+    }
+  },
+  watch: {
+    appScrollUp(newValue) {
+      if (newValue) {
+        this.expand = false;
+      }
     }
   },
   methods: {
@@ -65,8 +64,8 @@ export default {
       this.$router.push("/");
     },
     logoClicked() {
-      if (window.innerWidth < 600) {
-        this.expand = !this.expand;
+      if (window.innerWidth < 600 && !this.expand) {
+        this.expand = true;
       } else {
         this.navigate(null);
       }
@@ -91,7 +90,7 @@ nav {
   transition: all 200ms ease-in;
 }
 nav > ul {
-  z-index: 3;
+  z-index: 2;
   display: grid;
   grid-template-columns: repeat(5, auto);
   align-items: center;
@@ -124,12 +123,12 @@ nav > ul {
   }
 }
 .nav-mask {
-  z-index: 2;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
+  background: rgba(0, 0, 0, 0.308);
 }
 .logo {
   height: 3rem;
@@ -140,21 +139,15 @@ nav > ul {
     height: 100%;
   }
 }
-.logo-mini {
-  height: 1.5rem;
-}
 .logo:hover {
   transform: scale(1.05);
 }
-.mini {
-  height: 2.5rem;
+.hide {
+  transform: translateY(-100%);
 }
 @media (max-width: 769px) {
   .logo {
     height: 2rem;
-  }
-  .logo-mini {
-    height: 1rem;
   }
   nav {
     height: 3rem;
@@ -165,23 +158,19 @@ nav > ul {
     }
     overflow: auto;
   }
-  .mini {
-    height: 2rem;
-  }
 }
 @media (max-width: 600px) {
   nav {
     overflow: hidden;
   }
   .nav-expand {
-    height: 14rem;
+    height: 12rem;
   }
   nav > ul {
-    width: 100%;
     grid-template-columns: 1fr;
     align-self: flex-start;
     grid-gap: 1rem;
-    margin-top: 0.5rem;
+    margin: 0.5rem auto;
     li {
       width: 100%;
       text-align: center;

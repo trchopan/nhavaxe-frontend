@@ -14,6 +14,7 @@
 <script>
 import { mapGetters } from "vuex";
 import { themes } from "@/store/modules/layout.js";
+import { debounce } from "@/helpers.js";
 import NavBar from "@/components/NavBar.vue";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import Footer from "@/components/Footer.vue";
@@ -51,7 +52,6 @@ export default {
     this.$store.dispatch("articles/fetchCatArticles");
   },
   mounted() {
-    let scrollWatcher;
     let lastScrollY = 0;
     window.onscroll = () => {
       const scrollY = window.scrollY;
@@ -62,8 +62,7 @@ export default {
       }
       lastScrollY = scrollY;
 
-      clearTimeout(scrollWatcher);
-      scrollWatcher = setTimeout(() => {
+      debounce(() => {
         const offsetHeight = document.body.offsetHeight;
         const innerHeight = window.innerHeight;
         if (
@@ -73,7 +72,7 @@ export default {
           const catId = this.$store.state.categories.selectedCat.id;
           this.$store.dispatch("articles/fetchCatArticles", catId);
         }
-      }, 200);
+      }, 200)();
     };
   }
 };
