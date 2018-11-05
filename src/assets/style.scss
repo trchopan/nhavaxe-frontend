@@ -67,7 +67,10 @@ a {
   background-color: var(--background-color);
 }
 #page-head {
-  height: 1rem;
+  height: 5rem;
+  @media (max-width: 769px) {
+    height: 4rem;
+  }
 }
 #page-footer {
   height: 3rem;

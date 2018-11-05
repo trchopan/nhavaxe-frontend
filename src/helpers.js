@@ -14,6 +14,16 @@ export function randomBanner(bannerList) {
   return bannerList[randomIndex];
 }
 
+export function debounce(func, delay) {
+  let inDebounce;
+  return function() {
+    const context = this;
+    const args = arguments;
+    clearTimeout(inDebounce);
+    inDebounce = setTimeout(() => func.apply(context, args), delay);
+  };
+}
+
 export function shuffle(array) {
   if (!Array.isArray(array)) return [];
   var currentIndex = array.length,

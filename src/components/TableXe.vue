@@ -81,6 +81,11 @@ export default {
       selectedOrigin: null
     };
   },
+  mounted() {
+    if (window.innerWidth < 600) {
+      this.expand = false;
+    }
+  },
   computed: {
     ...mapGetters({
       list: "bangGia/list"
