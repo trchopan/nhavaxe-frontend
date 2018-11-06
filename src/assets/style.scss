@@ -59,6 +59,10 @@ a {
   text-decoration: none;
   color: var(--text-main-color);
 }
+button {
+  background: var(--background-color);
+  border: none;
+}
 .block {
   display: block;
 }

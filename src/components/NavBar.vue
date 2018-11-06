@@ -1,8 +1,11 @@
 <template>
   <nav :class="navClass">
+    <button :class="{ 'menu-icon': true, active: expand }" @click="expand = !expand">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    </button>
     <ul>
-      <li @click="logoClicked()">
-        <div class="logo">
+      <li>
+        <div class="logo" @click="navigate(null)">
           <img :src="logo" alt="logo" />
         </div>
       </li>
@@ -13,9 +16,7 @@
         {{ cat.name }}
       </li>
     </ul>
-    <transition name="fade">
-      <div v-show="expand" @click="expand = false" class="nav-mask"></div>
-    </transition>
+    <div v-show="expand" @click="expand = false" class="nav-mask"></div>
   </nav>
 </template>
 
@@ -62,13 +63,6 @@ export default {
       this.$store.dispatch("articles/flushArticles");
       this.$store.dispatch("articles/fetchCatArticles", cat ? cat.id : null);
       this.$router.push("/");
-    },
-    logoClicked() {
-      if (window.innerWidth < 600 && !this.expand) {
-        this.expand = true;
-      } else {
-        this.navigate(null);
-      }
     }
   }
 };
@@ -91,11 +85,11 @@ nav {
 }
 nav > ul {
   z-index: 2;
+  position: relative;
   display: grid;
   grid-template-columns: repeat(5, auto);
   align-items: center;
   justify-content: center;
-  list-style: none;
   white-space: nowrap;
   li {
     position: relative;
@@ -128,7 +122,6 @@ nav > ul {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.308);
 }
 .logo {
   height: 3rem;
@@ -144,6 +137,24 @@ nav > ul {
 }
 .hide {
   transform: translateY(-100%);
+}
+.menu-icon {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(0deg);
+  transition: transform 200ms ease-in;
+}
+.menu-icon > svg {
+  fill: var(--primary-color);
+}
+.active {
+  transform: rotate(90deg);
 }
 @media (max-width: 769px) {
   .logo {
@@ -175,6 +186,9 @@ nav > ul {
       width: 100%;
       text-align: center;
     }
+  }
+  .menu-icon {
+    display: flex;
   }
 }
 </style>

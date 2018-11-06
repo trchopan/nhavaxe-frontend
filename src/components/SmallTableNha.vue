@@ -1,6 +1,6 @@
 <template>
   <div class="bang-gia">
-    <table class="bang-gia">
+    <table>
       <th class="small-project-header">Dự án</th>
       <th class="small-investor-header">Chủ đầu tư</th>
       <th class="small-location-header">Vị trí</th>

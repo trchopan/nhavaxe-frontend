@@ -168,6 +168,7 @@ const mutations = {
   flushed(state) {
     state.articlesList = [];
     state.fetchCounter = 0;
+    state.fetchLimit = FETCH_LIMIT;
     log("flushed");
   },
   clearArticleData(state) {

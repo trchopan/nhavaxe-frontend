@@ -55,7 +55,7 @@ export default {
     let lastScrollY = 0;
     window.onscroll = () => {
       const scrollY = window.scrollY;
-      if (scrollY > lastScrollY && this.appScrollUp !== true) {
+      if (scrollY > 300 && scrollY > lastScrollY && this.appScrollUp !== true) {
         this.$store.dispatch("layout/appScrollUp", true);
       } else if (scrollY < lastScrollY && this.appScrollUp !== false) {
         this.$store.dispatch("layout/appScrollUp", false);
