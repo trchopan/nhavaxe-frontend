@@ -1,6 +1,9 @@
+.bang-gia {
+  width: 100%;
+  overflow: scroll;
+}
 .bang-gia > table {
   --border-property: solid 1px #dcdcdc;
-  overflow: scroll;
   margin: auto;
   text-align: center;
   font-family: var(--title-font);
