@@ -12,11 +12,13 @@ const state = {
     nha: [],
     xe: []
   },
+  expand: true,
   loading: false,
   error: null
 };
 
 const getters = {
+  expand: state => state.expand,
   list: state => state.list,
   smallList: state => ({
     nha: state.list.nha.slice(0, SLICE_AMOUNT),
@@ -39,7 +41,11 @@ const actions = deps => {
       commit("errorCatched", error);
     }
   }
-  return { fetchBangGia };
+  function setExpand({ commit }, value) {
+    commit("expandSetted", value);
+  }
+
+  return { fetchBangGia, setExpand };
 };
 
 const mutations = {
@@ -47,6 +53,10 @@ const mutations = {
     state.list = list;
     state.loading = false;
     log("List changed", list);
+  },
+  expandSetted(state, value) {
+    state.expand = value;
+    log("Expand setted", value);
   },
   loading(state) {
     state.loading = true;

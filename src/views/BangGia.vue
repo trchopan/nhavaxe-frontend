@@ -12,6 +12,10 @@
       </router-link>
     </section>
     <section>
+      <button class="button mb-1" :class="{ 'expand-button': expand }"
+        @click="switchExpand()">
+        Hiển thị {{ expand ? "ngắn gọn" : " đầy đủ"}}
+      </button>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -38,12 +42,27 @@ export default {
   components: {
     BannerTop
   },
+  mounted() {
+    if (window.innerWidth < 600) {
+      this.$store.dispatch("bangGia/setExpand", false);
+    }
+  },
   computed: {
     ...mapGetters({
-      longTopBanners: "banner/longTopBanners"
+      longTopBanners: "banner/longTopBanners",
+      expand: "bangGia/expand"
     }),
     bannerTop() {
       return randomBanner(this.longTopBanners);
+    }
+  },
+  methods: {
+    switchExpand() {
+      if (this.expand) {
+        this.$store.dispatch("bangGia/setExpand", false);
+      } else {
+        this.$store.dispatch("bangGia/setExpand", true);
+      }
     }
   }
 };
@@ -81,11 +100,19 @@ h2:hover::before {
 .banggia-active {
   color: var(--secondary-color);
 }
+.expand-button {
+  display: none;
+}
 .note {
   margin: 0.3rem;
   font: 0.8rem var(--default-font);
   color: var(--text-secondary-color);
-  @media (max-width: 600px) {
+}
+@media (max-width: 600px) {
+  .expand-button {
+    display: block;
+  }
+  .note {
     font-size: 0.7rem;
   }
 }
