@@ -99,6 +99,13 @@ export default {
       selectedProgress: null
     };
   },
+  mounted() {
+    window.ga("set", {
+      page: "/bang-gia/nha",
+      title: "Bảng giá - Nhà"
+    });
+    window.ga("send", "pageView");
+  },
   computed: {
     ...mapGetters({
       loading: "bangGia/loading",
