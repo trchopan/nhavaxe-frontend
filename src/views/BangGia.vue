@@ -3,15 +3,15 @@
     <BannerTop :banner="bannerTop" />
     <h1>Bảng Giá</h1>
     <section class="selection">
-      <router-link tag="h2" to="nha" replace active-class="active-nha">
+      <router-link tag="h2" to="/bang-gia/nha" replace active-class="banggia-active">
         Bất Động Sản
       </router-link>
       <span class="vertical-bar">|</span>
-      <router-link tag="h2" to="xe" replace active-class="active-xe">
+      <router-link tag="h2" to="/bang-gia/xe" replace active-class="banggia-active">
         Xe
       </router-link>
     </section>
-    <section class="bang-gia">
+    <section>
       <transition name="fade" mode="out-in">
         <router-view />
       </transition>
@@ -78,11 +78,8 @@ h2:hover::before {
   right: 0;
   top: 0;
 }
-.active-nha {
+.banggia-active {
   color: var(--secondary-color);
-}
-.active-xe {
-  color: var(--primary-color);
 }
 .note {
   margin: 0.3rem;
