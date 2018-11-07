@@ -74,6 +74,13 @@ export default {
       selectedOrigin: null
     };
   },
+  mounted() {
+    window.ga("set", {
+      page: "/bang-gia/xe",
+      title: "Bảng giá - Xe"
+    });
+    window.ga("send", "pageView");
+  },
   computed: {
     ...mapGetters({
       list: "bangGia/list",
