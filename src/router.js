@@ -3,7 +3,7 @@ import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Article from "./views/Article.vue";
 
-const About = () => import(/* webpackChunkName: "about" */ "./views/About.vue");
+const Tags = () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue");
 const PageNotFound = () =>
   import(/* webpackChunkName: "page-not-found" */ "./views/PageNotFound.vue");
 const BangGia = () =>
@@ -49,9 +49,9 @@ export default new Router({
     },
     {
       // Lazy load
-      path: "/about",
-      name: "about",
-      component: About
+      path: "/tags",
+      name: "tags",
+      component: Tags
     },
     {
       // Lazy load

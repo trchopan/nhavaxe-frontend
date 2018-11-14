@@ -43,7 +43,7 @@ export default {
       this.$store.dispatch("layout/changeTheme", themes.dark);
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("banner/fetchBannersList");
-    this.$store.dispatch("bangGia/fetchBangGia");
+    this.$store.dispatch("banggia/fetchBangGia");
     const result = await this.$store.dispatch("specials/fetchSpecials");
     this.$store.dispatch(
       "articles/setFilterArticles",
@@ -67,7 +67,8 @@ export default {
         const innerHeight = window.innerHeight;
         if (
           innerHeight + scrollY >= offsetHeight - 500 &&
-          this.$route.path.split("/")[1] !== "bang-gia"
+          this.$route.path.split("/")[1] !== "bang-gia" &&
+          this.$route.path.split("/")[1] !== "tags"
         ) {
           const catId = this.$store.state.categories.selectedCat.id;
           this.$store.dispatch("articles/fetchCatArticles", catId);
