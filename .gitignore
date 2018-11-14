@@ -26,7 +26,8 @@ firebase.json
 .firebase
 
 # Function build
-/functions/lib
+functions/lib
+functions/firebase-debug.log
 
 # stubs
 src/api/stubArticles.js
