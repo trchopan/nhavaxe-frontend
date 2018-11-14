@@ -25,5 +25,10 @@ firebase.json
 .firebaserc
 .firebase
 
+# Function build
+functions/lib
+functions/firebase-debug.log
+
 # stubs
 src/api/stubArticles.js
+functions/servicesa.js

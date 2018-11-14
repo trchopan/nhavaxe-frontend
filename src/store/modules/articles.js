@@ -24,12 +24,13 @@ const initArticleBody = LOADING_TEXT;
 // initial state
 const state = {
   initialized: false,
+  selectInited: false,
   fetchCounter: 0,
   fetchLimit: FETCH_LIMIT,
   articlesList: [],
   selectedArticleMeta: initArticleMeta,
   selectedArticleBody: initArticleBody,
-  filterArticles: [],
+  filterArticles: initData.specials.specials.articles,
   relatedList: [],
   loading: false,
   error: null
@@ -96,16 +97,16 @@ const actions = deps => {
     }
   }
 
-  async function selectArticle({ dispatch, commit, state }, articleId) {
-    if (!state.initialized) {
+  async function selectArticle({ commit, state }, articleId) {
+    if (!state.selectInited) {
       log("selectArticle serve from initData");
       commit("articleMetaFound", initData.meta);
       commit("articleBodyFound", initData.body);
-      dispatch("searchRelatedArticles", initData.meta.tags);
+      commit("relatedArticlesFound", initData.related);
       return true;
     }
     commit("loading");
-    commit("clearArticleData");
+    commit("clearSelectedArticle");
 
     try {
       const article = await deps.getArticle(articleId, deps.articleParser);
@@ -116,20 +117,11 @@ const actions = deps => {
       }
       commit("articleMetaFound", article.meta);
       commit("articleBodyFound", article.body);
-      dispatch("searchRelatedArticles", article.meta.tags);
+      commit("relatedArticlesFound", article.related);
       return true;
     } catch (error) {
       commit("errorCatched", error);
       return false;
-    }
-  }
-
-  async function searchRelatedArticles({ commit }, tags) {
-    try {
-      const data = await deps.getRelatedList(tags);
-      commit("relatedArticlesFound", data);
-    } catch (error) {
-      commit("errorCatched", error);
     }
   }
 
@@ -142,7 +134,6 @@ const actions = deps => {
     increaseFetchLimit,
     fetchCatArticles,
     selectArticle,
-    searchRelatedArticles,
     setFilterArticles
   };
 };
@@ -171,18 +162,22 @@ const mutations = {
     state.fetchLimit = FETCH_LIMIT;
     log("flushed");
   },
-  clearArticleData(state) {
+  clearSelectedArticle(state) {
     state.selectedArticleMeta = initArticleMeta;
     state.selectedArticleBody = initArticleBody;
+    state.relatedList = [];
     log("selected is cleared");
   },
   articleMetaFound(state, articleMeta) {
+    if (process.env.NODE_ENV !== "development") {
+      window.ga("set", {
+        page: "/article/" + articleMeta.id,
+        title: articleMeta.title
+      });
+      window.ga("send", "pageView");
+    }
     state.selectedArticleMeta = articleMeta;
-    window.ga("set", {
-      page: "/article/" + articleMeta.id,
-      title: articleMeta.title
-    });
-    window.ga("send", "pageView");
+    state.selectInited = true;
     log("meta found", state.selectedArticleMeta.id);
   },
   articleBodyFound(state, articleBody) {
@@ -191,31 +186,8 @@ const mutations = {
     log("body found", state.selectedArticleBody.length);
   },
   relatedArticlesFound(state, lists) {
-    const result = lists
-      .reduce((accResult, currResult) => {
-        // Find the duplicate
-        currResult.forEach((result, i) => {
-          let foundDuplicate = accResult.findIndex(
-            x => (x && result ? x.id === result.id : false)
-          );
-          // If found increase the relevant amount
-          if (foundDuplicate >= 0) {
-            accResult[foundDuplicate].relevant++;
-            currResult[i] = null;
-          }
-        });
-        return [...accResult, ...currResult.filter(x => x !== null)];
-      }, [])
-      .sort((a, b) => b.publishAt - a.publishAt)
-      .sort((a, b) => b.relevant - a.relevant)
-      .filter(x => x.id != state.selectedArticleMeta.id);
-
-    state.relatedList = result;
+    state.relatedList = lists;
     log("related found", state.relatedList);
-  },
-  filterArticlesSetted(state, articles) {
-    state.filterArticles = articles;
-    log("filter setted", articles);
   },
   errorCatched(state, error) {
     state.error = error;

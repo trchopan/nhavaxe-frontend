@@ -39,16 +39,11 @@ export default {
   },
   async created() {
     const nowHour = new Date().getHours();
-    if (nowHour >= 17 || nowHour < 6)
+    if (nowHour >= 17 || nowHour < 6) {
       this.$store.dispatch("layout/changeTheme", themes.dark);
+    }
     this.$store.dispatch("categories/getCategories");
-    this.$store.dispatch("banner/fetchBannersList");
-    this.$store.dispatch("bangGia/fetchBangGia");
-    const result = await this.$store.dispatch("specials/fetchSpecials");
-    this.$store.dispatch(
-      "articles/setFilterArticles",
-      result.specials.articles
-    );
+    this.$store.dispatch("banggia/fetchBangGia");
     this.$store.dispatch("articles/fetchCatArticles");
   },
   mounted() {
@@ -67,7 +62,8 @@ export default {
         const innerHeight = window.innerHeight;
         if (
           innerHeight + scrollY >= offsetHeight - 500 &&
-          this.$route.path.split("/")[1] !== "bang-gia"
+          this.$route.path.split("/")[1] !== "bang-gia" &&
+          this.$route.path.split("/")[1] !== "tags"
         ) {
           const catId = this.$store.state.categories.selectedCat.id;
           this.$store.dispatch("articles/fetchCatArticles", catId);

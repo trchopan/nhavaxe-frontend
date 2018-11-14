@@ -1,17 +1,23 @@
 import { logger } from "@/helpers.js";
-import * as SpecialsApi from "@/api/specials.js";
+import stubArticles from "@/api/stubArticles.js";
 
 const storeName = "[specials]";
 const log = logger(storeName);
 
 const SPECIAL_SPLIT = 2;
 
+// Initial setup
+const initData =
+  process.env.NODE_ENV !== "development"
+    ? window.__initialData__
+    : stubArticles;
+
 // initial state
 const state = {
-  title: null,
-  articles: [],
-  videos: [],
-  selectedVideo: null,
+  title: initData.specials.specials.title,
+  articles: initData.specials.specials.articles,
+  videos: initData.specials.videos,
+  selectedVideo: initData.specials.videos[0],
   loading: false,
   error: null
 };
@@ -24,36 +30,13 @@ const getters = {
   selectedVideo: state => state.selectedVideo
 };
 
-const actions = deps => {
-  async function fetchSpecials({ commit }) {
-    log("Fetching...");
-    commit("loading");
-    try {
-      const result = await deps.getSpecials(deps.SpecialsApiUrl);
-      commit("dataChanged", result);
-      return result;
-    } catch (error) {
-      commit("errorCatched", error);
-      return null;
-    }
-  }
-
-  function selectVideo({ commit }, video) {
+const actions = {
+  selectVideo({ commit }, video) {
     commit("videoSelected", video);
   }
-
-  return { fetchSpecials, selectVideo };
 };
 
 const mutations = {
-  dataChanged(state, data) {
-    state.title = data.specials.title;
-    state.articles = data.specials.articles;
-    state.videos = data.videos;
-    state.selectedVideo = data.videos[0];
-    state.loading = false;
-    log("data changed", data);
-  },
   videoSelected(state, video) {
     state.selectedVideo = video;
     log("video selected", video);
@@ -72,6 +55,6 @@ export default {
   namespaced: true,
   state,
   getters,
-  actions: actions(SpecialsApi),
+  actions,
   mutations
 };

@@ -54,9 +54,6 @@ export default {
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody"
     })
-  },
-  updated() {
-    document.title = this.articleMeta.title;
   }
 };
 </script>

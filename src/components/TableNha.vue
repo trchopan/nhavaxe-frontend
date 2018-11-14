@@ -100,17 +100,19 @@ export default {
     };
   },
   mounted() {
-    window.ga("set", {
-      page: "/bang-gia/nha",
-      title: "Bảng giá - Nhà"
-    });
-    window.ga("send", "pageView");
+    if (process.env.NODE_ENV !== "development") {
+      window.ga("set", {
+        page: "/bang-gia/nha",
+        title: "Bảng giá - Nhà"
+      });
+      window.ga("send", "pageView");
+    }
   },
   computed: {
     ...mapGetters({
-      loading: "bangGia/loading",
-      list: "bangGia/list",
-      expand: "bangGia/expand"
+      loading: "banggia/loading",
+      list: "banggia/list",
+      expand: "banggia/expand"
     }),
     filteredList() {
       var result = this.list.nha;

@@ -46,9 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      initialized: "articles/initialized",
       articleMeta: "articles/selectedArticleMeta",
-      articleBody: "articles/selectedArticleBody",
       articlesList: "articles/articlesList",
       relatedList: "articles/relatedList",
       longTopBanners: "banner/longTopBanners",
@@ -83,6 +81,9 @@ export default {
     this.$store.dispatch("articles/selectArticle", to.params.id);
     this.$store.dispatch("layout/scrollYTo", 0);
     next();
+  },
+  updated() {
+    document.title = this.articleMeta.title;
   }
 };
 </script>

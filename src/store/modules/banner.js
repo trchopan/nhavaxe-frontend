@@ -1,4 +1,4 @@
-import bannersApi from "@/api/banner.js";
+import stubArticles from "@/api/stubArticles.js";
 import { logger } from "@/helpers.js";
 
 const storeName = "[banner]";
@@ -10,9 +10,15 @@ function filterByArea(list, value) {
   return list.filter(x => x.area === value);
 }
 
+// Initial setup
+const initData =
+  process.env.NODE_ENV !== "development"
+    ? window.__initialData__
+    : stubArticles;
+
 // initial state
 const state = {
-  bannersList: [],
+  bannersList: initData.banners,
   loading: false,
   error: null
 };
@@ -31,16 +37,7 @@ const getters = {
   error: state => state.error
 };
 
-const actions = {
-  fetchBannersList({ commit }) {
-    log("Fetching...");
-    commit("loading");
-    bannersApi.getBannersList(
-      data => commit("bannersListChanged", data),
-      error => commit("errorCatched", error)
-    );
-  }
-};
+const actions = {};
 
 const mutations = {
   bannersListChanged(state, list) {
