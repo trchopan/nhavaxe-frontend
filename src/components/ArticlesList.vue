@@ -3,7 +3,8 @@
     <template v-for="(article, index) in articlesList">
       <li :key="article.id">
         <router-link v-if="article.publishAt"
-          :to="'/article/' + article.id">
+          :to="'/article/' + article.id"
+          @click.native ="selectArticle(article)">
           <div 
             class="cover-image"
             :style="'background-image: url(' + article.coverImg + ');'">
@@ -14,7 +15,8 @@
         </div>
         <div class="info">
           <p v-if="article.publishAt" class="title">
-            <router-link :to="'/article/' + article.id">
+            <router-link :to="'/article/' + article.id"
+              @click.native ="selectArticle(article)">
               {{ article.title | trimText(maxTitle) }}
             </router-link>
           </p>
@@ -88,6 +90,9 @@ export default {
     loadMore() {
       this.$store.dispatch("articles/increaseFetchLimit");
       this.$store.dispatch("articles/fetchCatArticles", this.selectedCat.id);
+    },
+    selectArticle(article) {
+      this.$store.dispatch("articles/selectArticle", article.id);
     }
   }
 };

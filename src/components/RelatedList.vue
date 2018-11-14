@@ -2,7 +2,8 @@
   <ul>
     <template v-for="(article, index) in relatedList.slice(0, relatedMax)">
       <li :key="article.id">
-        <router-link :to="'/article/' + article.id">
+        <router-link :to="'/article/' + article.id"
+          @click.native="selectArticle(article)">
           <div class="related-article__card">
             <div class="related-article__img"
               :style="'background-image: url(' + article.coverImg + ');'">
@@ -57,6 +58,9 @@ export default {
       let index = Math.floor(position / this.relatedBannerInterval);
       index = index < this.shuffledBanner.length ? index : 0;
       return this.shuffledBanner[index];
+    },
+    selectArticle(article) {
+      this.$store.dispatch("articles/selectArticle", article.id);
     }
   },
   mounted() {

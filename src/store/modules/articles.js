@@ -23,8 +23,7 @@ const initArticleBody = LOADING_TEXT;
 
 // initial state
 const state = {
-  initialized: false,
-  selectInited: false,
+  inited: false,
   fetchCounter: 0,
   fetchLimit: FETCH_LIMIT,
   articlesList: [],
@@ -37,7 +36,7 @@ const state = {
 };
 
 const getters = {
-  initialized: state => state.initialized,
+  inited: state => state.inited,
   articlesList: state => state.articlesList,
   firstArticle: state => state.articlesList[0],
   topArticles: state => state.articlesList.slice(1, ARTICLE_SPLIT),
@@ -51,6 +50,10 @@ const getters = {
 };
 
 const actions = deps => {
+  function init({ commit }) {
+    commit("inited");
+  }
+
   function flushArticles({ commit }) {
     commit("flushed");
   }
@@ -71,11 +74,6 @@ const actions = deps => {
     let catId = categoryId || "ALL";
 
     try {
-      if (!state.initialized) {
-        log("fetchCatArticles serve from initData");
-        commit("articlesListChanged", initData.list);
-        return true;
-      }
       log("Fetching Articles...", catId);
       commit("loading");
       const list = await deps.getArticlesList(
@@ -97,16 +95,9 @@ const actions = deps => {
     }
   }
 
-  async function selectArticle({ commit, state }, articleId) {
-    if (!state.selectInited) {
-      log("selectArticle serve from initData");
-      commit("articleMetaFound", initData.meta);
-      commit("articleBodyFound", initData.body);
-      commit("relatedArticlesFound", initData.related);
-      return true;
-    }
+  async function selectArticle({ commit }, articleId) {
     commit("loading");
-    commit("clearSelectedArticle");
+    commit("selectedArticleCleared");
 
     try {
       const article = await deps.getArticle(articleId, deps.articleParser);
@@ -130,6 +121,7 @@ const actions = deps => {
   }
 
   return {
+    init,
     flushArticles,
     increaseFetchLimit,
     fetchCatArticles,
@@ -139,6 +131,14 @@ const actions = deps => {
 };
 
 const mutations = {
+  inited(state) {
+    state.articlesList = initData.list;
+    state.selectedArticleMeta = initData.meta;
+    state.selectedArticleBody = initData.body;
+    state.related = initData.related;
+    state.inited = true;
+    log("inited");
+  },
   fetchLimitIncreased(state) {
     state.fetchLimit++;
     log("fetchLimit increased");
@@ -162,7 +162,7 @@ const mutations = {
     state.fetchLimit = FETCH_LIMIT;
     log("flushed");
   },
-  clearSelectedArticle(state) {
+  selectedArticleCleared(state) {
     state.selectedArticleMeta = initArticleMeta;
     state.selectedArticleBody = initArticleBody;
     state.relatedList = [];

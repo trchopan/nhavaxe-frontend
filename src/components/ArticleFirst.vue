@@ -2,7 +2,8 @@
   <div class="container" v-if="article">
     <div class="cover-image">
       <router-link v-if="article.publishAt"
-        :to="'/article/' + article.id">
+        :to="'/article/' + article.id"
+        @click.native="selectArticle(article)">
         <div v-if="article.publishAt"
           class="image"
           :style="'background-image: url(' + article.coverImg + ');'">
@@ -15,7 +16,8 @@
     <div v-if="article.publishAt" class="info">
       <p class="title">
         <router-link v-if="article.publishAt"
-          :to="'/article/' + article.id">
+          :to="'/article/' + article.id"
+          @click.native="selectArticle(article)">
           {{ article.title }}
         </router-link>
       </p>
@@ -28,6 +30,11 @@ export default {
   name: "ArticleFirst",
   props: {
     article: Object
+  },
+  methods: {
+    selectArticle(article) {
+      this.$store.dispatch("articles/selectArticle", article.id);
+    }
   }
 };
 </script>

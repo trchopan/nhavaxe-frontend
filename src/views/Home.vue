@@ -46,6 +46,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      initialized: "articles/initialized",
       firstArticle: "articles/firstArticle",
       topArticles: "articles/topArticles",
       remainArticles: "articles/remainArticles",
