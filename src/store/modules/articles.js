@@ -135,7 +135,7 @@ const mutations = {
     state.articlesList = initData.list;
     state.selectedArticleMeta = initData.meta;
     state.selectedArticleBody = initData.body;
-    state.related = initData.related;
+    state.relatedList = initData.related;
     state.inited = true;
     log("inited");
   },
