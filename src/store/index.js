@@ -4,7 +4,7 @@ import layout from "./modules/layout.js";
 import articles from "./modules/articles.js";
 import specials from "./modules/specials.js";
 import categories from "./modules/categories.js";
-import bangGia from "./modules/bang-gia.js";
+import banggia from "./modules/bang-gia.js";
 import banner from "./modules/banner.js";
 
 Vue.use(Vuex);
@@ -15,7 +15,7 @@ export default new Vuex.Store({
     articles,
     specials,
     categories,
-    bangGia,
+    banggia,
     banner
   },
   strict: process.env.NODE_ENV !== "production"

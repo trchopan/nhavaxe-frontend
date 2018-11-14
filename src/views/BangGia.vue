@@ -44,13 +44,13 @@ export default {
   },
   mounted() {
     if (window.innerWidth < 600) {
-      this.$store.dispatch("bangGia/setExpand", false);
+      this.$store.dispatch("banggia/setExpand", false);
     }
   },
   computed: {
     ...mapGetters({
       longTopBanners: "banner/longTopBanners",
-      expand: "bangGia/expand"
+      expand: "banggia/expand"
     }),
     bannerTop() {
       return randomBanner(this.longTopBanners);
@@ -59,9 +59,9 @@ export default {
   methods: {
     switchExpand() {
       if (this.expand) {
-        this.$store.dispatch("bangGia/setExpand", false);
+        this.$store.dispatch("banggia/setExpand", false);
       } else {
-        this.$store.dispatch("bangGia/setExpand", true);
+        this.$store.dispatch("banggia/setExpand", true);
       }
     }
   }

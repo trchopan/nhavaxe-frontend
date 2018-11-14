@@ -1,0 +1,30 @@
+{
+  "name": "functions",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "parse:index": "sed -i .tmp '1s/^/export const indexHtml = `/' src/express-api/index.html.ts && rm src/express-api/index.html.ts.tmp && echo '`' >> src/express-api/index.html.ts",
+    "build": "tsc",
+    "serve": "npm run build && firebase serve --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "npm run build && firebase deploy --only functions",
+    "deploy:ssr": "npm run build && firebase deploy --only functions:ssr",
+    "logs": "firebase functions:log"
+  },
+  "main": "lib/index.js",
+  "engines": {
+    "node": "8"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "firebase-admin": "~6.0.0",
+    "firebase-functions": "^2.0.5",
+    "isomorphic-fetch": "^2.2.1"
+  },
+  "devDependencies": {
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  },
+  "private": true
+}

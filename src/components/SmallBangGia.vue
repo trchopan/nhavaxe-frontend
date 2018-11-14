@@ -42,7 +42,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      list: "bangGia/smallList"
+      list: "banggia/smallList"
     }),
     selectedComponent() {
       return this.selected === "nha" ? "SmallTableNha" : "SmallTableXe";

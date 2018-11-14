@@ -178,11 +178,13 @@ const mutations = {
   },
   articleMetaFound(state, articleMeta) {
     state.selectedArticleMeta = articleMeta;
-    window.ga("set", {
-      page: "/article/" + articleMeta.id,
-      title: articleMeta.title
-    });
-    window.ga("send", "pageView");
+    if (process.env.NODE_ENV !== "development") {
+      window.ga("set", {
+        page: "/article/" + articleMeta.id,
+        title: articleMeta.title
+      });
+      window.ga("send", "pageView");
+    }
     log("meta found", state.selectedArticleMeta.id);
   },
   articleBodyFound(state, articleBody) {

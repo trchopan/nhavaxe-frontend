@@ -75,16 +75,18 @@ export default {
     };
   },
   mounted() {
-    window.ga("set", {
-      page: "/bang-gia/xe",
-      title: "Bảng giá - Xe"
-    });
-    window.ga("send", "pageView");
+    if (process.env.NODE_ENV !== "development") {
+      window.ga("set", {
+        page: "/bang-gia/xe",
+        title: "Bảng giá - Xe"
+      });
+      window.ga("send", "pageView");
+    }
   },
   computed: {
     ...mapGetters({
-      list: "bangGia/list",
-      expand: "bangGia/expand"
+      list: "banggia/list",
+      expand: "banggia/expand"
     }),
     filteredList() {
       var result = this.list.xe;

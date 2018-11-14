@@ -83,6 +83,9 @@ export default {
     this.$store.dispatch("articles/selectArticle", to.params.id);
     this.$store.dispatch("layout/scrollYTo", 0);
     next();
+  },
+  updated() {
+    document.title = this.articleMeta.title;
   }
 };
 </script>
