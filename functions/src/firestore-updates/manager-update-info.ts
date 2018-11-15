@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import { ArticlesCollection } from "../config";
+import { ArticlesCollection } from "../express-api/article";
 
 export function managerUpdateInfoHandler(snap, context) {
   const logMessage = "Firestore manager <" + snap.after.id + "> ";
