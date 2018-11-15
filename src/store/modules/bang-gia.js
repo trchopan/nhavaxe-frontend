@@ -1,7 +1,7 @@
 import { logger } from "@/helpers.js";
 import * as BangGiaApi from "@/api/bang-gia.js";
 
-const storeName = "[bangGia]";
+const storeName = "[banggia]";
 const log = logger(storeName);
 
 const SLICE_AMOUNT = 7;
@@ -18,6 +18,7 @@ const state = {
 };
 
 const getters = {
+  loading: state => state.loading,
   expand: state => state.expand,
   list: state => state.list,
   smallList: state => ({
