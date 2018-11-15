@@ -12,7 +12,6 @@ export const indexHtml = `<!doctype html>
   <meta name="revisit-after" content="1 days">
   <meta name="author" content="Chop Tr @choptr" />
   <meta name="copyright" content="Copyright (c) 2018-present Chop Tr" />
-  <title>Kênh Tin Tức Nhà và Xe</title>
 
   <!-- HEAD TAGS SEO -->
 
@@ -28,15 +27,17 @@ export const indexHtml = `<!doctype html>
 
   <script>window.__initialData__ = { initialData: null }</script>
 
-<link href="/css/bang-gia.f565983d.css" rel="prefetch"><link href="/css/page-not-found.7a89cdc1.css" rel="prefetch"><link href="/js/about.78e3d0ac.js" rel="prefetch"><link href="/js/bang-gia.28b0aff3.js" rel="prefetch"><link href="/js/page-not-found.c7d56b26.js" rel="prefetch"><link href="/css/app.b75daa4e.css" rel="preload" as="style"><link href="/css/chunk-vendors.9486174d.css" rel="preload" as="style"><link href="/js/app.b8c8f150.js" rel="preload" as="script"><link href="/js/chunk-vendors.00da6cb3.js" rel="preload" as="script"><link href="/css/chunk-vendors.9486174d.css" rel="stylesheet"><link href="/css/app.b75daa4e.css" rel="stylesheet"></head>
+<link href="/css/bang-gia.0f4c30d8.css" rel="prefetch"><link href="/css/page-not-found.7a89cdc1.css" rel="prefetch"><link href="/js/bang-gia.79fd9b68.js" rel="prefetch"><link href="/js/page-not-found.c7d56b26.js" rel="prefetch"><link href="/js/tags.8587b358.js" rel="prefetch"><link href="/css/app.6bf9af56.css" rel="preload" as="style"><link href="/css/chunk-vendors.9486174d.css" rel="preload" as="style"><link href="/js/app.95adae96.js" rel="preload" as="script"><link href="/js/chunk-vendors.68fa393a.js" rel="preload" as="script"><link href="/css/chunk-vendors.9486174d.css" rel="stylesheet"><link href="/css/app.6bf9af56.css" rel="stylesheet"></head>
 <body>
   <noscript>
     <strong>We're sorry but nhavaxe-frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
   </noscript>
   <div id="app">
-    <!-- BODY CONTENT SEO -->
-    <!-- BODY LIST SEO -->
+    <div style="color: white;">
+      <!-- BODY CONTENT SEO -->
+      <!-- BODY LIST SEO -->
+    </div>
   </div>
-<script type="text/javascript" src="/js/chunk-vendors.00da6cb3.js"></script><script type="text/javascript" src="/js/app.b8c8f150.js"></script></body>
+<script type="text/javascript" src="/js/chunk-vendors.68fa393a.js"></script><script type="text/javascript" src="/js/app.95adae96.js"></script></body>
 </html>
 `

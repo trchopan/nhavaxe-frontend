@@ -9,7 +9,7 @@
         <p v-for="(sub, i) in subs"
           :key="'specials-sub-' + i"
           class="sub-item">
-          <router-link :to="'/article/' + sub.id">
+          <router-link :to="'/article/' + sub.id" @click.native="selectArticle(sub)">
             {{ sub.title }}
           </router-link>
         </p>
@@ -17,7 +17,7 @@
       <div class="mains-preview">
         <div v-for="(main, i) in mains"
           :key="'specials-main-' + i">
-          <router-link :to="'/article/' + main.id">
+          <router-link :to="'/article/' + main.id" @click.native="selectArticle(main)">
             <div class="preview-main-cover"
               :style="'background-image: url(' + main.coverImg + ');'"></div>
             <p class="mains-title">
@@ -39,7 +39,12 @@ export default {
     title: "specials/title",
     mains: "specials/mains",
     subs: "specials/subs"
-  })
+  }),
+  methods: {
+    selectArticle(article) {
+      this.$store.dispatch("articles/selectArticle", article.id);
+    }
+  }
 };
 </script>
 

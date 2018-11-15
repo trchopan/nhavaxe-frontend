@@ -45,7 +45,7 @@
       <th v-show="expand" class="publish-at-header">Đăng lúc</th>
       <tr v-show="filteredList.length <= 0">
         <td colspan="10">
-          Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc.
+          {{ loading ? "Đang tải dữ liệu..." : "Không có dữ liệu nào thoả mãn bộ lọc. Bạn vui lòng chọn lại bộ lọc." }}
         </td>
       </tr>
       <tr v-for="(data, index) in filteredList" :key="'bang-gia-nha-' + index"

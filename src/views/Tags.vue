@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div>
     <h1>This is tag page</h1>
     <pre>{{ this.tags }}</pre>
   </div>

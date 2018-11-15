@@ -1,10 +1,10 @@
-export const logger = className => (message, value) => {
+export const logger = className => (message, ...obj) => {
   process.env.NODE_ENV === "development" &&
     console.log(
       `%c${className}`,
       "background: #6c6c6c; color: white; padding: 0 0.2rem",
       message,
-      value
+      ...obj
     );
 };
 

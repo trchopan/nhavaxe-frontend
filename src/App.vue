@@ -44,7 +44,7 @@ export default {
     }
     this.$store.dispatch("categories/getCategories");
     this.$store.dispatch("banggia/fetchBangGia");
-    this.$store.dispatch("articles/fetchCatArticles");
+    this.$store.dispatch("articles/init");
   },
   mounted() {
     let lastScrollY = 0;
