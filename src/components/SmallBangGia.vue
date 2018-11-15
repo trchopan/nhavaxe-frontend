@@ -16,6 +16,7 @@
       @click="selected = 'xe'">
       Xe
     </h2>
+    <span v-if="loading" class="loading">Đang tải dữ liệu...</span>
     <router-link :to="'/bang-gia/' + selected">
       <transition name="fade" mode="out-in">
         <component :is="selectedComponent" :list="list"></component>
@@ -42,6 +43,7 @@ export default {
   },
   computed: {
     ...mapGetters({
+      loading: "banggia/loading",
       list: "banggia/smallList"
     }),
     selectedComponent() {
@@ -58,6 +60,10 @@ export default {
 }
 .container table {
   width: 100%;
+}
+.loading {
+  font-size: 0.7rem;
+  color: var(--text-secondary-color);
 }
 h2 {
   display: inline-block;
