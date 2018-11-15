@@ -45,9 +45,9 @@ const defaultMeta = {
     "apartments"
   ],
   id: "",
+  categoryId: "",
   coverImg: "/logo.png",
   categoryName: "Trang chủ",
-  categoryId: "",
   publishAt: new Date().getTime()
 };
 
@@ -56,13 +56,14 @@ const BangGiaMeta = {
   title: "Bảng giá - Kênh Tin Tức Nhà và Xe",
   sapo: "Bảng giá Bất động sản và Xe. Được cập nhật liên tục và chính xác.",
   categoryName: "Bảng giá",
-  categoryId: "bang-gia"
+  categoryId: "bang-gia",
+  id: Math.random() > 0.5 ? "nha" : "xe"
 };
 
 const NotFoundMeta = {
   ...defaultMeta,
   title: "404 Not found - Không tìm thấy bài viết",
-  categoryName: "404 Not found"
+  categoryName: "404 Not found",
 };
 
 export async function ssrHandler(req, res) {
@@ -82,6 +83,7 @@ export async function ssrHandler(req, res) {
     if (req.params.module === "article") {
       meta = await getArticleMeta(req.params.id);
       if (meta) {
+        meta.categoryId = "article"
         body = await getArticleBody(req.params.id);
       } else {
         meta = NotFoundMeta as IArticle;
