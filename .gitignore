@@ -28,6 +28,7 @@ firebase.json
 
 # Function build
 functions/lib
+functions/src/express-api/index.html.ts
 
 # stubs
 src/api/stubArticles.js
