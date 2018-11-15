@@ -4,35 +4,28 @@
       :key="article.id"
       class="li-article"
       :class="'li-' + i">
-      <div class="cover-image">
-        <router-link v-if="article.publishAt"
-          :to="'/article/' + article.id"
-          @click.native="selectArticle(article)">
-          <div v-if="article.publishAt"
-            class="image"
-            :style="'background-image: url(' + article.coverImg + ');'">
-          </div>
-        </router-link>
-        <div v-else
-          class="image-loading">
+      <article-link-wrapper :id="article.id">
+        <div class="cover-image"
+          :style="'background-image: url(' + article.coverImg + ');'">
         </div>
-      </div>
-      <div v-if="article.publishAt" class="info">
-        <p class="title">
-          <router-link v-if="article.publishAt"
-            :to="'/article/' + article.id"
-            @click.native="selectArticle(article)">
+        <div class="info">
+          <p class="title">
             {{ article.title | trimText(maxTitle) }}
-          </router-link>
-        </p>
-      </div>
+          </p>
+        </div>
+      </article-link-wrapper>
     </li>
   </ul>
 </template>
 
 <script>
+import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue";
+
 export default {
   name: "ArticlesTop",
+  components: {
+    ArticleLinkWrapper
+  },
   props: {
     articlesList: Array
   },
@@ -66,47 +59,32 @@ ul {
   list-style: none;
   display: grid;
   grid-template-areas: "a b c";
+  grid-gap: 0.5rem;
+  padding: 0.25rem;
   li {
     position: relative;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0 2px 2px 0 var(--box-shadow), 0 0 0 1px var(--box-shadow-faded);
     .cover-image {
-      position: absolute;
-      top: 0.25rem;
-      left: 0.25rem;
-      bottom: 0.25rem;
-      right: 0.25rem;
-      overflow: hidden;
-      box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2),
-        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-      border-radius: 2px;
-      .image,
-      .image-loading {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: 23%;
-        transition: transform 0.2s ease-in;
-      }
-      .image:hover {
-        transform: scale(1.03);
-      }
-      .image-loading {
-        background-image: url("/image-placeholder.png");
-      }
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: 23%;
+      transition: transform 0.2s ease-in;
     }
-    div.info {
-      position: absolute;
-      bottom: 0.25rem;
-      left: 0.25rem;
-      right: 0.25rem;
-      padding: 0.5rem;
-      background: linear-gradient(rgba(0, 0, 0, 0), black);
-      .title > a {
+    .cover-image:hover {
+      transform: scale(1.03);
+    }
+    .info {
+      background: linear-gradient(#00000079, black);
+      width: 100%;
+      height: auto;
+      transform: translateY(-100%);
+      padding: 0.25rem 0.5rem;
+      .title {
         color: var(--text-accent-color);
         font: 600 1.2rem/130% var(--title-font);
-      }
-      .publish-at,
-      .sapo {
-        display: none;
       }
     }
   }
@@ -120,7 +98,7 @@ ul {
     grid-area: c;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   ul {
     grid-template-areas:
       "a a"
@@ -129,7 +107,7 @@ ul {
       a.cover-image > div.faded-mask {
         height: 7rem;
       }
-      div.info > .title > a {
+      div.info > .title {
         color: var(--text-accent-color);
         font: 600 1.1rem/120% var(--title-font);
       }

@@ -23,7 +23,7 @@ export async function getSpecials(): Promise<ISpecials> {
             title: article.title,
             coverImg: article.coverImg
           }))
-      : [];
+      : null;
     const specials = {
       title: results[0].data().title || "",
       articles: specialsArticles

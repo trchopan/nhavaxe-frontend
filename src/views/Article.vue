@@ -2,12 +2,13 @@
   <transition name="fade">
     <div class="article-container">
       <BannerTop :banner="bannerTop" />
-      <ArticleDetail />
+      <router-view></router-view>
       <RelatedList />
       <Videos />
       <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"
-          :articlesList="filteredArticlesList" />
+          :articlesList="filteredArticlesList"
+          replace />
         <div class="right-wrapper">
           <BannerRight :bannerList="shuffledRightBanners"/>
           <BannerSticky :banner="bannerSticky" />

@@ -1,4 +1,3 @@
-import * as admin from "firebase-admin";
 import { indexHtml } from "./index.html";
 import { SiteUrl, ARTICLE_CACHE, ARTICLE_SCACHE } from "../config";
 import { IArticle, IArticleMini, IArticleMicro } from "./article.model";
@@ -12,6 +11,7 @@ import { getSpecials } from "./specials";
 import { ISpecials } from "./specials.model";
 import { getBannersList } from "./banner";
 import { IBanner } from "./banner.model";
+import { normText } from "./helpers";
 
 const ApiName = "SSR";
 const defaultMeta = {
@@ -60,6 +60,14 @@ const BangGiaMeta = {
   id: Math.random() > 0.5 ? "nha" : "xe"
 };
 
+const TagMeta = {
+  ...defaultMeta,
+  title: "Tag - Kênh Tin Tức Nhà và Xe",
+  sapo: "Tìm kiếm nội dung theo tags",
+  categoryName: "Tag",
+  categoryId: "tag",
+};
+
 const NotFoundMeta = {
   ...defaultMeta,
   title: "404 Not found - Không tìm thấy bài viết",
@@ -70,15 +78,16 @@ export async function ssrHandler(req, res) {
   console.log(ApiName + " requested", req.params.module, req.params.id);
 
   try {
-    const list: IArticleMini[] = await getCachedArticles("ALL");
-    const specials = await getSpecials();
-    const banners = await getBannersList();
+    const specials: ISpecials = await getSpecials();
+    const banners: IBanner[] = await getBannersList();
+    let list: IArticleMini[] = [];
     let meta: IArticle = NotFoundMeta as IArticle;
     let body: string = "";
     let related: IArticleMicro[] = [];
 
     if (!req.params.module) {
       meta = defaultMeta as IArticle;
+      list = await getCachedArticles("ALL");
     }
     if (req.params.module === "article") {
       meta = await getArticleMeta(req.params.id);
@@ -88,11 +97,19 @@ export async function ssrHandler(req, res) {
       } else {
         meta = NotFoundMeta as IArticle;
       }
+      list = await getCachedArticles("ALL");
       related = await getArticleRelated(meta.id, meta.tags);
     }
     if (req.params.module === "bang-gia") {
       meta = BangGiaMeta as IArticle;
     }
+    if (req.params.module === "tag") {
+      meta = TagMeta as IArticle;
+      meta.id = req.params.id as string;
+      const tags = meta.id.split("|").map(x => normText(x));
+      related = await getArticleRelated(null, tags);
+    }
+
     return handleResult(
       res,
       indexHtml,
@@ -148,7 +165,7 @@ const encodeSpecialChar = (html: string) =>
     .replace(/\//g, "&#x2F;");
 
 function generateHead(data) {
-  const tags = data.tags ? data.tags.join() : "";
+  const tags = data.tags && data.tags.length ? data.tags.join() : "";
   return `
   <title>${data.title}</title>
   <meta name="description" content="${data.sapo}"/>

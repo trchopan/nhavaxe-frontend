@@ -5,7 +5,7 @@ import { logger } from "@/helpers.js";
 const storeName = "[articles]";
 const log = logger(storeName);
 
-const LOADING_TEXT = "loading...";
+const LOADING_TEXT = "Đang tải dữ liệu...";
 const ARTICLE_SPLIT = 4;
 const FETCH_LIMIT = 3;
 

@@ -1,20 +1,23 @@
 <template>
-  <div>
-    <h1>This is tag page</h1>
-    <pre>{{ this.tags }}</pre>
+  <div class="tag-container">
+    <label for="tag-input">Tag: </label>
+    <input id="tag-input" type="text" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-
 export default {
   name: "Tags",
-  computed: {
-    ...mapGetters({ articlesList: "articles/articlesList" }),
-    tags() {
-      return this.articlesList.reduce((acc, cur) => acc.concat(cur.tags), []);
-    }
+  mounted() {
+    console.log("Mounted");
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.tag-container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+}
+</style>

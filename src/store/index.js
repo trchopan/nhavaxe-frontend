@@ -6,6 +6,7 @@ import specials from "./modules/specials.js";
 import categories from "./modules/categories.js";
 import banggia from "./modules/bang-gia.js";
 import banner from "./modules/banner.js";
+import tag from "./modules/tag.js";
 
 Vue.use(Vuex);
 
@@ -16,7 +17,8 @@ export default new Vuex.Store({
     specials,
     categories,
     banggia,
-    banner
+    banner,
+    tag
   },
   strict: process.env.NODE_ENV !== "production"
 });

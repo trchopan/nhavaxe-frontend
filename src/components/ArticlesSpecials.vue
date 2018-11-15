@@ -9,21 +9,21 @@
         <p v-for="(sub, i) in subs"
           :key="'specials-sub-' + i"
           class="sub-item">
-          <router-link :to="'/article/' + sub.id" @click.native="selectArticle(sub)">
+          <article-link-wrapper :id="sub.id">
             {{ sub.title }}
-          </router-link>
+          </article-link-wrapper>
         </p>
       </div>
       <div class="mains-preview">
         <div v-for="(main, i) in mains"
           :key="'specials-main-' + i">
-          <router-link :to="'/article/' + main.id" @click.native="selectArticle(main)">
+          <article-link-wrapper :id="main.id">
             <div class="preview-main-cover"
               :style="'background-image: url(' + main.coverImg + ');'"></div>
             <p class="mains-title">
                 {{ main.title | trimText(100) }}
             </p>
-          </router-link>
+          </article-link-wrapper>
         </div>
       </div>
     </div>
@@ -32,9 +32,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue"
 
 export default {
   name: "ArticlesSpecials",
+  components: {
+    ArticleLinkWrapper
+  },
   computed: mapGetters({
     title: "specials/title",
     mains: "specials/mains",

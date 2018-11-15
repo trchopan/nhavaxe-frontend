@@ -2,8 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Article from "./views/Article.vue";
+import ArticleDetail from "./components/ArticleDetail.vue";
 
-const Tags = () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue");
 const PageNotFound = () =>
   import(/* webpackChunkName: "page-not-found" */ "./views/PageNotFound.vue");
 const BangGia = () =>
@@ -12,6 +12,9 @@ const TableNha = () =>
   import(/* webpackChunkName: "bang-gia" */ "./components/TableNha.vue");
 const TableXe = () =>
   import(/* webpackChunkName: "bang-gia" */ "./components/TableXe.vue");
+const Tags = () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue");
+const TagsSearch = () =>
+  import(/* webpackChunkName: "tags" */ "./components/TagsSearch.vue");
 
 Vue.use(Router);
 
@@ -25,9 +28,17 @@ export default new Router({
       component: Home
     },
     {
-      path: "/article/:id",
+      path: "/article",
       name: "article",
-      component: Article
+      component: Article,
+      children: [
+        {
+          path: ":id",
+          name: "article-detail",
+          component: ArticleDetail
+        },
+        { path: "", redirect: "/" }
+      ]
     },
     {
       // Lazy load
@@ -44,14 +55,23 @@ export default new Router({
           path: "xe",
           name: "xe",
           component: TableXe
-        }
+        },
+        { path: "", redirect: "/" }
       ]
     },
     {
       // Lazy load
-      path: "/tags",
-      name: "tags",
-      component: Tags
+      path: "/tag",
+      name: "tag",
+      component: Tags,
+      children: [
+        {
+          path: ":id",
+          name: "tag-search",
+          component: TagsSearch
+        },
+        { path: "", redirect: "/" }
+      ]
     },
     {
       // Lazy load

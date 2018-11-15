@@ -2,25 +2,18 @@
   <ul class="container">
     <template v-for="(article, index) in articlesList">
       <li :key="article.id">
-        <router-link v-if="article.publishAt"
-          :to="'/article/' + article.id"
-          @click.native ="selectArticle(article)">
+        <article-link-wrapper :id="article.id">
           <div 
             class="cover-image"
             :style="'background-image: url(' + article.coverImg + ');'">
           </div>
-        </router-link>
-        <div v-else
-          class="cover-image-loading">
-        </div>
+        </article-link-wrapper>
         <div class="info">
-          <p v-if="article.publishAt" class="title">
-            <router-link :to="'/article/' + article.id"
-              @click.native ="selectArticle(article)">
+          <p class="title">
+            <article-link-wrapper :id="article.id">
               {{ article.title | trimText(maxTitle) }}
-            </router-link>
+            </article-link-wrapper>
           </p>
-          <p v-else class="title">...loading</p>
           <p class="publish-at">
             {{ article.publishAt | parsePublishAt }}
             <span v-if="article.video">🎬</span>
@@ -48,12 +41,14 @@ import { shuffle } from "@/helpers";
 import { ArticleBannerInterval } from "@/store/modules/banner.js";
 import BannerArticleList from "@/components/BannerArticleList.vue";
 import ArticlesSpecials from "@/components/ArticlesSpecials.vue";
+import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue";
 
 export default {
   name: "ArticlesList",
   components: {
     BannerArticleList,
-    ArticlesSpecials
+    ArticlesSpecials,
+    ArticleLinkWrapper
   },
   data() {
     return {
@@ -64,7 +59,8 @@ export default {
   },
   props: {
     selectedCat: Object,
-    articlesList: Array
+    articlesList: Array,
+    replace: Boolean
   },
   computed: {
     ...mapGetters({

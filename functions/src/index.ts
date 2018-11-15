@@ -18,6 +18,7 @@ import {
 import { clickLinkHandler } from "./express-api/click-link";
 import { pullFromGoogleSheetHandler } from "./express-api/pull-googlesheet";
 import { getBangGiaHandler } from "./express-api/banggia";
+import { tagSearchHandler } from "./express-api/tag-search";
 
 admin.initializeApp(functions.config().firebase);
 const firestore = admin.firestore();
@@ -47,6 +48,7 @@ app.use(cors());
 app.get("/api/article/:id", getArticleHandler);
 app.get("/api/list/:startAfter/:catId", getArticlesListHandler);
 app.get("/api/click/:linkId", clickLinkHandler);
+app.get("/api/tag/:id", tagSearchHandler);
 app.get("/api/pullGoogleSheet", pullFromGoogleSheetHandler);
 app.get("/api/getBangGia", getBangGiaHandler);
 export const api = functions.https.onRequest(app);
