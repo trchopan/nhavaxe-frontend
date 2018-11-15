@@ -1,6 +1,6 @@
 import * as admin from "firebase-admin";
-import { ArticlesCollection } from "../config";
 import { parseArticleMeta } from "./article.model";
+import { ArticlesCollection } from "./article";
 
 const ApiName = "Sitemap";
 

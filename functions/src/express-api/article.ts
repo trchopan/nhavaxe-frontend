@@ -1,13 +1,5 @@
 import * as admin from "firebase-admin";
-import {
-  ArticlesCollection,
-  BodyCollection,
-  ArticlesListLimit,
-  RelatedTagLimit,
-  CacheCollection,
-  ARTICLE_CACHE,
-  ARTICLE_SCACHE
-} from "../config";
+import { CacheCollection, ARTICLE_CACHE, ARTICLE_SCACHE } from "../config";
 import {
   parseArticleMeta,
   parseArticleBody,
@@ -24,7 +16,12 @@ import {
   normText
 } from "./helpers";
 
+export const ArticlesCollection = "articles";
+export const BodyCollection = "body";
+
 const ApiName = "ArticleApi";
+const ArticlesListLimit = 20;
+const RelatedTagLimit = 5;
 
 export async function getArticleHandler(req, res) {
   console.log(ApiName + " requested getArticleHandler", req.params);
