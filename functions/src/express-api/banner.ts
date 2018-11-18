@@ -4,7 +4,7 @@ import { parseBanner, IBanner } from "./banner.model";
 
 export const BannersCollection = "banners";
 export const CacheBannerDocPath = "banner";
-const ApiName = "BannerApi";
+const ApiName = "Banner";
 
 export async function getBannersList(): Promise<IBanner[]> {
   console.log(ApiName + " requested");

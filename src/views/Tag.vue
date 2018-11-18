@@ -1,16 +1,17 @@
 <template>
   <div class="tag-container">
-    <label for="tag-input">Tag: </label>
-    <input id="tag-input" type="text" />
+    <TagForm />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import TagForm from "@/components/TagForm.vue";
+
 export default {
-  name: "Tags",
-  mounted() {
-    console.log("Mounted");
+  name: "Tag",
+  components: {
+    TagForm
   }
 };
 </script>

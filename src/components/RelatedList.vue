@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <template v-for="(article, index) in relatedList.slice(0, relatedMax)">
+    <template v-for="(article, index) in list.slice(0, relatedMax)">
       <li :key="article.id">
         <router-link :to="'/article/' + article.id"
           @click.native="selectArticle(article)">
@@ -31,6 +31,9 @@ export default {
   components: {
     BannerRelated
   },
+  props: {
+    list: Array
+  },
   data() {
     return {
       maxTitle: 999,
@@ -40,7 +43,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      relatedList: "articles/relatedList",
+      // relatedList: "articles/relatedList",
       relateBanners: "banner/relateBanners"
     }),
     shuffledBanner() {

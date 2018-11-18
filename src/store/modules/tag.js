@@ -1,9 +1,9 @@
+import * as TagApi from "@/api/tag.js";
 import { logger } from "@/helpers.js";
 import stubArticles from "@/api/stubArticles.js";
 
 const storeName = "[tag]";
 const log = logger(storeName);
-
 
 // Initial setup
 const initData =
@@ -13,7 +13,7 @@ const initData =
 
 // initial state
 const state = {
-  tagResult: initData.related, 
+  tagResult: initData.related,
   loading: false,
   error: null
 };
@@ -26,11 +26,15 @@ const getters = {
 
 const actions = deps => {
   async function queryTags({ commit }, tagQuery) {
-    const result = await deps.getTagQueryResult(tagQuery);
-    commit("tagQueryResultChanged", result);
+    try {
+      const result = await deps.getTagQueryResult(TagApi.TagApiUrl, tagQuery);
+      commit("tagQueryResultChanged", result);
+    } catch (error) {
+      log("Error", error);
+    }
   }
 
-  return Object.freeze({ queryTags })
+  return Object.freeze({ queryTags });
 };
 
 const mutations = {
@@ -52,6 +56,6 @@ export default {
   namespaced: true,
   state,
   getters,
-  actions,
+  actions: actions(TagApi),
   mutations
 };

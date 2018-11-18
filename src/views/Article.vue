@@ -3,7 +3,7 @@
     <div class="article-container">
       <BannerTop :banner="bannerTop" />
       <router-view></router-view>
-      <RelatedList />
+      <RelatedList :list="relatedList" />
       <Videos />
       <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"

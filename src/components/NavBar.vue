@@ -9,11 +9,13 @@
           <img :src="logo" alt="logo" />
         </div>
       </li>
-      <li v-for="cat in categories"
-        @click="navigate(cat)"
-        :key="cat.id"
+      <li v-for="cat in categories" :key="cat.id"
         :class="{'nav-text': true, selected: cat === selectedCat }">
+        <router-link to="/"
+          replace
+          @click.native="navigate(cat)">
         {{ cat.name }}
+        </router-link>
       </li>
     </ul>
     <router-link to="/tag/search" class="search-icon">
@@ -106,14 +108,14 @@ nav > ul {
     position: absolute;
     width: 0;
     height: 1px;
-    background: var(--primary-color);
+    background: var(--secondary-color);
     bottom: -0.25rem;
     left: 25%;
     transition: width 200ms ease-in;
   }
   li.selected::after {
     width: 50%;
-    background: var(--primary-color);
+    background: var(--secondary-color);
   }
   li.nav-text:hover::after {
     width: 50%;
@@ -162,6 +164,14 @@ nav > ul {
   height: 4rem;
   justify-content: center;
   align-items: center;
+  transition: background-color 200ms ease-in;
+}
+.menu-icon:hover,
+.search-icon:hover {
+  background-color: var(--box-shadow-faded);
+  svg {
+    fill: var(--secondary-color);
+  }
 }
 .menu-icon > svg,
 .search-icon > svg {

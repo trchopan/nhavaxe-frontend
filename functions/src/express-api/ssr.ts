@@ -12,6 +12,7 @@ import { ISpecials } from "./specials.model";
 import { getBannersList } from "./banner";
 import { IBanner } from "./banner.model";
 import { normText } from "./helpers";
+import { TagSearchAmount } from "./tag-search";
 
 const ApiName = "SSR";
 const defaultMeta = {
@@ -65,13 +66,13 @@ const TagMeta = {
   title: "Tag - Kênh Tin Tức Nhà và Xe",
   sapo: "Tìm kiếm nội dung theo tags",
   categoryName: "Tag",
-  categoryId: "tag",
+  categoryId: "tag"
 };
 
 const NotFoundMeta = {
   ...defaultMeta,
   title: "404 Not found - Không tìm thấy bài viết",
-  categoryName: "404 Not found",
+  categoryName: "404 Not found"
 };
 
 export async function ssrHandler(req, res) {
@@ -92,7 +93,7 @@ export async function ssrHandler(req, res) {
     if (req.params.module === "article") {
       meta = await getArticleMeta(req.params.id);
       if (meta) {
-        meta.categoryId = "article"
+        meta.categoryId = "article";
         body = await getArticleBody(req.params.id);
       } else {
         meta = NotFoundMeta as IArticle;
@@ -107,7 +108,7 @@ export async function ssrHandler(req, res) {
       meta = TagMeta as IArticle;
       meta.id = req.params.id as string;
       const tags = meta.id.split("|").map(x => normText(x));
-      related = await getArticleRelated(null, tags);
+      related = await getArticleRelated(null, tags, TagSearchAmount);
     }
 
     return handleResult(
@@ -140,7 +141,7 @@ const handleResult = (
   let output = html.replace("{ initialData: null }", JSON.stringify(data));
   output = output.replace(
     "<!-- BODY LIST SEO -->",
-    generateArticleList(data.list)
+    generateArticleList(data.list) + generateArticleList(data.related)
   );
   output = output.replace("<!-- HEAD TAGS SEO -->", generateHead(data.meta));
   output = output.replace(
@@ -156,15 +157,17 @@ const handleResult = (
 };
 
 const encodeSpecialChar = (html: string) =>
-  html
-    .replace(/&/g, "&amp;")
-    .replace(/\'/g, "&#x27;")
-    .replace(/\"/g, "&quot;")
-    .replace(/>/g, "&gt;")
-    .replace(/</g, "&lt;")
-    .replace(/\//g, "&#x2F;");
+  typeof html === "string"
+    ? html
+        .replace(/&/g, "&amp;")
+        .replace(/\'/g, "&#x27;")
+        .replace(/\"/g, "&quot;")
+        .replace(/>/g, "&gt;")
+        .replace(/</g, "&lt;")
+        .replace(/\//g, "&#x2F;")
+    : "";
 
-function generateHead(data) {
+function generateHead(data): string {
   const tags = data.tags && data.tags.length ? data.tags.join() : "";
   return `
   <title>${data.title}</title>
@@ -186,7 +189,7 @@ function generateHead(data) {
   `;
 }
 
-function generateContent(article) {
+function generateContent(article): string {
   let title = encodeSpecialChar(article.title);
   let sapo = encodeSpecialChar(article.sapo);
   let publishAt = new Date(article.publishAt).toLocaleString();
@@ -201,11 +204,13 @@ function generateContent(article) {
   `;
 }
 
-function generateArticleList(articles) {
+function generateArticleList(articles): string {
   let list = articles.map(article => {
     let title = encodeSpecialChar(article.title);
     let sapo = encodeSpecialChar(article.sapo);
-    let publishAt = new Date(article.publishAt).toLocaleString();
+    let publishAt = article.publishAt
+      ? new Date(article.publishAt).toLocaleString()
+      : "";
     return `
     <li>
       <a href="${SiteUrl}/article/${article.id}">

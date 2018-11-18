@@ -2,7 +2,7 @@ import * as admin from "firebase-admin";
 import { CacheCollection } from "../config";
 import { ISpecials } from "./specials.model";
 
-const ApiName = "SpecialsApi";
+const ApiName = "Specials";
 const SpecialsDocPath = "specials";
 const VideosDocPath = "videos";
 

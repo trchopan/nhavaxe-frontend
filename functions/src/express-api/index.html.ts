@@ -27,7 +27,7 @@ export const indexHtml = `<!doctype html>
 
   <script>window.__initialData__ = { initialData: null }</script>
 
-<link href="/css/bang-gia.aa58a951.css" rel="prefetch"><link href="/css/page-not-found.7a89cdc1.css" rel="prefetch"><link href="/js/bang-gia.79fd9b68.js" rel="prefetch"><link href="/js/page-not-found.c7d56b26.js" rel="prefetch"><link href="/js/tags.d1854f1e.js" rel="prefetch"><link href="/css/app.e30528a7.css" rel="preload" as="style"><link href="/css/chunk-vendors.9486174d.css" rel="preload" as="style"><link href="/js/app.91e299e5.js" rel="preload" as="script"><link href="/js/chunk-vendors.68fa393a.js" rel="preload" as="script"><link href="/css/chunk-vendors.9486174d.css" rel="stylesheet"><link href="/css/app.e30528a7.css" rel="stylesheet"></head>
+<link href="/bang-gia.css" rel="prefetch"><link href="/bang-gia.js" rel="prefetch"><link href="/page-not-found.css" rel="prefetch"><link href="/page-not-found.js" rel="prefetch"><link href="/tags.css" rel="prefetch"><link href="/tags.js" rel="prefetch"><link href="/app.css" rel="preload" as="style"><link href="/app.js" rel="preload" as="script"><link href="/chunk-vendors.css" rel="preload" as="style"><link href="/chunk-vendors.js" rel="preload" as="script"><link href="/chunk-vendors.css" rel="stylesheet"><link href="/app.css" rel="stylesheet"></head>
 <body>
   <noscript>
     <strong>We're sorry but nhavaxe-frontend doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
@@ -41,6 +41,6 @@ export const indexHtml = `<!doctype html>
     <!-- BODY CONTENT SEO -->
     <!-- BODY LIST SEO -->
   </div>
-<script type="text/javascript" src="/js/chunk-vendors.68fa393a.js"></script><script type="text/javascript" src="/js/app.91e299e5.js"></script></body>
+<script type="text/javascript" src="/chunk-vendors.js"></script><script type="text/javascript" src="/app.js"></script></body>
 </html>
 `

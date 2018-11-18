@@ -110,8 +110,11 @@ export async function getArticleBody(id) {
 
 export async function getArticleRelated(
   id: string,
-  tags: string[]
+  tags: string[],
+  searchAmount?: number // Default is search for the lastest 5
 ): Promise<IArticleMicro[]> {
+  console.log(ApiName + " getArticleRelated");
+
   const tagsRelatedPromises = tags.map(tag =>
     admin
       .firestore()
@@ -120,7 +123,7 @@ export async function getArticleRelated(
       .where("status", "==", "published")
       .where("publishAt", "<", Date.now())
       .orderBy("publishAt", "desc")
-      .limit(5)
+      .limit(searchAmount || 5)
       .get()
       .then(res =>
         res.empty
@@ -129,22 +132,28 @@ export async function getArticleRelated(
       )
   );
 
-  return await Promise.all(tagsRelatedPromises).then((results: any) => {
-    return results
-      .reduce((acc, cur) => acc.concat(cur), [])
-      .sort((a, b) => (a.id > b.id ? 1 : -1))
-      .reduce((acc, cur) => {
-        if (acc.length <= 0 || acc[acc.length - 1].article.id !== cur.id) {
-          acc.push({ article: cur, relevant: 1 });
-        } else {
-          acc[acc.length - 1].relevant++;
-        }
-        return acc;
-      }, [])
-      .sort((a, b) => b.relevant - a.relevant)
-      .map(x => x.article)
-      .filter(x => x.id !== id);
-  });
+  try {
+    return await Promise.all(tagsRelatedPromises).then((results: any) => {
+      return results
+        .reduce((acc, cur) => acc.concat(cur), [])
+        .sort((a, b) => (a.id > b.id ? 1 : -1))
+        .reduce((acc, cur) => {
+          if (acc.length <= 0 || acc[acc.length - 1].article.id !== cur.id) {
+            acc.push({ article: cur, relevant: 1 });
+          } else {
+            acc[acc.length - 1].relevant++;
+          }
+          return acc;
+        }, [])
+        .sort((a, b) => b.relevant - a.relevant)
+        .map(x => x.article)
+        .filter(x => x.id !== id)
+        .slice(0, searchAmount ? searchAmount * 2 : 10);
+    });
+  } catch(error) {
+    console.error(error);
+    return [];
+  }
 }
 
 export async function getCachedArticles(catId): Promise<IArticleMini[]> {

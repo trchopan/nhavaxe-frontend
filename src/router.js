@@ -12,9 +12,9 @@ const TableNha = () =>
   import(/* webpackChunkName: "bang-gia" */ "./components/TableNha.vue");
 const TableXe = () =>
   import(/* webpackChunkName: "bang-gia" */ "./components/TableXe.vue");
-const Tags = () => import(/* webpackChunkName: "tags" */ "./views/Tags.vue");
-const TagsSearch = () =>
-  import(/* webpackChunkName: "tags" */ "./components/TagsSearch.vue");
+const Tag = () => import(/* webpackChunkName: "tags" */ "./views/Tag.vue");
+const TagResults = () =>
+  import(/* webpackChunkName: "tags" */ "./components/TagResults.vue");
 
 Vue.use(Router);
 
@@ -63,12 +63,12 @@ export default new Router({
       // Lazy load
       path: "/tag",
       name: "tag",
-      component: Tags,
+      component: Tag,
       children: [
         {
           path: ":id",
-          name: "tag-search",
-          component: TagsSearch
+          name: "tag-results",
+          component: TagResults
         },
         { path: "", redirect: "/" }
       ]

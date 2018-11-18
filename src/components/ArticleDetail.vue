@@ -131,7 +131,8 @@ ul.article-tags {
   }
 }
 .article-source {
-  padding: 1.5rem 1rem;
+  display: block;
+  margin: 0 1.5rem 1rem;
   text-align: right;
   color: var(--text-faded-color);
   font: italic 1rem var(--text-font);
