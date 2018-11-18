@@ -21,9 +21,7 @@ firebase-debug.log*
 *.sln
 *.sw*
 
-# Firebase config files
-firebase.json
-.firebaserc
+# Firebase cache files
 .firebase
 
 # Function build

@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "nhavaxe-publish"
+  },
+  "targets": {
+    "nhavaxe-publish": {
+      "hosting": {
+        "nhavaxe-demo": [
+          "nhavaxe-demo"
+        ],
+        "nhavaxe-publish": [
+          "nhavaxe-publish"
+        ]
+      }
+    }
+  }
+}
