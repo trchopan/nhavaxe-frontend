@@ -8,7 +8,7 @@ export function handleWrongParams(res) {
 
 export function handleError(ApiName, res, err) {
   console.log(`${ApiName} error`, err);
-  return res.status(500).send(err);
+  return res.status(500).json({ error: { code: "internal" }});
 }
 
 export function handleResultJson(res, result, cacheMax, cacheSMax) {

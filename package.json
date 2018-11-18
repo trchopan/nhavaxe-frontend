@@ -16,7 +16,7 @@
     "cp:index": "cp dist/index.html functions/src/express-api/index.html.ts",
     "remove:index": "rm -f dist/index.html",
     "deploy:publish": "npm run remove:index && firebase deploy --only hosting:nhavaxe-publish",
-    "deploy:demo": "firebase deploy --only hosting:nhavaxe-demo",
+    "deploy:demo": "npm run remove:index && firebase deploy --only hosting:nhavaxe-demo",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit --verbose"
   },

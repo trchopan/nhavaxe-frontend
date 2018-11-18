@@ -29,7 +29,6 @@ export default new Router({
     },
     {
       path: "/article",
-      name: "article",
       component: Article,
       children: [
         {
@@ -43,17 +42,16 @@ export default new Router({
     {
       // Lazy load
       path: "/bang-gia",
-      name: "bang-gia",
       component: BangGia,
       children: [
         {
           path: "nha",
-          name: "nha",
+          name: "bang-gia-nha",
           component: TableNha
         },
         {
           path: "xe",
-          name: "xe",
+          name: "bang-gia-xe",
           component: TableXe
         },
         { path: "", redirect: "/" }

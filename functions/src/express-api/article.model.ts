@@ -11,6 +11,7 @@ export interface IArticle {
   reference: string;
   publishAt: number;
   tags: string[];
+  tagsNorm: string[];
 }
 
 export interface IArticleMini {

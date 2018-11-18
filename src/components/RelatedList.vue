@@ -32,12 +32,12 @@ export default {
     BannerRelated
   },
   props: {
-    list: Array
+    list: Array,
+    relatedMax: Number
   },
   data() {
     return {
       maxTitle: 999,
-      relatedMax: 10,
       relatedBannerInterval: 3
     };
   },
@@ -70,12 +70,12 @@ export default {
     let clientWidth = window.innerWidth;
     if (clientWidth < 769 && clientWidth > 500) {
       this.maxTitle = 95;
-      this.relatedMax = 7;
+      this.relatedMax = Math.floor(this.relatedMax * 0.7);
       this.relatedBannerInterval = 2;
     }
     if (clientWidth < 500) {
       this.maxTitle = 75;
-      this.relatedMax = 4;
+      this.relatedMax = Math.floor(this.relatedMax * 0.4);
       this.relatedBannerInterval = 1;
     }
   }

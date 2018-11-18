@@ -213,31 +213,3 @@ export async function getArticlesByCategories(
     return result.docs.map(doc => parseArticleMetaMini(doc.id, doc.data()));
   }
 }
-
-export function getRelatedArticleTagHandler(req, res) {
-  console.log(ApiName + " requested", req.params);
-  if (!req.params.tag) {
-    return handleWrongParams(res);
-  }
-
-  return admin
-    .firestore()
-    .collection(ArticlesCollection)
-    .orderBy("publishAt", "desc")
-    .where("publishAt", "<", Date.now())
-    .where("status", "==", "published")
-    .where("tags", "array-contains", req.params.tag)
-    .limit(RelatedTagLimit)
-    .get()
-    .then(snapshot => {
-      if (snapshot.empty) {
-        return handleNotFound(res);
-      }
-
-      const result = snapshot.docs.map(doc =>
-        parseArticleMeta(doc.id, doc.data())
-      );
-      return handleResultJson(res, result, ARTICLE_CACHE, ARTICLE_SCACHE);
-    })
-    .catch(err => handleError(ApiName, res, err));
-}

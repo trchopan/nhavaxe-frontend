@@ -14,30 +14,53 @@ const initData =
 // initial state
 const state = {
   tagResult: initData.related,
+  cloud: [],
   loading: false,
   error: null
 };
 
 const getters = {
   tagResult: state => state.tagResult,
+  cloud: state => state.cloud,
   loading: state => state.loading,
   error: state => state.error
 };
 
 const actions = deps => {
+  async function getCloudList({ commit }) {
+    try {
+      const cloud = await deps.getTagCloud(deps.TagCloudApiUrl);
+      commit("cloudChanged", cloud);
+    } catch (error) {
+      log("Error", error);
+    }
+  }
+
+  function clearTagResult({ commit }) {
+    commit("tagResultCleared");
+  }
+
   async function queryTags({ commit }, tagQuery) {
     try {
-      const result = await deps.getTagQueryResult(TagApi.TagApiUrl, tagQuery);
+      const result = await deps.getTagQueryResult(deps.TagApiUrl, tagQuery);
       commit("tagQueryResultChanged", result);
     } catch (error) {
       log("Error", error);
     }
   }
 
-  return Object.freeze({ queryTags });
+  return Object.freeze({ getCloudList, clearTagResult, queryTags });
 };
 
 const mutations = {
+  cloudChanged(state, cloud) {
+    state.cloud = cloud;
+    log("Tag cloud changed", state.cloud);
+  },
+  tagResultCleared(state) {
+    state.tagResult = [];
+    log("Tag result cleared");
+  },
   tagQueryResultChanged(state, result) {
     state.tagResult = result;
     log("Tag query result changed", state.tagResult);
