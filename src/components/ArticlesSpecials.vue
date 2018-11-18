@@ -32,7 +32,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue"
+import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue";
 
 export default {
   name: "ArticlesSpecials",

@@ -19,18 +19,18 @@ const initArticleMeta = {
   title: LOADING_TEXT,
   sapo: LOADING_TEXT
 };
+
 const initArticleBody = LOADING_TEXT;
 
 // initial state
 const state = {
-  inited: false,
   fetchCounter: 0,
   fetchLimit: FETCH_LIMIT,
-  articlesList: [],
-  selectedArticleMeta: initArticleMeta,
-  selectedArticleBody: initArticleBody,
+  articlesList: initData.list,
+  selectedArticleMeta: initData.meta,
+  selectedArticleBody: initData.body,
   filterArticles: initData.specials.specials.articles,
-  relatedList: [],
+  relatedList: initData.related,
   loading: false,
   error: null
 };

@@ -8,7 +8,7 @@
   em {
     font-size: 1rem;
     line-height: 1.62rem;
-    margin: 0.5rem auto;
+    margin: 0.81rem auto;
   }
   h2,
   h3,
@@ -31,7 +31,6 @@
     border-bottom: solid 1px var(--secondary-color);
     font-style: italic;
     max-width: 600px;
-    padding-bottom: 0.3rem;
   }
   blockquote {
     position: relative;
@@ -63,20 +62,18 @@
   img {
     width: calc(100% + 48px);
     margin: 0 -24px;
+    object-fit: cover;
+    padding-bottom: 0.37rem;
   }
 }
 
 .picture-style {
-  display: flex;
-  flex-direction: column;
   @media (min-width: 600px) {
     img {
       display: block;
       width: 100%;
       max-width: 600px;
-      padding-bottom: 1rem;
       margin: 0 auto;
-      object-fit: cover;
     }
   }
 }
@@ -85,8 +82,7 @@
   @media (min-width: 600px) {
     img {
       float: right;
-      margin: 0 0 0 2rem;
-      padding: 1rem 0;
+      margin-right: 0;
       width: 500px;
     }
     .ql-align-center {
