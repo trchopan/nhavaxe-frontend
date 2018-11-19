@@ -73,13 +73,14 @@ export default {
       return randomBanner(this.stickyBanners);
     }
   },
-  created() {
-    this.$store.dispatch("layout/scrollYTo", 0);
-  },
   beforeRouteUpdate(to, from, next) {
     this.updateFlag = Math.random();
     this.$store.dispatch("layout/scrollYTo", 0);
     next();
+  },
+  mounted() {
+    this.$store.dispatch("layout/scrollYTo", 0);
+    document.title = this.articleMeta.title;
   },
   updated() {
     document.title = this.articleMeta.title;

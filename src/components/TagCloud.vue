@@ -1,23 +1,45 @@
 <template>
   <div class="container">
-    <ul class="cloud">
-      <router-link v-for="o in order"
-        :to="cloud[o] ? '/tag/' + cloud[o].norm : '/'"
-        :key="'tag-' + o"
-        :class="['c' + o]"
-        tag="li"
-        @click.native="selectTag(cloud[o])">
-        {{ cloud[o] ? cloud[o].text : "" }}
-      </router-link>
-    </ul> 
+      <p v-if="cloud.length === 0 && filteredTaglist.length === 0"
+        class="loading">
+        Đang tải dữ liệu...
+      </p>
+      <ul v-if="cloud.length > 0 && filteredTaglist.length === 0"
+        class="cloud">
+        <router-link v-for="o in order"
+          :to="cloud[o] ? '/tag/' + cloud[o].norm : '/'"
+          :key="'tag-' + o"
+          :class="['c' + o]"
+          tag="li"
+          @click.native="selectTag(cloud[o].norm)">
+          {{ cloud[o] ? cloud[o].text : "" }}
+        </router-link>
+      </ul>
+      <transition-group v-if="filteredTaglist.length > 0"
+        name="list"
+        tag="ul"
+        class="cloud">
+        <router-link v-for="(tag, i) in filteredTaglist"
+          :to="'/tag/' + filteredTaglistNorm[i]"
+          :key="'tag-key-' + tag"
+          tag="li"
+          :class="['list-item', 'c' + i]"
+          @click.native="selectTag(tag)">
+          {{ tag }}
+        </router-link>
+      </transition-group>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import { normText } from "@/helpers.js";
 
 export default {
   name: "TagCloud",
+  props: {
+    filteredTaglist: Array
+  },
   data: () => ({
     order: [
       14,
@@ -47,15 +69,14 @@ export default {
     ]
   }),
   computed: {
-    ...mapGetters({ cloud: "tag/cloud" })
+    ...mapGetters({ cloud: "tag/cloud" }),
+    filteredTaglistNorm() {
+      return this.filteredTaglist.map(x => normText(x));
+    }
   },
   methods: {
     selectTag(tag) {
-      this.$store.dispatch("tag/queryTags", tag.norm);
-      this.$router.replace({
-        name: "tag-results",
-        params: { id: tag.norm }
-      });
+      this.$store.dispatch("tag/queryTags", tag);
     }
   }
 };
@@ -65,6 +86,10 @@ export default {
 .container {
   margin-bottom: 1.5rem;
 }
+.loading {
+  text-align: center;
+  color: var(--secondary-color);
+}
 .cloud {
   margin: auto;
   color: var(--secondary-color);
@@ -73,12 +98,25 @@ export default {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  height: 9rem;
   li {
     cursor: pointer;
     padding: 0.5em;
     white-space: nowrap;
     transform: scale(1);
     transition: transform 200ms ease-in;
+  }
+  .list-item {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .list-enter-active,
+  .list-leave-active {
+    transition: all 1s;
+  }
+  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+    opacity: 0;
+    transform: translateY(30px);
   }
   li:hover {
     transform: scale(1.5);

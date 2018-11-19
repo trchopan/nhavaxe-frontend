@@ -60,7 +60,6 @@ export default new Router({
     {
       // Lazy load
       path: "/tag",
-      name: "tag",
       component: Tag,
       children: [
         {

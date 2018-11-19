@@ -1,7 +1,7 @@
 <template>
-  <li class="sponsor-container">
-    <a v-if="banner && banner.type === 'image'"
-      target="_blank"
+  <li v-if="banner && banner.type === 'image'"
+    class="sponsor-container">
+    <a target="_blank"
       :href="banner.id | parseRedirectBannerId">
       <div class="wrapper">
         <div class="sponsor-image"

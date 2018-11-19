@@ -33,7 +33,22 @@ export async function tagSearchHandler(req, res) {
   }
 }
 
-export async function tagCloudHander(req, res) {
+export async function tagListHandler(req, res) {
+  console.log(ApiName + " tagList requested", req.params);
+  try {
+    let result = await admin
+      .firestore()
+      .collection("tags")
+      .doc("tagList")
+      .get()
+      .then(result => (result.exists ? result.data().list : []));
+    return handleResultJson(res, result, TAG_CACHE, TAG_SCACHE);
+  } catch (error) {
+    return handleError(ApiName, res, error);
+  }
+}
+
+export async function tagCloudHandler(req, res) {
   console.log(ApiName + " tagCloud requested", req.params);
   try {
     let result = await admin
@@ -55,7 +70,7 @@ export async function tagCloudHander(req, res) {
       .collection("tags")
       .doc("blacklist")
       .get()
-      .then(result => result.exists ? result.data().blacklist : []);
+      .then(result => (result.exists ? result.data().blacklist : []));
 
     let articlesSnaps = await admin
       .firestore()
@@ -69,29 +84,31 @@ export async function tagCloudHander(req, res) {
       return handleNotFound(res);
     }
 
-    let cloud = _filterBlackList(articlesSnaps.docs
-      .map(doc => doc.data())
-      .map(x => {
-        return x.tags
-          ? x.tags.map((y, i) => ({
-              text: y,
-              norm: x.tagsNorm ? x.tagsNorm[i] : normText(y),
-              relevant: 1
-            }))
-          : [];
-      })
-      .reduce((acc, cur) => acc.concat(cur), new Array<ITag>())
-      .sort((a, b) => (a.norm >= b.norm ? 1 : -1))
-      .reduce((acc, cur) => {
-        if (acc.length <= 0 || acc[acc.length - 1].norm !== cur.norm) {
-          acc.push(cur);
-        } else {
-          acc[acc.length - 1].relevant++;
-        }
-        return acc;
-      }, new Array<ITag>())
-      .sort((a, b) => b.relevant - a.relevant), blackList)
-      .slice(0, 23);
+    let cloud = _filterBlackList(
+      articlesSnaps.docs
+        .map(doc => doc.data())
+        .map(x => {
+          return x.tags
+            ? x.tags.map((y, i) => ({
+                text: y,
+                norm: x.tagsNorm ? x.tagsNorm[i] : normText(y),
+                relevant: 1
+              }))
+            : [];
+        })
+        .reduce((acc, cur) => acc.concat(cur), new Array<ITag>())
+        .sort((a, b) => (a.norm >= b.norm ? 1 : -1))
+        .reduce((acc, cur) => {
+          if (acc.length <= 0 || acc[acc.length - 1].norm !== cur.norm) {
+            acc.push(cur);
+          } else {
+            acc[acc.length - 1].relevant++;
+          }
+          return acc;
+        }, new Array<ITag>())
+        .sort((a, b) => b.relevant - a.relevant),
+      blackList
+    ).slice(0, 23);
 
     await admin
       .firestore()

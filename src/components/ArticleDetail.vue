@@ -32,10 +32,13 @@
     <hr>
     <ul class="article-tags">
       <span>Tags:</span>
-      <li v-for="(tag, i) in articleMeta.tags" :key="i + tag">
+      <router-link v-for="(tag, i) in articleMeta.tags"
+        tag="li"
+        :key="'article-tag-'+i" :to="'/tag/' + tagsNorm[i]"
+        @click.native="selectTag(tagsNorm[i])">
         &#35; {{ tag }}
         <span v-if="i < articleMeta.tags.length - 1">&#44;</span>
-      </li>
+      </router-link>
     </ul>
   </div>
 </template>
@@ -43,6 +46,7 @@
 <script>
 import { mapGetters } from "vuex";
 import ArticlesList from "@/components/ArticlesList.vue";
+import { normText } from "@/helpers.js";
 
 export default {
   name: "ArticleDetail",
@@ -53,7 +57,17 @@ export default {
     ...mapGetters({
       articleMeta: "articles/selectedArticleMeta",
       articleBody: "articles/selectedArticleBody"
-    })
+    }),
+    tagsNorm() {
+      return this.articleMeta.tagsNorm
+        ? this.articleMeta.tagsNorm
+        : this.articleMeta.tags.map(x => normText(x));
+    }
+  },
+  methods: {
+    selectTag(tag) {
+      this.$store.dispatch("tag/queryTags", tag);
+    }
   }
 };
 </script>
@@ -128,6 +142,7 @@ ul.article-tags {
   li {
     display: inline;
     color: var(--primary-color);
+    cursor: pointer;
   }
 }
 .article-source {

@@ -1,10 +1,16 @@
 <template>
   <div class="tag-container">
-    <TagCloud />
-    <form id="tagForm" @submit="onSubmit" method="get">
+    <TagCloud :filteredTaglist="filteredTagInput" />
+    <form class="tagForm" @submit="onSubmit" method="get">
       <p>{{ query }}</p>
       <div class="tag-input">
-        <input id="tagInput" type="text" v-model="tagInput" />
+        <transition name="slide-up">
+          <label v-show="tagInput.length > 0"
+            for="tagInput">
+            Nhập tag
+          </label>
+        </transition>
+        <input id="tagInput" v-model="tagInput" type="text" placeholder="Nhập tag" />
       </div>
       <button class="button">Tìm</button>
     </form>
@@ -15,6 +21,7 @@
 <script>
 import { mapGetters } from "vuex";
 import TagCloud from "@/components/TagCloud.vue";
+import { normText } from "@/helpers.js";
 
 export default {
   name: "Tag",
@@ -26,7 +33,15 @@ export default {
     tagInput: ""
   }),
   computed: {
-    ...mapGetters({ cloud: "tag/cloud" })
+    ...mapGetters({ cloud: "tag/cloud", list: "tag/list" }),
+    filteredTagInput() {
+      if (!this.tagInput) {
+        return [];
+      }
+      return this.list
+        .filter(x => normText(x).indexOf(normText(this.tagInput)) >= 0)
+        .slice(0, 16);
+    }
   },
   methods: {
     onSubmit(e) {
@@ -45,6 +60,9 @@ export default {
     if (this.cloud.length === 0) {
       this.$store.dispatch("tag/getCloudList");
     }
+    if (this.list.length === 0) {
+      this.$store.dispatch("tag/getTagList");
+    }
   },
   beforeRouteLeave(to, from, next) {
     this.$store.dispatch("tag/clearTagResult");
@@ -58,21 +76,34 @@ export default {
   max-width: var(--container-width);
   margin: 0 auto;
 }
-#tagForm {
+.tagForm {
   text-align: center;
   margin: 1rem;
 }
 .tag-input {
   display: inline-block;
   position: relative;
+  font: 600 1.1rem/1.2rem var(--title-font), sans-serif;
+  label {
+    position: absolute;
+    top: -0.6rem;
+    font-size: 0.7rem;
+    margin-left: 1rem;
+    padding: 0 0.2rem;
+    background-color: var(--background-color);
+    // transform: translateY(0);
+    // transition: transform 200ms ease-in;
+  }
   input {
     margin-right: 1rem;
     background: var(--background-color);
     border: 1px solid var(--secondary-color);
     border-radius: 5px;
-    font: 600 1.1rem/1.2rem var(--title-font), sans-serif;
-    color: var(--primary-color);
     padding: 1rem;
+    color: var(--primary-color);
+  }
+  input::placeholder {
+    color: var(--text-secondary-color);
   }
   @media (max-width: 600px) {
     input {
