@@ -77,7 +77,7 @@ ul {
       transform: scale(1.03);
     }
     .info {
-      background: linear-gradient(#00000079, black);
+      background: linear-gradient(rgba(0, 0, 0, 0.475), black);
       width: 100%;
       height: auto;
       transform: translateY(-100%);

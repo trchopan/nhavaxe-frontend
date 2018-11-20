@@ -111,13 +111,14 @@ export async function ssrHandler(req, res) {
       related = await getArticleRelated(null, tags, TagSearchAmount);
     }
 
-    return handleResult(
-      res,
-      indexHtml,
-      { meta, body, list, related, specials, banners },
-      ARTICLE_CACHE,
-      ARTICLE_SCACHE
-    );
+    return handleResult(res, indexHtml, {
+      meta,
+      body,
+      list,
+      related,
+      specials,
+      banners
+    });
   } catch (error) {
     console.error(error);
     return res.status(500).json(error);
@@ -134,9 +135,7 @@ const handleResult = (
     related: IArticleMicro[];
     specials: ISpecials;
     banners: IBanner[];
-  },
-  cacheMax,
-  cacheSMax
+  }
 ) => {
   let output = html.replace("{ initialData: null }", JSON.stringify(data));
   output = output.replace(
@@ -151,7 +150,10 @@ const handleResult = (
   output = output.replace(/\r?\n|\r/g, "");
   output = output.replace(/>\s*</g, "><");
   return res
-    .set(`Cache-Control", "public, max-age=${cacheMax}, s-maxage=${cacheSMax}`)
+    .set(
+      "Cache-Control",
+      `public, max-age=${ARTICLE_CACHE}, s-maxage=${ARTICLE_SCACHE}`
+    )
     .status(200)
     .send(output);
 };

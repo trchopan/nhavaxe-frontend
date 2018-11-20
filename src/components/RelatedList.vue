@@ -1,6 +1,6 @@
 <template>
   <ul>
-    <template v-for="(article, index) in list.slice(0, relatedMax)">
+    <template v-for="(article, index) in list.slice(0, Math.floor(relatedMax * relatedRatio))">
       <li :key="article.id">
         <router-link :to="'/article/' + article.id"
           @click.native="selectArticle(article)">
@@ -32,13 +32,14 @@ export default {
     BannerRelated
   },
   props: {
-    list: Array
+    list: Array,
+    relatedMax: Number
   },
   data() {
     return {
       maxTitle: 999,
-      relatedMax: 10,
-      relatedBannerInterval: 3
+      relatedBannerInterval: 3,
+      relatedRatio: 1
     };
   },
   computed: {
@@ -58,6 +59,9 @@ export default {
       );
     },
     getBanner(position) {
+      if (position > this.relatedBannerInterval * 3) {
+        return null;
+      }
       let index = Math.floor(position / this.relatedBannerInterval);
       index = index < this.shuffledBanner.length ? index : 0;
       return this.shuffledBanner[index];
@@ -70,12 +74,12 @@ export default {
     let clientWidth = window.innerWidth;
     if (clientWidth < 769 && clientWidth > 500) {
       this.maxTitle = 95;
-      this.relatedMax = 7;
+      this.relatedRatio = 0.7;
       this.relatedBannerInterval = 2;
     }
     if (clientWidth < 500) {
       this.maxTitle = 75;
-      this.relatedMax = 4;
+      this.relatedRatio = 0.4;
       this.relatedBannerInterval = 1;
     }
   }

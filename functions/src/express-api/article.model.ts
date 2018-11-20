@@ -11,6 +11,7 @@ export interface IArticle {
   reference: string;
   publishAt: number;
   tags: string[];
+  tagsNorm: string[];
 }
 
 export interface IArticleMini {
@@ -62,5 +63,6 @@ export const parseArticleMeta = (id, articleData) =>
     publisher: articleData.publisher || null,
     reference: articleData.reference || null,
     publishAt: articleData.publishAt || 0,
-    tags: articleData.tags || []
+    tags: articleData.tags || [],
+    tagsNorm: articleData.tagsNorm || []
   } as IArticle);

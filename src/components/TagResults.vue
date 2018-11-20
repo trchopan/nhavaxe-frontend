@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RelatedList :list="tagResult" />
+    <RelatedList :list="tagResult" :relatedMax="16" />
   </div>
 </template>
 
@@ -15,7 +15,8 @@ export default {
   },
   computed: {
     ...mapGetters({
-      tagResult: "tag/tagResult"
+      tagResult: "tag/tagResult",
+      cloud: "tag/cloud"
     })
   }
 };

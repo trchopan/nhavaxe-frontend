@@ -50,7 +50,7 @@ export default {
     transform: scale(1.03);
   }
   div.info {
-    background: linear-gradient(#00000079, black);
+    background: linear-gradient(rgba(0, 0, 0, 0.475), black);
     transform: translateY(-100%);
     padding: 0.25rem 0.5rem;
     .title {

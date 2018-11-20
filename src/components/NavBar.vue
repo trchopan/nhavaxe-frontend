@@ -156,6 +156,7 @@ nav > ul {
   transition: transform 200ms ease-in;
 }
 .search-icon {
+  z-index: 3;
   position: absolute;
   display: flex;
   top: 0;

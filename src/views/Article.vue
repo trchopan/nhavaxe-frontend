@@ -3,7 +3,7 @@
     <div class="article-container">
       <BannerTop :banner="bannerTop" />
       <router-view></router-view>
-      <RelatedList :list="relatedList" />
+      <RelatedList :list="relatedList" :relatedMax="10" />
       <Videos />
       <div class="grid-list">
         <ArticlesList :selectedCat="{ id: 'null' }"
@@ -73,13 +73,14 @@ export default {
       return randomBanner(this.stickyBanners);
     }
   },
-  created() {
-    this.$store.dispatch("layout/scrollYTo", 0);
-  },
   beforeRouteUpdate(to, from, next) {
     this.updateFlag = Math.random();
     this.$store.dispatch("layout/scrollYTo", 0);
     next();
+  },
+  mounted() {
+    this.$store.dispatch("layout/scrollYTo", 0);
+    document.title = this.articleMeta.title;
   },
   updated() {
     document.title = this.articleMeta.title;
