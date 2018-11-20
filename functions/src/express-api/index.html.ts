@@ -1,4 +1,4 @@
-<!doctype html>
+export const indexHtml = `<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
@@ -43,3 +43,4 @@
   </div>
 <script type="text/javascript" src="/chunk-vendors.js"></script><script type="text/javascript" src="/app.js"></script></body>
 </html>
+`
