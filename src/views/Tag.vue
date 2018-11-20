@@ -12,7 +12,6 @@
         </transition>
         <input id="tagInput" v-model="tagInput" type="text" placeholder="Nhập tag" />
       </div>
-      <button class="button">Tìm</button>
     </form>
     <router-view></router-view>
   </div>
