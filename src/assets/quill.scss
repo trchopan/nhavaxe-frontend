@@ -31,6 +31,7 @@
     border-bottom: solid 1px var(--secondary-color);
     font-style: italic;
     max-width: 600px;
+    padding-bottom: 0.37rem;
   }
   blockquote {
     position: relative;
@@ -80,15 +81,15 @@
 
 .article-style {
   @media (min-width: 600px) {
-    img {
-      float: right;
-      margin-right: 0;
-      width: 500px;
-    }
     .ql-align-center {
       float: right;
       margin: 0 0 0.5rem 2rem;
       width: 490px;
+    }
+    img {
+      float: right;
+      margin: 0;
+      width: 500px;
     }
   }
 }

@@ -12,19 +12,18 @@ import {
   TAG_CACHE,
   TAG_SCACHE
 } from "../config";
-import { IArticle } from "./article.model";
 import { ITag } from "./tag.model";
 
 const ApiName = "TagSearchApi";
 const CLOUD_SEARCH_LENGTH = 3; // days
-export const TagSearchAmount = 10;
+export const TAG_SEARCH_AMOUNT = 10;
 
 export async function tagSearchHandler(req, res) {
   try {
     console.log(ApiName + " tagSearch requested", req.params);
     let tags = req.params.id.split("|").map(x => normText(x));
     console.log(ApiName + " tags", tags);
-    let result = await getArticleRelated(null, tags, TagSearchAmount);
+    let result = await getArticleRelated(null, tags, TAG_SEARCH_AMOUNT);
     return result.length > 0
       ? handleResultJson(res, result, ARTICLE_CACHE, ARTICLE_SCACHE)
       : handleNotFound(res);

@@ -1,4 +1,6 @@
-export default {
+import Vue from "vue";
+
+const filters = {
   parsePublishAt(value) {
     let lenght = Date.now() - value;
     let minutes = lenght / 60 / 1000;
@@ -31,9 +33,13 @@ export default {
     }
     return finalText;
   },
-  date(value) {
+  timeString(value) {
     if (typeof value === "number") {
-      return new Date(value).toLocaleDateString("vi-VN");
+      let time = new Date(value);
+      let dateString = time.toLocaleDateString();
+      let timeString = time.toLocaleTimeString();
+      let result = `${dateString} ${timeString}`;
+      return result;
     } else {
       return "";
     }
@@ -65,3 +71,5 @@ export default {
     return bannerList[randomIndex];
   }
 };
+
+Object.keys(filters).forEach(key => Vue.filter(key, filters[key]));

@@ -1,33 +1,37 @@
 <template>
   <div class="container">
-      <p v-if="cloud.length === 0 && filteredTaglist.length === 0"
-        class="loading">
-        Đang tải dữ liệu...
-      </p>
-      <ul v-if="cloud.length > 0 && filteredTaglist.length === 0"
-        class="cloud">
-        <router-link v-for="o in order"
-          :to="cloud[o] ? '/tag/' + cloud[o].norm : '/'"
-          :key="'tag-' + o"
-          :class="['c' + o]"
-          tag="li"
-          @click.native="selectTag(cloud[o].norm)">
-          {{ cloud[o] ? cloud[o].text : "" }}
-        </router-link>
-      </ul>
-      <transition-group v-if="filteredTaglist.length > 0"
-        name="list"
-        tag="ul"
-        class="cloud">
-        <router-link v-for="(tag, i) in filteredTaglist"
-          :to="'/tag/' + filteredTaglistNorm[i]"
-          :key="'tag-key-' + tag"
-          tag="li"
-          :class="['list-item', 'c' + i]"
-          @click.native="selectTag(tag)">
-          {{ tag }}
-        </router-link>
-      </transition-group>
+    <p
+      v-if="cloud.length === 0 && filteredTaglist.length === 0"
+      class="loading"
+    >Đang tải dữ liệu...</p>
+    <ul
+      v-if="cloud.length > 0 && filteredTaglist.length === 0"
+      class="cloud"
+    >
+      <router-link
+        v-for="o in order"
+        :to="cloud[o] ? '/tag/' + cloud[o].norm : '/'"
+        :key="'tag-' + o"
+        :class="['c' + o]"
+        tag="li"
+        @click.native="selectTag(cloud[o].norm)"
+      >{{ cloud[o] ? cloud[o].text : "" }}</router-link>
+    </ul>
+    <transition-group
+      v-if="filteredTaglist.length > 0"
+      name="list"
+      tag="ul"
+      class="cloud"
+    >
+      <router-link
+        v-for="(tag, i) in filteredTaglist"
+        :to="'/tag/' + filteredTaglistNorm[i]"
+        :key="'tag-key-' + tag"
+        tag="li"
+        :class="['list-item', 'c' + i]"
+        @click.native="selectTag(tag)"
+      >{{ tag }}</router-link>
+    </transition-group>
   </div>
 </template>
 
@@ -101,7 +105,7 @@ export default {
   height: 9rem;
   li {
     cursor: pointer;
-    padding: 0.5em;
+    padding: 0.7em;
     white-space: nowrap;
     transform: scale(1);
     transition: transform 200ms ease-in;
@@ -114,7 +118,8 @@ export default {
   .list-leave-active {
     transition: all 1s;
   }
-  .list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  .list-enter,
+  .list-leave-to {
     opacity: 0;
     transform: translateY(30px);
   }

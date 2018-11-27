@@ -12,7 +12,7 @@ import { ISpecials } from "./specials.model";
 import { getBannersList } from "./banner";
 import { IBanner } from "./banner.model";
 import { normText } from "./helpers";
-import { TagSearchAmount } from "./tag-search";
+import { TAG_SEARCH_AMOUNT } from "./tag-search";
 
 const ApiName = "SSR";
 const defaultMeta = {
@@ -99,7 +99,10 @@ export async function ssrHandler(req, res) {
         meta = NotFoundMeta as IArticle;
       }
       list = await getCachedArticles("ALL");
-      related = await getArticleRelated(meta.id, meta.tags);
+      related =
+        meta && meta.relatedTimeStamp > Date.now()
+          ? meta.related
+          : await getArticleRelated(meta.id, meta.tags);
     }
     if (req.params.module === "bang-gia") {
       meta = BangGiaMeta as IArticle;
@@ -108,7 +111,7 @@ export async function ssrHandler(req, res) {
       meta = TagMeta as IArticle;
       meta.id = req.params.id as string;
       const tags = meta.id.split("|").map(x => normText(x));
-      related = await getArticleRelated(null, tags, TagSearchAmount);
+      related = await getArticleRelated(null, tags, TAG_SEARCH_AMOUNT);
     }
 
     return handleResult(res, indexHtml, {

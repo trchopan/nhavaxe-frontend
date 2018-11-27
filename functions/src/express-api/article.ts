@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-import { CacheCollection, ARTICLE_CACHE, ARTICLE_SCACHE } from "../config";
+import { CacheCollection, ARTICLE_CACHE, ARTICLE_SCACHE, TAG_CACHE } from "../config";
 import {
   parseArticleMeta,
   parseArticleBody,
@@ -36,7 +36,10 @@ export async function getArticleHandler(req, res) {
     const body = await getArticleBody(req.params.id);
     if (!body) return handleNotFound(res);
 
-    const related = await getArticleRelated(req.params.id, meta.tags);
+    const related =
+      meta && meta.relatedTimeStamp > Date.now()
+        ? meta.related
+        : await getArticleRelated(req.params.id, meta.tags);
 
     return handleResultJson(
       res,
@@ -123,7 +126,7 @@ export async function getArticleRelated(
       .where("status", "==", "published")
       .where("publishAt", "<", Date.now())
       .orderBy("publishAt", "desc")
-      .limit(searchAmount || 5)
+      .limit(searchAmount || RelatedTagLimit)
       .get()
       .then(res =>
         res.empty
@@ -133,7 +136,7 @@ export async function getArticleRelated(
   );
 
   try {
-    return await Promise.all(tagsRelatedPromises).then((results: any) => {
+    const result = await Promise.all(tagsRelatedPromises).then((results: any) => {
       return results
         .reduce((acc, cur) => acc.concat(cur), [])
         .sort((a, b) => (a.id > b.id ? 1 : -1))
@@ -148,9 +151,16 @@ export async function getArticleRelated(
         .sort((a, b) => b.relevant - a.relevant)
         .map(x => x.article)
         .filter(x => x.id !== id)
-        .slice(0, searchAmount ? searchAmount * 2 : 10);
+        .slice(0, searchAmount ? searchAmount * 2 : RelatedTagLimit * 2);
     });
-  } catch(error) {
+    if (id) {
+      await admin.firestore().collection(ArticlesCollection).doc(id).update({
+        related: result,
+        relatedTimeStamp: Date.now() + TAG_CACHE * 1000
+      })
+    }
+    return result;
+  } catch (error) {
     console.error(error);
     return [];
   }

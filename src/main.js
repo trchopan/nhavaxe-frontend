@@ -2,7 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
-import filters from "./filters.js";
+import "./filters.js";
 
 console.log(`version %c${process.env.VUE_APP_VERSION}`, "color: #159cd8");
 console.log(`author %c${process.env.VUE_APP_AUTHOR}`, "color: #ed1d24");
@@ -10,14 +10,6 @@ console.log(`enviroment "${process.env.NODE_ENV}"`);
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
-Vue.filter("parsePublishAt", filters.parsePublishAt);
-Vue.filter("trimText", filters.trimText);
-Vue.filter("date", filters.date);
-Vue.filter("parseNumber", filters.parseNumber);
-Vue.filter("parseMonthYear", filters.parseMonthYear);
-Vue.filter("parseYoutubeLink", filters.parseYoutubeLink);
-Vue.filter("randomBanner", filters.randomBanner);
-Vue.filter("parseRedirectBannerId", filters.parseRedirectBannerId);
 
 new Vue({
   router,

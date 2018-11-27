@@ -12,6 +12,8 @@ export interface IArticle {
   publishAt: number;
   tags: string[];
   tagsNorm: string[];
+  relatedTimeStamp: number;
+  related: IArticleMicro[]
 }
 
 export interface IArticleMini {
@@ -32,7 +34,7 @@ export interface IArticleBody {
   body: string;
 }
 
-export const parseArticleBody = bodyData => bodyData.body as string || ""
+export const parseArticleBody = bodyData => (bodyData.body as string) || "";
 
 export const parseArticleMetaMicro = (id, articleData) =>
   ({
@@ -64,5 +66,7 @@ export const parseArticleMeta = (id, articleData) =>
     reference: articleData.reference || null,
     publishAt: articleData.publishAt || 0,
     tags: articleData.tags || [],
-    tagsNorm: articleData.tagsNorm || []
+    tagsNorm: articleData.tagsNorm || [],
+    relatedTimeStamp: articleData.relatedTimeStamp || 0,
+    related: articleData.related || []
   } as IArticle);

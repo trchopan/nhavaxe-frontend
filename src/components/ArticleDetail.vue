@@ -1,41 +1,41 @@
 <template>
-  <div> 
-    <h1 class="article-title">
-      {{ articleMeta.title }}
-    </h1>
+  <div>
+    <h1 class="article-title">{{ articleMeta.title }}</h1>
     <p class="article-info">
       <span class="category">{{ articleMeta.categoryName }}</span>&nbsp;
-      <span class="publish-time">{{ articleMeta.publishAt | date }}</span>
+      <span class="publish-time">{{ articleMeta.publishAt | timeString }}</span>
     </p>
-    <p class="article-sapo">
-      {{ articleMeta.sapo }}
-    </p>
+    <p class="article-sapo">{{ articleMeta.sapo }}</p>
     <hr>
-    <div v-if="articleMeta.video"
-      class="youtube-container">
+    <div v-if="articleMeta.video" class="youtube-container">
       <div class="center youtube">
         <iframe
           :src="articleMeta.video | parseYoutubeLink"
           frameborder="0"
           allow="autoplay; encrypted-media"
-          allowfullscreen></iframe>
+          allowfullscreen
+        ></iframe>
       </div>
     </div>
-    <div v-html="articleBody"
-      :class="'article-body ql-editor ' + articleMeta.style + '-style'">
-    </div>
+    <div
+      v-html="articleBody"
+      :class="'article-body ql-editor ' + articleMeta.style + '-style'"
+    ></div>
     <p class="article-source">
       Dẫn nguồn từ
-      <span>{{ articleMeta.reference }}</span> &copy;
+      <span>{{ articleMeta.reference }}</span>&copy;
       <span>{{ articleMeta.publisher }}</span>
     </p>
     <hr>
     <ul class="article-tags">
       <span>Tags:</span>
-      <router-link v-for="(tag, i) in articleMeta.tags"
+      <router-link
+        v-for="(tag, i) in articleMeta.tags"
         tag="li"
-        :key="'article-tag-'+i" :to="'/tag/' + tagsNorm[i]"
-        @click.native="selectTag(tagsNorm[i])">
+        :key="'article-tag-'+i"
+        :to="'/tag/' + tagsNorm[i]"
+        @click.native="selectTag(tagsNorm[i])"
+      >
         &#35; {{ tag }}
         <span v-if="i < articleMeta.tags.length - 1">&#44;</span>
       </router-link>
