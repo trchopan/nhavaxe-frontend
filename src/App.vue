@@ -62,7 +62,7 @@ export default {
         const innerHeight = window.innerHeight;
         if (
           innerHeight + scrollY >= offsetHeight - 500 &&
-          (this.$route.name === "article" || this.$route.name === "home")
+          (this.$route.name === "article-detail" || this.$route.name === "home")
         ) {
           const catId = this.$store.state.categories.selectedCat.id;
           this.$store.dispatch("articles/fetchCatArticles", catId);
