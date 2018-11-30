@@ -20,9 +20,8 @@ export const TAG_SEARCH_AMOUNT = 10;
 
 export async function tagSearchHandler(req, res) {
   try {
-    console.log(ApiName + " tagSearch requested", req.params);
-    let tags = req.params.id.split("|").map(x => normText(x));
-    console.log(ApiName + " tags", tags);
+    console.log(ApiName + " tagSearch requested", req.params.query);
+    let tags = req.params.query.split("|").map(x => normText(x));
     let result = await getArticleRelated(null, tags, TAG_SEARCH_AMOUNT);
     return result.length > 0
       ? handleResultJson(res, result, ARTICLE_CACHE, ARTICLE_SCACHE)

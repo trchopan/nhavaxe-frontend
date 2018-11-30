@@ -13,7 +13,8 @@ export default {
     loading() {
       return (
         this.$store.state.articles.loading ||
-        this.$store.state.categories.loading
+        this.$store.state.categories.loading ||
+        this.$store.state.tag.loading
       );
     }
   }

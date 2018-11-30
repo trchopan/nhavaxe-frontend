@@ -76,7 +76,7 @@ export default {
 h1.article-title {
   margin: 1rem 0;
   padding: 0 1.5rem;
-  font: 600 2.4rem/2.8rem var(--title-font), sans-serif;
+  font: var(--title-font__bold) 2.4rem/2.8rem var(--title-font), sans-serif;
 }
 p.article-info {
   padding: 0 1.5rem;

@@ -1,17 +1,26 @@
 <template>
   <transition name="fade">
     <div class="article-container">
-      <BannerTop :banner="bannerTop" />
+      <BannerTop :banner="bannerTop"/>
       <router-view></router-view>
-      <RelatedList :list="relatedList" :relatedMax="10" />
-      <Videos />
+      <RelatedList
+        :list="relatedList"
+        :relatedMax="10"
+      />
+      <Videos/>
       <div class="grid-list">
-        <ArticlesList :selectedCat="{ id: 'null' }"
+        <ArticlesList
+          :selectedCat="{ id: 'null' }"
           :articlesList="filteredArticlesList"
-          replace />
+          replace
+        />
         <div class="right-wrapper">
           <BannerRight :bannerList="shuffledRightBanners"/>
-          <BannerSticky :banner="bannerSticky" />
+          <TagCloud
+            :tagsList="cloud"
+            @selected="$router.push('/tag/' + $event)"
+          />
+          <BannerSticky :banner="bannerSticky"/>
         </div>
       </div>
     </div>
@@ -28,6 +37,7 @@ import BannerTop from "@/components/BannerTop.vue";
 import BannerRight from "@/components/BannerRight.vue";
 import BannerSticky from "@/components/BannerSticky.vue";
 import Videos from "@/components/Videos.vue";
+import TagCloud from "@/components/TagCloud.vue";
 
 export default {
   name: "Article",
@@ -43,7 +53,8 @@ export default {
     BannerTop,
     BannerRight,
     BannerSticky,
-    Videos
+    Videos,
+    TagCloud
   },
   computed: {
     ...mapGetters({
@@ -53,6 +64,7 @@ export default {
       longTopBanners: "banner/longTopBanners",
       rightBanners: "banner/rightBanners",
       stickyBanners: "banner/stickyBanners",
+      cloud: "tag/cloud",
       loading: "articles/loading"
     }),
     filteredArticlesList() {
@@ -84,6 +96,11 @@ export default {
   },
   updated() {
     document.title = this.articleMeta.title;
+  },
+  methods: {
+    handleTagSelected(tag) {
+      this.$store.dispatch("tag/queryTags", tag);
+    }
   }
 };
 </script>

@@ -52,11 +52,14 @@ const actions = deps => {
   }
 
   async function queryTags({ commit }, tagQuery) {
+    commit("loading");
     try {
       const result = await deps.getTagQueryResult(deps.TagApiUrl, tagQuery);
       commit("tagQueryResultChanged", result);
+      return;
     } catch (error) {
       log("Error", error);
+      return;
     }
   }
 
@@ -78,6 +81,7 @@ const mutations = {
   },
   tagQueryResultChanged(state, result) {
     state.tagResult = result;
+    state.loading = false;
     log("Tag query result changed", state.tagResult);
   },
   loading(state) {

@@ -68,7 +68,7 @@ export default {
 h2 {
   display: inline-block;
   position: relative;
-  font: 600 1.1rem var(--title-font);
+  font: var(--title-font__bold) 1.1rem var(--title-font);
   padding: 0.25rem;
   margin: 0 0.25rem;
   text-align: center;

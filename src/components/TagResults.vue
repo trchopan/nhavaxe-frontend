@@ -1,6 +1,9 @@
 <template>
   <div>
-    <RelatedList :list="tagResult" :relatedMax="16" />
+    <RelatedList
+      :list="tagResult"
+      :relatedMax="16"
+    />
   </div>
 </template>
 

@@ -84,7 +84,7 @@ ul {
       padding: 0.25rem 0.5rem;
       .title {
         color: var(--text-accent-color);
-        font: 600 1.2rem/130% var(--title-font);
+        font: var(--title-font__bold) 1.2rem/130% var(--title-font);
       }
     }
   }
@@ -109,7 +109,7 @@ ul {
       }
       div.info > .title {
         color: var(--text-accent-color);
-        font: 600 1.1rem/120% var(--title-font);
+        font: var(--title-font__bold) 1.1rem/120% var(--title-font);
       }
     }
   }

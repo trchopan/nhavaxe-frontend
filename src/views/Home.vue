@@ -1,20 +1,26 @@
 <template>
   <div class="home-container">
     <section>
-      <BannerTop :banner="bannerTop" />
+      <BannerTop :banner="bannerTop"/>
     </section>
     <section class="grid-top">
       <ArticleFirst :article="firstArticle"/>
-      <SmallBangGia />
-      <ArticlesTop :articlesList="topArticles" />
+      <SmallBangGia/>
+      <ArticlesTop :articlesList="topArticles"/>
     </section>
-    <Videos />
+    <Videos/>
     <section class="grid-list">
-      <ArticlesList :selectedCat="selectedCat"
-        :articlesList="remainArticles" />
+      <ArticlesList
+        :selectedCat="selectedCat"
+        :articlesList="remainArticles"
+      />
       <div class="right-wrapper">
-        <BannerRight :bannerList="shuffledRightBanners" />
-        <BannerSticky :banner="bannerSticky" />
+        <BannerRight :bannerList="shuffledRightBanners"/>
+        <TagCloud
+          :tagsList="cloud"
+          @selected="$router.push('/tag/' + $event)"
+        />
+        <BannerSticky :banner="bannerSticky"/>
       </div>
     </section>
   </div>
@@ -31,6 +37,7 @@ import BannerRight from "@/components/BannerRight.vue";
 import BannerSticky from "@/components/BannerSticky.vue";
 import SmallBangGia from "@/components/SmallBangGia.vue";
 import Videos from "@/components/Videos.vue";
+import TagCloud from "@/components/TagCloud.vue";
 
 export default {
   name: "Home",
@@ -42,7 +49,8 @@ export default {
     BannerRight,
     BannerSticky,
     SmallBangGia,
-    Videos
+    Videos,
+    TagCloud
   },
   computed: {
     ...mapGetters({
@@ -53,7 +61,8 @@ export default {
       longTopBanners: "banner/longTopBanners",
       rightBanners: "banner/rightBanners",
       stickyBanners: "banner/stickyBanners",
-      selectedCat: "categories/selectedCat"
+      selectedCat: "categories/selectedCat",
+      cloud: "tag/cloud"
     }),
     shuffledRightBanners() {
       return shuffle(this.rightBanners);

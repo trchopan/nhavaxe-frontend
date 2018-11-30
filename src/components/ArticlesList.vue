@@ -3,34 +3,53 @@
     <template v-for="(article, index) in articlesList">
       <li :key="article.id">
         <article-link-wrapper :id="article.id">
-          <div 
+          <div
             class="cover-image"
-            :style="'background-image: url(' + article.coverImg + ');'">
-          </div>
+            :style="'background-image: url(' + article.coverImg + ');'"
+          ></div>
         </article-link-wrapper>
         <div class="info">
           <p class="title">
-            <article-link-wrapper :id="article.id">
-              {{ article.title | trimText(maxTitle) }}
-            </article-link-wrapper>
+            <article-link-wrapper
+              :id="article.id"
+            >{{ article.title | trimText(maxTitle) }}</article-link-wrapper>
           </p>
           <p class="publish-at">
             {{ article.publishAt | parsePublishAt }}
-            <span v-if="article.video">🎬</span>
+            <span
+              v-if="article.video"
+            >🎬</span>
           </p>
-          <p class="sapo">
-            {{ article.sapo | trimText(maxSapo) }}
-          </p>
+          <p class="sapo">{{ article.sapo | trimText(maxSapo) }}</p>
         </div>
       </li>
-      <BannerArticleList v-if="index > 0 && index % ArticleBannerInterval === 0"
+      <BannerArticleList
+        v-if="index > 0 && index % ArticleBannerInterval === 0"
         :key="'banner-list-' + index"
-        :banner="shuffledBanners[ index / ArticleBannerInterval ]" />
-      <ArticlesSpecials v-if="index > 0 && index / ArticleBannerInterval === 1"
-        :key="'specials-list-' + index"/>
+        :banner="shuffledBanners[ index / ArticleBannerInterval ]"
+      />
+      <ArticlesSpecials
+        v-if="index > 0 && index / ArticleBannerInterval === 1"
+        :key="'specials-list-' + index"
+      />
+      <li :key="'tagcloud-' + index">
+        <TagCloud
+          v-if="smallScreen && index > 0 && index / ArticleBannerInterval === 1"
+          class="tagcloud"
+          :tagsList="cloud"
+          @selected="$router.push('/tag/' + $event)"
+        />
+      </li>
     </template>
-    <li v-show="reachedFetchLimit" class="load-more">
-      <button class="button" type="button" @click="loadMore()">Tải thêm</button>
+    <li
+      v-show="reachedFetchLimit"
+      class="load-more"
+    >
+      <button
+        class="button"
+        type="button"
+        @click="loadMore()"
+      >Tải thêm</button>
     </li>
   </ul>
 </template>
@@ -42,19 +61,22 @@ import { ArticleBannerInterval } from "@/store/modules/banner.js";
 import BannerArticleList from "@/components/BannerArticleList.vue";
 import ArticlesSpecials from "@/components/ArticlesSpecials.vue";
 import ArticleLinkWrapper from "@/components/ArticleLinkWrapper.vue";
+import TagCloud from "@/components/TagCloud.vue";
 
 export default {
   name: "ArticlesList",
   components: {
     BannerArticleList,
     ArticlesSpecials,
-    ArticleLinkWrapper
+    ArticleLinkWrapper,
+    TagCloud
   },
   data() {
     return {
       ArticleBannerInterval,
       maxTitle: 999,
-      maxSapo: 180
+      maxSapo: 180,
+      smallScreen: false
     };
   },
   props: {
@@ -65,7 +87,8 @@ export default {
   computed: {
     ...mapGetters({
       articleBanners: "banner/articleBanners",
-      reachedFetchLimit: "articles/reachedFetchLimit"
+      reachedFetchLimit: "articles/reachedFetchLimit",
+      cloud: "tag/cloud"
     }),
     shuffledBanners() {
       return shuffle(this.articleBanners);
@@ -80,6 +103,9 @@ export default {
     if (clientWidth <= 500) {
       this.maxTitle = 75;
       this.maxSapo = 0;
+    }
+    if (clientWidth < 650) {
+      this.smallScreen = true;
     }
   },
   methods: {
@@ -108,6 +134,9 @@ export default {
     grid-template-columns: 1fr;
   }
 }
+.tagcloud {
+  grid-column: span 2;
+}
 .cover-image {
   display: inline-block;
   width: 100%;
@@ -129,7 +158,7 @@ export default {
       color: var(--secondary-color);
       cursor: pointer;
     }
-    font: 600 1.1rem var(--title-font);
+    font: var(--title-font__bold) 1.1rem var(--title-font);
   }
   p.sapo {
     font: 400 0.9rem var(--title-font);

@@ -1,13 +1,18 @@
 <template>
-  <div id="app"
-    :class="themeClass">
-    <NavBar />
+  <div
+    id="app"
+    :class="themeClass"
+  >
+    <NavBar/>
     <div id="page-head"></div>
-    <LoadingIndicator />
-    <transition name="slide" mode="out-in">
-      <router-view />
+    <LoadingIndicator/>
+    <transition
+      name="slide"
+      mode="out-in"
+    >
+      <router-view/>
     </transition>
-    <Footer />
+    <Footer/>
   </div>
 </template>
 
@@ -37,27 +42,32 @@ export default {
         : { "dark-theme": true };
     }
   },
-  async created() {
+  created() {
     const nowHour = new Date().getHours();
     if (nowHour >= 17 || nowHour < 6) {
       this.$store.dispatch("layout/changeTheme", themes.dark);
     }
     this.$store.dispatch("categories/getCategories");
-    this.$store.dispatch("banggia/fetchBangGia");
     this.$store.dispatch("articles/init");
+    this.$store.dispatch("banggia/fetchBangGia");
+    this.$store.dispatch("tag/getCloudList");
   },
   mounted() {
     let lastScrollY = 0;
     window.onscroll = () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 300 && scrollY > lastScrollY && this.appScrollUp !== true) {
-        this.$store.dispatch("layout/appScrollUp", true);
-      } else if (scrollY < lastScrollY && this.appScrollUp !== false) {
-        this.$store.dispatch("layout/appScrollUp", false);
-      }
-      lastScrollY = scrollY;
-
       debounce(() => {
+        const scrollY = window.scrollY;
+        if (
+          scrollY > 300 &&
+          scrollY > lastScrollY &&
+          this.appScrollUp !== true
+        ) {
+          this.$store.dispatch("layout/appScrollUp", true);
+        } else if (scrollY < lastScrollY && this.appScrollUp === true) {
+          this.$store.dispatch("layout/appScrollUp", false);
+        }
+        lastScrollY = scrollY;
+
         const offsetHeight = document.body.offsetHeight;
         const innerHeight = window.innerHeight;
         if (

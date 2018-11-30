@@ -1,48 +1,24 @@
 <template>
   <div class="container">
-    <p
-      v-if="cloud.length === 0 && filteredTaglist.length === 0"
-      class="loading"
-    >Đang tải dữ liệu...</p>
-    <ul
-      v-if="cloud.length > 0 && filteredTaglist.length === 0"
-      class="cloud"
-    >
-      <router-link
+    <h2 class="cloud-title">Đang nóng</h2>
+    <ul class="cloud">
+      <li
         v-for="o in order"
-        :to="cloud[o] ? '/tag/' + cloud[o].norm : '/'"
+        :to="tagsList[o] ? '/tag/' + tagsList[o].text : '/'"
         :key="'tag-' + o"
         :class="['c' + o]"
-        tag="li"
-        @click.native="selectTag(cloud[o].norm)"
-      >{{ cloud[o] ? cloud[o].text : "" }}</router-link>
+        @click="selectTag(tagsList[o].text)"
+      >{{ tagsList[o] ? tagsList[o].text : "" }}</li>
     </ul>
-    <transition-group
-      v-if="filteredTaglist.length > 0"
-      name="list"
-      tag="ul"
-      class="cloud"
-    >
-      <router-link
-        v-for="(tag, i) in filteredTaglist"
-        :to="'/tag/' + filteredTaglistNorm[i]"
-        :key="'tag-key-' + tag"
-        tag="li"
-        :class="['list-item', 'c' + i]"
-        @click.native="selectTag(tag)"
-      >{{ tag }}</router-link>
-    </transition-group>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { normText } from "@/helpers.js";
-
 export default {
   name: "TagCloud",
   props: {
-    filteredTaglist: Array
+    tagsList: Array,
+    height: String
   },
   data: () => ({
     order: [
@@ -72,15 +48,9 @@ export default {
       23
     ]
   }),
-  computed: {
-    ...mapGetters({ cloud: "tag/cloud" }),
-    filteredTaglistNorm() {
-      return this.filteredTaglist.map(x => normText(x));
-    }
-  },
   methods: {
     selectTag(tag) {
-      this.$store.dispatch("tag/queryTags", tag);
+      this.$emit("selected", tag);
     }
   }
 };
@@ -88,43 +58,57 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  margin-bottom: 1.5rem;
+  margin: auto;
+  max-width: 500px;
+  position: relative;
+  margin-bottom: 1rem;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 38%;
+  width: 62%;
+  border-top: solid 1px var(--primary-color);
+  border-left: solid 1px var(--primary-color);
+}
+.cloud::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -0.5rem;
+  width: 38%;
+  height: 38%;
+  border-bottom: solid 1px var(--primary-color);
+  border-right: solid 1px var(--primary-color);
 }
 .loading {
   text-align: center;
   color: var(--secondary-color);
 }
+.cloud-title {
+  color: var(--primary-color);
+  font: var(--title-font__bold) 1.2rem/130% var(--title-font);
+  padding: 0.2rem 0.5rem;
+}
 .cloud {
-  margin: auto;
+  margin: 0.5rem;
+  padding: 0.2rem;
   color: var(--secondary-color);
-  max-width: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  height: 9rem;
   li {
     cursor: pointer;
-    padding: 0.7em;
+    padding: 0.3em 0.7em;
     white-space: nowrap;
     transform: scale(1);
     transition: transform 200ms ease-in;
   }
-  .list-item {
-    display: inline-block;
-    margin-right: 10px;
-  }
-  .list-enter-active,
-  .list-leave-active {
-    transition: all 1s;
-  }
-  .list-enter,
-  .list-leave-to {
-    opacity: 0;
-    transform: translateY(30px);
-  }
   li:hover {
-    transform: scale(1.5);
+    transform: scale(1.3);
   }
   .c0 {
     font-size: 1.4rem;
@@ -145,22 +129,22 @@ export default {
     font-size: 1rem;
   }
   .c6 {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   .c7 {
     font-size: 0.9rem;
   }
   .c8 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
   .c9 {
     font-size: 0.8rem;
   }
   .c10 {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
   .c11 {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
   .c12,
   .c13,
@@ -174,7 +158,10 @@ export default {
   .c21,
   .c22,
   .c23 {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
+  }
+  .active {
+    border: solid 1px var(--box-shadow);
   }
 }
 </style>

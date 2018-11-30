@@ -1,13 +1,15 @@
 <template>
   <div>
-    <a v-for="banner in bannerList.slice(0, maxBanner)"
+    <a
+      v-for="banner in bannerList.slice(0, maxBanner)"
       :key="banner.id"
       :href="banner.id | parseRedirectBannerId"
-      target="_blank">
-      <div :class="'sponsor-image ' + banner.area"
-        :style="'background-image: url(' + banner.contentLink + ');'">
-      </div>
-      <hr />
+      target="_blank"
+    >
+      <div
+        :class="'sponsor-image ' + banner.area"
+        :style="'background-image: url(' + banner.contentLink + ');'"
+      ></div>
     </a>
   </div>
 </template>
@@ -31,13 +33,10 @@ export default {
   width: 100%;
   background-size: cover;
   background-position: 50%;
-  margin: 0.5rem auto;
   padding-bottom: 200%;
+  margin: 1rem auto;
 }
-hr {
-  border: 0;
-  height: 1px;
-  background: var(--secondary-color);
-  margin-bottom: 0.5rem;
+.sponsor-image:first-child {
+  margin-top: 0;
 }
 </style>

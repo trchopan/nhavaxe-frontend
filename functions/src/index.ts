@@ -51,7 +51,7 @@ app.use(cors());
 app.get("/api/article/:id", getArticleHandler);
 app.get("/api/list/:startAfter/:catId", getArticlesListHandler);
 app.get("/api/click/:linkId", clickLinkHandler);
-app.get("/api/tag/:id", tagSearchHandler);
+app.get("/api/tag/:query", tagSearchHandler);
 app.get("/api/tagList", tagListHandler);
 app.get("/api/tagCloud", tagCloudHandler);
 app.get("/api/pullGoogleSheet", pullFromGoogleSheetHandler);

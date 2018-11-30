@@ -103,7 +103,7 @@ ul {
     height: 100%;
   }
   .related-article__title {
-    font: 600 1rem var(--title-font);
+    font: var(--title-font__bold) 1rem var(--title-font);
     padding: 0.8rem;
     align-self: start;
   }

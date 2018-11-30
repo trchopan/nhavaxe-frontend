@@ -1,27 +1,72 @@
 <template>
   <nav :class="navClass">
-    <button :class="{ 'menu-icon': true, active: expand }" @click="expand = !expand">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+    <button
+      :class="{ 'menu-icon': true, active: expand }"
+      @click="expand = !expand"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        ></path>
+        <path
+          d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"
+        ></path>
+      </svg>
     </button>
     <ul>
       <li>
-        <div class="logo" @click="navigate(null)">
-          <img :src="logo" alt="logo" />
+        <div
+          class="logo"
+          @click="navigate(null)"
+        >
+          <img
+            :src="logo"
+            alt="logo"
+          >
         </div>
       </li>
-      <li v-for="cat in categories" :key="cat.id"
-        :class="{'nav-text': true, selected: cat === selectedCat }">
-        <router-link to="/"
+      <li
+        v-for="cat in categories"
+        :key="cat.id"
+        :class="{'nav-text': true, selected: cat === selectedCat }"
+      >
+        <router-link
+          to="/"
           replace
-          @click.native="navigate(cat)">
-        {{ cat.name }}
-        </router-link>
+          @click.native="navigate(cat)"
+        >{{ cat.name }}</router-link>
       </li>
     </ul>
-    <router-link to="/tag/search" class="search-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M0 0h24v24H0z" fill="none"/></svg>
+    <router-link
+      to="/tag/search"
+      class="search-icon"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+        ></path>
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        ></path>
+      </svg>
     </router-link>
-    <div v-show="expand" @click="expand = false" class="nav-mask"></div>
+    <div
+      v-show="expand"
+      @click="expand = false"
+      class="nav-mask"
+    ></div>
   </nav>
 </template>
 
@@ -61,6 +106,10 @@ export default {
   },
   methods: {
     navigate(cat) {
+      const nowHour = new Date().getHours();
+      if (nowHour >= 17 || nowHour < 6) {
+        this.$store.dispatch("layout/changeTheme", themes.dark);
+      }
       this.expand = false;
       this.$store.dispatch("layout/scrollYTo", 0);
       this.$store.dispatch("layout/setHomeScrollY", 0);
@@ -99,7 +148,7 @@ nav > ul {
   li {
     position: relative;
     padding: 0 2rem;
-    font: 600 1rem var(--title-font);
+    font: var(--title-font__bold) 1rem var(--title-font);
     cursor: pointer;
   }
   li::after,
